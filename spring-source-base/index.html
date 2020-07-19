@@ -1,0 +1,773 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>spring实现原理 | 加载xml，注册BeanDefinition | 但行好事 莫问前程</title><meta name="description" content="本文首先提供了一个实现了spring aop的demo，通过demo进行源码分析 通过读源码我们可以学习到spring是如何解析xml的，如何加载bean的，如何创建bean的，又是如何实现aop操作的，及其中各种操作的细节是如何实现的 讲源码的时候我会进行一些取舍，根据上面的问题结合demo对主要流程进行讲解，争取能把上述的问题说明白 源码地址：https:&#x2F;&#x2F;github.com&#x2F;mingyu"><meta name="keywords" content="spring源码,解析"><meta name="author" content="陈明羽"><meta name="copyright" content="陈明羽"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://chenmingyu.top/spring-source-base/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="spring实现原理 | 加载xml，注册BeanDefinition"><meta property="og:url" content="https://chenmingyu.top/spring-source-base/"><meta property="og:site_name" content="但行好事 莫问前程"><meta property="og:description" content="本文首先提供了一个实现了spring aop的demo，通过demo进行源码分析 通过读源码我们可以学习到spring是如何解析xml的，如何加载bean的，如何创建bean的，又是如何实现aop操作的，及其中各种操作的细节是如何实现的 讲源码的时候我会进行一些取舍，根据上面的问题结合demo对主要流程进行讲解，争取能把上述的问题说明白 源码地址：https:&#x2F;&#x2F;github.com&#x2F;mingyu"><meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><meta property="article:published_time" content="2019-05-31T06:54:58.000Z"><meta property="article:modified_time" content="2019-12-13T10:29:03.466Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
+
+var autoChangeMode = 'false'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="prev" title="一个可配置的爬虫采集系统的方案实现" href="https://chenmingyu.top/crawler-htmlunit/"><link rel="next" title="spring Boot 2.x | 集成 rabbitmq" href="https://chenmingyu.top/springboot-rabbitmq/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: false,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false    
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: ,
+  isSidebar: true
+  }</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.1"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">69</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">64</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">13</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Aop-demo"><span class="toc-number">1.</span> <span class="toc-text">Aop demo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#核心类"><span class="toc-number">2.</span> <span class="toc-text">核心类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#读源码"><span class="toc-number">3.</span> <span class="toc-text">读源码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#spring是如何加载解析xml，注册BeanDefinition的"><span class="toc-number">3.1.</span> <span class="toc-text">spring是如何加载解析xml，注册BeanDefinition的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#默认标签解析"><span class="toc-number">3.2.</span> <span class="toc-text">默认标签解析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义标签解析"><span class="toc-number">3.3.</span> <span class="toc-text">自定义标签解析</span></a></li></ol></li></ol></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">但行好事 莫问前程</a></span><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">spring实现原理 | 加载xml，注册BeanDefinition</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2019-05-31 14:54:58"><i class="far fa-calendar-alt fa-fw"></i> 发表于 2019-05-31</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2019-12-13 18:29:03"><i class="fas fa-history fa-fw"></i> 更新于 2019-12-13</span></time><span class="post-meta__categories"><span class="post-meta__separator">|</span><i class="fas fa-inbox fa-fw post-meta__icon"></i><a class="post-meta__categories" href="/categories/java/">java</a></span></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta__icon"></i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><p>本文首先提供了一个实现了spring aop的demo，通过demo进行源码分析</p>
+<p>通过读源码我们可以学习到spring是<strong>如何解析xml的</strong>，如何<strong>加载bean</strong>的，如何<strong>创建bean</strong>的，又是如何<strong>实现aop</strong>操作的，及其中各种操作的细节是如何实现的</p>
+<p>讲源码的时候我会进行一些取舍，根据上面的问题结合demo对主要流程进行讲解，争取能把上述的问题说明白</p>
+<p><strong>源码地址：<a href="https://github.com/mingyuHub/spring-shared" target="_blank" rel="noopener">https://github.com/mingyuHub/spring-shared</a></strong></p>
+<h3 id="Aop-demo"><a href="#Aop-demo" class="headerlink" title="Aop demo"></a>Aop demo</h3><p>代码：</p>
+<ol>
+<li>一个类<code>UserController</code>，提供一个方法<code>login</code></li>
+<li>一个切面<code>UserAspect</code>，切入点为<code>login</code>方法</li>
+<li>一个配置文件<code>spring-aop.xml</code>将类加载到spring容器中</li>
+</ol>
+<p>创建<code>UserController</code>类</p>
+<pre><code class="java">public class UserController {
+
+    public void login(){
+        System.out.println(&quot;登录&quot;);
+    }
+}</code></pre>
+<p>定义一个切面<code>UserAspect</code>，不了解aop概念的可以看一下：<a href="https://chenmingyu.top/springboot-aop/">https://chenmingyu.top/springboot-aop/</a></p>
+<pre><code class="java">/**
+ * @author: chenmingyu
+ * @date: 2019/3/19 18:29
+ * @description:
+ */
+@Aspect
+public class UserAspect {
+
+    /**
+     * 切入点
+     */
+    @Pointcut(&quot;execution(public * com.my.spring.*.*(..))&quot;)
+    public void execute(){
+    }
+
+    /**
+     * 前置通知
+     * @param joinPoint
+     */
+    @Before(value =&quot;execute()&quot;)
+    public void Before(JoinPoint joinPoint) {
+        System.out.println(&quot;执行方法之前&quot;);
+    }
+
+    /**
+     * 后置通知
+     * @param joinPoint
+     */
+    @After(value =&quot;execute()&quot;)
+    public void After(JoinPoint joinPoint) {
+        System.out.println(&quot;执行方法之后&quot;);
+    }
+}</code></pre>
+<p>自定义一个xml文件，名为<code>spring-aop.xml</code></p>
+<pre><code class="java">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+       xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+           &quot;&gt;
+
+    &lt;aop:aspectj-autoproxy    proxy-target-class=&quot;true&quot;/&gt;
+    &lt;bean id=&quot;userController&quot; class=&quot;com.my.spring.UserController&quot;/&gt;
+    &lt;bean id=&quot;userAspect&quot; class=&quot;com.my.spring.UserAspect&quot;/&gt;
+&lt;/beans&gt;</code></pre>
+<p>调试的代码已经准备好，首先写一个测试类测一下</p>
+<pre><code class="java">@Test
+public void test(){
+    ApplicationContext applicationContext = new ClassPathXmlApplicationContext(&quot;spring-aop.xml&quot;);
+    UserController userController = (UserController) applicationContext.getBean(&quot;userController&quot;);
+    userController.login();
+}</code></pre>
+<p>正常情况下的输出如下：</p>
+<p><img src= "/img/loading.gif" data-src="spring-source-base/1.png" alt=""></p>
+<h3 id="核心类"><a href="#核心类" class="headerlink" title="核心类"></a>核心类</h3><p>开始学习spring的源码之前，有必要先了解一下spring中几个较为核心的类</p>
+<p>先大概了解一下这些类是干什么的，不必深究，后续读源码的时候碰到会着重讲解一下</p>
+<p>先看一个spring容器的类图：</p>
+<p><img src= "/img/loading.gif" data-src="spring-source-base/5.png" alt=""></p>
+<ol>
+<li><p><strong>BeanFactory</strong></p>
+<p>工厂类的顶级接口，用于获取bean及bean的各种属性，提供了ioc容器最基本的形式，给具体的IOC容器的实现提供了规范</p>
+<p>ListableBeanFactory、HierarchicalBeanFactory 和 AutowireCapableBeanFactory是BeanFactory接口的子接口，最终的默认实现类是 DefaultListableBeanFactory，定义这多接口主要是为了区分在 Spring 内部在操作过程中对象的传递和转化过程中，对对象的数据访问所做的限制</p>
+</li>
+<li><p><strong>DefaultListableBeanFactory</strong></p>
+<p>ioc容器的实现，DefaultListableBeanFactory作为一个可以独立使用的ioc容器，是整个Bean加载的核心部分，是spring注册及加载bean的默认实现</p>
+</li>
+<li><p><strong>xmlBeanFactory</strong></p>
+<p>xmlBeanFactory继承DefaultListableBeanFactory，对其进行了扩展，增加了自定义的xml读取器<code>XmlBeanDefinitionReader</code>，实现了个性化的BeanDefinitionReader读取，主要作用就是将xml配置解析成BeanDefinition</p>
+</li>
+<li><p><strong>ApplicationContext</strong></p>
+<p>ApplicationContext继承自BeanFactory，包含BeanFactory的所有功能，情况下都使用这个</p>
+</li>
+<li><p><strong>BeanDefinition</strong></p>
+<p>Spring中用于包装Bean的数据结构</p>
+</li>
+<li><p><strong>BeanDefinitionRegistory</strong></p>
+<p>定义对BeanDefinition的各种增删操作</p>
+</li>
+<li><p><strong>BeanDefinitionReader</strong></p>
+<p>定义了读取BeanDefinition的接口，主要作用是从资源文件中读取Bean定义，XmlBeanDefinitionReader是其具体的实现类</p>
+</li>
+<li><p><strong>SingletonBeanRegistry</strong></p>
+<p>定义对单例的注册及获取</p>
+</li>
+<li><p><strong>AliasRegistry</strong></p>
+<p>定义对alias的简单增删改操作</p>
+</li>
+</ol>
+<p>了解一些核心类之后我们就要开始读源码了</p>
+<h3 id="读源码"><a href="#读源码" class="headerlink" title="读源码"></a>读源码</h3><p>我们的源码以测试类为入口开始分析</p>
+<pre><code class="java">ApplicationContext applicationContext = new ClassPathXmlApplicationContext(&quot;spring-aop.xml&quot;);</code></pre>
+<p><code>ApplicationContext</code>和<code>BeanFactory</code>都是用于加载Bean的，相比之下<code>ApplicationContext</code>提供了更多的扩展功能</p>
+<p><code>ClassPathXmlApplicationContext</code>最终调用下面这个构造函数</p>
+<pre><code class="java">public ClassPathXmlApplicationContext(String[] configLocations, boolean refresh, ApplicationContext parent)
+      throws BeansException {
+
+   super(parent);
+   //设置配置文件
+   setConfigLocations(configLocations);
+   if (refresh) {
+      refresh();
+   }
+}</code></pre>
+<p><code>refresh()</code>是<code>ApplicationContext</code>的核心方法，这个方法基本包含了<code>ApplicationContext</code>提供的全部功能</p>
+<pre><code class="java">@Override
+public void refresh() throws BeansException, IllegalStateException {
+   synchronized (this.startupShutdownMonitor) {
+      // 准备刷新此上下文，不重要.
+      prepareRefresh();
+
+      // 初始化bean工厂，加载xml，解析默认标签，解析自定义标签，注册BeanDefinitions
+      ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();
+
+      // 设置bean工厂的属性，进行功能填充.
+      prepareBeanFactory(beanFactory);
+
+      try {
+         // 子类覆盖方法做额外的处理.
+         postProcessBeanFactory(beanFactory);
+
+         // 激活bean处理器.
+         invokeBeanFactoryPostProcessors(beanFactory);
+
+         // 注册拦截bean创建的bean处理器，只是注册
+         registerBeanPostProcessors(beanFactory);
+
+         // 初始化message源.
+         initMessageSource();
+
+         // 初始化应用消息广播器
+         initApplicationEventMulticaster();
+
+         // 留给子类加载其他bean.
+         onRefresh();
+
+         // 注册Listeners bean，到消息广播器
+         registerListeners();
+
+         // 实例化所有剩余的（非lazy init）单例.
+         finishBeanFactoryInitialization(beanFactory);
+
+         // 刷新通知.
+         finishRefresh();
+      }
+
+      catch (BeansException ex) {
+         logger.warn(&quot;Exception encountered during context initialization - cancelling refresh attempt&quot;, ex);
+
+         // Destroy already created singletons to avoid dangling resources.
+         destroyBeans();
+
+         // Reset &#39;active&#39; flag.
+         cancelRefresh(ex);
+
+         // Propagate exception to caller.
+         throw ex;
+      }
+   }
+}</code></pre>
+<h4 id="spring是如何加载解析xml，注册BeanDefinition的"><a href="#spring是如何加载解析xml，注册BeanDefinition的" class="headerlink" title="spring是如何加载解析xml，注册BeanDefinition的"></a>spring是如何加载解析xml，注册BeanDefinition的</h4><p>加载解析xml和注册BeanDefinition的逻辑都在<code>obtainFreshBeanFactory()</code>方法中，这个方法的作用是初始化bean工厂，加载xml，解析默认标签和自定义标签，将解析出来的<code>BeanDefinition</code>注册到容器中</p>
+<pre><code class="java">protected ConfigurableListableBeanFactory obtainFreshBeanFactory() {
+   // 核心逻辑：创建bean工厂，解析xml，注册BeanDefinition
+   refreshBeanFactory();
+
+   ConfigurableListableBeanFactory beanFactory = getBeanFactory();
+   if (logger.isDebugEnabled()) {
+      logger.debug(&quot;Bean factory for &quot; + getDisplayName() + &quot;: &quot; + beanFactory);
+   }
+   return beanFactory;
+}
+
+------------------调用下面这个方法------------------
+
+//调用AbstractRefreshableApplicationContext的refreshBeanFactory()
+protected final void refreshBeanFactory() throws BeansException {
+        if (hasBeanFactory()) {
+            destroyBeans();
+            closeBeanFactory();
+        }
+        try {
+            //创建bean工厂，类型为DefaultListableBeanFactory
+            DefaultListableBeanFactory beanFactory = createBeanFactory();
+            beanFactory.setSerializationId(getId());
+            customizeBeanFactory(beanFactory);
+            //核心逻辑：加载BeanDefinitions，进入这个方法
+            loadBeanDefinitions(beanFactory);
+            synchronized (this.beanFactoryMonitor) {
+                this.beanFactory = beanFactory;
+            }
+        }
+        catch (IOException ex) {
+            throw new ApplicationContextException(&quot;I/O error parsing bean definition source for &quot; + getDisplayName(), ex);
+        }
+}    </code></pre>
+<p><code>createBeanFactory()</code>方法逻辑特别简单，我们详细说一下<code>loadBeanDefinitions(beanFactory)</code>方法</p>
+<p>在<code>loadBeanDefinitions()</code>这个方法实例化了一个<strong>XmlBeanDefinitionReader</strong>，介绍<code>XmlBeanDefinitionReader</code>之前需要介绍一下什么是<code>BeanDefinition</code></p>
+<p><strong>BeanDefinition</strong>：Bean的定义主要由<code>BeanDefinition</code>来描述的。作为Spring中用于包装Bean的数据结构</p>
+<p><code>BeanDefinition</code>作为顶级接口 ，拥有三种实现：<code>RootBeanDefinition</code>，<code>ChildBeanDefinition</code>，<code>GenericBeanDefinition</code>，三种<code>BeanDefinition</code>均继承了<code>AbstractBeanDefinition</code></p>
+<p><img src= "/img/loading.gif" data-src="spring-source-base/4.jpg" alt=""></p>
+<p>spring通过<code>BeanDefinition</code>将配置文件中的<bean>标签转换为容器的内部表示，并将<code>BeanDefinition</code>注册到<code>BeandefinitionRegistry</code>中，spring中的容器主要以map的形式进行存储<code>BeanDefinition</code></p>
+<p>再介绍一下<strong>BeanDefinitionReader</strong>：</p>
+<p><img src= "/img/loading.gif" data-src="spring-source-base/2.png" alt=""></p>
+<p><strong>BeanDefinitionReader</strong>解决的是从资源文件（xml,propert）解析到<code>BeanDefinition</code>的过程，所以<strong>XmlBeanDefinitionReader</strong>的作用就很明显了，将xml转为<code>BeanDefinition</code></p>
+<pre><code class="java">protected void loadBeanDefinitions(DefaultListableBeanFactory beanFactory) throws BeansException, IOException {
+   // 根据beanFactory创建XmlBeanDefinitionReader
+   XmlBeanDefinitionReader beanDefinitionReader = new XmlBeanDefinitionReader(beanFactory);
+
+   // 加载环境变量啥的
+   beanDefinitionReader.setEnvironment(this.getEnvironment());
+   beanDefinitionReader.setResourceLoader(this);
+   beanDefinitionReader.setEntityResolver(new ResourceEntityResolver(this));
+
+   // initBeanDefinitionReader
+   initBeanDefinitionReader(beanDefinitionReader);
+    //核心逻辑在这个方法里，加载beanDefinitions
+   loadBeanDefinitions(beanDefinitionReader);
+}</code></pre>
+<p>在<code>loadBeanDefinitions(beanDefinitionReader);</code>方法中我们层层调用，发现最终解析xml调用的方法是<code>doLoadBeanDefinitions(InputSource inputSource, Resource resource)</code></p>
+<pre><code class="java">protected int doLoadBeanDefinitions(InputSource inputSource, Resource resource)
+      throws BeanDefinitionStoreException {
+   try {
+      //将xml转成document对象 
+      Document doc = doLoadDocument(inputSource, resource);
+      //核心逻辑在这个方法里，解析Document，注册beanDefinition
+      return registerBeanDefinitions(doc, resource);
+   }
+   catch (BeanDefinitionStoreException ex) {
+      throw ex;
+   }
+   ......省略其他异常信息
+}</code></pre>
+<p><code>registerBeanDefinitions(doc, resource);</code>方法中最终调用<code>doRegisterBeanDefinitions(Element root)</code>将由<code>xml</code>转出来的<code>Document</code>（通过<code>doc.getDocumentElement()</code>取到Element 元素）解析成<code>beandefinition</code>并注册</p>
+<pre><code class="java">protected void doRegisterBeanDefinitions(Element root) {
+
+   BeanDefinitionParserDelegate parent = this.delegate;
+   this.delegate = createDelegate(getReaderContext(), root, parent);
+
+   if (this.delegate.isDefaultNamespace(root)) {
+      String profileSpec = root.getAttribute(PROFILE_ATTRIBUTE);
+      if (StringUtils.hasText(profileSpec)) {
+         String[] specifiedProfiles = StringUtils.tokenizeToStringArray(
+               profileSpec, BeanDefinitionParserDelegate.MULTI_VALUE_ATTRIBUTE_DELIMITERS);
+         if (!getReaderContext().getEnvironment().acceptsProfiles(specifiedProfiles)) {
+            return;
+         }
+      }
+   }
+   //解析前置操作，留给子类实现
+   preProcessXml(root);
+   // 核心逻辑：解析并注册BeanDefinition
+   parseBeanDefinitions(root, this.delegate);
+   //解析后置操作，留给子类实现
+   postProcessXml(root);
+
+   this.delegate = parent;
+}</code></pre>
+<p>经历层层调用我们终于找到了核心方法，解析<code>beanDefinition</code>，我们看看它是如何进行解析的</p>
+<p>spring中的标签包括默认标签和自定义标签两种，但是两种标签的解析方式有很大的区别</p>
+<pre><code class="java">protected void parseBeanDefinitions(Element root, BeanDefinitionParserDelegate delegate) {
+   //根据root元素的namespace是否等于http://www.springframework.org/schema/beans
+   //通过上面的判断，确定是否是属于spring的默认标签 
+   if (delegate.isDefaultNamespace(root)) {
+      NodeList nl = root.getChildNodes();
+      for (int i = 0; i &lt; nl.getLength(); i++) {
+         Node node = nl.item(i);
+         if (node instanceof Element) {
+            Element ele = (Element) node;
+            if (delegate.isDefaultNamespace(ele)) {
+               //默认标签解析
+               parseDefaultElement(ele, delegate);
+            }
+            else {
+               //自定义标签解析 
+               delegate.parseCustomElement(ele);
+            }
+         }
+      }
+   }
+   else {
+      //自定义标签解析 
+      delegate.parseCustomElement(root);
+   }
+}</code></pre>
+<h4 id="默认标签解析"><a href="#默认标签解析" class="headerlink" title="默认标签解析"></a>默认标签解析</h4><p><code>parseDefaultElement()</code>方法提供了对import，alias，bean，beans标签的解析</p>
+<pre><code class="java">private void parseDefaultElement(Element ele, BeanDefinitionParserDelegate delegate) {
+   //解析&lt;import&gt;标签
+   if (delegate.nodeNameEquals(ele, IMPORT_ELEMENT)) {
+      importBeanDefinitionResource(ele);
+   }
+   //解析&lt;alias&gt;标签 
+   else if (delegate.nodeNameEquals(ele, ALIAS_ELEMENT)) {
+      processAliasRegistration(ele);
+   }
+   //解析&lt;bean&gt;标签 
+   else if (delegate.nodeNameEquals(ele, BEAN_ELEMENT)) {
+      processBeanDefinition(ele, delegate);
+   }
+   //解析&lt;beans&gt;标签 
+   else if (delegate.nodeNameEquals(ele, NESTED_BEANS_ELEMENT)) {
+      // recurse
+      doRegisterBeanDefinitions(ele);
+   }
+}</code></pre>
+<p>详细的讲解一下对<code>bean</code>标签的解析</p>
+<pre><code class="java">protected void processBeanDefinition(Element ele, BeanDefinitionParserDelegate delegate) {
+   //步骤一，将Element解析成BeanDefinitionHolder. 
+   BeanDefinitionHolder bdHolder = delegate.parseBeanDefinitionElement(ele);
+   if (bdHolder != null) {
+      // 对 bdHolder 进行装饰，针对自定义的属性进行解析，根据自定义标签找到对应的处理器，进行解析（自定义解析方式下面会细说）
+      bdHolder = delegate.decorateBeanDefinitionIfRequired(ele, bdHolder);
+      try {
+         //步骤二，注册解析出来的BeanDefinition.
+         BeanDefinitionReaderUtils.registerBeanDefinition(bdHolder, getReaderContext().getRegistry());
+      }
+      catch (BeanDefinitionStoreException ex) {
+         getReaderContext().error(&quot;Failed to register bean definition with name &#39;&quot; +
+               bdHolder.getBeanName() + &quot;&#39;&quot;, ele, ex);
+      }
+      // Send registration event.
+      getReaderContext().fireComponentRegistered(new BeanComponentDefinition(bdHolder));
+   }
+}</code></pre>
+<p><strong>步骤一</strong>：先介绍下<strong>BeanDefinitionHolder</strong>：这个类是一个工具类，作用是承载<strong>BeanDefinition</strong>数据的</p>
+<pre><code class="java">public class BeanDefinitionHolder implements BeanMetadataElement {
+
+   private final BeanDefinition beanDefinition;
+
+   private final String beanName;
+
+   private final String[] aliases;
+   ...
+}   </code></pre>
+<p><code>delegate.parseBeanDefinitionElement(ele);</code>方法中将<code>Element</code>转化为<strong>BeanDefinitionHolder</strong>，并且识别出bean的beanName和aliases(别名)，得到<code>BeanDefinitionHolder</code>其实默认标签的解析就已经结束了</p>
+<p>这个方法没有啥复杂逻辑，挺清晰的</p>
+<pre><code class="java">public BeanDefinitionHolder parseBeanDefinitionElement(Element ele) {
+   return parseBeanDefinitionElement(ele, null);
+}
+
+----------------------调用下面这个方法------------------------------
+
+public BeanDefinitionHolder parseBeanDefinitionElement(Element ele, BeanDefinition containingBean) {
+        //获取id属性
+        String id = ele.getAttribute(ID_ATTRIBUTE);
+        //获取name属性
+        String nameAttr = ele.getAttribute(NAME_ATTRIBUTE);
+
+        List&lt;String&gt; aliases = new ArrayList&lt;String&gt;();
+        //如果name属性配置的不为空
+        if (StringUtils.hasLength(nameAttr)) {
+            //按,; 分割成字符串数组
+            String[] nameArr = StringUtils.tokenizeToStringArray(nameAttr, MULTI_VALUE_ATTRIBUTE_DELIMITERS);
+            //加到别名的集合里
+            aliases.addAll(Arrays.asList(nameArr));
+        }
+        //把id属性赋值给beanName，如果id为空就在aliases别名的集合里取第一个
+        String beanName = id;
+        if (!StringUtils.hasText(beanName) &amp;&amp; !aliases.isEmpty()) {
+            beanName = aliases.remove(0);
+            if (logger.isDebugEnabled()) {
+                logger.debug(&quot;No XML &#39;id&#39; specified - using &#39;&quot; + beanName +
+                        &quot;&#39; as bean name and &quot; + aliases + &quot; as aliases&quot;);
+            }
+        }
+
+        if (containingBean == null) {
+            //检查beanName和aliases是否已经使用，如果使用了就报异常，没使用就加到一个
+            checkNameUniqueness(beanName, aliases, ele);
+        }
+        //创建了一个GenericBeanDefinition类型的BeanDefinition，并对个属性进行填充
+        AbstractBeanDefinition beanDefinition = parseBeanDefinitionElement(ele, beanName, containingBean);
+        if (beanDefinition != null) {
+            if (!StringUtils.hasText(beanName)) {
+                try {
+                    if (containingBean != null) {
+                        beanName = BeanDefinitionReaderUtils.generateBeanName(
+                                beanDefinition, this.readerContext.getRegistry(), true);
+                    }
+                    else {
+                        beanName = this.readerContext.generateBeanName(beanDefinition);
+
+                        String beanClassName = beanDefinition.getBeanClassName();
+                        if (beanClassName != null &amp;&amp;
+                                beanName.startsWith(beanClassName) &amp;&amp; beanName.length() &gt; beanClassName.length() &amp;&amp;
+                                !this.readerContext.getRegistry().isBeanNameInUse(beanClassName)) {
+                            aliases.add(beanClassName);
+                        }
+                    }
+                    if (logger.isDebugEnabled()) {
+                        logger.debug(&quot;Neither XML &#39;id&#39; nor &#39;name&#39; specified - &quot; +
+                                &quot;using generated bean name [&quot; + beanName + &quot;]&quot;);
+                    }
+                }
+                catch (Exception ex) {
+                    error(ex.getMessage(), ele);
+                    return null;
+                }
+            }
+            String[] aliasesArray = StringUtils.toStringArray(aliases);
+            //创建一个BeanDefinitionHolder返回
+            return new BeanDefinitionHolder(beanDefinition, beanName, aliasesArray);
+        }
+        return null;
+    }    </code></pre>
+<p>得到<code>BeanDefinitionHolder</code>后，剩下的就是注册<code>BeanDefinition</code>了</p>
+<p><strong>步骤二</strong>，调用<code>BeanDefinitionReaderUtils.registerBeanDefinition(bdHolder, getReaderContext().getRegistry())</code>方法，注册<code>BeanDifinition</code></p>
+<pre><code class="java">public static void registerBeanDefinition(
+      BeanDefinitionHolder definitionHolder, BeanDefinitionRegistry registry)
+      throws BeanDefinitionStoreException {
+
+   // 使用beanName做唯一标识注册
+   String beanName = definitionHolder.getBeanName();
+   registry.registerBeanDefinition(beanName, definitionHolder.getBeanDefinition());
+
+   // 使用所有别名进行注册
+   String[] aliases = definitionHolder.getAliases();
+   if (aliases != null) {
+      for (String alias : aliases) {
+         registry.registerAlias(beanName, alias);
+      }
+   }
+}</code></pre>
+<p>通过<strong>beanName</strong>进行注册：<code>definitionHolder.getBeanName()</code>，默认标签和自定义标签都使用这个方法进行<code>BeanDefinition</code>的注册</p>
+<pre><code class="java">public void registerBeanDefinition(String beanName, BeanDefinition beanDefinition)
+      throws BeanDefinitionStoreException {
+
+   Assert.hasText(beanName, &quot;Bean name must not be empty&quot;);
+   Assert.notNull(beanDefinition, &quot;BeanDefinition must not be null&quot;);
+   // beanDefinition是否属于AbstractBeanDefinition的实例
+   if (beanDefinition instanceof AbstractBeanDefinition) {
+      try {
+         // 进行校验，主要是校验methodOverrides与工程方法是否存在以及methodOverrides对应的方法存不存在
+         ((AbstractBeanDefinition) beanDefinition).validate();
+      }
+      catch (BeanDefinitionValidationException ex) {
+         throw new BeanDefinitionStoreException(beanDefinition.getResourceDescription(), beanName,
+               &quot;Validation of bean definition failed&quot;, ex);
+      }
+   }
+
+   BeanDefinition oldBeanDefinition;
+   // 通过beanName获取BeanDefinition是否已经注册
+   oldBeanDefinition = this.beanDefinitionMap.get(beanName);
+   //如果已经注册并且不允许覆盖就抛出异常 
+   if (oldBeanDefinition != null) {
+      if (!isAllowBeanDefinitionOverriding()) {
+         throw new BeanDefinitionStoreException(beanDefinition.getResourceDescription(), beanName,
+               &quot;Cannot register bean definition [&quot; + beanDefinition + &quot;] for bean &#39;&quot; + beanName +
+               &quot;&#39;: There is already [&quot; + oldBeanDefinition + &quot;] bound.&quot;);
+      }
+      else if (oldBeanDefinition.getRole() &lt; beanDefinition.getRole()) {
+         // e.g. was ROLE_APPLICATION, now overriding with ROLE_SUPPORT or ROLE_INFRASTRUCTURE
+         if (this.logger.isWarnEnabled()) {
+            this.logger.warn(&quot;Overriding user-defined bean definition for bean &#39;&quot; + beanName +
+                  &quot;&#39; with a framework-generated bean definition: replacing [&quot; +
+                  oldBeanDefinition + &quot;] with [&quot; + beanDefinition + &quot;]&quot;);
+         }
+      }
+      else {
+         if (this.logger.isInfoEnabled()) {
+            this.logger.info(&quot;Overriding bean definition for bean &#39;&quot; + beanName +
+                  &quot;&#39;: replacing [&quot; + oldBeanDefinition + &quot;] with [&quot; + beanDefinition + &quot;]&quot;);
+         }
+      }
+   }
+   else {
+      //注册BeanDefinition
+      this.beanDefinitionNames.add(beanName);
+      this.manualSingletonNames.remove(beanName);
+      this.frozenBeanDefinitionNames = null;
+   }
+   this.beanDefinitionMap.put(beanName, beanDefinition);
+   // 如果oldBeanDefinition通过上述校验没抛出异常或者beanName是单例
+   if (oldBeanDefinition != null || containsSingleton(beanName)) {
+      //则更新对应的缓存
+      resetBeanDefinition(beanName);
+   }
+}</code></pre>
+<p>通过<code>this.beanDefinitionMap.put(beanName, beanDefinition)</code>这行代码我们就知道，spring使用一个叫<code>beanDefinitionMap</code> 的<strong>ConcurrentHashMap</strong>来存储解析出来的<code>beanDefinition</code></p>
+<p><code>Map&lt;String, BeanDefinition&gt; beanDefinitionMap = new ConcurrentHashMap&lt;String, BeanDefinition&gt;(64);</code></p>
+<p>通过别名注册的方式跟通过beanName注册的区别不大，仔细看下<code>registry.registerAlias(beanName, alias);</code>方法应该就能了解</p>
+<p>spring默认标签的解析大致流程就是这样，细枝末节并没有特别详细的讲解，不过这并不会对我们理解spring的整体流程有阻碍，大家可自行看一下，代码逻辑也不是特别复杂</p>
+<h4 id="自定义标签解析"><a href="#自定义标签解析" class="headerlink" title="自定义标签解析"></a>自定义标签解析</h4><p>自定义标签解析的时候会先根据从<code>Element</code>获取到的<code>namespaceUri</code>获取到对应的<code>NamespaceHandler</code>，根据<code>NamespaceHandler</code>进行自定义的解析，以aop为例，我们在配置文件中配置了<code>&lt;aop:aspectj-autoproxy    proxy-target-class=&quot;true&quot;/&gt;</code>，解析会根据<code>aspectj-autoproxy</code>找到对应的处理器，然后调用其<code>parse</code>方法创建</p>
+<p><code>delegate.parseCustomElement(root);</code>定义了自定义标签解析的流程</p>
+<pre><code class="java">public BeanDefinition parseCustomElement(Element ele) {
+   return parseCustomElement(ele, null);
+}
+-----------------------调用下面这个方法-----------------------
+public BeanDefinition parseCustomElement(Element ele, BeanDefinition containingBd) {
+    //获取命名空间
+    String namespaceUri = getNamespaceURI(ele);
+    //步骤一，根据命名空间找到对应的NamespaceHandler
+    NamespaceHandler handler = this.readerContext.getNamespaceHandlerResolver().resolve(namespaceUri);
+    if (handler == null) {
+        error(&quot;Unable to locate Spring NamespaceHandler for XML schema namespace [&quot; + namespaceUri + &quot;]&quot;, ele);
+        return null;
+    }
+    //步骤二，根据自定义的NamespaceHandler进行解析
+    return handler.parse(ele, new ParserContext(this.readerContext, this, containingBd));
+}    </code></pre>
+<p><strong>步骤一</strong>：有了<code>namespaceUri</code>我们就可以根据<code>this.readerContext.getNamespaceHandlerResolver().resolve(namespaceUri)</code>方法获取对应<code>NamespaceHandler</code>的实例</p>
+<pre><code class="java">//DefaultNamespaceHandlerResolver.java
+
+public NamespaceHandler resolve(String namespaceUri) {
+   //1,获取到所有的解析器 
+   Map&lt;String, Object&gt; handlerMappings = getHandlerMappings();
+   //2,根据 namespaceUri 获取到对应的handle
+   Object handlerOrClassName = handlerMappings.get(namespaceUri);
+   if (handlerOrClassName == null) {
+      return null;
+   }
+   else if (handlerOrClassName instanceof NamespaceHandler) {
+      //3,强转返回 
+      return (NamespaceHandler) handlerOrClassName;
+   }
+   else {
+      //4,根据handlerOrClassName实例化NamespaceHandler
+      String className = (String) handlerOrClassName;
+      try {
+         Class&lt;?&gt; handlerClass = ClassUtils.forName(className, this.classLoader);
+         if (!NamespaceHandler.class.isAssignableFrom(handlerClass)) {
+            throw new FatalBeanException(&quot;Class [&quot; + className + &quot;] for namespace [&quot; + namespaceUri +
+                  &quot;] does not implement the [&quot; + NamespaceHandler.class.getName() + &quot;] interface&quot;);
+         }
+         NamespaceHandler namespaceHandler = (NamespaceHandler) BeanUtils.instantiateClass(handlerClass);
+         //调用自定义的NamespaceHandler的初始化方法
+         namespaceHandler.init();
+         //添加到缓存里 
+         handlerMappings.put(namespaceUri, namespaceHandler);
+         return namespaceHandler;
+      }
+      catch (ClassNotFoundException ex) {
+         throw new FatalBeanException(&quot;NamespaceHandler class [&quot; + className + &quot;] for namespace [&quot; +
+               namespaceUri + &quot;] not found&quot;, ex);
+      }
+      catch (LinkageError err) {
+         throw new FatalBeanException(&quot;Invalid NamespaceHandler class [&quot; + className + &quot;] for namespace [&quot; +
+               namespaceUri + &quot;]: problem with handler class file or dependent class&quot;, err);
+      }
+   }
+}</code></pre>
+<p>这个过程还是比较清晰的，debug一下：</p>
+<p><img src= "/img/loading.gif" data-src="spring-source-base/3.png" alt=""></p>
+<p>这个<code>handlerMappings.get(namespaceUri)</code>取到是字符串:<code>org.springframework.aop.config.AopNamespaceHandler</code>，接下来按流程走调用<code>BeanUtils.instantiateClass(handlerClass)</code>就是实例化这个类，然后调用它的<code>init</code>方法，然后加到缓存里，然后返回这个<code>NamespaceHandler</code>的实例</p>
+<pre><code class="java">public class AopNamespaceHandler extends NamespaceHandlerSupport {
+
+   /**
+    * Register the {@link BeanDefinitionParser BeanDefinitionParsers} for the
+    * &#39;{@code config}&#39;, &#39;{@code spring-configured}&#39;, &#39;{@code aspectj-autoproxy}&#39;
+    * and &#39;{@code scoped-proxy}&#39; tags.
+    */
+   @Override
+   public void init() {
+      // In 2.0 XSD as well as in 2.1 XSD.
+      registerBeanDefinitionParser(&quot;config&quot;, new ConfigBeanDefinitionParser());
+      registerBeanDefinitionParser(&quot;aspectj-autoproxy&quot;, new AspectJAutoProxyBeanDefinitionParser());
+      registerBeanDefinitionDecorator(&quot;scoped-proxy&quot;, new ScopedProxyBeanDefinitionDecorator());
+
+      // Only in 2.0 XSD: moved to context namespace as of 2.1
+      registerBeanDefinitionParser(&quot;spring-configured&quot;, new SpringConfiguredBeanDefinitionParser());
+   }
+
+}</code></pre>
+<p>注册<code>BeanDefinitionParser</code>，就是放到一个叫<code>parsers</code>的<strong>HashMap</strong>里，总共4个<code>config</code>，<code>aspectj-autoproxy</code>，<code>scoped-proxy</code>，<code>spring-configured</code></p>
+<pre><code class="java">protected final void registerBeanDefinitionParser(String elementName, BeanDefinitionParser parser) {
+   this.parsers.put(elementName, parser);
+}</code></pre>
+<p><strong>步骤二</strong>：返回<code>NamespaceHandler</code>实例之后调用它的<code>parse</code>方法</p>
+<p><code>handler.parse(ele, new ParserContext(this.readerContext, this, containingBd));</code></p>
+<p>我们的配置文件中只有一个自定义标签：<code>&lt;aop:aspectj-autoproxy    proxy-target-class=&quot;true&quot;/&gt;</code></p>
+<p>所以<code>findParserForElement(element, parserContext)</code>这个方法根据标签<code>aspectj-autoproxy</code>取到的是取到的<code>BeanDefinition</code>是：<code>AspectJAutoProxyBeanDefinitionParser</code></p>
+<pre><code class="java">//NamespaceHandlerSupport.java
+//获取到对应解析器的BeanDefinition，调用其parse方法
+//比如aspectj-autoproxy标签对应AspectJAutoProxyBeanDefinitionParser
+public BeanDefinition parse(Element element, ParserContext parserContext) {
+        return findParserForElement(element, parserContext).parse(element, parserContext);
+}
+--------------------调用下面这个方法-----------------------
+private BeanDefinitionParser findParserForElement(Element element, ParserContext parserContext) {
+        String localName = parserContext.getDelegate().getLocalName(element);
+        BeanDefinitionParser parser = this.parsers.get(localName);
+        if (parser == null) {
+            parserContext.getReaderContext().fatal(
+                    &quot;Cannot locate BeanDefinitionParser for element [&quot; + localName + &quot;]&quot;, element);
+        }
+        return parser;
+}</code></pre>
+<p><code>AspectJAutoProxyBeanDefinitionParser</code>实现<code>BeanDefinitionParser</code>接口</p>
+<p><code>BeanDefinitionParser</code>接口中只定义了一个<code>parse</code>方法，所有自定义处理器都需要实现<code>BeanDefinitionParser</code>接口进行自定标签的解析</p>
+<p>接下来我们看下<code>AspectJAutoProxyBeanDefinitionParser</code>类的<code>parse</code>方法</p>
+<pre><code class="java">//AspectJAutoProxyBeanDefinitionParser.java
+
+public BeanDefinition parse(Element element, ParserContext parserContext) {
+   //注册 AspectJAnnotationAutoProxyCreator
+   AopNamespaceUtils.registerAspectJAnnotationAutoProxyCreatorIfNecessary(parserContext, element);
+   extendBeanDefinition(element, parserContext);
+   return null;
+}</code></pre>
+<p>主要的逻辑就在注册<code>AspectJAnnotationAutoProxyCreator</code>这个方法上</p>
+<pre><code class="java">public static void registerAspectJAnnotationAutoProxyCreatorIfNecessary(
+      ParserContext parserContext, Element sourceElement) {
+   //核心逻辑：注册或升级AutoProxyCreator定义beanName为org.springframework.aop.config.internalAutoProxyCreator的BeanDefinition
+   BeanDefinition beanDefinition = AopConfigUtils.registerAspectJAnnotationAutoProxyCreatorIfNecessary(
+         parserContext.getRegistry(), parserContext.extractSource(sourceElement));
+   useClassProxyingIfNecessary(parserContext.getRegistry(), sourceElement);
+   registerComponentIfNecessary(beanDefinition, parserContext);
+}</code></pre>
+<p>这个方法调用了<code>registerOrEscalateApcAsRequired(AnnotationAwareAspectJAutoProxyCreator.class, registry, source)</code>方法</p>
+<p>调用的这个方法逻辑也特别清晰</p>
+<pre><code class="java">public static BeanDefinition registerAspectJAnnotationAutoProxyCreatorIfNecessary(BeanDefinitionRegistry registry, Object source) {
+   return registerOrEscalateApcAsRequired(AnnotationAwareAspectJAutoProxyCreator.class, registry, source);
+}
+
+-----------------------调用下面这个方法---------------------
+
+private static BeanDefinition registerOrEscalateApcAsRequired(Class&lt;?&gt; cls, BeanDefinitionRegistry registry, Object source) {
+        Assert.notNull(registry, &quot;BeanDefinitionRegistry must not be null&quot;);
+        //判断BeanDefinitionRegistry是否包含AUTO_PROXY_CREATOR_BEAN_NAME这个静态变量
+        if (registry.containsBeanDefinition(AUTO_PROXY_CREATOR_BEAN_NAME)) {
+            //包含说明就注册过，将这个BeanDefinition取出来，然后判断BeanClassName如果不相等，重新BeanClassName为cls.getName()
+            BeanDefinition apcDefinition = registry.getBeanDefinition(AUTO_PROXY_CREATOR_BEAN_NAME);
+            if (!cls.getName().equals(apcDefinition.getBeanClassName())) {
+                int currentPriority = findPriorityForClass(apcDefinition.getBeanClassName());
+                int requiredPriority = findPriorityForClass(cls);
+                if (currentPriority &lt; requiredPriority) {
+                    apcDefinition.setBeanClassName(cls.getName());
+                }
+            }
+            return null;
+        }
+        //如果不包含就创建一个RootBeanDefinition，填充属性然后注册
+        RootBeanDefinition beanDefinition = new RootBeanDefinition(cls);
+        beanDefinition.setSource(source);
+        beanDefinition.getPropertyValues().add(&quot;order&quot;, Ordered.HIGHEST_PRECEDENCE);
+        beanDefinition.setRole(BeanDefinition.ROLE_INFRASTRUCTURE);
+        //这个注册方法我们前面讲默认标签注册BeanDefinition的时候讲过，用的一个方法
+        registry.registerBeanDefinition(AUTO_PROXY_CREATOR_BEAN_NAME, beanDefinition);
+        return beanDefinition;
+}</code></pre>
+<p>自定义标签解析注册<code>BeanDefinition</code>的过程我们也讲解完了</p>
+<p>现在我们知道了spring是如果解析默认标签和自定义标签的了，整体流程还是比较清晰的</p>
+<p>总结一下spring如何加载xml及注册BeanDefinition：</p>
+<p>首先将xml文件转化为Element对象，获取命名空间，根据命名空间判断是spring的默认标签还是自定义标签</p>
+<ol>
+<li><p>默认标签：使用spring的流程进行处理，遇到默认标签首先判断是哪种标签，import，alias，bean，beans标签都有着不同的解析处理逻辑，解析成BeanDefinition之后进行注册，注册的过程就是放到一个<code>ConcurrentHashMap</code>里</p>
+</li>
+<li><p>自定义标签：使用自定义的命名空间处理器（实现了<code>NamespaceHandler</code>接口）进行解析注册处理</p>
+<p>首先根据<code>namespaceUri</code>找到对应的<code>NamespaceHandler</code>处理器</p>
+<p>然后调用它的init方法，注册对应自定义标签的解析器（比如<code>aspectj-autoproxy</code>对应<code>AspectJAutoProxyBeanDefinitionParser</code>）</p>
+<p>调用<code>NamespaceHandler</code>的<code>parse</code>方法，在这个方法里根据自定义标签找到对应的解析器，调用对应的解析器的<code>parse</code>方法进行注册<code>BeanDefinition</code></p>
+</li>
+</ol>
+<p>本想一篇文章把所有的问题都说明白，发现写完一个问题篇幅就比较长了</p>
+<p>那关于spring是如何加载bean的，如何创建bean的，又是如何实现aop操作的，我们下篇分解</p>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">陈明羽</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://chenmingyu.top/spring-source-base/">https://chenmingyu.top/spring-source-base/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://chenmingyu.top" target="_blank">但行好事 莫问前程</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/spring%E6%BA%90%E7%A0%81/">spring源码</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/crawler-htmlunit/"><img class="prev-cover" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">一个可配置的爬虫采集系统的方案实现</div></div></a></div><div class="next-post pull-right"><a href="/springboot-rabbitmq/"><img class="next-cover" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">spring Boot 2.x | 集成 rabbitmq</div></div></a></div></nav></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By 陈明羽</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><button id="readmode" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font_plus" title="放大字体"><i class="fas fa-plus"></i></button><button id="font_minus" title="缩小字体"><i class="fas fa-minus"></i></button><button class="translate_chn_to_cht" id="translateLink" title="简繁转换">繁</button><button id="darkmode" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script></body></html>

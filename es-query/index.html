@@ -1,0 +1,654 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Elasticsearch 查询语句详解 | 但行好事 莫问前程</title><meta name="description" content="本文主要详细介绍es中常用的查询语句，以及使用的时候一些需要注意的事项 如对es不了解，建议先看 es基础: https:&#x2F;&#x2F;juejin.im&#x2F;post&#x2F;5cdc07446fb9a0322e73b5b5 url参数搜索这种方式就是类似于get请求，将请求参数拼接到链接上，例GET &#x2F;school&#x2F;student&#x2F;_search?参数，多个参数用&amp;分开 查询所有命令：GET &#x2F;school"><meta name="keywords" content="nosql,elasticsearch"><meta name="author" content="陈明羽"><meta name="copyright" content="陈明羽"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://chenmingyu.top/es-query/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="Elasticsearch 查询语句详解"><meta property="og:url" content="https://chenmingyu.top/es-query/"><meta property="og:site_name" content="但行好事 莫问前程"><meta property="og:description" content="本文主要详细介绍es中常用的查询语句，以及使用的时候一些需要注意的事项 如对es不了解，建议先看 es基础: https:&#x2F;&#x2F;juejin.im&#x2F;post&#x2F;5cdc07446fb9a0322e73b5b5 url参数搜索这种方式就是类似于get请求，将请求参数拼接到链接上，例GET &#x2F;school&#x2F;student&#x2F;_search?参数，多个参数用&amp;分开 查询所有命令：GET &#x2F;school"><meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><meta property="article:published_time" content="2019-07-10T02:11:03.000Z"><meta property="article:modified_time" content="2019-12-13T10:27:50.670Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
+
+var autoChangeMode = 'false'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="prev" title="java并发编程 | 锁详解：AQS，Lock，ReentrantLock，ReentrantReadWriteLock" href="https://chenmingyu.top/concurrent-lock/"><link rel="next" title="mysql系列" href="https://chenmingyu.top/mysql-one/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: false,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false    
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: ,
+  isSidebar: true
+  }</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.1"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">69</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">64</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">13</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#url参数搜索"><span class="toc-number">1.</span> <span class="toc-text">url参数搜索</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#查询所有"><span class="toc-number">1.1.</span> <span class="toc-text">查询所有</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多索引，多type搜索"><span class="toc-number">1.2.</span> <span class="toc-text">多索引，多type搜索</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#按条件查询"><span class="toc-number">1.3.</span> <span class="toc-text">按条件查询</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查询DSL"><span class="toc-number">2.</span> <span class="toc-text">查询DSL</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#叶子语句"><span class="toc-number">2.1.</span> <span class="toc-text">叶子语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#复合查询"><span class="toc-number">2.2.</span> <span class="toc-text">复合查询</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查询示例"><span class="toc-number">3.</span> <span class="toc-text">查询示例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-获取所有"><span class="toc-number">3.1.</span> <span class="toc-text">1. 获取所有</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-分页查询，从第二条开始，查两条（不要使用from，size进行深度分页，会有性能问题）"><span class="toc-number">3.2.</span> <span class="toc-text">2. 分页查询，从第二条开始，查两条（不要使用from，size进行深度分页，会有性能问题）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-指定查询出来的数据返回的字段"><span class="toc-number">3.3.</span> <span class="toc-text">3. 指定查询出来的数据返回的字段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-ad字段中包含单词white"><span class="toc-number">3.4.</span> <span class="toc-text">4. ad字段中包含单词white</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-ad字段中包含单词white，并按照价格升序排列"><span class="toc-number">3.5.</span> <span class="toc-text">5. ad字段中包含单词white，并按照价格升序排列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-价格字段大于5000"><span class="toc-number">3.6.</span> <span class="toc-text">6. 价格字段大于5000</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-ad字段中包含单词white，价格字段大于5000"><span class="toc-number">3.7.</span> <span class="toc-text">7. ad字段中包含单词white，价格字段大于5000</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-查询name字段包含单词phone的文档的数量"><span class="toc-number">3.8.</span> <span class="toc-text">8. 查询name字段包含单词phone的文档的数量</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关键词详解"><span class="toc-number">4.</span> <span class="toc-text">关键词详解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-match-all查询"><span class="toc-number">4.1.</span> <span class="toc-text">1. match_all查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-match查询"><span class="toc-number">4.2.</span> <span class="toc-text">2. match查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-multi-match查询"><span class="toc-number">4.3.</span> <span class="toc-text">3. multi_match查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-range查询"><span class="toc-number">4.4.</span> <span class="toc-text">4. range查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-term查询"><span class="toc-number">4.5.</span> <span class="toc-text">5. term查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-terms查询"><span class="toc-number">4.6.</span> <span class="toc-text">6. terms查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-exists-查询和-missing-查询"><span class="toc-number">4.7.</span> <span class="toc-text">7. exists 查询和 missing 查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-match-phrase查询"><span class="toc-number">4.8.</span> <span class="toc-text">8. match_phrase查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-scroll查询"><span class="toc-number">4.9.</span> <span class="toc-text">9. scroll查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-multi-get查询"><span class="toc-number">4.10.</span> <span class="toc-text">10. multi get查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-bulk批量操作"><span class="toc-number">4.11.</span> <span class="toc-text">11. bulk批量操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12-fuzzy查询"><span class="toc-number">4.12.</span> <span class="toc-text">12. fuzzy查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#13-wildcard查询"><span class="toc-number">4.13.</span> <span class="toc-text">13. wildcard查询</span></a></li></ol></li></ol></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">但行好事 莫问前程</a></span><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">Elasticsearch 查询语句详解</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2019-07-10 10:11:03"><i class="far fa-calendar-alt fa-fw"></i> 发表于 2019-07-10</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2019-12-13 18:27:50"><i class="fas fa-history fa-fw"></i> 更新于 2019-12-13</span></time><span class="post-meta__categories"><span class="post-meta__separator">|</span><i class="fas fa-inbox fa-fw post-meta__icon"></i><a class="post-meta__categories" href="/categories/elasticsearch/">elasticsearch</a></span></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta__icon"></i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><p>本文主要详细介绍es中常用的查询语句，以及使用的时候一些需要注意的事项</p>
+<p>如对es不了解，建议先看 es基础: <a href="https://juejin.im/post/5cdc07446fb9a0322e73b5b5" target="_blank" rel="noopener">https://juejin.im/post/5cdc07446fb9a0322e73b5b5</a></p>
+<h3 id="url参数搜索"><a href="#url参数搜索" class="headerlink" title="url参数搜索"></a>url参数搜索</h3><p>这种方式就是类似于get请求，将请求参数拼接到链接上，例<code>GET /school/student/_search?参数</code>，多个参数用&amp;分开</p>
+<h4 id="查询所有"><a href="#查询所有" class="headerlink" title="查询所有"></a>查询所有</h4><p>命令：<code>GET /school/student/_search</code></p>
+<p>返回：</p>
+<pre><code class="json">{
+  &quot;took&quot;: 7, //查询耗时，毫秒
+  &quot;timed_out&quot;: false, //是否超时，timeout 不是停止执行查询，它仅仅是告知正在协调的节点返回到目前为止收集的结果并且关闭连接
+  &quot;_shards&quot;: {
+    &quot;total&quot;: 5, //请求的分片数量，索引拆成了5个分片，所以对于搜索请求，会打到所有的primary shard
+    &quot;successful&quot;: 5,
+    &quot;skipped&quot;: 0,
+    &quot;failed&quot;: 0
+  },
+  &quot;hits&quot;: {
+    &quot;total&quot;: 2, //符合条件的总条数，这里查的是所有
+    &quot;max_score&quot;: 1, //匹配分数
+    &quot;hits&quot;: [ //数据
+      {
+        &quot;_index&quot;: &quot;school&quot;,
+        &quot;_type&quot;: &quot;student&quot;,
+        &quot;_id&quot;: &quot;2&quot;,
+        &quot;_score&quot;: 1,
+        &quot;_source&quot;: {
+          &quot;name&quot;: &quot;houyi&quot;,
+          &quot;age&quot;: 23,
+          &quot;class&quot;: 2,
+          &quot;gender&quot;: &quot;男&quot;
+        }
+      },
+      {
+        &quot;_index&quot;: &quot;school&quot;,
+        &quot;_type&quot;: &quot;student&quot;,
+        &quot;_id&quot;: &quot;1&quot;,
+        &quot;_score&quot;: 1,
+        &quot;_source&quot;: {
+          &quot;name&quot;: &quot;吕布&quot;,
+          &quot;age&quot;: 21,
+          &quot;class&quot;: 2,
+          &quot;gender&quot;: &quot;男&quot;
+        }
+      }
+    ]
+  }
+}</code></pre>
+<h4 id="多索引，多type搜索"><a href="#多索引，多type搜索" class="headerlink" title="多索引，多type搜索"></a>多索引，多type搜索</h4><p>在URL中指定特殊的索引和类型进行多索引，多type搜索</p>
+<ol>
+<li><code>/_search</code>：在所有的索引中搜索所有的类型</li>
+<li><code>/school/_search</code>：在 <code>school</code> 索引中搜索所有的类型</li>
+<li><code>/school,ad/_search</code>：在 <code>school</code> 和<code>ad</code>索引中搜索所有的类型</li>
+<li><code>/s*,a*/_search</code>：在所有以<code>g</code>和<code>a</code>开头的索引中所有所有的类型</li>
+<li><code>/school/student/_search</code>：在<code>school</code>索引中搜索<code>student</code>类型</li>
+<li><code>/school,ad/student,phone/_search</code>：在<code>school</code>和<code>ad</code>索引上搜索<code>student</code>和<code>phone</code>类型</li>
+<li><code>/_all/student,phone/_search</code>：在所有的索引中搜索<code>student</code>和<code>phone</code>类型</li>
+</ol>
+<h4 id="按条件查询"><a href="#按条件查询" class="headerlink" title="按条件查询"></a>按条件查询</h4><p>命令：<code>GET /school/student/_search?q=name:houyi</code></p>
+<p>查询name是houyi的记录</p>
+<p>更多查询参数：</p>
+<p><img src= "/img/loading.gif" data-src="E:/my/myblog/source/_posts/es-basics/url%E6%90%9C%E7%B4%A2%E5%8F%82%E6%95%B0.png" alt=""></p>
+<h3 id="查询DSL"><a href="#查询DSL" class="headerlink" title="查询DSL"></a>查询DSL</h3><p>elasticsearch提供了基于JSON的完整查询DSL来定义查询，DSL拥有一套查询组件，这些组件可以以无限组合的方式进行搭配，构建各种复杂的查询</p>
+<h4 id="叶子语句"><a href="#叶子语句" class="headerlink" title="叶子语句"></a>叶子语句</h4><p>叶子语句：就像match语句，被用于将查询的字符串与一个字段或多个字段进行对比（单个条件）<br>比如：</p>
+<pre><code class="json">   GET /ad/phone/_search
+   {
+     &quot;query&quot;: {
+       &quot;match&quot;: {
+         &quot;name&quot;: &quot;phone&quot;
+       }
+     }
+   }</code></pre>
+<h4 id="复合查询"><a href="#复合查询" class="headerlink" title="复合查询"></a>复合查询</h4><p>用户合并其他查询语句，比如一个<code>bool</code>语句，允许你在需要的时候组合其他语句，包括<code>must</code>，<code>must_not</code>，<code>should</code>和<code>filter</code>语句（多条件组合查询）<br>比如：</p>
+<pre><code class="json">   GET /ad/phone/_search
+   {
+     &quot;query&quot;: {
+       &quot;bool&quot;: {
+         &quot;must&quot;: [
+           {&quot;match&quot;: {
+             &quot;name&quot;: &quot;phone&quot;
+           }}
+         ]
+         , &quot;must_not&quot;: [
+           {&quot;match&quot;: {
+             &quot;color&quot;: &quot;red&quot;
+           }}
+         ]
+         , &quot;should&quot;: [
+           {&quot;match&quot;: {
+             &quot;price&quot;: 5000
+           }}
+         ]
+         , &quot;filter&quot;: {
+             &quot;term&quot;: {
+               &quot;label&quot;: &quot;phone&quot;
+             }
+         }
+       }
+     }
+   }</code></pre>
+<p><code>must</code>：表示文档一定要包含查询的内容</p>
+<p><code>must_not</code>：表示文档一定不要包含查询的内容</p>
+<p><code>should</code>：表示如果文档匹配上可以增加文档相关性得分</p>
+<p>事实上我们可以使用两种结构化语句： 结构化查询<code>query DSL</code>和结构化过滤<code>Filter DSL</code></p>
+<ol>
+<li><p>结构化查询<code>query DSL</code></p>
+<p>用于检查内容与条件是否匹配，内容查询中使用的bool和match字句，用于计算每个文档的匹配得分，元字段_score表示匹配度，查询的结构中以query参数开始来执行内容查询</p>
+</li>
+<li><p>结构化过滤<code>Filter DSL</code></p>
+<p>只是简单的决定文档是否匹配，内容过滤中使用的term和range字句，会过滤 调不匹配的文档，并且不影响计算文档匹配得分</p>
+<p>使用过滤查询会被es自动缓存用来提高效率</p>
+</li>
+</ol>
+<p>原则上来说，使用查询语句做全文本搜索或其他需要进行相关性评分的时候，剩下的全部用过滤语句</p>
+<p><strong>新建一个稍微复杂的索引，添加三条文档</strong></p>
+<pre><code class="json">PUT /ad/phone/1
+{
+  &quot;name&quot;:&quot;phone 8&quot;,
+  &quot;price&quot;: 6000,
+  &quot;color&quot;:&quot;white&quot;,
+  &quot;ad&quot;:&quot;this is a white phone&quot;,
+  &quot;label&quot;:[&quot;white&quot;,&quot;nice&quot;]
+}
+
+PUT /ad/phone/2
+{
+  &quot;name&quot;:&quot;xiaomi 8&quot;,
+  &quot;price&quot;: 4000,
+  &quot;color&quot;:&quot;red&quot;,
+  &quot;ad&quot;:&quot;this is a red phone&quot;,
+  &quot;label&quot;:[&quot;white&quot;,&quot;xiaomi&quot;]
+}
+
+PUT /ad/phone/3
+{
+  &quot;name&quot;:&quot;huawei p30&quot;,
+  &quot;price&quot;: 5000,
+  &quot;color&quot;:&quot;white&quot;,
+  &quot;ad&quot;:&quot;this is a white phone&quot;,
+  &quot;label&quot;:[&quot;white&quot;,&quot;huawei&quot;]
+}
+</code></pre>
+<h3 id="查询示例"><a href="#查询示例" class="headerlink" title="查询示例"></a>查询示例</h3><h4 id="1-获取所有"><a href="#1-获取所有" class="headerlink" title="1. 获取所有"></a>1. 获取所有</h4><pre><code class="json">   GET /ad/phone/_search
+   {
+     &quot;query&quot;: {
+       &quot;match_all&quot;: {}
+     }
+   }</code></pre>
+<p><code>match_all</code>匹配所有数据，返回的结果中元字段<code>_score</code>得分为1</p>
+<h4 id="2-分页查询，从第二条开始，查两条（不要使用from，size进行深度分页，会有性能问题）"><a href="#2-分页查询，从第二条开始，查两条（不要使用from，size进行深度分页，会有性能问题）" class="headerlink" title="2. 分页查询，从第二条开始，查两条（不要使用from，size进行深度分页，会有性能问题）"></a>2. 分页查询，从第二条开始，查两条（不要使用<code>from</code>，<code>size</code>进行深度分页，会有性能问题）</h4><pre><code class="json">   GET /ad/phone/_search
+   {
+     &quot;query&quot;: {
+       &quot;match_all&quot;: {}
+     },
+     &quot;from&quot;: 1,
+     &quot;size&quot;: 2
+   }</code></pre>
+<p>这种分页方式如果进行深度分页，比如到100页，每页十条数据，它会从每个分片都查询出100*10条数据，假设有五个分片，就是5000条数据，然后在内存中进行排序，然后返回拍过序之后的集合中的第1000-1010条数据</p>
+<h4 id="3-指定查询出来的数据返回的字段"><a href="#3-指定查询出来的数据返回的字段" class="headerlink" title="3. 指定查询出来的数据返回的字段"></a>3. 指定查询出来的数据返回的字段</h4><pre><code class="json">   GET /ad/phone/_search
+   {
+     &quot;query&quot;: {
+       &quot;match_all&quot;: {}
+     },
+     &quot;_source&quot;: [&quot;name&quot;,&quot;price&quot;]
+   }</code></pre>
+<p>返回的数据中只返回<code>name</code>和<code>price</code>字段</p>
+<h4 id="4-ad字段中包含单词white"><a href="#4-ad字段中包含单词white" class="headerlink" title="4. ad字段中包含单词white"></a>4. ad字段中包含单词white</h4><pre><code class="json">   GET /ad/phone/_search
+   {
+     &quot;query&quot;: {
+       &quot;match&quot;: {
+         &quot;ad&quot;: &quot;white&quot;
+       }
+     }
+   }</code></pre>
+<p>返回的结果中元字段<code>_score</code>有评分，说明使用<code>query</code>会计算评分</p>
+<h4 id="5-ad字段中包含单词white，并按照价格升序排列"><a href="#5-ad字段中包含单词white，并按照价格升序排列" class="headerlink" title="5. ad字段中包含单词white，并按照价格升序排列"></a>5. ad字段中包含单词white，并按照价格升序排列</h4><pre><code class="json">   GET /ad/phone/_search
+   {
+     &quot;query&quot;: {
+       &quot;match&quot;: {
+         &quot;ad&quot;: &quot;white&quot;
+       }
+     }, 
+     &quot;sort&quot;: [
+       {
+         &quot;price&quot;: {
+           &quot;order&quot;: &quot;asc&quot;
+         }
+       }
+     ]
+   }</code></pre>
+<h4 id="6-价格字段大于5000"><a href="#6-价格字段大于5000" class="headerlink" title="6. 价格字段大于5000"></a>6. 价格字段大于5000</h4><pre><code class="json">   GET /ad/phone/_search
+   {
+     &quot;query&quot;: {
+       &quot;bool&quot;: {
+         &quot;filter&quot;: {
+           &quot;range&quot;: {
+             &quot;price&quot;: {
+               &quot;gt&quot;: 5000
+             }
+           }
+         }
+       }
+     }
+   }</code></pre>
+<p>返回的结果中元字段<code>_score</code>字段等于0，没评分，说明使用<code>filter</code>不会计算评分</p>
+<h4 id="7-ad字段中包含单词white，价格字段大于5000"><a href="#7-ad字段中包含单词white，价格字段大于5000" class="headerlink" title="7. ad字段中包含单词white，价格字段大于5000"></a>7. ad字段中包含单词white，价格字段大于5000</h4><pre><code class="json">   GET /ad/phone/_search
+   {
+     &quot;query&quot;: {
+       &quot;bool&quot;: {
+         &quot;must&quot;: [
+           {
+             &quot;match&quot;: {
+               &quot;ad&quot;: &quot;white&quot;
+             }
+           }
+         ], 
+         &quot;filter&quot;: {
+           &quot;range&quot;: {
+             &quot;price&quot;: {
+               &quot;gt&quot;: 5000
+             }
+           }
+         }
+       }
+     }
+   }</code></pre>
+<h4 id="8-查询name字段包含单词phone的文档的数量"><a href="#8-查询name字段包含单词phone的文档的数量" class="headerlink" title="8. 查询name字段包含单词phone的文档的数量"></a>8. 查询<code>name</code>字段包含单词<code>phone</code>的文档的数量</h4><pre><code class="json">   GET /ad/phone/_count
+   {
+     &quot;query&quot;: {
+       &quot;match&quot;: {
+         &quot;name&quot;: &quot;phone&quot;
+       }
+     }
+   }</code></pre>
+<h3 id="关键词详解"><a href="#关键词详解" class="headerlink" title="关键词详解"></a>关键词详解</h3><h4 id="1-match-all查询"><a href="#1-match-all查询" class="headerlink" title="1. match_all查询"></a>1. <code>match_all</code>查询</h4><p>查询简单的匹配所有文档</p>
+<pre><code class="json">   GET /ad/phone/_search
+   {
+     &quot;query&quot;: {
+       &quot;match_all&quot;: {}
+     }
+   }</code></pre>
+<h4 id="2-match查询"><a href="#2-match查询" class="headerlink" title="2. match查询"></a>2. <code>match</code>查询</h4><p>支持全文搜索和精确查询，取决于字段是否支持全文检索</p>
+<p>全文检索：</p>
+<pre><code class="json">   GET /ad/phone/_search
+   {
+     &quot;query&quot;: {
+       &quot;match&quot;: {
+         &quot;ad&quot;: &quot;a red&quot;
+       }
+     }
+   }</code></pre>
+<p>全文检索会将查询的字符串先进行分词，<code>a red</code>会分成为<code>a</code>和<code>red</code>，然后在倒排索引中进行匹配，所以这条语句会将三条文档都查出来</p>
+<p>精确查询：</p>
+<pre><code class="json">   GET /ad/phone/_search
+   {
+     &quot;query&quot;: {
+       &quot;match&quot;: {
+         &quot;price&quot;: &quot;6000&quot;
+       }
+     }
+   }</code></pre>
+<p>对于精确值的查询，可以使用 filter 语句来取代 query，因为 filter 将会被缓存</p>
+<p><code>operator</code>操作：</p>
+<p><code>match</code> 查询还可以接受 <code>operator</code> 操作符作为输入参数，默认情况下该操作符是 <code>or</code> 。我们可以将它修改成 <code>and</code> 让所有指定词项都必须匹配</p>
+<pre><code class="json">   GET /ad/phone/_search
+   {
+     &quot;query&quot;: {
+       &quot;match&quot;: {
+         &quot;ad&quot;: {
+           &quot;query&quot;: &quot;a red&quot;,
+           &quot;operator&quot;: &quot;and&quot;
+         }
+       }
+     }
+   }</code></pre>
+<p>精确度匹配：</p>
+<p><code>match</code> 查询支持 <code>minimum_should_match</code> 最小匹配参数， 可以指定必须匹配的词项数用来表示一个文档是否相关。我们可以将其设置为某个具体数字（指需要匹配倒排索引的词的数量），更常用的做法是将其设置为一个百分数，因为我们无法控制用户搜索时输入的单词数量</p>
+<pre><code class="json">   GET /ad/phone/_search
+   {
+     &quot;query&quot;: {
+       &quot;match&quot;: {
+         &quot;ad&quot;: {
+           &quot;query&quot;: &quot;a red&quot;,
+           &quot;minimum_should_match&quot;: &quot;2&quot;
+         }
+       }
+     }
+   }</code></pre>
+<p>   只会返回匹配上<code>a</code>和<code>red</code>两个词的文档返回，如果<code>minimum_should_match</code>是1，则只要匹配上其中一个词，文档就会返回</p>
+<h4 id="3-multi-match查询"><a href="#3-multi-match查询" class="headerlink" title="3. multi_match查询"></a>3. <code>multi_match</code>查询</h4><p>多字段查询，比如查询<code>color</code>和<code>ad</code>字段包含单词<code>red</code>的文档</p>
+<pre><code class="json">   GET /ad/phone/_search
+   {
+     &quot;query&quot;: {
+       &quot;multi_match&quot;: {
+         &quot;query&quot;: &quot;red&quot;,
+         &quot;fields&quot;: [&quot;color&quot;,&quot;ad&quot;]
+       }
+     }
+   }</code></pre>
+<h4 id="4-range查询"><a href="#4-range查询" class="headerlink" title="4. range查询"></a>4. <code>range</code>查询</h4><p>   范围查询，查询价格大于4000小于6000的文档</p>
+<pre><code>   GET /ad/phone/_search
+   {
+     &quot;query&quot;: {
+       &quot;range&quot;: {
+         &quot;price&quot;: {
+           &quot;gt&quot;: 4000,
+           &quot;lt&quot;: 6000
+         }
+       }
+     }
+   }</code></pre><p>   范围查询操作符：<code>gt</code> （大于），<code>gte</code>（大于等于），<code>lt</code>（小于），<code>lte</code>（小于等于)；</p>
+<h4 id="5-term查询"><a href="#5-term查询" class="headerlink" title="5. term查询"></a>5. <code>term</code>查询</h4><p>   精确值查询</p>
+<p>   查询<code>price</code>字段等于6000的文档</p>
+<pre><code class="json">   GET /ad/phone/_search
+   {
+     &quot;query&quot;: {
+       &quot;term&quot;: {
+         &quot;price&quot;: {
+           &quot;value&quot;: &quot;6000&quot;
+         }
+       }
+     }
+   }</code></pre>
+<p>   查询<code>name</code>字段等于<code>phone 8</code>的文档</p>
+<pre><code class="json">   GET /ad/phone/_search
+   {
+     &quot;query&quot;: {
+       &quot;term&quot;: {
+         &quot;name&quot;: {
+           &quot;value&quot;: &quot;phone 8&quot;
+         }
+       }
+     }
+   }</code></pre>
+<p>   返回值如下，没有查询到名称为<code>phone 8</code>的文档</p>
+<pre><code class="json">   {
+     &quot;took&quot;: 5,
+     &quot;timed_out&quot;: false,
+     &quot;_shards&quot;: {
+       &quot;total&quot;: 5,
+       &quot;successful&quot;: 5,
+       &quot;skipped&quot;: 0,
+       &quot;failed&quot;: 0
+     },
+     &quot;hits&quot;: {
+       &quot;total&quot;: 0,
+       &quot;max_score&quot;: null,
+       &quot;hits&quot;: []
+     }
+   }</code></pre>
+<p>   为什么没有查到<code>phone 8</code>的这个文档那，这里需要介绍一下<code>term</code>的查询原理</p>
+<pre><code>   `term`查询会去倒排索引中寻找确切的`term`,它并不会走分词器，只会去配倒排索引 ，而`name`字段的`type`类型是`text`，会进行分词，将`phone 8 ` 分为`phone`和`8`，我们使用`term`查询`phone 8`时倒排索引中没有`phone 8`，所以没有查询到匹配的文档</code></pre><p>   <code>term</code>查询与<code>match</code>查询的区别</p>
+<ul>
+<li><p><code>term</code>查询时，不会分词，直接匹配倒排索引</p>
+</li>
+<li><p><code>match</code>查询时会进行分词，查询<code>phone 8</code>时，会先分词成<code>phone</code>和<code>8</code>，然后去匹配倒排索引，所以结果会将<code>phone 8</code>和<code>xiaomi 8</code>两个文档都查出来</p>
+<p>还有一点需要注意，因为<code>term</code>查询不会走分词器，但是回去匹配倒排索引，所以查询的结构就跟分词器如何分词有关系，比如新增一个<code>/ad/phone</code>类型下的文档，<code>name</code>字段赋值为<code>Oppo</code>，这时使用<code>term</code>查询<code>Oppo</code>不会查询出文档，这时因为es默认是用的<code>standard</code>分词器，它在分词后会将单词转成小写输出，所以使用<code>oppo</code>查不出文档，使用小写<code>oppo</code>可以查出来</p>
+</li>
+</ul>
+<pre><code class="json">   GET /ad/phone/_search
+   {
+     &quot;query&quot;: {
+       &quot;term&quot;: {
+         &quot;name&quot;: {
+           &quot;value&quot;: &quot;Oppo&quot; //改成oppo可以查出新添加的文档
+         }
+       }
+     }
+   }</code></pre>
+<p>   这里说的并不是想让你了解<code>standard</code>分词器，而是要get到所有像<code>term</code>这类的查询结果跟选择的分词器有关系，了解选择的分词器分词方式有助于我们编写查询语句</p>
+<h4 id="6-terms查询"><a href="#6-terms查询" class="headerlink" title="6. terms查询"></a>6. <code>terms</code>查询</h4><p>   <code>terms</code>查询与<code>term</code>查询一样，但它允许你指定多直进行匹配，如果这个字段包含了指定值中的任何一个值，那么这个文档满足条件</p>
+<pre><code class="json">   GET /ad/phone/_search
+   {
+     &quot;query&quot;: {
+       &quot;terms&quot;: {
+         &quot;ad&quot;: [&quot;red&quot;,&quot;blue&quot;]
+       }
+     }
+   }</code></pre>
+<h4 id="7-exists-查询和-missing-查询"><a href="#7-exists-查询和-missing-查询" class="headerlink" title="7. exists 查询和 missing 查询"></a>7. <code>exists</code> 查询和 <code>missing</code> 查询</h4><p>   用于查找那些指定字段中有值 (<code>exists</code>) 或无值 (<code>missing</code>) 的文档</p>
+<p>   指定<code>name</code>字段有值：</p>
+<pre><code class="json">   GET /ad/phone/_search
+   {
+     &quot;query&quot;: {
+       &quot;bool&quot;: {
+         &quot;filter&quot;: {
+           &quot;exists&quot;: {
+             &quot;field&quot;: &quot;name&quot;
+           }
+         }
+       }
+     }
+   }</code></pre>
+<p>   指定<code>name</code>字段无值：</p>
+<pre><code class="json">   GET /ad/phone/_search
+   {
+     &quot;query&quot;: {
+       &quot;bool&quot;: {
+         &quot;filter&quot;: {
+           &quot;missing&quot;: {
+             &quot;field&quot;: &quot;name&quot;
+           }
+         }
+       }
+     }
+   }</code></pre>
+<h4 id="8-match-phrase查询"><a href="#8-match-phrase查询" class="headerlink" title="8. match_phrase查询"></a>8. <code>match_phrase</code>查询</h4><p>   短语查询，精确匹配，查询<code>a red</code>会匹配<code>ad</code>字段包含<code>a red</code>短语的，而不会进行分词查询，也不会查询出包含<code>a 其他词 red</code>这样的文档</p>
+<pre><code class="json">   GET /ad/phone/_search
+   {
+     &quot;query&quot;: {
+       &quot;match_phrase&quot;: {
+         &quot;ad&quot;: &quot;a red&quot;
+       }
+     }
+   }</code></pre>
+<h4 id="9-scroll查询"><a href="#9-scroll查询" class="headerlink" title="9. scroll查询"></a>9. <code>scroll</code>查询</h4><p>   类似于分页查询，不支持跳页查询，只能一页一页往下查询，<code>scroll</code>查询不是针对实时用户请求，而是针对处理大量数据，例如为了将一个索引的内容重新索引到具有不同配置的新索引中</p>
+<pre><code class="json">   POST /ad/phone/_search?scroll=1m
+   {
+     &quot;query&quot;: {
+       &quot;match_all&quot;: {}
+     },
+     &quot;size&quot;: 1,
+     &quot;from&quot;: 0
+   }</code></pre>
+<p>   返回值包含一个  <code>&quot;_scroll_id&quot;: &quot;DnF1ZXJ5VGhlbkZldGNoBQAAAAAAAAAQFlV6T3VqY2NaVDBLRG5uZXdiZ0hFYUEAAAAAAAAAERZVek91amNjWlQwS0RubmV3YmdIRWFBAAAAAAAAABIWVXpPdWpjY1pUMEtEbm5ld2JnSEVhQQAAAAAAAAATFlV6T3VqY2NaVDBLRG5uZXdiZ0hFYUEAAAAAAAAAFBZVek91amNjWlQwS0RubmV3YmdIRWFB&quot;</code></p>
+<p>   下次查询的时候使用<code>_scroll_id</code>就可以查询下一页的文档</p>
+<pre><code class="json">   POST /_search/scroll 
+   {
+       &quot;scroll&quot; : &quot;1m&quot;, 
+       &quot;scroll_id&quot; : &quot;DnF1ZXJ5VGhlbkZldGNoBQAAAAAAAAAYFlV6T3VqY2NaVDBLRG5uZXdiZ0hFYUEAAAAAAAAAGRZVek91amNjWlQwS0RubmV3YmdIRWFBAAAAAAAAABYWVXpPdWpjY1pUMEtEbm5ld2JnSEVhQQAAAAAAAAAXFlV6T3VqY2NaVDBLRG5uZXdiZ0hFYUEAAAAAAAAAFRZVek91amNjWlQwS0RubmV3YmdIRWFB&quot; 
+   }</code></pre>
+<h4 id="10-multi-get查询"><a href="#10-multi-get查询" class="headerlink" title="10. multi get查询"></a>10. <code>multi get</code>查询</h4><p>允许基于索引，类型（可选）和id（以及可能的路由）获取多个文档，如果某个文档获取失败则将错误信息包含在响应中</p>
+<pre><code>​```json
+GET /ad/phone/_mget
+{
+  &quot;ids&quot;: [&quot;1&quot;,&quot;8&quot;]
+}
+​```</code></pre><h4 id="11-bulk批量操作"><a href="#11-bulk批量操作" class="headerlink" title="11. bulk批量操作"></a>11. <code>bulk</code>批量操作</h4><p><code>bulk</code>批量操作可以在单次API调用中实现多个文档的<code>create</code>、<code>index</code>、<code>update</code>或<code>delete</code>。这可以大大提高索引速度</p>
+<p><code>bulk</code>请求体如下</p>
+<pre><code class="json">{ action: { metadata }}\n 
+{ request body        }\n
+{ action: { metadata }}\n
+{ request body        }\n
+...</code></pre>
+<p><strong>action</strong>必须是以下几种：<br>| 行为   | 解释                     |<br>| —— | ———————— |<br>| create | 当文档不存在时创建       |<br>| index  | 创建新文档或替换已有文档 |<br>| update | 局部更新文档             |<br>| delete | 删除一个文档             |<br>在索引、创建、更新或删除时必须指定文档的<code>_index</code>、<code>_type</code>、<code>_id</code>这些元数据(<code>metadata</code>)</p>
+<p>例：</p>
+<pre><code class="json">    PUT _bulk
+    { &quot;create&quot; : { &quot;_index&quot; : &quot;ad&quot;, &quot;_type&quot; : &quot;phone&quot;, &quot;_id&quot; : &quot;6&quot; }}
+    { &quot;doc&quot; : {&quot;name&quot; : &quot;bulk&quot;}}
+    { &quot;index&quot; : { &quot;_index&quot; : &quot;ad&quot;, &quot;_type&quot; : &quot;phone&quot;, &quot;_id&quot; : &quot;6&quot; }}
+    { &quot;doc&quot; : {&quot;name&quot; : &quot;bulk&quot;}}
+    { &quot;delete&quot;:{  &quot;_index&quot; : &quot;ad&quot;, &quot;_type&quot; : &quot;phone&quot;, &quot;_id&quot; : &quot;1&quot;}}
+    { &quot;update&quot;:{  &quot;_index&quot; : &quot;ad&quot;, &quot;_type&quot; : &quot;phone&quot;, &quot;_id&quot; : &quot;3&quot;}}
+    { &quot;doc&quot; : {&quot;name&quot; : &quot;huawei p20&quot;}}</code></pre>
+<p>返回：</p>
+<pre><code class="json">    {
+      &quot;took&quot;: 137,
+      &quot;errors&quot;: true, //如果任意一个文档出错，这里返回true,
+      &quot;items&quot;: [ //items数组，它罗列了每一个请求的结果，结果的顺序与我们请求的顺序相同
+        {
+          //create这个文档已经存在，所以异常
+          &quot;create&quot;: { 
+            &quot;_index&quot;: &quot;ad&quot;,
+            &quot;_type&quot;: &quot;phone&quot;,
+            &quot;_id&quot;: &quot;6&quot;,
+            &quot;status&quot;: 409,
+            &quot;error&quot;: {
+              &quot;type&quot;: &quot;version_conflict_engine_exception&quot;,
+              &quot;reason&quot;: &quot;[phone][6]: version conflict, document already exists (current version [2])&quot;,
+              &quot;index_uuid&quot;: &quot;9F5FHqgISYOra_P09HReVQ&quot;,
+              &quot;shard&quot;: &quot;2&quot;,
+              &quot;index&quot;: &quot;ad&quot;
+            }
+          }
+        },
+        {
+          //index这个文档已经存在，会覆盖
+          &quot;index&quot;: { 
+            &quot;_index&quot;: &quot;ad&quot;,
+            &quot;_type&quot;: &quot;phone&quot;,
+            &quot;_id&quot;: &quot;6&quot;,
+            &quot;_version&quot;: 3,
+            &quot;result&quot;: &quot;updated&quot;,
+            &quot;_shards&quot;: {
+              &quot;total&quot;: 2,
+              &quot;successful&quot;: 1,
+              &quot;failed&quot;: 0
+            },
+            &quot;_seq_no&quot;: 6,
+            &quot;_primary_term&quot;: 5,
+            &quot;status&quot;: 200
+          }
+        },
+        {
+          //删除  
+          &quot;delete&quot;: { 
+            &quot;_index&quot;: &quot;ad&quot;,
+            &quot;_type&quot;: &quot;phone&quot;,
+            &quot;_id&quot;: &quot;1&quot;,
+            &quot;_version&quot;: 1,
+            &quot;result&quot;: &quot;not_found&quot;,
+            &quot;_shards&quot;: {
+              &quot;total&quot;: 2,
+              &quot;successful&quot;: 1,
+              &quot;failed&quot;: 0
+            },
+            &quot;_seq_no&quot;: 4,
+            &quot;_primary_term&quot;: 5,
+            &quot;status&quot;: 404
+          }
+        },
+        {
+          //修改  
+          &quot;update&quot;: { 
+            &quot;_index&quot;: &quot;ad&quot;,
+            &quot;_type&quot;: &quot;phone&quot;,
+            &quot;_id&quot;: &quot;3&quot;,
+            &quot;_version&quot;: 3,
+            &quot;result&quot;: &quot;noop&quot;,
+            &quot;_shards&quot;: {
+              &quot;total&quot;: 2,
+              &quot;successful&quot;: 1,
+              &quot;failed&quot;: 0
+            },
+            &quot;status&quot;: 200
+          }
+        }
+      ]
+    }</code></pre>
+<p><code>bulk</code>请求不是原子操作，它们不能实现事务。每个请求操作时分开的，所以每个请求的成功与否不干扰其它操作</p>
+<h4 id="12-fuzzy查询"><a href="#12-fuzzy查询" class="headerlink" title="12. fuzzy查询"></a>12. <code>fuzzy</code>查询</h4><p>模糊查询，<code>fuzzy</code> 查询会计算与关键词的拼写相似程度</p>
+<pre><code class="json">    GET /ad/phone/_search
+    {
+      &quot;query&quot;: {
+        &quot;fuzzy&quot;: {
+          &quot;color&quot;:{
+            &quot;value&quot;: &quot;res&quot;
+            , &quot;fuzziness&quot;: 2,
+            &quot;prefix_length&quot;: 1
+          }
+        }
+      }
+    }</code></pre>
+<p>参数设置：</p>
+<p><code>fuzziness</code>：最大编辑距离，默认为<code>AUTO</code></p>
+<p><code>prefix_length</code>：不会“模糊化”的初始字符数。这有助于减少必须检查的术语数量，默认为<code>0</code></p>
+<p><code>max_expansions</code>：<code>fuzzy</code>查询将扩展到 的最大术语数。默认为<code>50</code>，设置小，有助于优化查询</p>
+<p><code>transpositions</code>：是否支持模糊转置（<code>ab</code>→ <code>ba</code>），默认是<code>false</code></p>
+<h4 id="13-wildcard查询"><a href="#13-wildcard查询" class="headerlink" title="13. wildcard查询"></a>13. <code>wildcard</code>查询</h4><p>支持通配符的模糊查询，？匹配单个字符，*匹配任何字符</p>
+<p>为了防止极其缓慢通配符查询，<code>*</code>或<code>?</code>通配符项不应该放在通配符的开始</p>
+<pre><code class="json">    GET /ad/phone/_search
+    {
+      &quot;query&quot;: {
+        &quot;wildcard&quot;: {
+          &quot;color&quot;: &quot;r?d&quot;
+        }
+      }
+    }</code></pre>
+<p>未完待续…</p>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">陈明羽</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://chenmingyu.top/es-query/">https://chenmingyu.top/es-query/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://chenmingyu.top" target="_blank">但行好事 莫问前程</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/elasticsearch/">elasticsearch</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/concurrent-lock/"><img class="prev-cover" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">java并发编程 | 锁详解：AQS，Lock，ReentrantLock，ReentrantReadWriteLock</div></div></a></div><div class="next-post pull-right"><a href="/mysql-one/"><img class="next-cover" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">mysql系列</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/es-basics/" title="Elasticsearch基础概念详解"><img class="relatedPosts_cover" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2019-05-10</div><div class="relatedPosts_title">Elasticsearch基础概念详解</div></div></a></div></div></div></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By 陈明羽</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><button id="readmode" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font_plus" title="放大字体"><i class="fas fa-plus"></i></button><button id="font_minus" title="缩小字体"><i class="fas fa-minus"></i></button><button class="translate_chn_to_cht" id="translateLink" title="简繁转换">繁</button><button id="darkmode" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script></body></html>
