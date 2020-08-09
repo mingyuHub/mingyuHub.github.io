@@ -1,122 +1,403 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>但行好事 莫问前程 - 明羽</title><meta name="description"><meta name="keywords" content="陈明羽,chenmingyu,java,架构"><meta name="author" content="陈明羽"><meta name="copyright" content="陈明羽"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://chenmingyu.top/page/6/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="website"><meta property="og:title" content="但行好事 莫问前程"><meta property="og:url" content="https://chenmingyu.top/page/6/"><meta property="og:site_name" content="但行好事 莫问前程"><meta property="og:description"><meta property="og:image" content="https://chenmingyu.top/img/avatar.png"><meta property="article:published_time" content="2020-08-09T14:27:01.666Z"><meta property="article:modified_time" content="2020-08-09T14:27:01.666Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
-  document.documentElement.setAttribute('data-theme', 'dark')
-  if (document.querySelector('meta[name="theme-color"]') !== null) {
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
-  }
-}
-var activateLightMode = function () {
-  document.documentElement.setAttribute('data-theme', 'light')
-  if (document.querySelector('meta[name="theme-color"]') !== null) {
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
-  }
-}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
 
-var getCookies = function (name) {
-  const value = `; ${document.cookie}`
-  const parts = value.split(`; ${name}=`)
-  if (parts.length === 2) return parts.pop().split(';').shift()
-}
+  
+  <title>但行好事 莫问前程</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="但行好事 莫问前程">
+<meta property="og:url" content="https://chenmingyu.top/page/6/index.html">
+<meta property="og:site_name" content="但行好事 莫问前程">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="陈明羽">
+<meta property="article:tag" content="陈明羽">
+<meta property="article:tag" content="chenmingyu">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="架构">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="但行好事 莫问前程" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
 
-var autoChangeMode = 'false'
-var t = getCookies('theme')
-if (autoChangeMode === '1') {
-  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
-  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
-  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+<meta name="generator" content="Hexo 4.2.1"></head>
 
-  if (t === undefined) {
-    if (isLightMode) activateLightMode()
-    else if (isDarkMode) activateDarkMode()
-    else if (isNotSpecified || hasNoSupport) {
-      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
-      var now = new Date()
-      var hour = now.getHours()
-      var isNight = hour <= 6 || hour >= 18
-      isNight ? activateDarkMode() : activateLightMode()
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">但行好事 莫问前程</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">明羽</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://chenmingyu.top"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-tomcat-source-code" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/tomcat-source-code/" class="article-date">
+  <time datetime="2018-12-23T07:05:46.000Z" itemprop="datePublished">2018-12-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/tomcat/">tomcat</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/tomcat-source-code/">tomcat8 源码分析 | 组件及启动过程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>tomcat 8 源码分析 ，本文主要讲解tomcat拥有哪些组件，容器，又是如何启动的</strong></p>
+<h4 id="tomcat"><a href="#tomcat" class="headerlink" title="tomcat"></a>tomcat</h4><h5 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h5><p>​    Tomcat是Apache 软件基金会（Apache Software Foundation）的Jakarta 项目中的一个核心项目，Tomcat服务器是一个免费的开放源代码的Web 应用服务器，属于轻量级应用服务器。</p>
+<h5 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h5><p>首先我们先看一张图</p>
+<p><img src="tomcat-source-code/jiegou.png" alt="jiegou"></p>
+<p>看上图总结一下tomcat的组件主要包括:</p>
+<ul>
+<li><p>server：整个servlet容器，一个tomcat对应一个server，一个server包含多个service</p>
+<p>server在tomcat中的实现类是：StandardServer</p>
+</li>
+<li><p>service： 一个service包含多个connector（接受请求的协议），和一个container（容器）</p>
+<p>多个connector共享一个container容器，</p>
+<p>service在tomcat中的实现类是：StandardService</p>
+</li>
+<li><p>connector：链接器，负责处理客户端请求，解析不同协议及io方式</p>
+</li>
+<li><p>executor：线程池</p>
+</li>
+<li><p>container：包含engine，host，context，wrapper等组件</p>
+</li>
+<li><p>engine：servlet引擎，container容器中顶层的容器对象，一个engine可以包含多个host主机</p>
+<p>engine在tomcat中的实现类是：StandardEngine</p>
+</li>
+<li><p>host：engine容器的子容器，一个host对应一个网络域名，一个host包含多个context</p>
+<p>host在tomcat中的实现类是：StandardHost</p>
+</li>
+<li><p>context：host容器的子容器，表示一个web应用</p>
+<p>context在tomcat中的实现类是：StandardContext</p>
+</li>
+<li><p>wrapper：tomcat中最小的容器单元，表示web应用中的servlet</p>
+<p>wrapper在tomcat中的实现类是：StandardWrapper</p>
+</li>
+</ul>
+<p>所以tomcat的组件结构大概是这个样子的：</p>
+<p><img src="tomcat-source-code/1.png" alt="jiegou"></p>
+<h5 id="生命周期：Lifecycle"><a href="#生命周期：Lifecycle" class="headerlink" title="生命周期：Lifecycle"></a>生命周期：Lifecycle</h5><p>tomcat的启动过程非常规范，使用Lifecycle接口统一管理各组件的生命周期，根据各个组件之间的父子级关系，首先调用init()方法逐级初始化各组件，然后在调用start()的方法进行启动；</p>
+<p>Lifecycle接口提供的方法如下，提供了init，start，destory等方法：</p>
+<p><img src="tomcat-source-code/2.png" alt="jiegou"></p>
+<p>tomcat中的组件基本都继承了LifecycleMBeanBase类，LifecycleMBeanBase集成LifecycleBase，LifecycleBase实现Lifecycle接口：</p>
+<p><img src="tomcat-source-code/3.png" alt="jiegou"></p>
+<p>LifecycleBase重写Lifecycle接口，比如init()方法，在init()方法中调用initInternal()方法，initInternal()方法是抽象方法，具体实现交由各个子类（组件）去实现。如果没有实现initInternal()方法，则调用默认的LifecycleMBeanBase的initInternal方法。</p>
+<h5 id="启动过程"><a href="#启动过程" class="headerlink" title="启动过程"></a>启动过程</h5><p>接下来从源码看一下tomcat的启动流程：</p>
+<h6 id="bootstrap"><a href="#bootstrap" class="headerlink" title="bootstrap"></a>bootstrap</h6><p>tomcat的入口类为BootStrap的main方法</p>
+<p>Bootstrap中main()方法如下,不重要的代码省略了</p>
+<pre><code class="java">/**
+ * Main method and entry point when starting Tomcat via the provided
+ * scripts.
+ *
+ * @param args Command line arguments to be processed
+ */
+public static void main(String args[]) {
+        .....
+        //初始化    
+        bootstrap.init();
+        .....
+        if (command.equals(&quot;startd&quot;)) {
+            args[args.length - 1] = &quot;start&quot;;
+            //实例化各组件 调用Catalina类的load方法
+            daemon.load(args);
+            //启动各组件 调用Catalina类的start方法
+            daemon.start();
+        }
+        .....
+}</code></pre>
+<p>bootstrap.init()的工作是初始化Bootstrap类，包含初始化类加载器</p>
+<pre><code class="java">/**
+ * Initialize daemon.
+ * @throws Exception Fatal initialization error
+ */
+public void init() throws Exception {
+    //初始化类加载
+    initClassLoaders();
+    ......
+    //实例化Catalina类
+    Class&lt;?&gt; startupClass = catalinaLoader.loadClass(&quot;org.apache.catalina.startup.Catalina&quot;);
+    Object startupInstance = startupClass.getConstructor().newInstance();
+       ......
+    catalinaDaemon = startupInstance;
+
+}</code></pre>
+<h6 id="Catalina"><a href="#Catalina" class="headerlink" title="Catalina"></a>Catalina</h6><p>接着调用刚初始化的Catalina类的实例catalinaDaemon的load()方法，重要的就两点</p>
+<pre><code class="java">/**
+ * Start a new server instance.
+ */
+public void load() {
+    .....
+    // Digester... 实例化组件
+    Digester digester = createStartDigester();
+    .....加载server.xml......
+    file = configFile();
+    inputStream = new FileInputStream(file);
+    inputSource = new InputSource(file.toURI().toURL().toString());
+    ......
+    // 初始化sever
+    getServer().init();
+}</code></pre>
+<h6 id="Digester"><a href="#Digester" class="headerlink" title="Digester"></a>Digester</h6><p>Digester是一种将xml转化为java对象的事件驱动型工具，通过读取xml文件，当识别到特定的节点的时候会执行特定的动作，创建java对象或者执行对象的某个方法</p>
+<p><img src="tomcat-source-code/4.png" alt="jiegou"></p>
+<p>通过Digester去创建了Catania中的大量初始化工作，具体详见源码：</p>
+<pre><code class="java">// 创建server实例
+digester.addObjectCreate(&quot;Server&quot;,
+                         &quot;org.apache.catalina.core.StandardServer&quot;,
+                         &quot;className&quot;);
+//创建Executor
+digester.addObjectCreate(&quot;Server/Service/Executor&quot;,
+                         &quot;org.apache.catalina.core.StandardThreadExecutor&quot;,
+                         &quot;className&quot;);
+...等等大量初始化工作...</code></pre>
+<p>接着讲，getServer().init()方法的作用是初始化Sever，调用LifecycleBase的init()方法，在init方法中调用的是StandardServer类initInternal()方法</p>
+<h6 id="StandardServer"><a href="#StandardServer" class="headerlink" title="StandardServer"></a>StandardServer</h6><p>StandardServer类图如下：</p>
+<p><img src="tomcat-source-code/5.png" alt="jiegou"></p>
+<p>StandardServer类initInternal()方法：</p>
+<pre><code class="java">/**
+ * Invoke a pre-startup initialization. This is used to allow connectors
+ * to bind to restricted ports under Unix operating environments.
+ */
+@Override
+protected void initInternal() throws LifecycleException {
+
+    super.initInternal();
+    ...省略很多，但是主要的在下面...
+    // Initialize our defined Services
+    for (int i = 0; i &lt; services.length; i++) {
+        //调用services的init
+        services[i].init();
     }
-    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
-      if (Cookies.get('theme') === undefined) {
-        e.matches ? activateDarkMode() : activateLightMode()
-      }
-    })
-  } else if (t === 'light') activateLightMode()
-  else activateDarkMode()
-} else if (autoChangeMode === '2') {
-  now = new Date()
-  hour = now.getHours()
-  isNight = hour <= 6 || hour >= 18
-  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
-  else if (t === 'light') activateLightMode()
-  else activateDarkMode()
-} else {
-  if (t === 'dark') activateDarkMode()
-  else if (t === 'light') activateLightMode()
-}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
-  root: '/',
-  algolia: undefined,
-  localSearch: undefined,
-  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  bookmark: {
-    message_prev: '按',
-    message_next: '键将本页加入书签'
-  },
-  runtime_unit: '天',
-  runtime: false,
-  copyright: undefined,
-  ClickShowText: undefined,
-  medium_zoom: false,
-  fancybox: true,
-  Snackbar: undefined,
-  justifiedGallery: {
-    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
-    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
-  },
-  baiduPush: false,
-  highlightCopy: true,
-  highlightLang: true,
-  isPhotoFigcaption: false,
-  islazyload: true,
-  isanchor: false    
-}</script><script>var GLOBAL_CONFIG_SITE = { 
-  isPost: false,
-  isHome: true,
-  isHighlightShrink: false,
-  isSidebar: false
-  }</script><noscript><style>
-#nav {
-  opacity: 1
+}</code></pre>
+<p>前面的时候讲过一个server初始化多个services；</p>
+<h6 id="StandardService"><a href="#StandardService" class="headerlink" title="StandardService"></a>StandardService</h6><p>services[i].init();初始化的是StandardService类，类图如下</p>
+<p><img src="tomcat-source-code/6.png" alt="jiegou"></p>
+<p>StandardService的initInternal() 方法的工作是初始化engine组件，初始化线程池，初始化mapperListener，初始化connector</p>
+<pre><code class="java">/**
+ * Invoke a pre-startup initialization. This is used to allow connectors
+ * to bind to restricted ports under Unix operating environments.
+ */
+@Override
+protected void initInternal() throws LifecycleException {
+
+    super.initInternal();
+    //初始化engine
+    engine.init();
+    //初始化线程池
+    // Initialize any Executors
+    for (Executor executor : findExecutors()) {
+        if (executor instanceof JmxEnabled) {
+            ((JmxEnabled) executor).setDomain(getDomain());
+        }
+        executor.init();
+    }
+    //初始化mapperListener
+    // Initialize mapper listener
+    mapperListener.init();
+    //初始化connector
+    connector.init();
+
+}</code></pre>
+<p>初始化executor，mapperListener，connector后面再讲其作用，先接初始化engine</p>
+<h6 id="StandardEngine"><a href="#StandardEngine" class="headerlink" title="StandardEngine"></a>StandardEngine</h6><p>StandardEngine的类图如下：</p>
+<p><img src="tomcat-source-code/7.png" alt="jiegou"></p>
+<p>在StandardEngine的初始化中并没有直接调用host的初始化，而是调用的父类containerBase的initInternal的方法：</p>
+<pre><code class="java">//StandardEngine
+@Override
+protected void initInternal() throws LifecycleException {
+    // Ensure that a Realm is present before any attempt is made to start
+    // one. This will create the default NullRealm if necessary.
+    getRealm();
+    super.initInternal();
 }
-.justified-gallery img{
-  opacity: 1
+//containerBase
+ @Override
+ protected void initInternal() throws LifecycleException {
+        BlockingQueue&lt;Runnable&gt; startStopQueue = new LinkedBlockingQueue&lt;&gt;();
+        startStopExecutor = new ThreadPoolExecutor(
+                getStartStopThreadsInternal(),
+                getStartStopThreadsInternal(), 10, TimeUnit.SECONDS,
+                startStopQueue,
+                new StartStopThreadFactory(getName() + &quot;-startStop-&quot;));
+        startStopExecutor.allowCoreThreadTimeOut(true);
+        super.initInternal();
+    }</code></pre>
+<p>host的init是在start阶段去做的，所以后面再说</p>
+<h6 id="executor"><a href="#executor" class="headerlink" title="executor"></a>executor</h6><p>executor.init();默认调用LifecycleMBeanBase的initInternal方法</p>
+<h6 id="mapperListener"><a href="#mapperListener" class="headerlink" title="mapperListener"></a>mapperListener</h6><p>mapperListener.init();也默认调用LifecycleMBeanBase的initInternal方法</p>
+<h6 id="connector"><a href="#connector" class="headerlink" title="connector"></a>connector</h6><p>connector的初始化调用Connector类的initInternal方法，主要是new了一个CoyoteAdapter，初始化protocolHandler</p>
+<pre><code class="java">@Override
+protected void initInternal() throws LifecycleException {
+
+    super.initInternal();
+
+    // 实例化 CoyoteAdapter 适配器
+    adapter = new CoyoteAdapter(this);
+    protocolHandler.setAdapter(adapter);
+    ......
+    try {
+        //初始化 protocolHandler
+        protocolHandler.init();
+    } catch (Exception e) {
+        throw new LifecycleException(
+                sm.getString(&quot;coyoteConnector.protocolHandlerInitializationFailed&quot;), e);
+    }
+}</code></pre>
+<p>ProtocolHandler.init();的实现：</p>
+<p><img src="tomcat-source-code/8.png" alt="jiegou"></p>
+<p>AbstractProtocol是调用endpoint的init方法，这个方法中调用bind()</p>
+<pre><code class="java">@Override
+public void init() throws Exception {
+   //初始化endpoint
+   endpoint.init();
 }
-</style></noscript><meta name="generator" content="Hexo 4.2.1"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">69</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">64</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">13</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(https://i.loli.net/2020/05/01/IuWi8QbHvzjlOPw.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">但行好事 莫问前程</a></span><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site_title">但行好事 莫问前程</h1><div id="site_subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/xxxxx" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:xxxxxx@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll_down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/tomcat-source-code/" title="tomcat8 源码分析 | 组件及启动过程">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="tomcat8 源码分析 | 组件及启动过程"></a></div><div class="recent-post-info"><a class="article-title" href="/tomcat-source-code/" title="tomcat8 源码分析 | 组件及启动过程">tomcat8 源码分析 | 组件及启动过程</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2018-12-23 15:05:46"><i class="far fa-calendar-alt"></i>2018-12-23</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/tomcat/">tomcat</a></span></div><div class="content">tomcat 8 源码分析 ，本文主要讲解tomcat拥有哪些组件，容器，又是如何启动的
-tomcat简介​    Tomcat是Apache 软件基金会（Apache Software Foundation）的Jakarta 项目中的一个核心项目，Tomcat服务器是一个免费的开放源代码的Web 应用服务器，属于轻量级应用服务器。
-整体架构首先我们先看一张图
+</code></pre>
+<p>bind()针对不同的io类型提供了三种的默认实现</p>
+<p><img src="tomcat-source-code/9.png" alt="jiegou"></p>
+<p>进入NioEndpoint类的bind()</p>
+<pre><code class="java">/**
+ * Initialize the endpoint.
+ */
+@Override
+public void bind() throws Exception {
+    //使用nio方式监听端口
+    if (!getUseInheritedChannel()) {
+        serverSock = ServerSocketChannel.open();
+        socketProperties.setProperties(serverSock.socket());
+        InetSocketAddress addr = (getAddress()!=null?new InetSocketAddress(getAddress(),getPort()):new InetSocketAddress(getPort()));
+        serverSock.socket().bind(addr,getAcceptCount());
+    } 
+    //设置非阻塞
+    serverSock.configureBlocking(true); //mimic APR behavior
+    ......
+    //开启selectorPool
+    selectorPool.open();
+}</code></pre>
+<h5 id="start过程"><a href="#start过程" class="headerlink" title="start过程"></a>start过程</h5><p>tomcat的start阶段与init阶段相似，都是逐层调用，稍有不同的是在于engine，host，context，wrapper的启动方式；</p>
+<p>首先回到Bootstrap的main方法中，继续执行Catalina类的start()，在start()方法中调getServer().start();</p>
+<p>调用LifecycleBase类的start()方法，在这个方法中调动StandardServer类实现的startInternal()，在这个类中继续调用service的star()方法，以此类推逐层start调用，直到调用engine的start()，我们看下engine的start()方法，在看下StandardEngine的类图:</p>
+<p><img src="tomcat-source-code/7.png" alt="jiegou"></p>
+<p>StandardEngine的startInternal()调用ContainerBase的startInternal()</p>
+<pre><code class="java">/**
+ * Start this component and implement the requirements
+ * of {@link org.apache.catalina.util.LifecycleBase#startInternal()}.
+ *
+ * @exception LifecycleException if this component detects a fatal error
+ *  that prevents this component from being used
+ */
+@Override
+protected synchronized void startInternal() throws LifecycleException {
 
-看上图总结一下tomcat的组件主要包括:
+     ......
+    // Start our child containers, if any
+    Container children[] = findChildren();
+    List&lt;Future&lt;Void&gt;&gt; results = new ArrayList&lt;&gt;();
+    for (int i = 0; i &lt; children.length; i++) {
+        results.add(startStopExecutor.submit(new StartChild(children[i])));
+    }
+    ......
+}</code></pre>
+<p>findChildren()的方法找到的是engine容器的子容器然后在new StartChild(children[i])中调用子类容器的start()；使用这种方式依次启动子容器</p>
 
-server：整个servlet容器，一个tomcat对应一个server，一个server包含多个service
-server在tomcat中的实现类是：StandardServer
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://chenmingyu.top/tomcat-source-code/" data-id="ckdn6w81q005qaktwh0rw1ljd" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tomcat/" rel="tag">tomcat</a></li></ul>
 
-service： 一个service包含多个connector（接受请求的协议），和一个container（容器）
-多个connector共享一个container容器，
-service在tomcat中的实现类是：StandardService
+    </footer>
+  </div>
+  
+</article>
 
-connector：链接器，负责处理客户端请求，解析不同协议及io方式
 
-executor：线程池
+  
+    <article id="post-springboot-exception" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/springboot-exception/" class="article-date">
+  <time datetime="2018-12-06T07:41:01.000Z" itemprop="datePublished">2018-12-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>
+  </div>
 
-container：包含engine，host，c ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/springboot-exception/" title="spring Boot 2.x | 自定义异常 统一返回值 全局异常处理">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="spring Boot 2.x | 自定义异常 统一返回值 全局异常处理"></a></div><div class="recent-post-info"><a class="article-title" href="/springboot-exception/" title="spring Boot 2.x | 自定义异常 统一返回值 全局异常处理">spring Boot 2.x | 自定义异常 统一返回值 全局异常处理</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2018-12-06 15:41:01"><i class="far fa-calendar-alt"></i>2018-12-06</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/java/">java</a></span></div><div class="content">
-本文讲解如何在springboot项目中使用自定义异常，统一返回，全局异常处理 
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/springboot-exception/">spring Boot 2.x | 自定义异常 统一返回值 全局异常处理</a>
+    </h1>
+  
 
-新建一个springboot项目，引入web依赖，pom.xml完整依赖如下
-&lt;dependencies&gt;
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>本文讲解如何在springboot项目中使用自定义异常，统一返回，全局异常处理 </p>
+</blockquote>
+<p>新建一个springboot项目，引入web依赖，pom.xml完整依赖如下</p>
+<pre><code class="xml">&lt;dependencies&gt;
     &lt;dependency&gt;
         &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
         &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
@@ -125,29 +406,543 @@ container：包含engine，host，c ...</div></div></div><div class="recent-post
         &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
         &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
         &lt;scope&gt;test&lt;/scope&gt;
-    &lt;/dependency& ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/springboot-aop/" title="spring Boot 2.x | 实现 aop">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="spring Boot 2.x | 实现 aop"></a></div><div class="recent-post-info"><a class="article-title" href="/springboot-aop/" title="spring Boot 2.x | 实现 aop">spring Boot 2.x | 实现 aop</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2018-12-05 16:44:39"><i class="far fa-calendar-alt"></i>2018-12-05</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/java/">java</a></span></div><div class="content">什么是aopaop（Aspect Oriented Programming）面向切面编程，一种可以在运行时在被调用的方法前后动态织入代码的编程方式。
-相关术语
-Aspect： 切面，包含一些Pointcut和Advice
-Pointcut：切入点，相当于一个条件，只有符合条件的方法才会走Advice
-advice：通知，只有符合Pointcut的方法会执行通知，advice分为before，around，after，AfterReturning，AfterThrowing
-advice通过以下几种通知来确定在什么时候调用advice
-@before：前置通知，方法执行之前调用advice
-@around：环绕通知，方法执行前后都会调用advice
-@after：后置通知，方法执行之后调用advice（无论方法执行是否发送异常，总是调用）
-@AfterReturning：后置通知，方法执行之后调用advice，可以获取返回值 （无论方法执行是否发送异常，总是调用）
-@AfterThrowing：后置通知，方法执行中发生异常后调用，可以获取异常信息（只有发生异常才会）
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+        &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+        &lt;version&gt;1.16.22&lt;/version&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;</code></pre>
+<h4 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h4><p>在项目中有的地方，比如入参校验错误，安全校验失败等可能需要主动去抛异常，这时候就需要自己自定义一个异常。</p>
+<pre><code class="java">/**
+ * @auther: chenmingyu
+ * @date: 2018/12/6 14:36
+ * @description:
+ */
+@Data
+public class MyException extends RuntimeException{
+
+    private Integer code;
+
+    private String msg;
+
+    public MyException(Integer code, String msg) {
+        this.code = code;
+        this.msg = msg;
+    }
+
+    public MyException(String msg) {
+        this.code = ResultTypeEnum.SERVICE_ERROR.getCode();
+        this.msg = msg;
+    }
+
+    public MyException(ResultTypeEnum resultEnum) {
+        this.code = resultEnum.getCode();
+        this.msg = resultEnum.getMessage();
+    }
+}</code></pre>
+<p>自定义异常只要新建一个类继承RuntimeException类</p>
+<h4 id="统一返回值"><a href="#统一返回值" class="headerlink" title="统一返回值"></a>统一返回值</h4><h5 id="定义统一返回类：Result"><a href="#定义统一返回类：Result" class="headerlink" title="定义统一返回类：Result"></a>定义统一返回类：<code>Result</code></h5><p><code>Result</code> 类构造函数私有化，使用Result 类提供的static方法构造Result 实例返回，再定义一个响应状态的枚举<code>ResultTypeEnum</code>，同一返回状态码等信息。</p>
+<pre><code class="java">/**
+ * @auther: chenmingyu
+ * @date: 2018/10/31 16:47
+ * @description:
+ */
+public class Result&lt;T&gt; implements Serializable {
+
+  private Integer code;
+  private String msg;
+  private T data;
+
+  private Result() {
+  }
+
+  public Result(ResultTypeEnum type) {
+    this.code = type.getCode();
+    this.msg = type.getMessage();
+  }
+
+  public Result(ResultTypeEnum type, T data) {
+    this.code = type.getCode();
+    this.msg = type.getMessage();
+    this.data = data;
+  }
+
+  public Result(ResultTypeEnum type, String content, T data) {
+    this.code = type.getCode();
+    this.msg = content;
+    this.data = data;
+  }
+
+  public static Result success() {
+    return new Result(ResultTypeEnum.SERVICE_SUCCESS);
+  }
+
+  public static &lt;T&gt; Result&lt;T&gt; success(T data) {
+    return new Result(ResultTypeEnum.SERVICE_SUCCESS, data);
+  }
+
+  public static &lt;T&gt; Result&lt;T&gt; error(T data) {
+    return new Result(ResultTypeEnum.SERVICE_ERROR, data);
+  }
+
+  public static  &lt;T&gt; Result&lt;T&gt; success(String content, T data) {
+    return new Result(ResultTypeEnum.SERVICE_SUCCESS, content, data);
+  }
+
+  public static Result error() {
+    return new Result(ResultTypeEnum.SERVICE_ERROR);
+  }
+
+  public static Result error(ResultTypeEnum typeEnum) {
+    return new Result(typeEnum);
+  }
+
+  public static Result error(ResultTypeEnum typeEnum,String msg) {
+    return new Result(typeEnum,msg);
+  }
+
+  public String getMsg() {
+    return msg;
+  }
+
+  public void setMsg(String msg) {
+    this.msg = msg;
+  }
+
+  public Integer getCode() {
+    return code;
+  }
+
+  public void setCode(Integer code) {
+    this.code = code;
+  }
+
+  public T getData() {
+    return data;
+  }
+
+  public void setData(T data) {
+    this.data = data;
+  }
+}</code></pre>
+<h5 id="响应状态枚举：ResultTypeEnum"><a href="#响应状态枚举：ResultTypeEnum" class="headerlink" title="响应状态枚举：ResultTypeEnum"></a>响应状态枚举：ResultTypeEnum</h5><pre><code>/**
+ * @auther: chenmingyu
+ * @date: 2018/10/31 16:47
+ * @description:
+ */
+public enum ResultTypeEnum {
+
+    SERVICE_SUCCESS(200,&quot;成功&quot;),
+    PARAM_ERROR(40001,&quot;入参异常&quot;),
+    SERVICE_ERROR(500,&quot;服务异常&quot;);
+
+    private Integer code;
+    private String message;
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    ResultTypeEnum(int code, String message) {
+        this.code = code;
+        this.message = message;
+    }
+}</code></pre><h5 id="怎么使用"><a href="#怎么使用" class="headerlink" title="怎么使用"></a>怎么使用</h5><pre><code class="java">/**
+ * @auther: chenmingyu
+ * @date: 2018/12/6 14:20
+ * @description:
+ */
+@RestController
+public class ExceptionController {
+
+    /**
+     * 成功返回值
+     */
+    @RequestMapping(&quot;/querySuccess&quot;)
+    public Result&lt;String&gt; querySuccess(){
+        return Result.success(&quot;我是数据&quot;);
+    }
+
+    /**
+     * 错误返回值
+     */
+    @RequestMapping(&quot;/queryError&quot;)
+    public Result&lt;String&gt; queryError(){
+        return Result.error(ResultTypeEnum.SERVICE_ERROR);
+    }
+}
+</code></pre>
+<p>调用 <a href="http://localhost:8080/querySuccess" target="_blank" rel="noopener">http://localhost:8080/querySuccess</a></p>
+<p><img src="1.png" alt=""></p>
+<p>调用 <a href="http://localhost:8080/queryError" target="_blank" rel="noopener">http://localhost:8080/queryError</a></p>
+<p><img src="2.png" alt=""></p>
+<h4 id="全局异常处理"><a href="#全局异常处理" class="headerlink" title="全局异常处理"></a>全局异常处理</h4><p>在spring的项目中使用<code>@ControllerAdvice</code>注解来处理controller层报出的异常信息</p>
+<pre><code class="java">//ControllerAdvice 注解源码
+@Target({ElementType.TYPE})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Component
+public @interface ControllerAdvice {
+    @AliasFor(&quot;basePackages&quot;)
+    String[] value() default {};
+
+    @AliasFor(&quot;value&quot;)
+    String[] basePackages() default {};
+
+    Class&lt;?&gt;[] basePackageClasses() default {};
+
+    Class&lt;?&gt;[] assignableTypes() default {};
+
+    Class&lt;? extends Annotation&gt;[] annotations() default {};
+}</code></pre>
+<h5 id="全局异常处理类"><a href="#全局异常处理类" class="headerlink" title="全局异常处理类"></a>全局异常处理类</h5><p><code>@ExceptionHandler(value = Exception.class)：处理Exception类型的异常</code></p>
+<p><code>@ResponseStatus：响应的状态码</code></p>
+<pre><code class="java">/**
+ * @auther: chenmingyu
+ * @date: 2018/12/6 10:57
+ * @description:
+ */
+@ControllerAdvice
+public class ExceptionHandle extends ResponseEntityExceptionHandler {
+
+    /**
+     * 只捕获 IllegalArgumentException 异常
+     * @param request
+     * @param e
+     * @return
+     */
+    @ExceptionHandler(value = IllegalArgumentException.class)
+    @ResponseBody
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    private Result illegalArgumentExceptionHandler(HttpServletRequest request, Exception e) {
+        System.out.println(&quot;IllegalArgumentException 异常: &quot; + e.getClass().getName());
+        return Result.error(ResultTypeEnum.PARAM_ERROR,&quot;请求地址：&quot;+request.getRequestURI());
+    }
+
+    /**
+     * 只捕获 MyException 异常
+     * @param request
+     * @param e
+     * @return
+     */
+    @ExceptionHandler(value = MyException.class)
+    @ResponseBody
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    private Result myExceptionHandler(HttpServletRequest request,MyException e) {
+        System.out.println(&quot;自定义异常 ：&quot;+ e.getMsg());
+        return  Result.error(e.getMsg()+&quot;url:&quot;+request.getRequestURI());
+    }
+
+    /**
+     * 默认异常捕获，上面两个异常没走的话走我。
+     * @param request
+     * @param e
+     * @return
+     */
+    @ExceptionHandler
+    @ResponseBody
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    private Result exceptionHandler(HttpServletRequest request,Exception e) {
+        System.out.println(&quot;异常 ：&quot;+ e.getClass().getName());
+        request.getMethod();
+        return Result.error(ResultTypeEnum.SERVICE_ERROR,&quot;不符合上述异常的默认走我这&quot;);
+    }
+}</code></pre>
+<h5 id="处理异常测试"><a href="#处理异常测试" class="headerlink" title="处理异常测试"></a>处理异常测试</h5><pre><code class="java">/**
+ * @auther: chenmingyu
+ * @date: 2018/12/6 14:20
+ * @description:
+ */
+@RestController
+public class ExceptionController {
+
+    /**
+     * 抛出运行时异常
+     */
+    @RequestMapping(&quot;/throwRuntimeException&quot;)
+    public void throwRuntimeException(){
+        throw new RuntimeException();
+    }
+
+    /**
+     * 抛出运行时异常
+     */
+    @RequestMapping(&quot;/throwIllegalArgumentException&quot;)
+    public void throwIllegalArgumentException(){
+        throw new IllegalArgumentException();
+    }
+
+    /**
+     * 抛出自定义异常
+     */
+    @RequestMapping(&quot;/throwMyException&quot;)
+    public void throwMyException(){
+        throw new MyException(&quot;我是主动抛出来的&quot;);
+    }
+}</code></pre>
+<p>调用<a href="http://localhost:8080/throwIllegalArgumentException" target="_blank" rel="noopener">http://localhost:8080/throwIllegalArgumentException</a></p>
+<p><img src="3.png" alt=""></p>
+<p>调用<a href="http://localhost:8080/throwMyException" target="_blank" rel="noopener">http://localhost:8080/throwMyException</a></p>
+<p><img src="4.png" alt=""></p>
+<p>调用<a href="http://localhost:8080/throwRuntimeException" target="_blank" rel="noopener">http://localhost:8080/throwRuntimeException</a></p>
+<p><img src="5.png" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://chenmingyu.top/springboot-exception/" data-id="ckdn6w813004saktwbhv3fa29" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/exception/" rel="tag">exception</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
 
 
+  
+    <article id="post-springboot-aop" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/springboot-aop/" class="article-date">
+  <time datetime="2018-12-05T08:44:39.000Z" itemprop="datePublished">2018-12-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>
+  </div>
 
-集成aop
-新 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/springboot-redis/" title="spring Boot 2.x | 集成 redis">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="spring Boot 2.x | 集成 redis"></a></div><div class="recent-post-info"><a class="article-title" href="/springboot-redis/" title="spring Boot 2.x | 集成 redis">spring Boot 2.x | 集成 redis</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2018-12-05 10:37:11"><i class="far fa-calendar-alt"></i>2018-12-05</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/java/">java</a></span></div><div class="content">spring Boot 项目中加入redis
-集成redis
-新建springboot项目
-引入redis依赖：spring-boot-starter-data-redis
-配置文件中配置相关属性
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/springboot-aop/">spring Boot 2.x | 实现 aop</a>
+    </h1>
+  
 
-pom.xml引入依赖新建项目后，在pom.xml中引入redis依赖 spring-boot-starter-data-redis ，pom.xml完整依赖如下：
-&lt;dependencies&gt;
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="什么是aop"><a href="#什么是aop" class="headerlink" title="什么是aop"></a>什么是aop</h4><p>aop（Aspect Oriented Programming）面向切面编程，一种可以在运行时在被调用的方法前后动态织入代码的编程方式。</p>
+<h5 id="相关术语"><a href="#相关术语" class="headerlink" title="相关术语"></a>相关术语</h5><ul>
+<li>Aspect： 切面，包含一些Pointcut和Advice</li>
+<li>Pointcut：切入点，相当于一个条件，只有符合条件的方法才会走Advice</li>
+<li>advice：通知，只有符合Pointcut的方法会执行通知，advice分为before，around，after，AfterReturning，AfterThrowing</li>
+<li>advice通过以下几种通知来确定在什么时候调用advice<ul>
+<li>@before：前置通知，方法执行之前调用advice</li>
+<li>@around：环绕通知，方法执行前后都会调用advice</li>
+<li>@after：后置通知，方法执行之后调用advice（无论方法执行是否发送异常，总是调用）</li>
+<li>@AfterReturning：后置通知，方法执行之后调用advice，可以获取返回值 （无论方法执行是否发送异常，总是调用）</li>
+<li>@AfterThrowing：后置通知，方法执行中发生异常后调用，可以获取异常信息（只有发生异常才会）</li>
+</ul>
+</li>
+</ul>
+<h4 id="集成aop"><a href="#集成aop" class="headerlink" title="集成aop"></a>集成aop</h4><ul>
+<li>新建一个springboot项目</li>
+<li>pom.xml中引入aop依赖 </li>
+</ul>
+<h5 id="引入依赖"><a href="#引入依赖" class="headerlink" title="引入依赖"></a>引入依赖</h5><p>新建项目后，在pom.xml中引入aop依赖 <code>spring-boot-starter-aop</code> ，pom.xml完整依赖如下：</p>
+<pre><code class="xml">&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-aop&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+        &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+        &lt;version&gt;1.16.22&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+        &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;</code></pre>
+<h5 id="编写切面"><a href="#编写切面" class="headerlink" title="编写切面"></a>编写切面</h5><pre><code class="java">/**
+ * @auther: chenmingyu
+ * @date: 2018/12/5 17:26
+ * @description:
+ */
+@Aspect
+@Component
+public class TestAspect {
+
+    /**
+     * 切入点
+     */
+    @Pointcut(&quot;execution(public * com.my.aop.controller.*.*(..))&quot;)
+    public void execute(){
+    }
+
+    /**
+     * 前置通知
+     * @param joinPoint
+     */
+    @Before(value =&quot;execute()&quot;)
+    public void Before(JoinPoint joinPoint) {
+        System.out.println(&quot;执行方法之前&quot;);
+    }
+
+    /**
+     * 环绕通知
+     * @param proceedingJoinPoint
+     * @return
+     */
+    @Around(value =&quot;execute()&quot;)
+    public Object around(ProceedingJoinPoint proceedingJoinPoint) {
+        System.out.println(&quot;环绕通知开始&quot;);
+        try {
+            System.out.println(&quot;执行方法:&quot; + proceedingJoinPoint.getSignature().getName());
+            Object object =  proceedingJoinPoint.proceed();
+            System.out.println(&quot;环绕通知结束，方法返回:&quot; + object);
+            return object;
+        } catch (Throwable e) {
+            System.out.println(&quot;执行方法异常:&quot; + e.getClass().getName());
+            return null;
+        }
+    }
+
+    /**
+     * 后置通知
+     * @param joinPoint
+     */
+    @After(value =&quot;execute()&quot;)
+    public void After(JoinPoint joinPoint) {
+        System.out.println(&quot;执行方法之后&quot;);
+    }
+
+    /**
+     * 后置通知，带返回值
+     * @param obj
+     */
+    @AfterReturning(pointcut = &quot;execute()&quot;,returning = &quot;obj&quot;)
+    public void AfterReturning(Object obj) {
+        System.out.println(&quot;执行方法之后获取返回值：&quot;+obj);
+    }
+
+    /**
+     * 后置通知，异常时执行
+     * @param e
+     */
+    @AfterThrowing(throwing = &quot;e&quot;,pointcut = &quot;execute()&quot;)
+    public void doAfterThrowing(Exception e) {
+        System.out.println(&quot;执行方法异常：&quot;+e.getClass().getName());
+    }
+}</code></pre>
+<p>@Aspect    ：声明这个类是一个切面</p>
+<p>@Component：将bean交由spring管理</p>
+<p>@Pointcut(“execution(public * com.my.aop.controller.<em>.</em>(..))”)：声明切入点</p>
+<p>execution(public * com.my.aop.controller.<em>.</em>(..))：条件表达式，之后com.my.aop.controller包下的public声明的方法会走通知</p>
+<p>@Before，@Around，@After，@AfterReturning，@AfterThrowing：通知类型</p>
+<h5 id="验证Aspect"><a href="#验证Aspect" class="headerlink" title="验证Aspect"></a>验证Aspect</h5><pre><code class="java">/**
+ * @auther: chenmingyu
+ * @date: 2018/12/5 17:34
+ * @description:
+ */
+@RestController
+public class AspectController {
+
+    /**
+     * 走切面
+     * @return
+     */
+    @GetMapping(&quot;/test&quot;)
+    public String test(){
+        return &quot;method return&quot;;
+    }
+
+    /**
+     * 不走切面
+     */
+    @GetMapping(&quot;/test1&quot;)
+    private void test1(){
+    }
+
+    /**
+     * 走切面，抛异常
+     */
+    @GetMapping(&quot;/throws&quot;)
+    public void throwsException(){
+        throw new RuntimeException();
+    }
+}</code></pre>
+<p>执行 <a href="http://localhost:8080/test1，没有输出" target="_blank" rel="noopener">http://localhost:8080/test1，没有输出</a></p>
+<p>执行 <a href="http://localhost:8080/test，输出如下" target="_blank" rel="noopener">http://localhost:8080/test，输出如下</a></p>
+<p><img src="1.png" alt=""></p>
+<p>执行 <a href="http://localhost:8080/throws，输出如下" target="_blank" rel="noopener">http://localhost:8080/throws，输出如下</a></p>
+<p><img src="2.png" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://chenmingyu.top/springboot-aop/" data-id="ckdn6w810004maktw062ebpri" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/aop/" rel="tag">aop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-springboot-redis" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/springboot-redis/" class="article-date">
+  <time datetime="2018-12-05T02:37:11.000Z" itemprop="datePublished">2018-12-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/springboot-redis/">spring Boot 2.x | 集成 redis</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>spring Boot 项目中加入redis</p>
+<h4 id="集成redis"><a href="#集成redis" class="headerlink" title="集成redis"></a>集成redis</h4><ul>
+<li>新建springboot项目</li>
+<li>引入redis依赖：spring-boot-starter-data-redis</li>
+<li>配置文件中配置相关属性</li>
+</ul>
+<h5 id="pom-xml引入依赖"><a href="#pom-xml引入依赖" class="headerlink" title="pom.xml引入依赖"></a>pom.xml引入依赖</h5><p>新建项目后，在pom.xml中引入redis依赖 <code>spring-boot-starter-data-redis</code> ，pom.xml完整依赖如下：</p>
+<pre><code class="xml">&lt;dependencies&gt;
     &lt;!--Redis 依赖--&gt;
     &lt;dependency&gt;
         &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
@@ -155,11 +950,215 @@ pom.xml引入依赖新建项目后，在pom.xml中引入redis依赖 spring-boot-
     &lt;/dependency&gt;
     &lt;!-- web 依赖--&gt;
     &lt;dependency&gt;
-        &lt;groupId&gt;org.springfr ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/springboot-swagger/" title="spring Boot 2.x | swagger2构建api文档">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="spring Boot 2.x | swagger2构建api文档"></a></div><div class="recent-post-info"><a class="article-title" href="/springboot-swagger/" title="spring Boot 2.x | swagger2构建api文档">spring Boot 2.x | swagger2构建api文档</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2018-12-02 21:30:33"><i class="far fa-calendar-alt"></i>2018-12-02</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/java/">java</a></span></div><div class="content">
-本文讲解springboot中如何集成swagger
-swagger2是一个可以构建和调试RESTful API文档的组件，利用swagger2的注解可以快速的在项目中构建Api文档，并且提供了测试API的功能
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.apache.commons&lt;/groupId&gt;
+        &lt;artifactId&gt;commons-lang3&lt;/artifactId&gt;
+        &lt;version&gt;3.1&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+        &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;</code></pre>
+<h5 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h5><pre><code class="yml">spring:
+  redis:
+    port: 6379
+    host: 127.0.0.1</code></pre>
+<p>springboot中提供了两个redis操作的api：RedisTemplate，StringRedisTemplate</p>
+<h5 id="使用StringRedisTemplate编写一个工具类"><a href="#使用StringRedisTemplate编写一个工具类" class="headerlink" title="使用StringRedisTemplate编写一个工具类"></a>使用StringRedisTemplate编写一个工具类</h5><pre><code class="java">/**
+ * @auther: chenmingyu
+ * @date: 2018/11/11 12:04
+ * @description: redis工具类
+ */
+@Component(&quot;redisUtils&quot;)
+public class RedisUtils {
 
-集成swagger引入swagger依赖&lt;dependency&gt;
+    @Resource
+    private StringRedisTemplate stringRedisTemplate;
+
+    /**
+     * 获取key
+     * @param key
+     * @return
+     */
+    public String get(String key){
+        try {
+            if(StringUtils.isBlank(key)){
+                return null;
+            }
+            return stringRedisTemplate.opsForValue().get(key);
+        }catch (Exception e){
+            System.out.println(String.format(&quot;获取字符串异常！ key ：%s&quot;,key));
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * 设置key
+     * @param key
+     * @param value
+     */
+    public Boolean set(String key,String value){
+        try {
+            if(StringUtils.isBlank(key)||StringUtils.isBlank(value)){
+                return false;
+            }
+            stringRedisTemplate.opsForValue().set(key,value);
+            return true;
+        }catch (Exception e){
+            System.out.println(String.format(&quot;设置字符串异常！ key ：%s ,value：%s&quot;,key,value));
+            e.printStackTrace();
+        }
+        return false;
+    }
+    /**
+     * 删除key
+     * @param key
+     */
+    public Boolean delete(String key){
+        try {
+            if(StringUtils.isBlank(key)){
+                return false;
+            }
+            return stringRedisTemplate.delete(key);
+        }catch (Exception e){
+            System.out.println(String.format(&quot;删除key异常！ key ：%s &quot;,key));
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    /**
+     * 设置缓存，时间单位为秒
+     * @param key
+     * @param value
+     * @param time
+     * @return
+     */
+    public Boolean setEX(String key,String value,Long time){
+        try {
+            if(StringUtils.isBlank(key)||StringUtils.isBlank(value)){
+                return false;
+            }
+            stringRedisTemplate.opsForValue().set(key, value, time, TimeUnit.SECONDS);
+            return true;
+        }catch (Exception e){
+            System.out.println(String.format(&quot;设置缓存异常！ key ：%s ,value：%s,times：%s&quot;,key));
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    /**
+     * 获取key缓存时间，时间单位为秒
+     * @param key
+     * @return
+     */
+    public Long getExpireTime(String key){
+        try {
+            if(StringUtils.isBlank(key)){
+                return null;
+            }
+            return stringRedisTemplate.getExpire(key,TimeUnit.SECONDS);
+        }catch (Exception e){
+            System.out.println(String.format(&quot;获取key缓存时间异常！ key ：%s&quot;,key));
+            e.printStackTrace();
+        }
+        return null;
+    }
+}</code></pre>
+<p>StringRedisTemplate继承自RedisTemplate，StringRedisTemplate中的所有数据类型都是字符串类型，比如key，value，list，hash，set里存的元素都是字符串，与RedisTemplate不同的是StringRedisTemplate改变了序列化方式，StringRedisTemplate使用StringRedisSerializer序列化key，value，List，Hash，Set等数据结构中的元素。</p>
+<p><img src="E:%5Cmy%5Cmyblog%5Csource_posts%5Cspringboot-redis%5C1.png" alt=""></p>
+<h5 id="使用junit测试"><a href="#使用junit测试" class="headerlink" title="使用junit测试"></a>使用junit测试</h5><pre><code class="java">@RunWith(SpringRunner.class)
+@SpringBootTest
+public class SpringbootRedisApplicationTests {
+
+    @Resource
+    private RedisUtils redisUtils;
+
+
+    @Test
+    public void testSet() {
+        Boolean flag = redisUtils.set(&quot;mingyu&quot;,&quot;mingyu&quot;);
+        System.out.println(&quot;testSet：&quot;+flag);
+    }
+
+    @Test
+    public void testGet() {
+        String value = redisUtils.get(&quot;mingyu&quot;);
+        System.out.println(&quot;testGet：&quot;+value);
+    }
+
+    @Test
+    public void testDelete() {
+        Boolean flag = redisUtils.delete(&quot;mingyu&quot;);
+        System.out.println(&quot;testDelete：&quot;+flag);
+    }
+
+    @Test
+    public void testSetEX() {
+        Boolean flag = redisUtils.setEX(&quot;mingyu&quot;,&quot;cmy&quot;,1000L);
+        System.out.println(&quot;testSetEX：&quot;+flag);
+    }
+
+    @Test
+    public void testGetExpireTime() {
+        Long time = redisUtils.getExpireTime(&quot;mingyu&quot;);
+        System.out.println(&quot;testSetEX：&quot;+time);
+    }
+}</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://chenmingyu.top/springboot-redis/" data-id="ckdn6w81j005faktwhe8o21g7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/" rel="tag">redis</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-springboot-swagger" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/springboot-swagger/" class="article-date">
+  <time datetime="2018-12-02T13:30:33.000Z" itemprop="datePublished">2018-12-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/springboot-swagger/">spring Boot 2.x | swagger2构建api文档</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>本文讲解springboot中如何集成swagger</p>
+<p>swagger2是一个可以构建和调试RESTful API文档的组件，利用swagger2的注解可以快速的在项目中构建Api文档，并且提供了测试API的功能</p>
+</blockquote>
+<h4 id="集成swagger"><a href="#集成swagger" class="headerlink" title="集成swagger"></a>集成swagger</h4><h5 id="引入swagger依赖"><a href="#引入swagger依赖" class="headerlink" title="引入swagger依赖"></a>引入swagger依赖</h5><pre><code class="xml">&lt;dependency&gt;
     &lt;groupId&gt;io.springfox&lt;/groupId&gt;
     &lt;artifactId&gt;springfox-swagger2&lt;/artifactId&gt;
     &lt;version&gt;2.7.0&lt;/version&gt;
@@ -168,42 +1167,498 @@ swagger2是一个可以构建和调试RESTful API文档的组件，利用swagger
     &lt;groupId&gt;io.springfox&lt;/groupId&gt;
     &lt;artifactId&gt;springfox-swagger-ui&lt;/artifactId&gt;
     &lt;version&gt;2.7.0&lt;/version&gt;
-&lt;/dependenc ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/springboot-mybatis-xml/" title="spring Boot 2.x | mybatis(xml方式)">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="spring Boot 2.x | mybatis(xml方式)"></a></div><div class="recent-post-info"><a class="article-title" href="/springboot-mybatis-xml/" title="spring Boot 2.x | mybatis(xml方式)">spring Boot 2.x | mybatis(xml方式)</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2018-12-02 19:32:29"><i class="far fa-calendar-alt"></i>2018-12-02</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/java/">java</a></span></div><div class="content">
-本文讲解如何在springboot中集成mybatis （xml方式）
-spring Boot 支持两种方式集成mybatis，一种是使用注解，另一种是使用xml，两种方式各有优劣，注解方式简洁方便，不需要xml，xml方式可以直观的看到sql，方便sql优化
+&lt;/dependency&gt;</code></pre>
+<h5 id="配置swagger"><a href="#配置swagger" class="headerlink" title="配置swagger"></a>配置swagger</h5><pre><code class="java">/**
+ * @auther: chenmingyu
+ * @date: 2018/12/2 21:39
+ * @description:
+ */
+@Configuration
+@EnableSwagger2
+public class Swagger2Configration {
 
-集成mybatis:
-新建一个springboot项目
-pom.xml中引入mybatis和mysql的依赖
-配置文件配置数据库链接属性
+    /**
+     * 创建api文档
+     * @return
+     */
+    @Bean
+    public Docket createRestApi() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .apiInfo(apiInfo())
+                .select()
+                .apis(RequestHandlerSelectors.basePackage(&quot;com.my.swagger&quot;))
+                .paths(PathSelectors.any())
+                .build();
+    }
 
-pom.xml引入mybatis，mysql依赖pom.xml中的mybatis，mysql依赖可以在创建项目的时候勾选对应的依赖项
-如果在构建项目是没勾选对应的依赖，可以在建完项目后，手动添加依赖，保证pom.xml有mybatis，mysql依赖
-pom.xml对应的依赖
-&lt;dependencies&gt;
+    /**
+     * api文档页面展示信息
+     * @return
+     */
+    private ApiInfo apiInfo() {
+        return new ApiInfoBuilder()
+                .title(&quot;swagger组件&quot;)
+                .description(&quot;测试api文档&quot;)
+                .contact(new Contact(&quot;mingyu&quot;, &quot;www.chenmingyu.top&quot;, null))
+                .version(&quot;1.0&quot;)
+                .build();
+    }
+}</code></pre>
+<p><em>@configration 标识这是一个配置类</em></p>
+<p><em>@Bean 将docket对象注入到spring容器</em></p>
+<p><em>@EnableSwagger2 开启swagger2</em></p>
+<p><em>apis 表示swagger需要扫描的包</em></p>
+<p><em>PathSelectors.any() 表示路径选择器匹配所有路径</em></p>
+<p><em>contact() 作者信息</em></p>
+<h5 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h5><pre><code class="java">/**
+ * @auther: chenmingyu
+ * @date: 2018/12/2 21:43
+ * @description:
+ */
+@RestController
+@RequestMapping(&quot;/test&quot;)
+@Api(tags =&quot;用户信息接口&quot;)
+public class UserController {
+
+    @GetMapping(&quot;/user&quot;)
+    @ApiOperation(value=&quot;查询所有&quot;, notes=&quot;查询所有用户信息&quot;)
+    public List&lt;User&gt; queryUsers(){
+        List&lt;User&gt; userList = new ArrayList&lt;&gt;();
+        IntStream.range(0, 5).forEach(i-&gt;{
+            User user = new User();
+            user.setId(i);
+            user.setUserName(&quot;cmy&quot;);
+            user.setPassWord(&quot;passWord&quot;);
+            userList.add(user);
+        });
+        return userList;
+    }
+}
+@Data
+@ApiModel(value=&quot;用户对象&quot;)
+class User {
+
+    private Integer id;
+    @ApiModelProperty(value=&quot;用户名称&quot;,name=&quot;userName&quot;)
+    private String userName;
+
+    @ApiModelProperty(value=&quot;密码&quot;,name=&quot;passWord&quot;)
+    private String passWord;
+}</code></pre>
+<h5 id="启动项目，查看swagger页面"><a href="#启动项目，查看swagger页面" class="headerlink" title="启动项目，查看swagger页面"></a>启动项目，查看swagger页面</h5><p>文档地址 <a href="http://localhost:8080/swagger-ui.html" target="_blank" rel="noopener">http://localhost:8080/swagger-ui.html</a></p>
+<p><img src="1.png" alt=""></p>
+<h5 id="重用注释"><a href="#重用注释" class="headerlink" title="重用注释"></a>重用注释</h5><pre><code class="yml">@Api() 用于类；表示标识这个类是swagger的资源 
+tags–表示说明 
+value–也是说明，可以使用tags替代 
+
+@ApiOperation() 用于方法；表示一个http请求的操作 
+value用于方法描述 
+notes用于提示内容 
+
+@ApiParam() 用于方法，参数，字段说明；表示对参数的添加元数据（说明或是否必填等） 
+name–参数名 
+value–参数说明 
+required–是否必填
+
+@ApiModel()用于类 ；表示对类进行说明，用于参数用实体类接收 
+value–表示对象名 
+
+@ApiModelProperty()用于方法，字段； 表示对model属性的说明或者数据操作更改 
+value–字段说明 
+name–重写属性名字 
+dataType–重写属性类型 
+required–是否必填 
+example–举例说明 
+hidden–隐藏
+
+@ApiImplicitParam() 用于方法 
+表示单独的请求参数
+
+@ApiImplicitParams() 用于方法，包含多个 @ApiImplicitParam 
+name–参数ming 
+value–参数说明 
+dataType–数据类型 
+paramType–参数类型 
+example–举例说明
+
+@ApiIgnore
+作用于方法上，使用这个注解swagger将忽略这个接口</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://chenmingyu.top/springboot-swagger/" data-id="ckdn6w81k005iaktw7sjy7jny" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swagger2/" rel="tag">swagger2</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-springboot-mybatis-xml" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/springboot-mybatis-xml/" class="article-date">
+  <time datetime="2018-12-02T11:32:29.000Z" itemprop="datePublished">2018-12-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/springboot-mybatis-xml/">spring Boot 2.x | mybatis(xml方式)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>本文讲解如何在springboot中集成mybatis （xml方式）</p>
+<p>spring Boot 支持两种方式集成mybatis，一种是使用注解，另一种是使用xml，两种方式各有优劣，注解方式简洁方便，不需要xml，xml方式可以直观的看到sql，方便sql优化</p>
+</blockquote>
+<h4 id="集成mybatis"><a href="#集成mybatis" class="headerlink" title="集成mybatis:"></a>集成mybatis:</h4><ul>
+<li>新建一个springboot项目</li>
+<li>pom.xml中引入mybatis和mysql的依赖</li>
+<li>配置文件配置数据库链接属性</li>
+</ul>
+<h5 id="pom-xml引入mybatis，mysql依赖"><a href="#pom-xml引入mybatis，mysql依赖" class="headerlink" title="pom.xml引入mybatis，mysql依赖"></a>pom.xml引入mybatis，mysql依赖</h5><p>pom.xml中的mybatis，mysql依赖可以在创建项目的时候勾选对应的依赖项<br><img src="1.png" alt=""></p>
+<p>如果在构建项目是没勾选对应的依赖，可以在建完项目后，手动添加依赖，保证pom.xml有mybatis，mysql依赖</p>
+<p>pom.xml对应的依赖</p>
+<pre><code class="xml">&lt;dependencies&gt;
     &lt;!-- web --&gt;
     &lt;dependency&gt;
        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-       &lt;artifactId&gt;spr ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/springboot-mybatis-annotation/" title="spring Boot 2.x | mybatis（注解方式）">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="spring Boot 2.x | mybatis（注解方式）"></a></div><div class="recent-post-info"><a class="article-title" href="/springboot-mybatis-annotation/" title="spring Boot 2.x | mybatis（注解方式）">spring Boot 2.x | mybatis（注解方式）</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2018-12-02 19:23:10"><i class="far fa-calendar-alt"></i>2018-12-02</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/java/">java</a></span></div><div class="content">
-本文讲解如何在springboot中集成mybatis （注解方式）
-spring Boot 支持两种方式集成mybatis，一种是使用注解，另一种是使用xml，两种方式各有优劣，注解方式简洁方便，不需要xml，xml方式可以直观的看到sql，方便sql优化
+       &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+    &lt;!-- mybatis --&gt;
+    &lt;dependency&gt;
+       &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;
+       &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;
+       &lt;version&gt;1.3.2&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;!-- mysql --&gt;
+    &lt;dependency&gt;
+       &lt;groupId&gt;mysql&lt;/groupId&gt;
+       &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+       &lt;scope&gt;runtime&lt;/scope&gt;
+    &lt;/dependency&gt;
+    &lt;!-- lombok --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+        &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+        &lt;optional&gt;true&lt;/optional&gt;
+    &lt;/dependency&gt;
+    &lt;!-- junit --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+        &lt;scope&gt;test&lt;/scope&gt;
+     &lt;/dependency&gt;
+&lt;/dependencies&gt;</code></pre>
+<h5 id="application-yml-配置数据库属性，mybatis配置"><a href="#application-yml-配置数据库属性，mybatis配置" class="headerlink" title="application.yml 配置数据库属性，mybatis配置"></a>application.yml 配置数据库属性，mybatis配置</h5><p>application.yml 配置如下：</p>
+<pre><code class="yml">spring:
+  #mysql配置
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/wtx?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false
+    username: root
+    password: root
 
-集成mybatis步骤
-新建一个springboot项目
-pom.xml中引入mybatis和mysql的依赖
-配置文件配置数据库链接属性
+mybatis:
+  #mybatis xml文件文件地址
+  mapper-locations: classpath:mapper/*.xml
+  #批量扫描别名包地址
+  type-aliases-package: com.my.example.domain
+</code></pre>
+<h5 id="表结构"><a href="#表结构" class="headerlink" title="表结构"></a>表结构</h5><pre><code class="sql">CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(32) DEFAULT NULL,
+  `pass_word` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;</code></pre>
+<p>域对象 user</p>
+<pre><code class="java">/**
+ * @auther: chenmingyu
+ * @date: 2018/11/4 13:39
+ * @description:
+ */
+@Data
+public class User {
 
-pom.xml引入mybatis，mysql依赖pom.xml中的mybatis，mysql依赖可以在创建项目的时候勾选对应的依赖项
-如果在构建项目是没勾选对应的依赖，可以在建完项目后，手动添加依赖，保证pom.xml有mybatis，mysql依赖就行
-pom.xml对应的依赖
-&lt;dependencies&gt;
+    private Long id;
+    private String userName;
+    private String password;
+}</code></pre>
+<h4 id="xml方式集成mybatis"><a href="#xml方式集成mybatis" class="headerlink" title="xml方式集成mybatis"></a>xml方式集成mybatis</h4><ul>
+<li>配置文件中配置mybatis的sql的xml文件的路径</li>
+<li>入口类上使用注解@MapperScan指定扫描dao层接口</li>
+</ul>
+<p>SpringBootApplication 入口类</p>
+<pre><code class="java">@SpringBootApplication
+@MapperScan(&quot;com.my.example.dao&quot;)
+public class SpringbootMybatisApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(SpringbootMybatisApplication.class, args);
+    }
+}
+</code></pre>
+<p>dao层接口</p>
+<pre><code class="java">/**
+ * @auther: chenmingyu
+ * @date: 2018/11/4 13:42
+ * @description:
+ */
+public interface UserMapper {
+
+    User findUserByName(@Param(&quot;id&quot;) Long id) throws Exception;
+}</code></pre>
+<p>xml文件</p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE mapper PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot; &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot; &gt;
+&lt;mapper namespace=&quot;com.my.example.dao.UserMapper&quot; &gt;
+  &lt;resultMap id=&quot;BaseResultMap&quot; type=&quot;com.my.example.domain.User&quot; &gt;
+    &lt;id column=&quot;id&quot; property=&quot;id&quot; jdbcType=&quot;BIGINT&quot; /&gt;
+    &lt;result column=&quot;user_name&quot; property=&quot;userName&quot; jdbcType=&quot;VARCHAR&quot; /&gt;
+    &lt;result column=&quot;pass_word&quot; property=&quot;passWord&quot; jdbcType=&quot;VARCHAR&quot; /&gt;
+  &lt;/resultMap&gt;
+  &lt;sql id=&quot;Base_Column_List&quot; &gt;
+    id, user_name, pass_word
+  &lt;/sql&gt;
+  &lt;select id=&quot;findUserByName&quot; resultMap=&quot;BaseResultMap&quot; parameterType=&quot;java.lang.Long&quot; &gt;
+    select 
+    &lt;include refid=&quot;Base_Column_List&quot; /&gt;
+    from user
+    where id = #{id,jdbcType=BIGINT}
+  &lt;/select&gt;
+&lt;/mapper&gt;</code></pre>
+<h5 id="使用junit测试mapper"><a href="#使用junit测试mapper" class="headerlink" title="使用junit测试mapper"></a>使用junit测试mapper</h5><pre><code class="java">@RunWith(SpringRunner.class)
+@SpringBootTest
+public class SpringbootMybatisApplicationTests {
+
+    @Resource
+    private UserMapper userMapper;
+
+    @Test
+    public void testFindByName() throws Exception {
+        User user = userMapper.findUserByName(5L);
+        System.out.println(&quot;第一条记录：&quot;+user.toString());
+    }
+}</code></pre>
+<h5 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h5><p><img src="2.png" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://chenmingyu.top/springboot-mybatis-xml/" data-id="ckdn6w81e0056aktw77ctc965" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mybatis/" rel="tag">mybatis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-springboot-mybatis-annotation" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/springboot-mybatis-annotation/" class="article-date">
+  <time datetime="2018-12-02T11:23:10.000Z" itemprop="datePublished">2018-12-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/springboot-mybatis-annotation/">spring Boot 2.x | mybatis（注解方式）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>本文讲解如何在springboot中集成mybatis （注解方式）</p>
+<p>spring Boot 支持两种方式集成mybatis，一种是使用注解，另一种是使用xml，两种方式各有优劣，注解方式简洁方便，不需要xml，xml方式可以直观的看到sql，方便sql优化</p>
+</blockquote>
+<h4 id="集成mybatis步骤"><a href="#集成mybatis步骤" class="headerlink" title="集成mybatis步骤"></a>集成mybatis步骤</h4><ul>
+<li>新建一个springboot项目</li>
+<li>pom.xml中引入mybatis和mysql的依赖</li>
+<li>配置文件配置数据库链接属性</li>
+</ul>
+<h5 id="pom-xml引入mybatis，mysql依赖"><a href="#pom-xml引入mybatis，mysql依赖" class="headerlink" title="pom.xml引入mybatis，mysql依赖"></a>pom.xml引入mybatis，mysql依赖</h5><p>pom.xml中的mybatis，mysql依赖可以在创建项目的时候勾选对应的依赖项<br><img src="1.png" alt=""></p>
+<p>如果在构建项目是没勾选对应的依赖，可以在建完项目后，手动添加依赖，保证pom.xml有mybatis，mysql依赖就行</p>
+<p>pom.xml对应的依赖</p>
+<pre><code class="xml">&lt;dependencies&gt;
     &lt;!-- web --&gt;
     &lt;dependency&gt;
        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-       &lt;artifactId&gt;s ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/springboot-properties/" title="spring Boot 2.x | 配置文件，自定义配置，多环境配置">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="spring Boot 2.x | 配置文件，自定义配置，多环境配置"></a></div><div class="recent-post-info"><a class="article-title" href="/springboot-properties/" title="spring Boot 2.x | 配置文件，自定义配置，多环境配置">spring Boot 2.x | 配置文件，自定义配置，多环境配置</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2018-12-02 16:22:59"><i class="far fa-calendar-alt"></i>2018-12-02</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/java/">java</a></span></div><div class="content">springboot如何书写配置文件，包括.properties和.yml的配置文件，集成第三方配置，自定义属性，多环境配置
-配置文件在springboot支持以.properties和.yml结尾的配置文件
-application.properties 格式如下：
-#mysql 配置
+       &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+    &lt;!-- mybatis --&gt;
+    &lt;dependency&gt;
+       &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;
+       &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;
+       &lt;version&gt;1.3.2&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;!-- mysql --&gt;
+    &lt;dependency&gt;
+       &lt;groupId&gt;mysql&lt;/groupId&gt;
+       &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+       &lt;scope&gt;runtime&lt;/scope&gt;
+    &lt;/dependency&gt;
+    &lt;!-- lombok --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+        &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+        &lt;optional&gt;true&lt;/optional&gt;
+    &lt;/dependency&gt;
+    &lt;!-- junit --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+        &lt;scope&gt;test&lt;/scope&gt;
+     &lt;/dependency&gt;
+&lt;/dependencies&gt;</code></pre>
+<h5 id="application-yml-配置数据库属性，mybatis配置"><a href="#application-yml-配置数据库属性，mybatis配置" class="headerlink" title="application.yml 配置数据库属性，mybatis配置"></a>application.yml 配置数据库属性，mybatis配置</h5><p>application.yml 配置如下：</p>
+<pre><code class="yml">spring:
+  #mysql配置
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/wtx?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false
+    username: root
+    password: root
+mybatis:
+  configuration:
+    #字段名与属性名不一致，设置驼峰转换
+    map-underscore-to-camel-case: true</code></pre>
+<h5 id="表结构"><a href="#表结构" class="headerlink" title="表结构"></a>表结构</h5><pre><code class="sql">CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(32) DEFAULT NULL,
+  `pass_word` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;</code></pre>
+<p>对应的域对象 user</p>
+<pre><code class="java">/**
+ * @auther: chenmingyu
+ * @date: 2018/11/4 13:39
+ * @description:
+ */
+@Data
+public class User {
+
+    private Long id;
+    private String userName;
+    private String password;
+}</code></pre>
+<h4 id="使用注解方式集成mybatis"><a href="#使用注解方式集成mybatis" class="headerlink" title="使用注解方式集成mybatis"></a>使用注解方式集成mybatis</h4><ul>
+<li>使用@Mapper注解标记接口</li>
+<li>@Insert，@Update，@Delete，@Select注解标记方法，分别对应增删改查</li>
+</ul>
+<pre><code class="java">/**
+ * @auther: chenmingyu
+ * @date: 2018/11/4 13:42
+ * @description:
+ */
+@Mapper
+public interface UserMapper {
+
+    @Select(&quot;select * from user where id = #{id}&quot;)
+    User findUserByName(@Param(&quot;id&quot;) Long id) throws Exception;
+
+    @Insert(&quot;insert into user values (#{id},#{userName},#{passWord})&quot;)
+    int insert(User user);
+
+    @Update(&quot;update user set user_name=#{userName},pass_word=#{passWord} where id = #{id}&quot;)
+    int updateById(User user);
+
+    @Delete(&quot;delete from user where id=#{id}&quot;)
+    int deleteById(@Param(&quot;id&quot;) String id);
+}</code></pre>
+<h5 id="使用junit测试mapper"><a href="#使用junit测试mapper" class="headerlink" title="使用junit测试mapper"></a>使用junit测试mapper</h5><pre><code class="java">@RunWith(SpringRunner.class)
+@SpringBootTest
+public class SpringbootMybatisApplicationTests {
+
+    @Resource
+    private UserMapper userMapper;
+
+    @Test
+    public void testFindByName() throws Exception {
+        User user = userMapper.findUserByName(1L);
+        System.out.println(&quot;第一条记录：&quot;+user.toString());
+    }
+}</code></pre>
+<h5 id="测试结果："><a href="#测试结果：" class="headerlink" title="测试结果："></a>测试结果：</h5><p><img src="2.png" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://chenmingyu.top/springboot-mybatis-annotation/" data-id="ckdn6w8190052aktw7jqxf9xj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mybatis/" rel="tag">mybatis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-springboot-properties" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/springboot-properties/" class="article-date">
+  <time datetime="2018-12-02T08:22:59.000Z" itemprop="datePublished">2018-12-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/springboot-properties/">spring Boot 2.x | 配置文件，自定义配置，多环境配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code>springboot</code>如何书写配置文件，包括.properties和.yml的配置文件，集成第三方配置，自定义属性，多环境配置</p>
+<h4 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h4><p>在springboot支持以.properties和.yml结尾的配置文件</p>
+<p>application.properties 格式如下：</p>
+<pre><code class="yml">#mysql 配置
 spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 spring.datasource.url=jdbc:mysql://ip:port/dataDB
 spring.datasource.username=root
@@ -211,40 +1666,396 @@ spring.datasource.password=root
 #redis 配置
 spring.redis.host=127.0.0.1
 spring.redis.port=6379
-spring.redis.password=name
-application.yml 格式如下：
-spring:
+spring.redis.password=name</code></pre>
+<p>application.yml 格式如下：</p>
+<pre><code class="yml">spring:
   #mysql配置
   datasource:
     url: jdbc:mysql://ip:port/dataDB
-     ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/springboot-web/" title="spring Boot 2.x | 第一个web应用 hello world">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="spring Boot 2.x | 第一个web应用 hello world"></a></div><div class="recent-post-info"><a class="article-title" href="/springboot-web/" title="spring Boot 2.x | 第一个web应用 hello world">spring Boot 2.x | 第一个web应用 hello world</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2018-11-26 21:42:07"><i class="far fa-calendar-alt"></i>2018-11-26</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/java/">java</a></span></div><div class="content">
-本文讲解如何创建一个springboot的web应用
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  #redis配置
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: root
+</code></pre>
+<p>比较喜欢使用yml的方式，因为yml的代码更少而且层级关系更明显</p>
+<h4 id="集成第三方"><a href="#集成第三方" class="headerlink" title="集成第三方"></a>集成第三方</h4><p>集成第三方其实特别简单，比如Redis，步骤如下：</p>
+<ul>
+<li>pom.xml中引入starter对应的redis依赖：spring-boot-starter-data-redis </li>
+</ul>
+<pre><code class="xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
+&lt;/dependency&gt;</code></pre>
+<ul>
+<li>application.yml 配置文件中配置相关属性</li>
+</ul>
+<pre><code class="yml">spring:
+  #redis配置
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: root</code></pre>
+<h4 id="自定义属性"><a href="#自定义属性" class="headerlink" title="自定义属性"></a>自定义属性</h4><p>自定义属性就是在springboot中将在配置文件中自己定义的配置读取出来，一般使用的方式有两种，两个注解 @Value和@ConfigurationProperties</p>
+<p>在配置文件中自定义属性如下：</p>
+<pre><code class="yml">my:
+  name: chenmingyu
+  age: 12</code></pre>
+<h5 id="Value注解"><a href="#Value注解" class="headerlink" title="@Value注解"></a>@Value注解</h5><pre><code class="java">/**
+ * @auther: chenmingyu
+ * @date: 2018/11/3 22:32
+ * @description:
+ */
+@RestController
+public class UserController {
 
-生成springboot项目1，idea 找到 file -&gt;new -&gt; project  -&gt;spring Initializr
-2，选择next，填项目信息
-3，选择next，勾选项目依赖，由于是一个web demo，所以只勾选web
-4，选择next，然后finish那第一个springboot的web应用就创建完了。
-在生成的代码中，最要的是在pom.xml中引入的spring-boot-starter-web依赖，启动后默认使用内置的tomcat作为容器。
-第一个web应用目录结构：
+    @Value(&quot;${my.name}&quot;)
+    private String name;
+    @Value(&quot;${my.age}&quot;)
+    private Integer age;
 
-SpringbootHelloworldApplication ：项目启动类，建议启动类的包名层次最高，其子类包中的类将自动扫描
-application.properties ：配置文件
-pom.xml：由idea自动生成maven相关配置及依赖，这个项目就只引入了spring-boot-starter-web
+    @GetMapping(&quot;/getUserInfo&quot;)
+    private String getUserInfo(){
 
-pom.xml：&lt;?xml version=&quot;1.0&quot; encoding=&q ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/5/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">陈明羽</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives"><div class="headline">文章</div><div class="length_num">69</div></a></div><div class="card-info-data-item is-center">      <a href="/tags"><div class="headline">标签</div><div class="length_num">64</div></a></div><div class="card-info-data-item is-center">     <a href="/categories"><div class="headline">分类</div><div class="length_num">13</div></a></div></div><div class="card-info-bookmark is-center"><button class="button--animated" id="bookmark-it" title="加入书签"><i class="fas fa-bookmark"></i><span>加入书签</span></button></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/xxxxx" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:xxxxxx@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-recent-item"><div class="aside-recent-post"><a href="/hello-world/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="Hello World" alt="Hello World"/></div><div class="aside-post-title"><div class="aside-post_title" href="/hello-world/" title="Hello World">Hello World</div><time class="aside-post_meta post-meta__date" title="发表于 2020-07-12 16:14:18">2020-07-12</time></div></a></div><div class="aside-recent-post"><a href="/mysql-create-index/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="这道面试题你确定不看看吗：一条sql语句，有多个查询条件，你会选择哪个字段作为索引，为什么？" alt="这道面试题你确定不看看吗：一条sql语句，有多个查询条件，你会选择哪个字段作为索引，为什么？"/></div><div class="aside-post-title"><div class="aside-post_title" href="/mysql-create-index/" title="这道面试题你确定不看看吗：一条sql语句，有多个查询条件，你会选择哪个字段作为索引，为什么？">这道面试题你确定不看看吗：一条sql语句，有多个查询条件，你会选择哪个字段作为索引，为什么？</div><time class="aside-post_meta post-meta__date" title="发表于 2019-12-03 21:12:29">2019-12-03</time></div></a></div><div class="aside-recent-post"><a href="/zookeeper/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="zookeeper命令详解" alt="zookeeper命令详解"/></div><div class="aside-post-title"><div class="aside-post_title" href="/zookeeper/" title="zookeeper命令详解">zookeeper命令详解</div><time class="aside-post_meta post-meta__date" title="发表于 2019-10-31 11:12:34">2019-10-31</time></div></a></div><div class="aside-recent-post"><a href="/data-structure-binary-search/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="【数据结构】| 二分查找" alt="【数据结构】| 二分查找"/></div><div class="aside-post-title"><div class="aside-post_title" href="/data-structure-binary-search/" title="【数据结构】| 二分查找">【数据结构】| 二分查找</div><time class="aside-post_meta post-meta__date" title="发表于 2019-10-25 17:49:33">2019-10-25</time></div></a></div><div class="aside-recent-post"><a href="/jvm-class-loader/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="【jvm】类加载机制" alt="【jvm】类加载机制"/></div><div class="aside-post-title"><div class="aside-post_title" href="/jvm-class-loader/" title="【jvm】类加载机制">【jvm】类加载机制</div><time class="aside-post_meta post-meta__date" title="发表于 2019-09-23 15:31:19">2019-09-23</time></div></a></div></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fas fa-folder-open"></i><span>分类</span></div><ul class="card-category-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/elasticsearch/"><span class="card-category-list-name">elasticsearch</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/java/"><span class="card-category-list-name">java</span><span class="card-category-list-count">21</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/jvm/"><span class="card-category-list-name">jvm</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/mysql/"><span class="card-category-list-name">mysql</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/nosql/"><span class="card-category-list-name">nosql</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/tomcat/"><span class="card-category-list-name">tomcat</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/zookeeper/"><span class="card-category-list-name">zookeeper</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/"><span class="card-category-list-name">分布式事务</span><span class="card-category-list-count">1</span></a></li>
-            <li class="card-category-list-item more is-center"><a class="card-category-list-link-more" href="/categories">
-                <span>查看更多</span><i class="fas fa-angle-right"></i></a></li>           
-            </ul></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Integer%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/" style="font-size: 16px; color: #999">Integer缓存机制</a> <a href="/tags/aop/" style="font-size: 16px; color: #999">aop</a> <a href="/tags/effective/" style="font-size: 16px; color: #999">effective</a> <a href="/tags/elasticsearch/" style="font-size: 17.5px; color: #999da3">elasticsearch</a> <a href="/tags/email/" style="font-size: 16px; color: #999">email</a> <a href="/tags/exception/" style="font-size: 16px; color: #999">exception</a> <a href="/tags/gc/" style="font-size: 16px; color: #999">gc</a> <a href="/tags/htmlunit/" style="font-size: 16px; color: #999">htmlunit</a> <a href="/tags/io/" style="font-size: 16px; color: #999">io</a> <a href="/tags/java/" style="font-size: 19px; color: #99a1ac">java</a> <a href="/tags/jvm%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/" style="font-size: 16px; color: #999">jvm内存区域</a> <a href="/tags/mybatis/" style="font-size: 17.5px; color: #999da3">mybatis</a> <a href="/tags/mysql/" style="font-size: 17.5px; color: #999da3">mysql</a> <a href="/tags/nio/" style="font-size: 16px; color: #999">nio</a> <a href="/tags/rabbitmq/" style="font-size: 16px; color: #999">rabbitmq</a> <a href="/tags/redis/" style="font-size: 20.5px; color: #99a5b6">redis</a> <a href="/tags/springboot/" style="font-size: 22px; color: #99a9bf">springboot</a> <a href="/tags/spring%E6%BA%90%E7%A0%81/" style="font-size: 16px; color: #999">spring源码</a> <a href="/tags/swagger2/" style="font-size: 16px; color: #999">swagger2</a> <a href="/tags/thymeleaf/" style="font-size: 16px; color: #999">thymeleaf</a> <a href="/tags/tomcat/" style="font-size: 16px; color: #999">tomcat</a> <a href="/tags/zookeeper/" style="font-size: 16px; color: #999">zookeeper</a> <a href="/tags/%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">中介者模式</a> <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" style="font-size: 16px; color: #999">二分查找</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 16px; color: #999">二叉树</a> <a href="/tags/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">享元模式</a> <a href="/tags/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">代理模式</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/" style="font-size: 16px; color: #999">分布式事务</a> <a href="/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">单例模式</a> <a href="/tags/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">原型模式</a> <a href="/tags/%E5%8F%8D%E5%B0%84/" style="font-size: 16px; color: #999">反射</a> <a href="/tags/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">命令模式</a> <a href="/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/" style="font-size: 16px; color: #999">垃圾收集器</a> <a href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/" style="font-size: 17.5px; color: #999da3">备忘录模式</a> <a href="/tags/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">外观模式</a> <a href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" style="font-size: 16px; color: #999">定时任务</a> <a href="/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">工厂模式</a> <a href="/tags/%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">建造者模式</a> <a href="/tags/%E5%BC%82%E5%B8%B8/" style="font-size: 16px; color: #999">异常</a> <a href="/tags/%E5%BC%82%E6%AD%A5%E8%B0%83%E7%94%A8/" style="font-size: 16px; color: #999">异步调用</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/07/"><span class="card-archive-list-date">七月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/12/"><span class="card-archive-list-date">十二月 2019</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/10/"><span class="card-archive-list-date">十月 2019</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/09/"><span class="card-archive-list-date">九月 2019</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/08/"><span class="card-archive-list-date">八月 2019</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/07/"><span class="card-archive-list-date">七月 2019</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/06/"><span class="card-archive-list-date">六月 2019</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/05/"><span class="card-archive-list-date">五月 2019</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item more is-center"><a class="card-archive-list-link-more" href="/archives">
-              <span>查看更多</span><i class="fas fa-angle-right"  ></i></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-article-name">文章数目 :</div><div class="webinfo-article-count">69</div></div><div class="webinfo-item">      <div class="webinfo-site-uv-name">本站访客数 :</div><div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="webinfo-site-name">本站总访问量 :</div><div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div></div></div></div></div></div></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By 陈明羽</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><button class="translate_chn_to_cht" id="translateLink" title="简繁转换">繁</button><button id="darkmode" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script src="https://cdn.jsdelivr.net/npm/typed.js"></script><script>var subtitleEffect = true
-if (subtitleEffect) { 
-  var typed = new Typed("#subtitle", {
-    strings: "今日事&#44;今日畢,Never put off till tomorrow what you can do today".split(","),
-    startDelay: 300,
-    typeSpeed: 150,
-    loop: true,
-    backSpeed: 50
-  })
-} else {
-  document.getElementById("subtitle").innerHTML = '今日事&#44;今日畢'
-}</script></body></html>
+        return String.format(&quot;@Value注入: %s_%s&quot;,name,age);
+    }
+}</code></pre>
+<p>访问： <a href="http://localhost:8080/getUserInfo" target="_blank" rel="noopener">http://localhost:8080/getUserInfo</a><br><img src="1.png" alt=""></p>
+<h5 id="ConfigurationProperties注解"><a href="#ConfigurationProperties注解" class="headerlink" title="@ConfigurationProperties注解"></a>@ConfigurationProperties注解</h5><p>定义一个user对象</p>
+<pre><code class="java">/**
+ * @auther: chenmingyu
+ * @date: 2018/11/3 22:30
+ * @description:
+ */
+@Data
+@Component
+@ConfigurationProperties(prefix = &quot;my&quot;)
+public class User {
+
+    private String name;
+
+    private Integer age;
+
+}</code></pre>
+<p>使用的时候直接注入bean使用</p>
+<pre><code class="java">@Resource
+private User user;
+
+@GetMapping(&quot;/getUserInfoByBean&quot;)
+private String getUserInfoByBean(){
+    return String.format(&quot;@ConfigurationProperties注入: %s_%s&quot;,user.getName(),user.getAge());
+}</code></pre>
+<p>访问： <a href="http://localhost:8080/getUserInfoByBean" target="_blank" rel="noopener">http://localhost:8080/getUserInfoByBean</a><br><img src="2.png" alt=""></p>
+<h4 id="多环境配置"><a href="#多环境配置" class="headerlink" title="多环境配置"></a>多环境配置</h4><p>springboot的多环境配置文件名需要满足application-{profile}.properties的格式，{profile}对应你的环境<br>比如新建三个配置文件：<br><img src="3.png" alt=""><br>dev：开发环境，prod：生产环境，test：测试环境<br>在application-dev.yml 中配置：</p>
+<pre><code class="yml">my:
+  environment: dev</code></pre>
+<p>在application-prod.yml 中配置：</p>
+<pre><code class="yml">my:
+  environment: prod</code></pre>
+<p>在application-test.yml 中配置：</p>
+<pre><code class="yml">my:
+  environment: test</code></pre>
+<p>写个Controller测试一下：</p>
+<pre><code class="java">/**
+ * @auther: chenmingyu
+ * @date: 2018/11/3 23:33
+ * @description:
+ */
+@RestController
+public class propertiesController {
+
+    @Value(&quot;${my.environment}&quot;)
+    private String environment;
+
+    @GetMapping(&quot;/getEnvironment&quot;)
+    private String getEnvironment(){
+        return String.format(&quot;environment: %s&quot;,environment);
+    }
+}</code></pre>
+<p>在application.yml 中指定dev环境：</p>
+<pre><code class="yml">spring:
+  #多环境配置
+  profiles:
+    active: dev</code></pre>
+<p>访问：<a href="http://localhost:8080/getEnvironment" target="_blank" rel="noopener">http://localhost:8080/getEnvironment</a><br><img src="4.png" alt=""></p>
+<p>修改application.yml 中指定prod环境：</p>
+<pre><code class="yml">spring:
+  #多环境配置
+  profiles:
+    active: prod</code></pre>
+<p>访问：<a href="http://localhost:8080/getEnvironment" target="_blank" rel="noopener">http://localhost:8080/getEnvironment</a><br><img src="5.png" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://chenmingyu.top/springboot-properties/" data-id="ckdn6w81g0059aktw9kz86t7v" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="tag">配置文件</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-springboot-web" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/springboot-web/" class="article-date">
+  <time datetime="2018-11-26T13:42:07.000Z" itemprop="datePublished">2018-11-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/springboot-web/">spring Boot 2.x | 第一个web应用 hello world</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>本文讲解如何创建一个springboot的web应用</p>
+</blockquote>
+<h4 id="生成springboot项目"><a href="#生成springboot项目" class="headerlink" title="生成springboot项目"></a>生成springboot项目</h4><p>1，idea 找到 file -&gt;new -&gt; project  -&gt;spring Initializr<br><img src="springboot-web/1.png" alt=""></p>
+<p>2，选择next，填项目信息<br><img src="springboot-web/2.png" alt=""></p>
+<p>3，选择next，勾选项目依赖，由于是一个web demo，所以只勾选web<br><img src="springboot-web/3.png" alt=""></p>
+<p>4，选择next，然后finish<br>那第一个springboot的web应用就创建完了。</p>
+<p>在生成的代码中，最要的是在pom.xml中引入的spring-boot-starter-web依赖，启动后默认使用内置的tomcat作为容器。</p>
+<h4 id="第一个web应用"><a href="#第一个web应用" class="headerlink" title="第一个web应用"></a>第一个web应用</h4><h5 id="目录结构："><a href="#目录结构：" class="headerlink" title="目录结构："></a>目录结构：</h5><p><img src="springboot-web/4.png" alt=""></p>
+<ul>
+<li>SpringbootHelloworldApplication ：项目启动类，建议启动类的包名层次最高，其子类包中的类将自动扫描</li>
+<li>application.properties ：配置文件</li>
+<li>pom.xml：由idea自动生成maven相关配置及依赖，这个项目就只引入了spring-boot-starter-web</li>
+</ul>
+<h5 id="pom-xml："><a href="#pom-xml：" class="headerlink" title="pom.xml："></a>pom.xml：</h5><pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+    &lt;groupId&gt;com.my&lt;/groupId&gt;
+    &lt;artifactId&gt;springboot-helloworld&lt;/artifactId&gt;
+    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+    &lt;packaging&gt;jar&lt;/packaging&gt;
+
+    &lt;name&gt;springboot-helloworld&lt;/name&gt;
+    &lt;description&gt;Demo project for Spring Boot&lt;/description&gt;
+
+    &lt;parent&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+        &lt;version&gt;2.0.4.RELEASE&lt;/version&gt;
+        &lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;
+    &lt;/parent&gt;
+
+    &lt;properties&gt;
+        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+        &lt;project.reporting.outputEncoding&gt;UTF-8&lt;/project.reporting.outputEncoding&gt;
+        &lt;java.version&gt;1.8&lt;/java.version&gt;
+    &lt;/properties&gt;
+
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+
+    &lt;build&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+
+
+&lt;/project&gt;</code></pre>
+<p>运行启动类：SpringbootHelloworldApplication</p>
+<pre><code class="java">@SpringBootApplication
+public class SpringbootHelloworldApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(SpringbootHelloworldApplication.class, args);
+    }
+}</code></pre>
+<p>springboot的web模块默认使用tomcat容器作为启动容器</p>
+<p>看到8080（springboot 默认端口）启动成功，就成功启动了</p>
+<p> 访问 <a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a><br><img src="springboot-web/6.png" alt=""></p>
+<p> 报404是因为没有找到默认 “/ “的请求地址</p>
+<h5 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h5><pre><code class="java">/**
+ * @author: chenmingyu
+ * @date: 2018/10/21 14:29
+ * @description:
+ */
+@RestController
+public class HelloController
+{
+    @GetMapping(&quot;/&quot;)
+    public String sayHello(){
+        return &quot;say hello&quot;;
+    }
+}</code></pre>
+<p>重启项目，访问<a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a></p>
+<p><img src="springboot-web/7.png" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://chenmingyu.top/springboot-web/" data-id="ckdn6w81o005oaktwdqphdq0s" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/5/">&amp;laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/elasticsearch/">elasticsearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/jvm/">jvm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nosql/">nosql</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tomcat/">tomcat</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/zookeeper/">zookeeper</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/">分布式事务</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">并发编程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/">网络协议</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Integer%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/" rel="tag">Integer缓存机制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aop/" rel="tag">aop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/effective/" rel="tag">effective</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/elasticsearch/" rel="tag">elasticsearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/email/" rel="tag">email</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exception/" rel="tag">exception</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gc/" rel="tag">gc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htmlunit/" rel="tag">htmlunit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/io/" rel="tag">io</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jvm%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/" rel="tag">jvm内存区域</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mybatis/" rel="tag">mybatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nio/" rel="tag">nio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rabbitmq/" rel="tag">rabbitmq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring%E6%BA%90%E7%A0%81/" rel="tag">spring源码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swagger2/" rel="tag">swagger2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thymeleaf/" rel="tag">thymeleaf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tomcat/" rel="tag">tomcat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zookeeper/" rel="tag">zookeeper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F/" rel="tag">中介者模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" rel="tag">二分查找</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="tag">二叉树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/" rel="tag">享元模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/" rel="tag">代理模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/" rel="tag">分布式事务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" rel="tag">单例模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/" rel="tag">原型模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E5%B0%84/" rel="tag">反射</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/" rel="tag">命令模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/" rel="tag">垃圾收集器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/" rel="tag">备忘录模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/" rel="tag">外观模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" rel="tag">定时任务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" rel="tag">工厂模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/" rel="tag">建造者模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8/" rel="tag">异常</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E6%AD%A5%E8%B0%83%E7%94%A8/" rel="tag">异步调用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82/" rel="tag">抽象工厂</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/" rel="tag">日志管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/" rel="tag">桥接模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95/" rel="tag">模板方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/" rel="tag">策略模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" rel="tag">类加载机制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B4%A2%E5%BC%95/" rel="tag">索引</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E7%A8%8B/" rel="tag">线程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/" rel="tag">线程池</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/" rel="tag">组合模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" rel="tag">网络协议</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/" rel="tag">装饰器模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/" rel="tag">观察者模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/" rel="tag">解释器模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F/" rel="tag">访问者模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/" rel="tag">责任链模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/" rel="tag">迭代器模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/" rel="tag">适配器模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="tag">配置文件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%94%81/" rel="tag">锁</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%86%E5%90%88/" rel="tag">集合</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Integer%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/" style="font-size: 10px;">Integer缓存机制</a> <a href="/tags/aop/" style="font-size: 10px;">aop</a> <a href="/tags/effective/" style="font-size: 10px;">effective</a> <a href="/tags/elasticsearch/" style="font-size: 12.5px;">elasticsearch</a> <a href="/tags/email/" style="font-size: 10px;">email</a> <a href="/tags/exception/" style="font-size: 10px;">exception</a> <a href="/tags/gc/" style="font-size: 10px;">gc</a> <a href="/tags/htmlunit/" style="font-size: 10px;">htmlunit</a> <a href="/tags/io/" style="font-size: 10px;">io</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/jvm%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/" style="font-size: 10px;">jvm内存区域</a> <a href="/tags/mybatis/" style="font-size: 12.5px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/nio/" style="font-size: 10px;">nio</a> <a href="/tags/rabbitmq/" style="font-size: 10px;">rabbitmq</a> <a href="/tags/redis/" style="font-size: 17.5px;">redis</a> <a href="/tags/springboot/" style="font-size: 20px;">springboot</a> <a href="/tags/spring%E6%BA%90%E7%A0%81/" style="font-size: 10px;">spring源码</a> <a href="/tags/swagger2/" style="font-size: 10px;">swagger2</a> <a href="/tags/thymeleaf/" style="font-size: 10px;">thymeleaf</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/zookeeper/" style="font-size: 10px;">zookeeper</a> <a href="/tags/%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">中介者模式</a> <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" style="font-size: 10px;">二分查找</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 10px;">二叉树</a> <a href="/tags/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">享元模式</a> <a href="/tags/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">代理模式</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/" style="font-size: 10px;">分布式事务</a> <a href="/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">单例模式</a> <a href="/tags/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">原型模式</a> <a href="/tags/%E5%8F%8D%E5%B0%84/" style="font-size: 10px;">反射</a> <a href="/tags/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">命令模式</a> <a href="/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/" style="font-size: 10px;">垃圾收集器</a> <a href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/" style="font-size: 12.5px;">备忘录模式</a> <a href="/tags/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">外观模式</a> <a href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" style="font-size: 10px;">定时任务</a> <a href="/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">工厂模式</a> <a href="/tags/%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">建造者模式</a> <a href="/tags/%E5%BC%82%E5%B8%B8/" style="font-size: 10px;">异常</a> <a href="/tags/%E5%BC%82%E6%AD%A5%E8%B0%83%E7%94%A8/" style="font-size: 10px;">异步调用</a> <a href="/tags/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82/" style="font-size: 10px;">抽象工厂</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 15px;">数据结构</a> <a href="/tags/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/" style="font-size: 10px;">日志管理</a> <a href="/tags/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">桥接模式</a> <a href="/tags/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95/" style="font-size: 10px;">模板方法</a> <a href="/tags/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">策略模式</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 12.5px;">算法</a> <a href="/tags/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" style="font-size: 10px;">类加载机制</a> <a href="/tags/%E7%B4%A2%E5%BC%95/" style="font-size: 10px;">索引</a> <a href="/tags/%E7%BA%BF%E7%A8%8B/" style="font-size: 10px;">线程</a> <a href="/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/" style="font-size: 10px;">线程池</a> <a href="/tags/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">组合模式</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" style="font-size: 10px;">网络协议</a> <a href="/tags/%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">装饰器模式</a> <a href="/tags/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">观察者模式</a> <a href="/tags/%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">解释器模式</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a> <a href="/tags/%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">访问者模式</a> <a href="/tags/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">责任链模式</a> <a href="/tags/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">迭代器模式</a> <a href="/tags/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">适配器模式</a> <a href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" style="font-size: 10px;">配置文件</a> <a href="/tags/%E9%94%81/" style="font-size: 10px;">锁</a> <a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 10px;">集合</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/mysql-create-index/">这道面试题你确定不看看吗：一条sql语句，有多个查询条件，你会选择哪个字段作为索引，为什么？</a>
+          </li>
+        
+          <li>
+            <a href="/zookeeper/">zookeeper命令详解</a>
+          </li>
+        
+          <li>
+            <a href="/data-structure-binary-search/">【数据结构】| 二分查找</a>
+          </li>
+        
+          <li>
+            <a href="/jvm-class-loader/">【jvm】类加载机制</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 陈明羽<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
