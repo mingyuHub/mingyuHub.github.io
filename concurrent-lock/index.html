@@ -1,110 +1,101 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>java并发编程 | 锁详解：AQS，Lock，ReentrantLock，ReentrantReadWriteLock | 但行好事 莫问前程</title><meta name="description" content="锁锁是用来控制多个线程访问共享资源的方式，java中可以使用synchronized和Lock实现锁的功能 synchronized是java中的关键字，隐藏获取和释放锁的过程，Lock是java中的接口，需要主动的获取锁和释放锁，synchronized是排他锁，而Lock支持可中断获取锁，超时获取锁 Lock提供的接口 public interface Lock {      &#x2F;**"><meta name="keywords" content="锁,并发编程"><meta name="author" content="陈明羽"><meta name="copyright" content="陈明羽"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://chenmingyu.top/concurrent-lock/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="java并发编程 | 锁详解：AQS，Lock，ReentrantLock，ReentrantReadWriteLock"><meta property="og:url" content="https://chenmingyu.top/concurrent-lock/"><meta property="og:site_name" content="但行好事 莫问前程"><meta property="og:description" content="锁锁是用来控制多个线程访问共享资源的方式，java中可以使用synchronized和Lock实现锁的功能 synchronized是java中的关键字，隐藏获取和释放锁的过程，Lock是java中的接口，需要主动的获取锁和释放锁，synchronized是排他锁，而Lock支持可中断获取锁，超时获取锁 Lock提供的接口 public interface Lock {      &#x2F;**"><meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><meta property="article:published_time" content="2019-07-11T02:18:15.000Z"><meta property="article:modified_time" content="2019-12-13T10:24:00.246Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
 
-  
-  <title>java并发编程 | 锁详解：AQS，Lock，ReentrantLock，ReentrantReadWriteLock | 但行好事 莫问前程</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="锁锁是用来控制多个线程访问共享资源的方式，java中可以使用synchronized和Lock实现锁的功能 synchronized是java中的关键字，隐藏获取和释放锁的过程，Lock是java中的接口，需要主动的获取锁和释放锁，synchronized是排他锁，而Lock支持可中断获取锁，超时获取锁 Lock提供的接口 public interface Lock {      &#x2F;**">
-<meta property="og:type" content="article">
-<meta property="og:title" content="java并发编程 | 锁详解：AQS，Lock，ReentrantLock，ReentrantReadWriteLock">
-<meta property="og:url" content="https://chenmingyu.top/concurrent-lock/index.html">
-<meta property="og:site_name" content="但行好事 莫问前程">
-<meta property="og:description" content="锁锁是用来控制多个线程访问共享资源的方式，java中可以使用synchronized和Lock实现锁的功能 synchronized是java中的关键字，隐藏获取和释放锁的过程，Lock是java中的接口，需要主动的获取锁和释放锁，synchronized是排他锁，而Lock支持可中断获取锁，超时获取锁 Lock提供的接口 public interface Lock {      &#x2F;**">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://chenmingyu.top/concurrent-lock/concurrent-lock/abstractQueuedSynchronizer.png">
-<meta property="og:image" content="https://chenmingyu.top/concurrent-lock/concurrent-lock/AQS.png">
-<meta property="og:image" content="https://chenmingyu.top/concurrent-lock/concurrent-lock/reenTrantLock.png">
-<meta property="og:image" content="https://chenmingyu.top/concurrent-lock/concurrent-lock/%E7%B1%BB%E5%9B%BE.png">
-<meta property="og:image" content="https://chenmingyu.top/concurrent-lock/concurrent-lock/AQS%E8%AE%BE%E7%BD%AE%E5%B0%BE%E8%8A%82%E7%82%B9.png">
-<meta property="og:image" content="https://chenmingyu.top/concurrent-lock/concurrent-lock/%E7%8B%AC%E5%8D%A0%E5%BC%8F%E6%B5%81%E7%A8%8B%E5%9B%BE.png">
-<meta property="og:image" content="https://chenmingyu.top/concurrent-lock/concurrent-lock/LockTest.png">
-<meta property="article:published_time" content="2019-07-11T02:18:15.000Z">
-<meta property="article:modified_time" content="2019-12-13T10:24:00.246Z">
-<meta property="article:author" content="陈明羽">
-<meta property="article:tag" content="锁">
-<meta property="article:tag" content="并发编程">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://chenmingyu.top/concurrent-lock/concurrent-lock/abstractQueuedSynchronizer.png">
-  
-    <link rel="alternate" href="/atom.xml" title="但行好事 莫问前程" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
 
-<meta name="generator" content="Hexo 4.2.1"></head>
+var autoChangeMode = 'false'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">但行好事 莫问前程</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">明羽</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://chenmingyu.top"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-concurrent-lock" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/concurrent-lock/" class="article-date">
-  <time datetime="2019-07-11T02:18:15.000Z" itemprop="datePublished">2019-07-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">并发编程</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      java并发编程 | 锁详解：AQS，Lock，ReentrantLock，ReentrantReadWriteLock
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h3><p>锁是用来控制多个线程访问共享资源的方式，<code>java</code>中可以使用<code>synchronized</code>和<code>Lock</code>实现锁的功能</p>
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="prev" title="【数据结构】| 众树纷纭" href="https://chenmingyu.top/data-structure-tree/"><link rel="next" title="Elasticsearch 查询语句详解" href="https://chenmingyu.top/es-query/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: false,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false    
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: ,
+  isSidebar: true
+  }</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.1"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">69</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">64</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">13</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#锁"><span class="toc-number">1.</span> <span class="toc-text">锁</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#队列同步器"><span class="toc-number">1.1.</span> <span class="toc-text">队列同步器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#设计原则"><span class="toc-number">1.1.1.</span> <span class="toc-text">设计原则</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#获取同步队列线程信息"><span class="toc-number">1.1.2.</span> <span class="toc-text">获取同步队列线程信息</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Node"><span class="toc-number">1.1.3.</span> <span class="toc-text">Node</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#AQS"><span class="toc-number">1.1.4.</span> <span class="toc-text">AQS</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#独占式锁"><span class="toc-number">1.2.</span> <span class="toc-text">独占式锁</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#ReentrantLock"><span class="toc-number">1.2.1.</span> <span class="toc-text">ReentrantLock</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#源码分析"><span class="toc-number">1.2.2.</span> <span class="toc-text">源码分析</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#独占式锁的获取"><span class="toc-number">1.2.3.</span> <span class="toc-text">独占式锁的获取</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#独占式锁的释放"><span class="toc-number">1.2.4.</span> <span class="toc-text">独占式锁的释放</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#自己实现一个独占式锁"><span class="toc-number">1.2.5.</span> <span class="toc-text">自己实现一个独占式锁</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#验证"><span class="toc-number">1.2.6.</span> <span class="toc-text">验证</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#共享式锁"><span class="toc-number">1.3.</span> <span class="toc-text">共享式锁</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#读写锁"><span class="toc-number">1.3.1.</span> <span class="toc-text">读写锁</span></a></li></ol></li></ol></li></ol></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">但行好事 莫问前程</a></span><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">java并发编程 | 锁详解：AQS，Lock，ReentrantLock，ReentrantReadWriteLock</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2019-07-11 10:18:15"><i class="far fa-calendar-alt fa-fw"></i> 发表于 2019-07-11</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2019-12-13 18:24:00"><i class="fas fa-history fa-fw"></i> 更新于 2019-12-13</span></time><span class="post-meta__categories"><span class="post-meta__separator">|</span><i class="fas fa-inbox fa-fw post-meta__icon"></i><a class="post-meta__categories" href="/categories/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">并发编程</a></span></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta__icon"></i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h3 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h3><p>锁是用来控制多个线程访问共享资源的方式，<code>java</code>中可以使用<code>synchronized</code>和<code>Lock</code>实现锁的功能</p>
 <p><code>synchronized</code>是java中的关键字，隐藏获取和释放锁的过程，<code>Lock</code>是java中的接口，需要主动的获取锁和释放锁，<code>synchronized</code>是排他锁，而<code>Lock</code>支持可中断获取锁，超时获取锁</p>
 <p><code>Lock</code>提供的接口</p>
 <pre><code class="java">public interface Lock {
@@ -208,7 +199,7 @@
 </tbody></table>
 <p>在这些模板方法中，多次提到了同步队列，我们看一下<code>AQS</code>是如何实现同步队列的</p>
 <p>首先看下<code>AbstractQueuedSynchronizer</code>的类图</p>
-<p><img src="concurrent-lock/abstractQueuedSynchronizer.png" alt=""></p>
+<p><img src= "/img/loading.gif" data-src="concurrent-lock/abstractQueuedSynchronizer.png" alt=""></p>
 <h5 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h5><p><code>Node</code>类是<code>AbstractQueuedSynchronizer</code>类的内部类，同步器依靠内部的一个同步队列来完成同步状态的管理，当前线程获取同步状态失败的时候，同步器会将当前线程及等待信息构造成一个<code>Node</code>节点加入到同步队列中</p>
 <table>
 <thead>
@@ -271,7 +262,7 @@
 <li><code>compareAndSetState(int expect, int update)</code>使用<code>CAS</code>设置当前状态，该方法能够保证设置的原子性</li>
 </ol>
 <p><code>AQS</code>的基本结构如下图所示</p>
-<p><img src="concurrent-lock/AQS.png" alt=""></p>
+<p><img src= "/img/loading.gif" data-src="concurrent-lock/AQS.png" alt=""></p>
 <p>在同步器中<code>head</code>和<code>tail</code>的节点的引用指向同步队列的头，尾节点，这样在后面操作节点入列和出列的时候只需要操作同步器中的<code>head</code>和<code>tail</code>节点就可以</p>
 <h4 id="独占式锁"><a href="#独占式锁" class="headerlink" title="独占式锁"></a>独占式锁</h4><h5 id="ReentrantLock"><a href="#ReentrantLock" class="headerlink" title="ReentrantLock"></a>ReentrantLock</h5><p><code>ReentrantLock</code>重入锁，内部AQS的实现是基于独占式获取/释放同步状态的。我们学习一下<code>ReentrantLock</code>的实现原理来进一步加深对<code>AQS</code>的理解</p>
 <p>重进入是指任意线程在获取到锁之后能够再次获取该锁而不会被锁阻塞，它表示一个线程可以对资源重复加锁，同时支持获取锁时使用公平锁还是非公平锁</p>
@@ -309,7 +300,7 @@ public class ReentrantLockTest {
     }
 }</code></pre>
 <p>输出</p>
-<p><img src="concurrent-lock/reenTrantLock.png" alt=""></p>
+<p><img src= "/img/loading.gif" data-src="concurrent-lock/reenTrantLock.png" alt=""></p>
 <p>只有在<code>r1</code>线程释放锁之后<code>r2</code>线程才获取到锁去执行代码打印数据</p>
 <h5 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h5><p>创建的实例，默认使用非公平锁，如果需要公平锁，需要调用有参的构造函数</p>
 <pre><code class="java">/**
@@ -329,7 +320,7 @@ public ReentrantLock(boolean fair) {
 }</code></pre>
 <p><code>NonfairSync</code>与<code>FairSync</code>都是<code>ReentrantLock</code>类的内部类，继承自<code>ReentrantLock</code>类的内部类<code>Sync</code>，<code>Sync</code>类继承了<code>AbstractQueuedSynchronizer</code></p>
 <p>类图如下</p>
-<p><img src="concurrent-lock/%E7%B1%BB%E5%9B%BE.png" alt=""></p>
+<p><img src= "/img/loading.gif" data-src="concurrent-lock/%E7%B1%BB%E5%9B%BE.png" alt=""></p>
 <h5 id="独占式锁的获取"><a href="#独占式锁的获取" class="headerlink" title="独占式锁的获取"></a>独占式锁的获取</h5><p>非公平锁的实现</p>
 <pre><code class="java">/**
  * Performs lock.  Try immediate barge, backing up to normal
@@ -422,7 +413,7 @@ final boolean nonfairTryAcquire(int acquires) {
     }
 }</code></pre>
 <p>在这个方法中利用<code>for</code>循环构造了一个死循环，如果当前<code>AQS</code>的<code>tail</code>节点为空，则证明当前同步队列中没有等待的线程，也就是没有节点，调用<code>compareAndSetHead(new Node())</code>方法构造了一个头节点，然后循环调用<code>compareAndSetTail(t, node)</code>将当前实例加入到队列的尾部，如果失败就一直调用，直到成功为止</p>
-<p><img src="concurrent-lock/AQS%E8%AE%BE%E7%BD%AE%E5%B0%BE%E8%8A%82%E7%82%B9.png" alt=""></p>
+<p><img src= "/img/loading.gif" data-src="concurrent-lock/AQS%E8%AE%BE%E7%BD%AE%E5%B0%BE%E8%8A%82%E7%82%B9.png" alt=""></p>
 <p>在调用<code>addWaiter(Node mode)</code>方法后会调用<code>acquireQueued(final Node node, int arg)</code>方法，作用是在每个节点进入到同步队列中后就进入了一个自旋的状态，通过校验自己的前驱节点是否是头节点，并且是否获取到同步状态为条件进行判断，如果满足条件则从自旋中退出，负责一直自旋</p>
 <pre><code class="java">final boolean acquireQueued(final Node node, int arg) {
     boolean failed = true;
@@ -500,7 +491,7 @@ final boolean nonfairTryAcquire(int acquires) {
 <li>非公平锁比公平锁效率要高很多，公平锁保证了同步状态的获取按照FIFO原则，代价是需要进行大量的线程切换，而非公平锁情况下，当前线程在释放了同步状态之后再次获取到同步状态的记录非常大，可以减少大量的线程切换，但是可能会出现在同步队列中的某个线程一直获取不到锁的情况</li>
 </ol>
 <p><strong>独占式获取锁的流程</strong></p>
-<p><img src="concurrent-lock/%E7%8B%AC%E5%8D%A0%E5%BC%8F%E6%B5%81%E7%A8%8B%E5%9B%BE.png" alt=""></p>
+<p><img src= "/img/loading.gif" data-src="concurrent-lock/%E7%8B%AC%E5%8D%A0%E5%BC%8F%E6%B5%81%E7%A8%8B%E5%9B%BE.png" alt=""></p>
 <h5 id="独占式锁的释放"><a href="#独占式锁的释放" class="headerlink" title="独占式锁的释放"></a>独占式锁的释放</h5><p><code>ReentrantLock</code>的<code>unlock()</code>方法实际调用的<code>AQS</code>的<code>release(int arg)</code>方法</p>
 <pre><code class="java">public final boolean release(int arg) {
     if (tryRelease(arg)) {
@@ -655,7 +646,7 @@ public class ReentrantLockTest {
     }
 }</code></pre>
 <p>输出</p>
-<p><img src="concurrent-lock/LockTest.png" alt=""></p>
+<p><img src= "/img/loading.gif" data-src="concurrent-lock/LockTest.png" alt=""></p>
 <h4 id="共享式锁"><a href="#共享式锁" class="headerlink" title="共享式锁"></a>共享式锁</h4><h5 id="读写锁"><a href="#读写锁" class="headerlink" title="读写锁"></a>读写锁</h5><p><code>ReentrantReadWriteLock</code>是读写锁的实现，实现<code>ReadWriteLock</code>接口</p>
 <p><code>ReentrantReadWriteLock</code>内部同样维护这一个<code>Sync</code>内部类，实现了<code>AQS</code>，通过重写对应方法实现读锁和写锁</p>
 <p>现在已经知道了同步状态是由<code>AQS</code>维护的一个整型变量<code>state</code>，独占式锁获取到锁时会对其进行加1，支持重入，而读写锁<code>ReentrantReadWriteLock</code>在设计的时候也是通过一个整型变量进行读锁的同步状态和写锁的同步状态维护，在一个变量上维护两种状态就需要对整型变量进行按位分割，一个int类型的变量包含4个字符，一个字符8个bit，就是32bit，在<code>ReentrantReadWriteLock</code>中，高16位表示读，低16位表示写</p>
@@ -728,154 +719,4 @@ public class ReentrantLockTest {
 <p><strong>参考：java并发编程的艺术</strong></p>
 <p><strong>推荐：</strong></p>
 <p><a href="https://chenmingyu.top/concurrent-thread/">java并发编程 | 线程详解</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://chenmingyu.top/concurrent-lock/" data-id="ckdn6w7w00000aktw28efd2y7" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%94%81/" rel="tag">锁</a></li></ul>
-
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/data-structure-tree/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          【数据结构】| 众树纷纭
-        
-      </div>
-    </a>
-  
-  
-    <a href="/es-query/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Elasticsearch 查询语句详解</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/elasticsearch/">elasticsearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/jvm/">jvm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nosql/">nosql</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tomcat/">tomcat</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/zookeeper/">zookeeper</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/">分布式事务</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">并发编程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/">网络协议</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Integer%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/" rel="tag">Integer缓存机制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aop/" rel="tag">aop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/effective/" rel="tag">effective</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/elasticsearch/" rel="tag">elasticsearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/email/" rel="tag">email</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exception/" rel="tag">exception</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gc/" rel="tag">gc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htmlunit/" rel="tag">htmlunit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/io/" rel="tag">io</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jvm%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/" rel="tag">jvm内存区域</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mybatis/" rel="tag">mybatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nio/" rel="tag">nio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rabbitmq/" rel="tag">rabbitmq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring%E6%BA%90%E7%A0%81/" rel="tag">spring源码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swagger2/" rel="tag">swagger2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thymeleaf/" rel="tag">thymeleaf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tomcat/" rel="tag">tomcat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zookeeper/" rel="tag">zookeeper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F/" rel="tag">中介者模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" rel="tag">二分查找</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="tag">二叉树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/" rel="tag">享元模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/" rel="tag">代理模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/" rel="tag">分布式事务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" rel="tag">单例模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/" rel="tag">原型模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E5%B0%84/" rel="tag">反射</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/" rel="tag">命令模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/" rel="tag">垃圾收集器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/" rel="tag">备忘录模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/" rel="tag">外观模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" rel="tag">定时任务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" rel="tag">工厂模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/" rel="tag">建造者模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8/" rel="tag">异常</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E6%AD%A5%E8%B0%83%E7%94%A8/" rel="tag">异步调用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82/" rel="tag">抽象工厂</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/" rel="tag">日志管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/" rel="tag">桥接模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95/" rel="tag">模板方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/" rel="tag">策略模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" rel="tag">类加载机制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B4%A2%E5%BC%95/" rel="tag">索引</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E7%A8%8B/" rel="tag">线程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/" rel="tag">线程池</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/" rel="tag">组合模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" rel="tag">网络协议</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/" rel="tag">装饰器模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/" rel="tag">观察者模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/" rel="tag">解释器模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F/" rel="tag">访问者模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/" rel="tag">责任链模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/" rel="tag">迭代器模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/" rel="tag">适配器模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="tag">配置文件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%94%81/" rel="tag">锁</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%86%E5%90%88/" rel="tag">集合</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Integer%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/" style="font-size: 10px;">Integer缓存机制</a> <a href="/tags/aop/" style="font-size: 10px;">aop</a> <a href="/tags/effective/" style="font-size: 10px;">effective</a> <a href="/tags/elasticsearch/" style="font-size: 12.5px;">elasticsearch</a> <a href="/tags/email/" style="font-size: 10px;">email</a> <a href="/tags/exception/" style="font-size: 10px;">exception</a> <a href="/tags/gc/" style="font-size: 10px;">gc</a> <a href="/tags/htmlunit/" style="font-size: 10px;">htmlunit</a> <a href="/tags/io/" style="font-size: 10px;">io</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/jvm%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/" style="font-size: 10px;">jvm内存区域</a> <a href="/tags/mybatis/" style="font-size: 12.5px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/nio/" style="font-size: 10px;">nio</a> <a href="/tags/rabbitmq/" style="font-size: 10px;">rabbitmq</a> <a href="/tags/redis/" style="font-size: 17.5px;">redis</a> <a href="/tags/springboot/" style="font-size: 20px;">springboot</a> <a href="/tags/spring%E6%BA%90%E7%A0%81/" style="font-size: 10px;">spring源码</a> <a href="/tags/swagger2/" style="font-size: 10px;">swagger2</a> <a href="/tags/thymeleaf/" style="font-size: 10px;">thymeleaf</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/zookeeper/" style="font-size: 10px;">zookeeper</a> <a href="/tags/%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">中介者模式</a> <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" style="font-size: 10px;">二分查找</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 10px;">二叉树</a> <a href="/tags/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">享元模式</a> <a href="/tags/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">代理模式</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/" style="font-size: 10px;">分布式事务</a> <a href="/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">单例模式</a> <a href="/tags/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">原型模式</a> <a href="/tags/%E5%8F%8D%E5%B0%84/" style="font-size: 10px;">反射</a> <a href="/tags/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">命令模式</a> <a href="/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/" style="font-size: 10px;">垃圾收集器</a> <a href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/" style="font-size: 12.5px;">备忘录模式</a> <a href="/tags/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">外观模式</a> <a href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" style="font-size: 10px;">定时任务</a> <a href="/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">工厂模式</a> <a href="/tags/%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">建造者模式</a> <a href="/tags/%E5%BC%82%E5%B8%B8/" style="font-size: 10px;">异常</a> <a href="/tags/%E5%BC%82%E6%AD%A5%E8%B0%83%E7%94%A8/" style="font-size: 10px;">异步调用</a> <a href="/tags/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82/" style="font-size: 10px;">抽象工厂</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 15px;">数据结构</a> <a href="/tags/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/" style="font-size: 10px;">日志管理</a> <a href="/tags/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">桥接模式</a> <a href="/tags/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95/" style="font-size: 10px;">模板方法</a> <a href="/tags/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">策略模式</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 12.5px;">算法</a> <a href="/tags/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" style="font-size: 10px;">类加载机制</a> <a href="/tags/%E7%B4%A2%E5%BC%95/" style="font-size: 10px;">索引</a> <a href="/tags/%E7%BA%BF%E7%A8%8B/" style="font-size: 10px;">线程</a> <a href="/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/" style="font-size: 10px;">线程池</a> <a href="/tags/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">组合模式</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" style="font-size: 10px;">网络协议</a> <a href="/tags/%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">装饰器模式</a> <a href="/tags/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">观察者模式</a> <a href="/tags/%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">解释器模式</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a> <a href="/tags/%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">访问者模式</a> <a href="/tags/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">责任链模式</a> <a href="/tags/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">迭代器模式</a> <a href="/tags/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">适配器模式</a> <a href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" style="font-size: 10px;">配置文件</a> <a href="/tags/%E9%94%81/" style="font-size: 10px;">锁</a> <a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 10px;">集合</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/mysql-create-index/">这道面试题你确定不看看吗：一条sql语句，有多个查询条件，你会选择哪个字段作为索引，为什么？</a>
-          </li>
-        
-          <li>
-            <a href="/zookeeper/">zookeeper命令详解</a>
-          </li>
-        
-          <li>
-            <a href="/data-structure-binary-search/">【数据结构】| 二分查找</a>
-          </li>
-        
-          <li>
-            <a href="/jvm-class-loader/">【jvm】类加载机制</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2020 陈明羽<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-  </div>
-</body>
-</html>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">陈明羽</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://chenmingyu.top/concurrent-lock/">https://chenmingyu.top/concurrent-lock/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://chenmingyu.top" target="_blank">但行好事 莫问前程</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E9%94%81/">锁</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/data-structure-tree/"><img class="prev-cover" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">【数据结构】| 众树纷纭</div></div></a></div><div class="next-post pull-right"><a href="/es-query/"><img class="next-cover" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Elasticsearch 查询语句详解</div></div></a></div></nav></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By 陈明羽</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><button id="readmode" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font_plus" title="放大字体"><i class="fas fa-plus"></i></button><button id="font_minus" title="缩小字体"><i class="fas fa-minus"></i></button><button class="translate_chn_to_cht" id="translateLink" title="简繁转换">繁</button><button id="darkmode" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script></body></html>

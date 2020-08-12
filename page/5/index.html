@@ -1,2306 +1,296 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>但行好事 莫问前程 - 明羽</title><meta name="description"><meta name="keywords" content="陈明羽,chenmingyu,java,架构"><meta name="author" content="陈明羽"><meta name="copyright" content="陈明羽"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://chenmingyu.top/page/5/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="website"><meta property="og:title" content="但行好事 莫问前程"><meta property="og:url" content="https://chenmingyu.top/page/5/"><meta property="og:site_name" content="但行好事 莫问前程"><meta property="og:description"><meta property="og:image" content="https://chenmingyu.top/img/avatar.png"><meta property="article:published_time" content="2020-08-12T13:20:16.018Z"><meta property="article:modified_time" content="2020-08-12T13:20:16.018Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
 
-  
-  <title>但行好事 莫问前程</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="但行好事 莫问前程">
-<meta property="og:url" content="https://chenmingyu.top/page/5/index.html">
-<meta property="og:site_name" content="但行好事 莫问前程">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="陈明羽">
-<meta property="article:tag" content="陈明羽">
-<meta property="article:tag" content="chenmingyu">
-<meta property="article:tag" content="java">
-<meta property="article:tag" content="架构">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="但行好事 莫问前程" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
 
-<meta name="generator" content="Hexo 4.2.1"></head>
+var autoChangeMode = 'false'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">但行好事 莫问前程</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">明羽</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://chenmingyu.top"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-design-phototype" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/design-phototype/" class="article-date">
-  <time datetime="2019-02-28T03:03:05.000Z" itemprop="datePublished">2019-02-28</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
-  </div>
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: false,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false    
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isSidebar: false
+  }</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.1"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">69</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">64</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">13</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(https://i.loli.net/2020/05/01/IuWi8QbHvzjlOPw.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">但行好事 莫问前程</a></span><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site_title">但行好事 莫问前程</h1><div id="site_subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/xxxxx" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:xxxxxx@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll_down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/design-composite/" title="23种设计模式之组合模式">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="23种设计模式之组合模式"></a></div><div class="recent-post-info"><a class="article-title" href="/design-composite/" title="23种设计模式之组合模式">23种设计模式之组合模式</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-03-12 17:27:42"><i class="far fa-calendar-alt"></i>2019-03-12</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></span></div><div class="content">组合模式组合模式属于属于结构型模式，又叫部分整体模式
+定义：将对象组合成树形结构以表示“部分-整体”的层次结构，使得用户对单个对象和组合对象的使用具有一致性。
+用来描述部分与整体的关系，是用于把一组相似的对象当作一个单一的对象。组合模式依据树形结构来组合对象，所以组合模式的使用场景就是出现树形结构的地方。比如：树形菜单，文件目录等树形结构数据的操作
+优点
+高层模块调用简单
+节点自由增加
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/design-phototype/">23种设计模式之原型模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h3><p>原型模式属于创建型设计模式</p>
-<p><strong>定义：</strong>用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象</p>
-<p>原型模式通过克隆一个已经存在的对象实例来返回新的实例，而不是通过new去创建对象，多用于创建复杂的或者耗时的实例，因为这种情况下，复制一个已经存在的实例使程序运行更高效；</p>
-<p>java中复制对象是通过重写<code>clone()</code>实现的，原型类需要实现<code>Cloneable</code>接口，否则报<code>CloneNotSupportedException</code>异常</p>
-<h3 id="模式类图"><a href="#模式类图" class="headerlink" title="模式类图"></a>模式类图</h3><p><img src="design-phototype/uml.png" alt=""></p>
-<p><strong>角色</strong></p>
-<ol>
-<li>抽象原型：Prototype，可以为接口或者抽象类，实现了<code>Cloneable</code>接口，重写了<code>clone()</code>方法，子类只需实现或集成即可拥有克隆功能</li>
-<li>具体原型：PrototypeA，PrototypeB，实现/集成了Prototype接口的类，拥有克隆方法</li>
-<li>工厂模式：原型模式常和工厂模式一起使用，通过 clone 的方法创建一个对象，然后由工厂方法提供给调用者</li>
-</ol>
-<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
-<li>性能优良，比new一个对象性能好很多</li>
-<li>不受对象构造函数的约束</li>
-</ol>
-<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p><strong>源码地址：<a href="https://github.com/mingyuHub/design-patterns" target="_blank" rel="noopener">https://github.com/mingyuHub/design-patterns</a></strong></p>
-<p>以获取笔对象为例子，结合工厂模式讲解如何使用原型模式，涉及的类：<code>Pen</code>（抽象类），<code>Pencil</code>（铅笔），<code>CarbonPen</code>（碳素笔），<code>PenFactory</code>（工厂类）</p>
-<h5 id="抽象原型"><a href="#抽象原型" class="headerlink" title="抽象原型"></a>抽象原型</h5><p>抽象类，实现了<code>Cloneable</code>接口，重写了<code>clone()</code>方法</p>
-<pre><code class="java">/**
+缺点在使用组合模式时，其叶子和树枝的声明都是实现类，而不是接口，违反了依赖倒置原则
+模式代码实现源码地址：https://github.com/mingyuHub/design-patterns
+菜单类每个一级菜单有子菜单，二级子菜单有三级菜单，以此形成一个树形结构
+/**
  * @author: chenmingyu
- * @date: 2019/2/28 09:54
- * @description: 抽象原型角色
+ * @date: 2019/3/12 17:46
+ * @description:
  */
 @Data
-public abstract class Pen implements Cloneable{
+public class Menu {
 
+    /**
+     * 菜单名
+     */
     private String name;
 
-    public Pen(String name) {
-        this.name = name;
-    }
-
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return super.clone();
-    }
-}</code></pre>
-<h5 id="具体原型"><a href="#具体原型" class="headerlink" title="具体原型"></a>具体原型</h5><p><code>Pencil</code>，继承<code>Pen</code></p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/2/28 11:27
- * @description: 铅笔
- */
-public class Pencil extends Pen{
-
-    public Pencil(String name) {
-        super(name);
-    }
-}</code></pre>
-<p><code>CarbonPen</code>，继承了`Pen</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/2/28 11:29
- * @description: 碳素笔
- */
-public class CarbonPen extends  Pen{
-
-    public CarbonPen(String name) {
-        super(name);
-    }
-}</code></pre>
-<h5 id="工厂类"><a href="#工厂类" class="headerlink" title="工厂类"></a>工厂类</h5><p>简单工厂实现</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/2/28 11:32
- * @description: 笔生产工厂
- */
-public class PenFactory {
-
     /**
-     * 原型类容器
-     */
-    private static Map&lt;String, Pen&gt; penMap = new Hashtable&lt;&gt;();
+     * 路 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/design-bridge/" title="23种设计模式之桥接模式">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="23种设计模式之桥接模式"></a></div><div class="recent-post-info"><a class="article-title" href="/design-bridge/" title="23种设计模式之桥接模式">23种设计模式之桥接模式</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-03-05 16:13:12"><i class="far fa-calendar-alt"></i>2019-03-05</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></span></div><div class="content">桥接模式桥接模式属于结构型模式
+定义： 将抽象和实现解耦，使得两者可以独立地变化
+桥接模式是为了解决继承的缺点而提出的设计模式，将系统各维度抽象出来，各维度独立变化，之后可通过聚合，将各维度组合起来，减少它们之间耦合
+模式类图以游戏为例，游戏可以按品牌分为任天堂游戏和腾讯游戏两种，显示器可以分为CRT，LCD显示器
 
-    /**
-     * 初始化
-     */
-    public static void init() {
-        Pen carbonPen = new CarbonPen(&quot;碳素笔&quot;);
-        penMap.put(CarbonPen.class.getName(),carbonPen);
-        Pen pencil = new Pencil(&quot;铅笔&quot;);
-        penMap.put(Pencil.class.getName(),pencil);
-    }
+​    将游戏和显示器分为两个维度，当两个维度都可以独立变化时，使用聚合将各维度组合，这时如果要增加一个游戏或者显示器，只需要增加相应子类就可以
+优点
+桥接模式主要作用就是解耦，解决多重继承导致的问题，将抽象和实现的分离
+优秀的扩展能力，想扩展就增加实现
+通过抽象层进行聚合完成封装，实现细节对客户透明
 
-    /**
-     * 通过复制获取实例
-     * @param className
-     * @return
-     * @throws CloneNotSupportedException
-     */
-    public static Pen getPen(Class className) throws CloneNotSupportedException{
-        Pen cachedShape = penMap.get(className.getName());
-        return (Pen) cachedShape.clone();
-    }
-
-}</code></pre>
-<h5 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h5><pre><code class="java">public static void main(String[] args){
-        PenFactory.init();
-        IntStream.range(0,2).forEach(i-&gt;{
-            try {
-                System.out.println(PenFactory.getPen(CarbonPen.class).getClass());
-                System.out.println(PenFactory.getPen(Pencil.class).getClass());
-                System.out.println(&quot;  ... &quot;);
-            }catch (CloneNotSupportedException e){
-                e.printStackTrace();
-            }
-        });
-    }</code></pre>
-<p>输出</p>
-<pre><code class="java">class com.example.design.prototype.CarbonPen
-class com.example.design.prototype.Pencil
-  ... 
-class com.example.design.prototype.CarbonPen
-class com.example.design.prototype.Pencil
-  ... </code></pre>
-<h3 id="浅拷贝和深拷贝"><a href="#浅拷贝和深拷贝" class="headerlink" title="浅拷贝和深拷贝"></a>浅拷贝和深拷贝</h3><p>浅拷贝：将一个对象复制后，基本类型会被重新创建，引用类型的对象会把引用拷贝过去，实际上还是指向的同一个对象</p>
-<p>深拷贝：将一个对象复制后，基本类型和引用类型的对象都会被重新创建</p>
-<h5 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h5><p>举个例子</p>
-<pre><code class="java">/**
+缺点会增加系统的理解与设计难度
+模式代码实现源码地址：https://github.com/mingyuHub/design-patterns
+抽象游戏类AbstractGame，按游戏分类
+/**
  * @author: chenmingyu
- * @date: 2019/2/28 14:53
- * @description: 克隆
+ * @date: 2019/3/11 17:13
+ * @description: 抽象游戏类
  */
-@Data
-public class Clone implements Cloneable{
+public abs ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/design-builder/" title="23种设计模式之建造者模式">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="23种设计模式之建造者模式"></a></div><div class="recent-post-info"><a class="article-title" href="/design-builder/" title="23种设计模式之建造者模式">23种设计模式之建造者模式</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-03-04 15:24:04"><i class="far fa-calendar-alt"></i>2019-03-04</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></span></div><div class="content">建造者模式建造者模式属于创建型设计模式，用来组装复杂的实例
+定义：将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示
+建造者模式是一步一步创建一个复杂的对象，它允许用户只通过指定复杂对象的类型和内容就可以构建它们，用户不需要知道内部的具体构建细节。
+模式类图
+角色
 
-    private CloneA CloneA;
+抽象建造者：Builder，目的是为了将建造的具体过程交给它的子类来实现。这样更容易扩展。一般至少会有两个抽象方法，一个用来建造产品，一个是用来返回产品
+具体的建造者： ConcreteBuilder，实现抽象建造者的所有未实现的方法，具体来说一般是两项任务：组建产品；返回组建好的产品
+产品类：Product，一般是一个较为复杂的对象
+管理类：Director，负责调用适当的建造者来组建产品，被用来封装程序中易变的部分
 
-    public Clone() {
-        this.CloneA = new CloneA();
+优点
+客户端不必知道产品内部组成的细节，封装性好
+
+建造者独立，容易扩展
+
+
+模式代码实现源码地址：https://github.com/mingyuHub/design-patterns
+以电脑为例，电脑拥有cpu，内存，硬盘，涉及的类：Builder(抽象建造者)，Concret ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/springboot-async/" title="spring Boot 2.x | 异步调用，定时任务">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="spring Boot 2.x | 异步调用，定时任务"></a></div><div class="recent-post-info"><a class="article-title" href="/springboot-async/" title="spring Boot 2.x | 异步调用，定时任务">spring Boot 2.x | 异步调用，定时任务</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-03-01 17:13:35"><i class="far fa-calendar-alt"></i>2019-03-01</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/java/">java</a></span></div><div class="content">定时任务在springboot中实现定时任务很简单
+1，启动类上增加一个@EnableScheduling注解
+@EnableScheduling
+@SpringBootApplication
+public class SpringbootAsyncApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(SpringbootAsyncApplication.class, args);
     }
 
-    @Override
-    protected Clone clone() throws CloneNotSupportedException {
-        return (Clone) super.clone();
-    }
-
-    class CloneA{
-    }
-}</code></pre>
-<p>验证</p>
-<pre><code class="java">public static void main(String[] args) throws CloneNotSupportedException{
-
-    Clone clone = new Clone();
-    Clone clone1 = clone.clone();
-    System.out.println(clone == clone1);
-    System.out.println(clone.getCloneA() == clone1.getCloneA());
-}</code></pre>
-<p>输出</p>
-<pre><code class="java">false    
-true</code></pre>
-<p>所以clone()方法是执行的浅拷贝，这个需要在写代码的时候注意一下，浅拷贝是否可以满足需求</p>
-<h5 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h5><p>深拷贝的实现方案主要有两种</p>
-<ol>
-<li>引用类型也使用clone()，进行clone的时候，对引用类型在调用一次clone()方法</li>
-<li>使用序列化，将对象序列化后在反序列化回来，得到新的对象实例</li>
-</ol>
-<p>使用序列化实现以下</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/2/28 14:53
- * @description: 浅克隆
- */
-@Data
-public class Clone implements Cloneable ,Serializable {
-
-    private CloneA CloneA;
-
-    public Clone() {
-        this.CloneA = new CloneA();
-    }
-
-    @Override
-    protected Clone clone() throws CloneNotSupportedException {
-        return (Clone) super.clone();
-    }
-
-    /**
-     * 深拷贝
-     * @return
-     * @throws CloneNotSupportedException
-     */
-    protected Clone deepClone() throws CloneNotSupportedException {
-        Clone clone = null;
-        try{
-            ByteArrayOutputStream baos=new ByteArrayOutputStream();
-            ObjectOutputStream oos=new ObjectOutputStream(baos);
-            oos.writeObject(this);
-            oos.close();
-            ByteArrayInputStream bais=new ByteArrayInputStream(baos.toByteArray());
-            ObjectInputStream ois=new ObjectInputStream(bais);
-            //生成新的对象实例
-            clone=(Clone)ois.readObject();
-            ois.close();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return clone;
-    }
-
-    class CloneA implements Serializable{
-    }
-}</code></pre>
-<p>验证</p>
-<pre><code class="java">public static void main(String[] args) throws CloneNotSupportedException{
-
-    Clone clone = new Clone();
-    Clone clone1 = clone.deepClone();
-    System.out.println(clone == clone1);
-    System.out.println(clone.getCloneA() == clone1.getCloneA());
-}</code></pre>
-<p>输出</p>
-<pre><code class="java">false    
-false</code></pre>
-<p>在使用原型模式的时候一定要理解什么是浅拷贝和深拷贝，才可以放心的使用原型模式，并且一般都会和工厂模式一起使用</p>
-<p><strong>推荐阅读：</strong><a href="https://chenmingyu.top/design/">23种设计模式详解</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://chenmingyu.top/design-phototype/" data-id="ckdn6w7yv001saktw5g0m3zvm" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/" rel="tag">原型模式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-design-abstract-factory" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/design-abstract-factory/" class="article-date">
-  <time datetime="2019-02-27T09:51:13.000Z" itemprop="datePublished">2019-02-27</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/design-abstract-factory/">23种设计模式之抽象工厂</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="抽象工厂"><a href="#抽象工厂" class="headerlink" title="抽象工厂"></a>抽象工厂</h3><p>抽象工厂模式属于创建型模式</p>
-<p><strong>定义：</strong>为创建一组相关或相互依赖的对象提供一个接口，而且无须指定它们的具体类</p>
-<p>抽象工厂模式是对工厂方法模式的扩展，抽象工厂比工厂模式更为抽象，工厂方法模式针对产品等级结构，而抽象工厂针对产品族。</p>
-<p>产品族与产品等级结构的概念：</p>
-<p>​    产品族，是指位于不同产品等级结构中，功能相关联的产品组成的家族，比如游戏工厂生产射击类和塔防类两种产品，任天堂的射击类游戏和塔防类游戏为一个产品族，腾讯的射击类游戏和塔防类游戏为一个产品族</p>
-<p>​    产品等级结构，一个产品族由多个产品等级结构组成，射击类游戏是一个产品等级结构，塔防类游戏也是一个产品等级结构</p>
-<h4 id="模式类图"><a href="#模式类图" class="headerlink" title="模式类图"></a>模式类图</h4><p>以游戏为例，定义一个抽象工厂，生产射击和塔防两种游戏，有两个具体的生产工厂，任天堂和腾讯，两个工厂生产各自品牌的两类游戏产品</p>
-<p><img src="design-abstract-factory/uml.png" alt=""></p>
-<p><strong>角色</strong>：</p>
-<ol>
-<li>抽象工厂：<code>GameFactory</code>，规定了生成射击类和塔防类两种游戏</li>
-<li>具体工厂：<code>NintendoGameFactory</code>，<code>TencentGameFactory</code>，负责生产各自品牌的射击类和塔防类游戏</li>
-<li>抽象产品：<code>Gameable</code>，<code>ShootGame</code>和<code>TowerDefenceGame</code>是抽象类，实现<code>Gameable</code></li>
-<li>具体产品：<code>NintendoShootGame</code>，<code>NintendoTowerDefenceGame</code>，<code>TencentShootGame</code>，<code>TencentTowerDefenceGame</code></li>
-</ol>
-<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ol>
-<li>接口和实现分离，客户端面向接口编程，不用关心具体实现，从具体的产品实现中解耦</li>
-<li>增加新的具体工厂和产品族方便，切换产品族方便</li>
-</ol>
-<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><p>不易增加新的产品，如果要增加新的产品需要抽象工厂和所有具体工厂</p>
-<h4 id="模式代码实现"><a href="#模式代码实现" class="headerlink" title="模式代码实现"></a>模式代码实现</h4><p><strong>源码地址：<a href="https://github.com/mingyuHub/design-patterns" target="_blank" rel="noopener">https://github.com/mingyuHub/design-patterns</a></strong></p>
-<h5 id="GameFactory"><a href="#GameFactory" class="headerlink" title="GameFactory"></a>GameFactory</h5><p>抽象工厂，规定了生产射击和塔防两类游戏</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/2/14 11:29
- * @description: 工厂类
- */
-public interface GameFactory {
-
-    /**
-     * 创建射击游戏
-     * @return
-     */
-    Gameable createShootGame();
-
-    /**
-     * 创建塔防游戏
-     * @return
-     */
-    Gameable createTowerDefenceGame();
-}</code></pre>
-<h5 id="NintendoGameFactory"><a href="#NintendoGameFactory" class="headerlink" title="NintendoGameFactory"></a>NintendoGameFactory</h5><p>具体工厂，负责生产任天堂的射击类和塔防类游戏</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/2/14 18:20
- * @description: 任天堂游戏制造厂
- */
-public class NintendoGameFactory implements GameFactory{
-
-    @Override
-    public Gameable createShootGame() {
-        return new NintendoShootGame();
-    }
-
-    @Override
-    public Gameable createTowerDefenceGame() {
-        return new NintendoTowerDefenceGame();
-    }
-}</code></pre>
-<h5 id="TencentGameFactory"><a href="#TencentGameFactory" class="headerlink" title="TencentGameFactory"></a>TencentGameFactory</h5><p>具体工厂，负责生产腾讯的射击类和塔防类游戏</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/2/14 18:20
- * @description: 腾讯游戏制造厂
- */
-public class TencentGameFactory implements GameFactory {
-
-    @Override
-    public Gameable createShootGame() {
-        return new TencentShootGame();
-    }
-
-    @Override
-    public Gameable createTowerDefenceGame() {
-        return new TencentTowerDefenceGame();
-    }
-}</code></pre>
-<h5 id="Gameable"><a href="#Gameable" class="headerlink" title="Gameable"></a>Gameable</h5><p>抽象产品，所有游戏产品均实现该接口</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/2/14 11:19
- * @description: 游戏接口
- */
-public interface Gameable {
-
-    /**
-     * 校验账户信息
-     * @param nickName
-     */
-    void validateAccount(String nickName);
-
-
-    /**
-     * 游戏类型
-     */
-    void getGameType();
-}</code></pre>
-<h5 id="ShootGame和TowerDefenceGame"><a href="#ShootGame和TowerDefenceGame" class="headerlink" title="ShootGame和TowerDefenceGame"></a>ShootGame和TowerDefenceGame</h5><p>抽象类，实现Gameable接口</p>
-<pre><code class="java">/**
- * @auther: chenmingyu
- * @date: 2019/2/14 11:26
- * @description: 射击类游戏
- */
-public abstract class ShootGame implements Gameable{
-
-    @Override
-    public void validateAccount(String nickName) {
-        System.out.println(&quot;射击游戏校验昵称：&quot;+nickName);
-    }
-
-}</code></pre>
-<pre><code class="java">/**
- * @auther: chenmingyu
- * @date: 2019/2/14 11:28
- * @description: 塔防类游戏
- */
-public abstract class TowerDefenceGame implements Gameable{
-
-    @Override
-    public void validateAccount(String nickName) {
-        System.out.println(&quot;塔防游戏校验昵称：&quot;+nickName);
-    }
-
-}</code></pre>
-<h5 id="具体产品"><a href="#具体产品" class="headerlink" title="具体产品"></a>具体产品</h5><p>共四款游戏产品：<code>NintendoShootGame</code>，<code>NintendoTowerDefenceGame</code>，<code>TencentShootGame</code>，<code>TencentTowerDefenceGame</code></p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/2/15 16:57
- * @description: 任天堂射击游戏
- */
-public class NintendoShootGame extends ShootGame{
-
-    @Override
-    public void getGameType() {
-        System.out.println(&quot;任天堂射击游戏&quot;);
-    }
 }
-</code></pre>
-<pre><code class="java">/**
+2，创建一个定时任务类，使用@Scheduled注解
+/**
  * @author: chenmingyu
- * @date: 2019/2/15 17:18
- * @description: 任天堂塔防游戏
+ * @date: 2019/3/1 17:33
+ * @description: 定时任务
  */
-public class NintendoTowerDefenceGame extends TowerDefenceGame{
+@Component
+public class Schedule {
 
-    @Override
-    public void getGameType() {
-        System.out.println(&quot;任天堂塔防游戏&quot;);
-    }
-}</code></pre>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/2/15 16:55
- * @description: 腾讯射击游戏
- */
-public class TencentShootGame extends ShootGame {
-
-    @Override
-    public void getGameType() {
-        System.out.println(&quot;腾讯射击游戏&quot;);
-    }
-}</code></pre>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/2/15 17:17
- * @description: 腾讯塔防游戏
- */
-public class TencentTowerDefenceGame extends TowerDefenceGame{
-
-    @Override
-    public void getGameType() {
-        System.out.println(&quot;腾讯塔防游戏&quot;);
-    }
-}</code></pre>
-<h5 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h5><pre><code class="java">public static void main(String[] args) throws Exception{
-
-    NintendoGameFactory nintendoGameFactory = new NintendoGameFactory();
-    nintendoGameFactory.createShootGame().getGameType();
-    nintendoGameFactory.createTowerDefenceGame().getGameType();
-
-    TencentGameFactory tencentGameFactory = new TencentGameFactory();
-    tencentGameFactory.createShootGame().getGameType();
-    tencentGameFactory.createTowerDefenceGame().getGameType();
-}</code></pre>
-<p>输出</p>
-<pre><code class="java">任天堂射击游戏
-任天堂塔防游戏
-腾讯射击游戏
-腾讯塔防游戏</code></pre>
-<p><strong>参考：</strong></p>
-<p>​    菜鸟教程：<a href="http://www.runoob.com/design-pattern/abstract-factory-pattern.html" target="_blank" rel="noopener">http://www.runoob.com/design-pattern/abstract-factory-pattern.html</a></p>
-<p>​    图说设计模式：<a href="https://design-patterns.readthedocs.io/zh_CN/latest/creational_patterns/abstract_factory.html" target="_blank" rel="noopener">https://design-patterns.readthedocs.io/zh_CN/latest/creational_patterns/abstract_factory.html</a></p>
-<p><strong>推荐阅读：</strong><a href="https://chenmingyu.top/design/">23种设计模式详解</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://chenmingyu.top/design-abstract-factory/" data-id="ckdn6w7x8000gaktwbmhi4cic" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82/" rel="tag">抽象工厂</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-design-iterator" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/design-iterator/" class="article-date">
-  <time datetime="2019-02-27T08:40:19.000Z" itemprop="datePublished">2019-02-27</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/design-iterator/">23中设计模式之迭代器模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="迭代器模式"><a href="#迭代器模式" class="headerlink" title="迭代器模式"></a>迭代器模式</h3><p>迭代器模式属于行为型模式，描述的是类之间的关系</p>
-<p><strong>定义：</strong> 它提供一种方法访问一个容器对象中各个元素，而又不需暴露该对象的内部细节</p>
-<p>迭代器模式就是为解决遍历元素而诞生的，java而言，使用java提供的iterator就可以了，不用需要手动去写迭代器</p>
-<h4 id="模式类图"><a href="#模式类图" class="headerlink" title="模式类图"></a>模式类图</h4><p><img src="design-iterator/uml.png" alt=""></p>
-<p><strong>角色：</strong></p>
-<ol>
-<li>抽象迭代器：<code>Iterator</code>，负责定义访问和遍历元素的接口</li>
-<li>具体迭代器：<code>ConcreteIterator</code>，实现<code>Iterator</code>接口</li>
-<li>抽象容器：<code>Aggregate</code>，负责提供创建具体迭代器角色的接口</li>
-<li>具体容器： <code>ConcreteAggregate</code>，实现<code>Aggregate</code>接口</li>
-</ol>
-<h4 id="模式代码实现"><a href="#模式代码实现" class="headerlink" title="模式代码实现"></a>模式代码实现</h4><p><strong>源码地址：<a href="https://github.com/mingyuHub/design-patterns" target="_blank" rel="noopener">https://github.com/mingyuHub/design-patterns</a></strong></p>
-<h5 id="抽象迭代器"><a href="#抽象迭代器" class="headerlink" title="抽象迭代器"></a>抽象迭代器</h5><p><code>Iterator</code>提供两个方法，返回下一个元素，是否还有下一个元素</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/17 19:07
- * @description: 抽象迭代器
- */
-public interface Iterator {
-
-    /**
-     * 返回下一个元素
-     * @return
-     */
-    public Object next();
-
-    /**
-     * 是否还有下一个元素
-     * @return
-     */
-    public boolean hasNext();
-
-}</code></pre>
-<h5 id="具体迭代器实现"><a href="#具体迭代器实现" class="headerlink" title="具体迭代器实现"></a>具体迭代器实现</h5><p><code>cursor</code>为容器遍历元素时当前元素的容器下标</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/18 09:50
- * @description: 具体迭代器实现
- */
-public class ConcreteIterator implements Iterator {
-
-    /**
-     * 当前位置
-     */
-    public int cursor = 0;
-
-    /**
-     * 容器
-     */
-    private List&lt;String&gt; list;
-
-    public ConcreteIterator(List&lt;String&gt; list) {
-        this.list = list;
-    }
-
-    @Override
-    public Object next() {
-        if(this.hasNext()){
-            return this.list.get(this.cursor++);
-        }
-        return null;
-    }
-
-    @Override
-    public boolean hasNext() {
-        if(this.cursor == this.list.size()){
-            return false;
-        }else{
-            return true;
-        }
-    }
-}</code></pre>
-<h5 id="抽象容器"><a href="#抽象容器" class="headerlink" title="抽象容器"></a>抽象容器</h5><p>提供三个方法，增加容器元素，删除容器元素，获取当前容器的迭代器</p>
-<pre><code class="java">/**
- * @auther: chenmingyu
- * @date: 2019/3/18 09:51
- * @description: 抽象容器
- */
-public interface Aggregate {
-
-    /**
-     * 增加元素
-     * @param s
-     */
-    public void add(String s);
-
-    /**
-     * 删除元素
-     * @param s
-     */
-    public void remove(String s);
-
-    /**
-     * 获取当前容器的迭代器
-     * @return
-     */
-    public Iterator createIterator();
-}</code></pre>
-<h5 id="具体容器实现"><a href="#具体容器实现" class="headerlink" title="具体容器实现"></a>具体容器实现</h5><pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/18 11:16
- * @description: 具体容器实现
- */
-public class ConcreteAggregate implements  Aggregate {
-
-    private List&lt;String&gt; list = new ArrayList&lt;&gt;();
-
-    @Override
-    public void add(String s) {
-        list.add(s);
-    }
-
-    @Override
-    public void remove(String s) {
-        list.remove(s);
-    }
-
-    @Override
-    public Iterator createIterator() {
-        return new ConcreteIterator(list);
-    }
-}</code></pre>
-<h5 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h5><pre><code class="java">public static void main(String[] args) {
-    Aggregate aggregate = new ConcreteAggregate();
-    aggregate.add(&quot;first title&quot;);
-    aggregate.add(&quot;second title&quot;);
-    aggregate.add(&quot;third title&quot;);
-    Iterator iterator = aggregate.createIterator();
-    while (iterator.hasNext()){
-        System.out.println(iterator.next());
-    }
-}</code></pre>
-<p>输出</p>
-<pre><code class="java">first title
-second title
-third title</code></pre>
-<p><strong>参考：</strong>设计模式之禅：<a href="https://www.kancloud.cn/sstd521/design/193578" target="_blank" rel="noopener">https://www.kancloud.cn/sstd521/design/193578</a></p>
-<p><strong>推荐阅读：</strong><a href="https://chenmingyu.top/design/">23种设计模式详解</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://chenmingyu.top/design-iterator/" data-id="ckdn6w7yl001jaktw877854cf" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/" rel="tag">迭代器模式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-springboot-thymeleaf" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/springboot-thymeleaf/" class="article-date">
-  <time datetime="2019-02-27T03:25:45.000Z" itemprop="datePublished">2019-02-27</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/java/">java</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/springboot-thymeleaf/">spring Boot 2.x | 模板引擎 thymeleaf</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>讲解springboot中使用模板thymeleaf引擎</p>
-</blockquote>
-<h4 id="什么是thymeleaf"><a href="#什么是thymeleaf" class="headerlink" title="什么是thymeleaf"></a>什么是thymeleaf</h4><p>thymeleaf是一款用于渲染XML/XHTML/HTML5内容的模板引擎。类似JSP，Velocity，FreeMaker等，它也可以轻易的与Spring MVC等Web框架进行集成作为Web应用的模板引擎。与其它模板引擎相比，Thymeleaf最大的特点是能够直接在浏览器中打开并正确显示模板页面，而不需要启动整个Web应用，比如<code>&lt;span th:text=&quot;${name}&quot;&gt;你好&lt;/span&gt;</code>这个标签，当直接打开静态页面的时候会显示你好，当使用动态数据之后会显示动态的数据，将<code>你好</code>覆盖</p>
-<h5 id="引入依赖"><a href="#引入依赖" class="headerlink" title="引入依赖"></a>引入依赖</h5><p>在springboot中使用thymeleaf，项目依赖web模块和thymeleaf</p>
-<pre><code class="xml">&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;/artifactId&gt;
-&lt;/dependency&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
-&lt;/dependency&gt;</code></pre>
-<h5 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h5><p>springboot提供了<code>Thymeleaf</code>的默认配置，如果想要更改默认配置，需要在配置文件中修改相关属性</p>
-<pre><code class="yml">spring:
-  thymeleaf:
-    mode: HTML5
-    servlet:
-      content-type: text/html
-    cache: false #是否开启缓存
-    encoding: UTF-8 #编码
-    prefix: classpath:/templates/ #模板路径
-    suffix: .html # 后缀</code></pre>
-<h5 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h5><p>Spring Boot 官方推荐使用<code>Thymeleaf</code>模板引擎，默认的模板路径在src/main/resources/templates</p>
-<p>新建一个test.html模板</p>
-<pre><code class="html">&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;测试&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;h4&gt;&lt;span th:text=&quot;${name}&quot;&gt;你好&lt;/span&gt;&lt;/h4&gt;
-我的博客地址是&lt;span th:text=&quot;${url}&quot;&gt;&lt;/span&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-<p>写个controller测试下</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/2/27 11:04
- * @description:
- */
-@Controller
-public class TestController {
-
-    @GetMapping(&quot;test&quot;)
-    public String test(Model model){
-
-        model.addAttribute(&quot;name&quot;,&quot;叫我明羽&quot;);
-        model.addAttribute(&quot;url&quot;,&quot;https://chenmingyu.top&quot;);
-        return &quot;test&quot;;
-    }
-}</code></pre>
-<p>访问 <a href="http://localhost:8080/test" target="_blank" rel="noopener">http://localhost:8080/test</a></p>
-<p><img src="springboot-thymeleaf/1.png" alt=""></p>
-<p>想了解更多关于Thymeleaf的更多标签，语法可以访问<a href="https://www.thymeleaf.org/documentation.html" target="_blank" rel="noopener">Thymeleaf官网</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://chenmingyu.top/springboot-thymeleaf/" data-id="ckdn6w81m005kaktw92d7fbow" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/thymeleaf/" rel="tag">thymeleaf</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-springboot-log" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/springboot-log/" class="article-date">
-  <time datetime="2019-02-26T08:00:43.000Z" itemprop="datePublished">2019-02-26</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/java/">java</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/springboot-log/">spring Boot 2.x | 日志管理</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>springboot的web模块已经引入了日志模块，所以只需要在pom文件中引入web依赖就可以使用日志</p>
-<h5 id="引入依赖"><a href="#引入依赖" class="headerlink" title="引入依赖"></a>引入依赖</h5><pre><code class="xml">&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
-&lt;/dependency&gt;</code></pre>
-<p>默认日志配置输出格式：时间 日志级别 进程id — [线程名] 类名  ： 输出的日志信息</p>
-<pre><code class="java">2019-02-26 17:42:46.806  INFO 14072 --- [           main] c.my.log.SpringbootLogApplicationTests   : info</code></pre>
-<p>springboot提供的日志级别为：<code>ERROR</code>, <code>WARN</code>, <code>INFO</code>, <code>DEBUG</code> ,<code>TRACE</code></p>
-<p>默认<code>ERROR</code>、<code>WARN</code>和<code>INFO</code>级别的日志输出到控制台，</p>
-<p>使用测试类测试一下</p>
-<pre><code class="java">@RunWith(SpringRunner.class)
-@SpringBootTest
-public class SpringbootLogApplicationTests {
-
-    Logger logger = LoggerFactory.getLogger(SpringbootLogApplicationTests.class);
-
-    @Test
+    @Scheduled(cron = &quot;0/1 * * * * ?&quot;)
     public void test() {
-        logger.error(&quot;日志级别：error&quot;);
-        logger.warn(&quot;日志级别：warn&quot;);
-        logger.info(&quot;日志级别：info&quot;);
-        logger.debug(&quot;日志级别：debug&quot;);
-        logger.trace(&quot;日志级别：trace&quot;);
-    }
-}</code></pre>
-<p>日志输出</p>
-<p><img src="springboot-log/%E6%97%A5%E5%BF%97%E7%BA%A7%E5%88%AB.png" alt=""></p>
-<h5 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h5><p>springboot提供的默认配置都可以通过配置文件进行修改</p>
-<pre><code class="yml">logging:
-  level:
-    com.my.log: debug # com.my.log包下的日志级别为 info
-  file: info.log #日志文件位置：可以是相对路径，也可以是绝对路径</code></pre>
-<p>上述就是将 <code>com.my.log</code>包下的日志级别改为：<code>debug</code>，日志输出到info.log文件</p>
-<p>在执行一下上面的测试类，看见输出已将日志级别改为<code>debug级别</code></p>
-<p><img src="E:%5Cmy%5Cmyblog%5Csource_posts%5Cspringboot-log%5Cdebug%E7%BA%A7%E5%88%AB.png" alt=""></p>
-<p>并且在项目的根目录下生成<code>info.log</code>文件</p>
-<p><img src="E:%5Cmy%5Cmyblog%5Csource_posts%5Cspringboot-log%5Cinfo.log.png" alt=""></p>
-<p>默认配置会在每个日志文件打到10M的时候进行截取，之后会生成新的日志文件</p>
-<h5 id="自定义日志配置文件"><a href="#自定义日志配置文件" class="headerlink" title="自定义日志配置文件"></a>自定义日志配置文件</h5><p>一个项目中都会自定义配置文件，用来输出不同等级和不同业务的日志到不同的日志文件，这时候只需要将日志文件配置放到resources文件夹下，日志文件名定义为：logback-spring.xml就好</p>
+        System.out.p ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/design-facade/" title="23种设计模式之外观模式">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="23种设计模式之外观模式"></a></div><div class="recent-post-info"><a class="article-title" href="/design-facade/" title="23种设计模式之外观模式">23种设计模式之外观模式</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-03-01 14:30:21"><i class="far fa-calendar-alt"></i>2019-03-01</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></span></div><div class="content">外观模式外观模式属于结构型设计模式
+定义：要求一个子系统的外部与其内部的通信必须通过一个统一的对象进行。提供一个高层次的接口，使得子系统更易于使用
+外观模式是为了解决类与类之间的责任关系和依赖关系的，通过提供一个Facade类来隐藏这些复杂的类之间关系的调用，并提供一个接口，供外部调用，利用这种方式进行类之间的解耦
+优点
+减少类之间依赖，只对Facade类进行依赖，对Facade类里的复杂的类没有关联
+提高了灵活性，只对Facade类进行依赖，Facade类内部可自由变化
+提高安全性，只能对Facade类进行访问，无法访问到Facade类里复杂的类
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://chenmingyu.top/springboot-log/" data-id="ckdn6w815004waktwhrnf2a2w" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/" rel="tag">日志管理</a></li></ul>
+缺点不符合开闭原则，如果Facade类设计不好，后期无法通过对Facade类重写覆盖去解决问题，只能改代码
+模式代码实现源码地址：https://github.com/mingyuHub/design-patterns
+以汽车启动为例，需要启动引擎，仪表盘，大灯等，有可能需要先启动引擎之后才可以启动仪表盘，或者大灯的启动依赖引擎的启动等，这个时候就需要一个Facade类来隐藏这些复杂的依赖关系
+实例涉及的类：Engine（引擎），Arma ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/design-proxy/" title="23种设计模式之代理模式">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="23种设计模式之代理模式"></a></div><div class="recent-post-info"><a class="article-title" href="/design-proxy/" title="23种设计模式之代理模式">23种设计模式之代理模式</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-03-01 13:59:35"><i class="far fa-calendar-alt"></i>2019-03-01</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></span></div><div class="content">代理模式代理模式属于结构型模式
+定义：为其他对象提供一种代理以控制对这个对象的访问
+代理模式就是在操作原对象的时候，多出来一个代理类，用来对原对象的访问进行控制和替代原对象进行一些操作
+模式类图
+角色
 
-    </footer>
-  </div>
-  
-</article>
+抽象接口：able，定义业务接口
+被代理类：Source
+代理类：Proxy，用来对原对象的访问进行控制和替代原对象进行一些操作
+客户端：Client，负责调用代理类
 
+优点
+职责清晰，被代理类只关心实际的业务逻辑，不关心其他事情
+高扩展性，被代理类可以随意更改，不会影响到代理类对其的访问控制
 
-  
-    <article id="post-springboot-mail" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/springboot-mail/" class="article-date">
-  <time datetime="2019-02-24T05:48:22.000Z" itemprop="datePublished">2019-02-24</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/java/">java</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/springboot-mail/">spring Boot 2.x | 发送文本邮件，HTML邮件，模板邮件</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>springboot实现发送文本邮件，html邮件，模板邮件</p>
-</blockquote>
-<p>现在的网站，在注册用户时一般都会对注册用户发送一封邮件，用来验证注册用户的身份，或者用于一些报警提测，比如接口调用量，可用率报警等等</p>
-<p>springboot中的<code>spring-boot-starter-mail</code>封装了发送邮件的接口，可以实现发送文本邮件，html邮件，发送模板邮件等等功能</p>
-<h4 id="文本邮件，HTML邮件"><a href="#文本邮件，HTML邮件" class="headerlink" title="文本邮件，HTML邮件"></a>文本邮件，HTML邮件</h4><h5 id="引入依赖"><a href="#引入依赖" class="headerlink" title="引入依赖"></a>引入依赖</h5><p>pom文件中引入<code>spring-boot-starter-mail</code></p>
-<pre><code class="xml">&lt;dependencies&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-boot-starter-mail&lt;/artifactId&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
-        &lt;artifactId&gt;lombok&lt;/artifactId&gt;
-        &lt;optional&gt;true&lt;/optional&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
-        &lt;scope&gt;test&lt;/scope&gt;
-    &lt;/dependency&gt;
-&lt;/dependencies&gt;</code></pre>
-<h5 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h5><p>在配置文件中指定发送邮件的相关配置</p>
-<pre><code class="yml">spring:
-  mail:
-    host: smtp.qq.com
-    username: 你的邮箱
-    password: 你的秘钥
-    properties:
-      mail:
-        smtp:
-          auth: true
-    default-encoding: utf-8</code></pre>
-<h5 id="定义发送邮件接口"><a href="#定义发送邮件接口" class="headerlink" title="定义发送邮件接口"></a>定义发送邮件接口</h5><p>EmailService接口提供两个接口：sendSimpleEmail，sendHtmlEmail</p>
-<pre><code class="java">/**
- * @auther: chenmingyu
- * @date: 2019/2/24 13:00
- * @description: 邮件服务
- */
-public interface EmailService {
-
-    /**
-     * 发送文本邮件
-     * @param toMail 接收邮箱
-     * @param subject 标题
-     * @param text 文本
-     * @return
-     */
-    boolean sendSimpleEmail(String toMail,String subject,String text);
-
-    /**
-     * 发送html邮件
-     * @param toMail 接收邮箱
-     * @param subject 标题
-     * @param html html内容
-     * @return
-     */
-    boolean sendHtmlEmail(String toMail,String subject,String html);
-}</code></pre>
-<h5 id="接口实现"><a href="#接口实现" class="headerlink" title="接口实现"></a>接口实现</h5><pre><code class="java">/**
+模式代码实现源码地址：https://github.com/mingyuHub/design-patterns
+以打电话为例
+抽象接口被代理类和代理类都实现此接口
+/**
  * @author: chenmingyu
- * @date: 2019/2/24 13:01
- * @description: 邮件服务
+ * @date: 2019/3/1 10:20
+ * @description: 手机接口
  */
-@Service
-public class EmailServiceImpl implements EmailService {
-
-    @Resource
-    private JavaMailSender mailSender;
+public interface Phoneable {
 
     /**
-     * 发送邮件邮箱
+     * 打电话
      */
-    @Value(&quot;${spring.mail.username}&quot;)
-    private String formMail;
-
-    @Override
-    public boolean sendSimpleEmail(String toMail,String subject,String text) {
-        try {
-            SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
-            simpleMailMessage.setFrom(formMail);
-            simpleMailMessage.setTo(toMail);
-            simpleMailMessage.setSubject(subject);
-            simpleMailMessage.setText(text);
-            mailSender.send(simpleMailMessage);
-            System.out.println(&quot;发送文本邮件：toMail：&quot;+toMail);
-            return true;
-        }catch (Exception e){
-            System.out.println(&quot;发送文本邮件异常：toMail：&quot;+toMail);
-            e.printStackTrace();
-        }
-        return false;
-    }
-
-    @Override
-    public boolean sendHtmlEmail(String toMail, String subject, String html) {
-        try {
-            MimeMessage mimeMessage = mailSender.createMimeMessage();
-            MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage,true);
-            mimeMessageHelper.setTo(toMail);
-            mimeMessageHelper.setFrom(formMail);
-            mimeMessageHelper.setText(html,true);
-            mimeMessageHelper.setSubject(subject);
-            mailSender.send(mimeMessage);
-            System.out.println(&quot;发送html邮件：toMail：&quot;+toMail);
-        } catch (Exception e) {
-            System.out.println(&quot;发送html邮件异常：toMail：&quot;+toMail);
-            e.printStackTrace();
-        }
-        return false;
-    }
-}</code></pre>
-<h5 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h5><pre><code class="java">@RunWith(SpringRunner.class)
-@SpringBootTest
-public class SpringbootEmailApplicationTests {
-
-    @Resource
-    private EmailService emailService;
-
-    @Test
-    public void sendSimpleMail() {
-        emailService.sendSimpleEmail(&quot;1520151594@qq.com&quot;,&quot;注册提醒&quot;,&quot;欢迎注册，这是一封测试邮件&quot;);
-    }
-
-    @Test
-    public void sendHtmlMail() {
-        emailService.sendHtmlEmail(&quot;1520151594@qq.com&quot;,&quot;注册提醒&quot;,&quot;&lt;h1&gt;欢迎注册，这是一封测试邮件&lt;/h1&gt;&quot;);
-    }
-
-}</code></pre>
-<p>接收到的邮件</p>
-<h6 id="纯文本邮件"><a href="#纯文本邮件" class="headerlink" title="纯文本邮件"></a>纯文本邮件</h6><p><img src="springboot-mail/%E6%96%87%E6%9C%AC.png" alt=""></p>
-<h6 id="html邮件"><a href="#html邮件" class="headerlink" title="html邮件"></a>html邮件</h6><p><img src="springboot-mail/html.png" alt=""></p>
-<h4 id="模板邮件"><a href="#模板邮件" class="headerlink" title="模板邮件"></a>模板邮件</h4><p>在发送一些固定场景中，除了使用HTML发送邮件外更常用的是定义一个模板，使用模板发送邮件，然后替换模板中的一些变化的值</p>
-<p>以<code>thymeleaf</code>为渲染模板，实现模板的邮件发送</p>
-<h5 id="引入thymeleaf依赖"><a href="#引入thymeleaf依赖" class="headerlink" title="引入thymeleaf依赖"></a>引入<code>thymeleaf</code>依赖</h5><pre><code class="xml">&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;/artifactId&gt;
-&lt;/dependency&gt;</code></pre>
-<h5 id="定义邮件模板：template-html"><a href="#定义邮件模板：template-html" class="headerlink" title="定义邮件模板：template.html"></a>定义邮件模板：template.html</h5><pre><code class="html">&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot; xmlns:th=&quot;http://www.thymeleaf.org&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;注册邮件&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;p&gt;&lt;span th:text=&quot;${name}&quot;&gt;&lt;/span&gt;，欢迎注册，这是一封测试邮件&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-<h5 id="定义发送模板邮件接口"><a href="#定义发送模板邮件接口" class="headerlink" title="定义发送模板邮件接口"></a>定义发送模板邮件接口</h5><pre><code class="java">/**
- * 发送模板邮件
- * @param toMail 接收邮箱
- * @param subject 标题
- * @param templateValue 模板内容填充值
- * @return
- */
-boolean sendTemplateEmail(String toMail,String subject,Map&lt;String,Object&gt; templateValue);</code></pre>
-<h5 id="接口实现-1"><a href="#接口实现-1" class="headerlink" title="接口实现"></a>接口实现</h5><pre><code class="java">@Override
-public boolean sendTemplateEmail(String toMail, String subject, Map&lt;String,Object&gt; templateValue) {
-    System.out.println(&quot;发送html邮件：toMail：&quot;+toMail);
-    try {
-        MimeMessage mimeMessage = mailSender.createMimeMessage();
-        MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, true);
-        mimeMessageHelper.setTo(toMail);
-        mimeMessageHelper.setFrom(formMail);
-        mimeMessageHelper.setSubject(subject);
-        Context context = new Context();
-        context.setVariables(templateValue);
-        String text = templateEngine.process(&quot;template&quot;,context);
-        mimeMessageHelper.setText(text, true);
-        mailSender.send(mimeMessage);
-        return true;
-    } catch (Exception e) {
-        System.out.println(&quot;发送html邮件异常：toMail：&quot;+toMail);
-        e.printStackTrace();
-    }
-    return false;
-}</code></pre>
-<h5 id="测试-1"><a href="#测试-1" class="headerlink" title="测试"></a>测试</h5><pre><code class="java">@Test
-public void sendTemplateMail() {
-    Map&lt;String,Object&gt; map = new HashMap&lt;&gt;();
-    map.put(&quot;name&quot;,&quot;叫我明羽&quot;);
-    emailService.sendTemplateEmail(&quot;1520151594@qq.com&quot;,&quot;注册提醒&quot;,map);
-}</code></pre>
-<p>模板邮件</p>
-<p><img src="springboot-mail/%E6%A8%A1%E6%9D%BF.png" alt=""></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://chenmingyu.top/springboot-mail/" data-id="ckdn6w817004zaktwgm9d97m4" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/email/" rel="tag">email</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-design-strategy" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/design-strategy/" class="article-date">
-  <time datetime="2019-02-21T09:37:49.000Z" itemprop="datePublished">2019-02-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/design-strategy/">23种设计模式之策略模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h3><p>策略模式属于行为型模式</p>
-<p><strong>定义：</strong>定义一组算法，将每个算法都封装起来，并且使它们之间可以互换</p>
-<p>在系统中提供一组策略，并将每个策略封装成类，使他们可以相互转换，具体策略的选择由客户端决定，这就是策略模式，当系统中有很多if…else的时候可以考虑使用策略模式，策略模式可以灵活的增加策略类，进行扩展，但是可能会由于策略过多导致，策略类太多</p>
-<h4 id="模式类图"><a href="#模式类图" class="headerlink" title="模式类图"></a>模式类图</h4><p><img src="design-strategy/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F%E7%B1%BB%E5%9B%BE.png" alt=""></p>
-<p><strong>角色</strong></p>
-<ol>
-<li>策略接口：<code>TripStrategy</code></li>
-<li>具体策略类：<code>BicycleTripStrategy</code>，<code>CarTripStraregy</code>实现了策略接口的具体策略类</li>
-<li>封装策略类：<code>TripContext</code>，使用某种策略的类</li>
-</ol>
-<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ol>
-<li>算法可以自由切换</li>
-<li>避免使用多重条件判断</li>
-<li>扩展性良好，增加一种策略只需要新增一个策略类</li>
-</ol>
-<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ol>
-<li>策略类数量增多，每新增一种策略，就需要增加一个策略类</li>
-<li>所有的策略类都需要对外暴露，上层模块必须知道有哪些策略，然后才能决定使用哪一个策略，违法迪米特法则</li>
-</ol>
-<h4 id="模式代码实现"><a href="#模式代码实现" class="headerlink" title="模式代码实现"></a>模式代码实现</h4><p><strong>源码地址：<a href="https://github.com/mingyuHub/design-patterns" target="_blank" rel="noopener">https://github.com/mingyuHub/design-patterns</a></strong></p>
-<h5 id="策略接口"><a href="#策略接口" class="headerlink" title="策略接口"></a>策略接口</h5><pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/2/21 18:15
- * @description: 出行策略
- */
-public interface TripStrategy {
-
-    /**
-     * 出行方式
-     */
-    void tripMode();
-}</code></pre>
-<h5 id="具体策略类"><a href="#具体策略类" class="headerlink" title="具体策略类"></a>具体策略类</h5><p>自行车出行策略类</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/2/21 18:19
- * @description: 自行车出行策略类
- */
-public class BicycleTripStrategy implements TripStrategy{
-
-    @Override
-    public void tripMode() {
-        System.out.println(&quot;选择骑自行车出行&quot;);
-    }
-}</code></pre>
-<p>开车出行策略类</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/2/21 18:21
- * @description: 开车出行策略类
- */
-public class CarTripStraregy implements TripStrategy {
-
-    @Override
-    public void tripMode() {
-        System.out.println(&quot;选择开车出行&quot;);
-    }
-}</code></pre>
-<h5 id="封装策略类"><a href="#封装策略类" class="headerlink" title="封装策略类"></a>封装策略类</h5><pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/2/21 18:22
- * @description: 策略context
- */
-public class TripContext {
-
-    /**
-     * 出行策略
-     */
-    private TripStrategy tripStrategy;
-
-    public TripContext(TripStrategy tripStrategy) {
-        this.tripStrategy = tripStrategy;
-    }
-
-    /**
-     * 选择出行策略
-     */
-    public void chooseTripMode(){
-        this.tripStrategy.tripMode();
-    }
-}</code></pre>
-<h5 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h5><pre><code class="java">public static void main(String[] args) {
-
-    TripContext tripContext = new TripContext(new BicycleTripStrategy());
-    tripContext.chooseTripMode();
-    System.out.println(&quot;换一种出行方案&quot;);
-    tripContext = new TripContext(new CarTripStraregy());
-    tripContext.chooseTripMode();
-}</code></pre>
-<p>输出</p>
-<pre><code class="java">选择骑自行车出行
-换一种出行方案
-选择开车出行</code></pre>
-<p>如果系统中的一个策略家族的具体策略数量超过4个，则需要考虑使用混合模式，解决策略类膨胀和对外暴露的问题，否则日后的系统维护就会非常困难</p>
-<p><strong>参考：</strong>设计模式之禅：<a href="https://www.kancloud.cn/sstd521/design/193569" target="_blank" rel="noopener">https://www.kancloud.cn/sstd521/design/193569</a></p>
-<p><strong>推荐阅读：</strong><a href="https://chenmingyu.top/design/">23种设计模式详解</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://chenmingyu.top/design-strategy/" data-id="ckdn6w7za002aaktwdhkn144p" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/" rel="tag">策略模式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-design-adapter" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/design-adapter/" class="article-date">
-  <time datetime="2019-02-18T08:04:32.000Z" itemprop="datePublished">2019-02-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/design-adapter/">设计模式总结：适配器模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h3><p>适配器模式属于结构型模式,又叫包装模式</p>
-<p><strong>定义：</strong>把一个类的接口变换成客户端所期待的另一种接口，从而使原本接口不匹配而无法一起工作的两个类能够在一起工作</p>
-<p>在现有的系统中有新旧两个接口，由于新旧接口不兼容导致客户端调用出现问题，但是现有系统还需要使用旧的接口，所以这个接口不能重构，但是为了能够让客户端正常调用，我们就需要将新的接口转换成旧的接口，这种解决方式就是适配器模式</p>
-<h4 id="模式类图"><a href="#模式类图" class="headerlink" title="模式类图"></a>模式类图</h4><p><img src="design-adapter/%E7%B1%BB%E5%9B%BE.png" alt=""></p>
-<p><strong>角色：</strong></p>
-<ol>
-<li>目标接口：Target，该角色把其他类转换为我们期望的接口</li>
-<li>被适配类：Adaptee，被期望改变的接口</li>
-<li>适配器：adapter，将被适配类Adaptee和目标接口Target接口组合到一起</li>
-</ol>
-<h5 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h5><ol>
-<li>适配器模式可以让两个没有任何关系的类在一起运行</li>
-<li>增加了类的透明性和复用性</li>
-<li>灵活性非常好</li>
-</ol>
-<p>适配器模式是为了在扩展应用的时候减少代码时才使用的，所以最初设计系统时不要考虑使用适配器模式</p>
-<h4 id="模式代码实现"><a href="#模式代码实现" class="headerlink" title="模式代码实现"></a>模式代码实现</h4><p><strong>源码地址：<a href="https://github.com/mingyuHub/design-patterns" target="_blank" rel="noopener">https://github.com/mingyuHub/design-patterns</a></strong></p>
-<h5 id="目标接口"><a href="#目标接口" class="headerlink" title="目标接口"></a>目标接口</h5><p><code>Target</code>，我们期望的接口模样，供客户端调用</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/2/18 18:38
- * @description: 目标接口
- */
-public interface Target {
-
-    /**
-     * 客户端访问的目标接口
-     */
-    void request();
-}</code></pre>
-<h5 id="被适配类"><a href="#被适配类" class="headerlink" title="被适配类"></a>被适配类</h5><p><code>Adaptee</code>的<code>adapterMethod</code>方法是我们期望被适配的方法</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/2/18 19:20
- * @description: 被适配类
- */
-public class Adaptee {
-
-    /**
-     * 被适配的接口
-     */
-    public void adapterMethod(){
-        System.out.println(&quot;我是要被适配的方法&quot;);
-    };
-}</code></pre>
-<h5 id="适配器"><a href="#适配器" class="headerlink" title="适配器"></a>适配器</h5><p><code>Adapter</code>，将被适配类Adaptee和目标接口Target接口组合到一起</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/2/18 19:20
- * @description: 适配器
- */
-public class Adapter implements Target {
-
-    /**
-     * 被适配类
-     */
-    private Adaptee adaptee;
-
-    public Adapter(Adaptee adaptee) {
-        this.adaptee = adaptee;
-    }
-
-    @Override
-    public void request() {
-        adaptee.adapterMethod();
-    }
-}</code></pre>
-<h5 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h5><pre><code class="java">public static void main(String[] args) {
-    Adaptee adaptee = new Adaptee();
-    Adapter adapter = new Adapter(adaptee);
-    adapter.request();
-}</code></pre>
-<p>输出</p>
-<pre><code class="java">我是要被适配的方法</code></pre>
-<p><strong>参考：</strong>设计模式之禅：<a href="https://www.kancloud.cn/sstd521/design/193573" target="_blank" rel="noopener">https://www.kancloud.cn/sstd521/design/193573</a></p>
-<p><strong>推荐阅读：</strong><a href="https://chenmingyu.top/design/">23种设计模式详解</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://chenmingyu.top/design-adapter/" data-id="ckdn6w7x3000caktwcmclg70u" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/" rel="tag">适配器模式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-design-factory-method" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/design-factory-method/" class="article-date">
-  <time datetime="2019-02-14T02:17:39.000Z" itemprop="datePublished">2019-02-14</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/design-factory-method/">23种设计模式之工厂方法模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="工厂方法模式"><a href="#工厂方法模式" class="headerlink" title="工厂方法模式"></a>工厂方法模式</h3><p>工厂模式属于创建型设计模式</p>
-<p><strong>定义：</strong>定义一个用于创建对象的接口，让子类决定实例化哪一个类。工厂方法使一个类的实例化延迟到其子类</p>
-<p>工厂方法模式是new一个对象的替代品，所以在所有需要生成对象的地方都可以使用，但如果随意增加工厂类会增加代码的复杂度，也不易维护</p>
-<h4 id="模式类图"><a href="#模式类图" class="headerlink" title="模式类图"></a>模式类图</h4><p><img src="design-factory-method/uml.png" alt=""></p>
-<p><strong>角色</strong></p>
-<ol>
-<li>抽象产品：<code>Product</code>抽象产品定义</li>
-<li>具体产品类：<code>ConcreteProduct</code>实现<code>Product</code>接口</li>
-<li>抽象工厂：<code>Creatot</code>抽象工厂定义</li>
-<li>具体工厂类：<code>ConcreteCreator</code>实现<code>Creatot</code>接口</li>
-</ol>
-<h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ol>
-<li>解耦：调用方不用负责对象的创建，只需要使用，明确各自的职责</li>
-<li>维护方便：后期如果创建对象时需要修改代码，也只需要去工厂方法中修改，易拓展</li>
-</ol>
-<h4 id="模式代码实现"><a href="#模式代码实现" class="headerlink" title="模式代码实现"></a>模式代码实现</h4><p><strong>源码地址：<a href="https://github.com/mingyuHub/design-patterns" target="_blank" rel="noopener">https://github.com/mingyuHub/design-patterns</a></strong></p>
-<p>工厂方法模式可以分为：简单工厂和工厂方法</p>
-<h4 id="简单工厂"><a href="#简单工厂" class="headerlink" title="简单工厂"></a>简单工厂</h4><p>以游戏为例子，涉及四个类：GameFactory（游戏工厂类），Gameable（游戏接口），ShootGame（射击类游戏），TowerDefenceGame（塔防类游戏）</p>
-<p>比如游戏工厂，工厂方法通过出入的参数生成生成不同产品类型的游戏</p>
-<h5 id="Gameable"><a href="#Gameable" class="headerlink" title="Gameable"></a>Gameable</h5><p>游戏接口，提供一个校验账户信息的接口</p>
-<pre><code class="java">/**
- * @auther: chenmingyu
- * @date: 2019/2/14 11:19
- * @description:
- */
-public interface Gameable {
-
-    /**
-     * 校验账户信息
-     * @param nickName
-     */
-    void validateAccount(String nickName);
-}</code></pre>
-<h5 id="ShootGame"><a href="#ShootGame" class="headerlink" title="ShootGame"></a>ShootGame</h5><p>射击类游戏，实现Gameable接口</p>
-<pre><code class="java">/**
- * @auther: chenmingyu
- * @date: 2019/2/14 11:26
- * @description: 射击类游戏
- */
-public class ShootGame implements Gameable{
-
-    @Override
-    public void validateAccount(String nickName) {
-        System.out.println(&quot;射击游戏校验昵称：&quot;+nickName);
-    }
-}</code></pre>
-<h5 id="TowerDefenceGame"><a href="#TowerDefenceGame" class="headerlink" title="TowerDefenceGame"></a>TowerDefenceGame</h5><p>塔防类游戏，实现Gameable接口</p>
-<pre><code class="java">/**
- * @auther: chenmingyu
- * @date: 2019/2/14 11:28
- * @description: 塔防类游戏
- */
-public class TowerDefenceGame implements Gameable{
-
-    @Override
-    public void validateAccount(String nickName) {
-        System.out.println(&quot;塔防游戏校验昵称：&quot;+nickName);
-    }
-}</code></pre>
-<h5 id="GameFactory"><a href="#GameFactory" class="headerlink" title="GameFactory"></a>GameFactory</h5><p>游戏工厂，封装了创建游戏对象的过程</p>
-<pre><code class="java">/**
- * @auther: chenmingyu
- * @date: 2019/2/14 11:29
- * @description: 工厂类
- */
-public class GameFactory {
-
-    /**
-     * 根据传入类型生成实例
-     * @param gameType
-     * @return
-     */
-    public static Gameable creator(String gameType){
-        Gameable gameable = null;
-        if(StringUtils.isEmpty(gameType)){
-            return gameable;
-        }
-        if(&quot;shoot&quot;.equalsIgnoreCase(gameType)){
-            gameable = new ShootGame();
-        }else if(&quot;towerDefence&quot;.equalsIgnoreCase(gameType)){
-            gameable = new TowerDefenceGame();
-        }
-        return gameable;
-    }
-}</code></pre>
-<h5 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h5><p>客户端决定实例化哪个对象</p>
-<pre><code class="java">public static void main(String[] args) {
-    Gameable shootGame = GameFactory.creator(&quot;shoot&quot;);
-    shootGame.validateAccount(&quot;明羽&quot;);
-    System.out.println(&quot;... 分割线 ...&quot;);
-    Gameable towerDefenceGame = GameFactory.creator(&quot;towerDefence&quot;);
-    towerDefenceGame.validateAccount(&quot;明羽&quot;);
-}</code></pre>
-<p>输出</p>
-<pre><code class="java">射击游戏校验昵称：明羽
-... 分割线 ...
-塔防游戏校验昵称：明羽</code></pre>
-<p>如果要新增一个拳击类游戏的话，就需要新建一个拳击游戏类，然后修改工厂方法。</p>
-<h4 id="工厂方法模式-1"><a href="#工厂方法模式-1" class="headerlink" title="工厂方法模式"></a>工厂方法模式</h4><p>工厂模式跟简单工厂模式的区别在于简单工厂只有一个工厂类，提供了一个工厂方法，由入参决定生产那个产品，而工厂模式则定义一个工厂接口，不同的产品工厂实现工厂接口，生产的产品由产品工厂决定</p>
-<p>以游戏为例子，在上面四个类的基础上修改GameFactory（游戏工厂类）为接口，新增了两个类：ShootGameFactory（射击类游戏工厂），TowerDefenceGameFactory（塔防类游戏工厂）</p>
-<h5 id="修改了的GameFactory"><a href="#修改了的GameFactory" class="headerlink" title="修改了的GameFactory"></a>修改了的GameFactory</h5><pre><code class="java">/**
- * @auther: chenmingyu
- * @date: 2019/2/14 11:29
- * @description: 工厂类
- */
-public interface GameFactory {
-
-    /**
-     * 生成实例
-     * @return
-     */
-    Gameable creator();
-}</code></pre>
-<h5 id="ShootGameFactory"><a href="#ShootGameFactory" class="headerlink" title="ShootGameFactory"></a>ShootGameFactory</h5><p>实现GameFactory，重写creator()</p>
-<pre><code class="java">/**
- * @auther: chenmingyu
- * @date: 2019/2/14 15:14
- * @description: 射击类游戏工厂
- */
-public class ShootGameFactory implements GameFactory{
-
-    @Override
-    public Gameable creator() {
-        return new ShootGame();
-    }
-}</code></pre>
-<h5 id="TowerDefenceGameFactory"><a href="#TowerDefenceGameFactory" class="headerlink" title="TowerDefenceGameFactory"></a>TowerDefenceGameFactory</h5><p>实现GameFactory，重写creator()</p>
-<pre><code class="java">/**
- * @auther: chenmingyu
- * @date: 2019/2/14 15:15
- * @description: 塔防类游戏工厂
- */
-public class TowerDefenceGameFactory implements GameFactory{
-
-    @Override
-    public Gameable creator() {
-        return new TowerDefenceGame();
-    }
-}</code></pre>
-<h5 id="验证-1"><a href="#验证-1" class="headerlink" title="验证"></a>验证</h5><pre><code class="java">/**
- * @auther: chenmingyu
- * @date: 2019/2/14 11:38
- * @description:
- */
-public class FactoryTest {
-
-    public static void main(String[] args) {
-
-        GameFactory shootGameFactory = new ShootGameFactory();
-        Gameable shootGame = shootGameFactory.creator();
-        shootGame.validateAccount(&quot;明羽&quot;);
-        System.out.println(&quot;... 分割线 ...&quot;);
-        GameFactory towerDefenceGameFactory = new TowerDefenceGameFactory();
-        Gameable towerDefenceGame = towerDefenceGameFactory.creator();
-        towerDefenceGame.validateAccount(&quot;明羽&quot;);
-    }
-}</code></pre>
-<p>输出</p>
-<pre><code class="java">射击游戏校验昵称：明羽
-... 分割线 ...
-塔防游戏校验昵称：明羽</code></pre>
-<p><strong>推荐阅读：</strong><a href="https://chenmingyu.top/design/">23种设计模式详解</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://chenmingyu.top/design-factory-method/" data-id="ckdn6w7yh001baktwe4s21oey" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" rel="tag">工厂模式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-design-template-method" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/design-template-method/" class="article-date">
-  <time datetime="2019-02-13T08:20:42.000Z" itemprop="datePublished">2019-02-13</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/design-template-method/">23种设计模式之模板方法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="模板方法"><a href="#模板方法" class="headerlink" title="模板方法"></a>模板方法</h4><p>模板方法属于行为型模式</p>
-<p><strong>定义：</strong>定义一个操作中的算法的框架，而将一些步骤延迟到子类中。使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。</p>
-<p>在父类（抽象类）中定义好算法的流程，提供抽象方法，针对不同的实现交由不同的子类去实现，通过这种方式将公共代码提取出来封装在父类中，然后父类去控制行为，子类负责实现，这样当有很多子类的时候，如果要修改算法，只需要在父类中更改算法的行为</p>
-<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ol>
-<li>封装不变部分，扩展可变部分</li>
-<li>提取公共部分代码，便于维护</li>
-<li>行为由父类控制，子类实现</li>
-</ol>
-<h4 id="模式代码实现"><a href="#模式代码实现" class="headerlink" title="模式代码实现"></a>模式代码实现</h4><p><strong>源码地址：<a href="https://github.com/mingyuHub/design-patterns" target="_blank" rel="noopener">https://github.com/mingyuHub/design-patterns</a></strong></p>
-<p>已支付为例，涉及AbstractPay，BankCardPay，WeChatPay三个类。</p>
-<h5 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h5><p><code>AbstractPay</code>，定义了三个抽象方法和一个控制支付流程的方法，也就是模板方法，这个方法使用final修饰，防止被重写</p>
-<pre><code class="java">/**
- * @auther: chenmingyu
- * @date: 2019/2/13 16:58
- * @description: 抽象类，定义支付流程
- */
-public abstract class AbstractPay {
-
-    /**
-     * 获取支付信息
-     */
-    abstract String getPayInfo();
-
-    /**
-     * 执行支付
-     */
-    abstract void executePay();
-
-    /**
-     * 支付反馈信息
-     */
-    abstract void payMessage();
-
-    /**
-     * 支付
-     */
-    public final void pay(){
-        String info = getPayInfo();
-        System.out.println(&quot;支付账户:&quot;+info);
-        executePay();
-        payMessage();
-    }
-}</code></pre>
-<h5 id="子类BankCardPay"><a href="#子类BankCardPay" class="headerlink" title="子类BankCardPay"></a>子类BankCardPay</h5><p><code>BankCardPay</code>，提供银行卡支付，继承AbstractPay类重写三个抽象方法，提供银行卡支付的实现</p>
-<pre><code class="java">/**
- * @auther: chenmingyu
- * @date: 2019/2/13 17:18
- * @description: 银行卡支付
- */
-public class BankCardPay extends AbstractPay{
-
-    @Override
-    String getPayInfo() {
-        return &quot;我的银行卡信息&quot;;
-    }
-
-    @Override
-    void executePay() {
-        System.out.println(&quot;银行卡支付了&quot;);
-    }
-
-    @Override
-    void payMessage() {
-        System.out.println(&quot;银行卡方式支付，发短息&quot;);
-    }
-}</code></pre>
-<h5 id="子类WeChatPay"><a href="#子类WeChatPay" class="headerlink" title="子类WeChatPay"></a>子类WeChatPay</h5><p><code>WeChatPay</code>提供微信支付，继承AbstractPay类重写三个抽象方法，提供微信支付的实现</p>
-<pre><code class="java">/**
- * @auther: chenmingyu
- * @date: 2019/2/13 17:20
- * @description: 微信支付
- */
-public class WeChatPay extends AbstractPay{
-
-    @Override
-    String getPayInfo() {
-        return &quot;我的微信支付信息&quot;;
-    }
-
-    @Override
-    void executePay() {
-        System.out.println(&quot;微信支付了&quot;);
-    }
-
-    @Override
-    void payMessage() {
-        System.out.println(&quot;微信方式支付，微信内发服务通知&quot;);
-    }
-}</code></pre>
-<h5 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h5><pre><code class="java">public static void main(String[] args) {
-    BankCardPay bankCardPay = new BankCardPay();
-    bankCardPay.pay();
-    System.out.println(&quot;... 分割线 ...&quot;);
-    WeChatPay weChatPay = new WeChatPay();
-    weChatPay.pay();
-}</code></pre>
-<p>输出</p>
-<pre><code class="java">支付账户:我的银行卡信息
-银行卡支付了
-银行卡方式支付，发短息
-... 分割线 ...
-支付账户:我的微信支付信息
-微信支付了
-微信方式支付，微信内发服务通知</code></pre>
-<p>抽象类封装了一个final类型的方法，方法中调用其他的抽象方法，制定业务流程骨架，抽象方法交由子类去实现。当有多个子类实现逻辑相同时，建议使用模板方法实现</p>
-<p><strong>参考：</strong>设计模式之禅：<a href="https://www.kancloud.cn/sstd521/design/193531" target="_blank" rel="noopener">https://www.kancloud.cn/sstd521/design/193531</a></p>
-<p><strong>推荐阅读：</strong><a href="https://chenmingyu.top/design/">23种设计模式详解</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://chenmingyu.top/design-template-method/" data-id="ckdn6w7zd002faktwccbd1xfg" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95/" rel="tag">模板方法</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-design-singleton" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/design-singleton/" class="article-date">
-  <time datetime="2019-02-03T07:05:46.000Z" itemprop="datePublished">2019-02-03</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/design-singleton/">23种设计模式之单例模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h3><p>单例模式属于创建型模式</p>
-<p><strong>定义：</strong>确保某一个类只有一个实例，而且自行实例化并向整个系统提供这个实例</p>
-<p>单例模式目的是保证在程序运行期间一个类只有一个实例，并提供一个全局访问点，无论什么情况下，只会生成一个实例，免去繁琐的创建销毁对象的过程。</p>
-<h3 id="模式类图"><a href="#模式类图" class="headerlink" title="模式类图"></a>模式类图</h3><p><img src="design-singleton/uml.png" alt=""></p>
-<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
-<li>减少了内存开支，避免频繁地创建、销毁对象</li>
-<li>避免对资源的多重占用</li>
-</ol>
-<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p>没有接口，不能继承，与单一职责原则冲突，一个类应该只关心内部逻辑，而不关心外面怎么样来实例化</p>
-<h4 id="如何设计单例"><a href="#如何设计单例" class="headerlink" title="如何设计单例"></a>如何设计单例</h4><p>如何设计单例模式其实很简单，只需要考虑一个问题，实例是否可以保证是全局唯一</p>
-<p>关于实例是否保证是全局唯一延伸出的问题：</p>
-<ol>
-<li>是否线程安全，不安全肯定就不能保证全局只有一个实例</li>
-<li>是否支持序列化，支持序列化的类，被反序列化之后肯定就不是全局唯一了</li>
-<li>是否支持反射，支持反射肯定也不是全局唯一的</li>
-<li>是否可以被克隆，这个也不能保证全局唯一</li>
-</ol>
-<p>所以设计一个安全的单例需要考虑的问题还是很多的。</p>
-<p>针对上述问题常见的解决办法：</p>
-<ol>
-<li>保证线程安全，使用volatile+synchronized实现</li>
-<li>防止序列化攻击，重写readResolve方法</li>
-<li>防止反射，常用的方案是在单例类里增加一个boolean类型的flag标识，在实例化的时候先判断flag标识</li>
-<li>防止克隆，重写clone()方法</li>
-</ol>
-<p>实现一个最简单的单例就需要考虑到以上的所有问题，这个时候什么有用的方法还没写那，代码就已经很多了，那有没有简单的办法既满足上述条件，代码又简洁那，那肯定有，使用枚举实现单例。</p>
-<h3 id="常见的单例模式实现"><a href="#常见的单例模式实现" class="headerlink" title="常见的单例模式实现"></a>常见的单例模式实现</h3><p>常见的单例模式实现方案大概有五种，懒汉模式，饿汉模式，双重检查方式实现，静态内部类实现，枚举实现</p>
-<p>分个类：</p>
-<ol>
-<li>是否支持延迟加载，分为懒汉模式和饿汉模式</li>
-<li>线程安全设计了双重检查模式实现，静态内部类实现方式</li>
-<li>不支持序列化，反射，克隆，枚举实现方式</li>
-</ol>
-<p>其中懒汉模式，饿汉模式，双重检查方式实现，静态内部类的实现方式都可以概括为以下两步：</p>
-<ol>
-<li>构造函数私有化，保证在外部无法new对象</li>
-<li>提供一个static方法获取当前实例（不同方案，实现不同）</li>
-</ol>
-<p>当然枚举的实现方式最简单，也最安全的，所以推荐使用枚举实现，其次推荐使用静态内部类方式实现。</p>
-<h5 id="饿汉模式"><a href="#饿汉模式" class="headerlink" title="饿汉模式"></a>饿汉模式</h5><p>不是延迟加载，加载类的时候直接初始化</p>
-<pre><code class="java">/**
- * @auther: chenmingyu
- * @date: 2019/2/12 16:26
- * @description:
- */
-public class Singleton {
-
-    private static Singleton singleton = new Singleton();
-
-    private Singleton() {
-    }
-
-    public static Singleton getInstance(){
-        return singleton;
-    }
-}</code></pre>
-<p>优点：线程安全，代码简单。</p>
-<p>缺点：不是延迟加载，如果你用不到这个类，它也会实例化，还有一个问题就是如果这个实例依赖外部一些配置文件，参数什么的，在实例化之前就要获取到，否则就实例化异常</p>
-<h5 id="懒汉模式"><a href="#懒汉模式" class="headerlink" title="懒汉模式"></a>懒汉模式</h5><p>延迟加载，首次需要使用的时候在实例化，需要考虑线程安全</p>
-<p>线程不安全的实现方式</p>
-<pre><code class="java">public class Singleton {
-
-    private static Singleton singleton;
-
-    private Singleton() {
-    }
-
-    public static Singleton getInstance(){
-        if(null == singleton){
-            singleton = new Singleton();
-        }
-        return singleton;
-    }
-}</code></pre>
-<h5 id="双重检查（DCL：Double-Check-Lock）"><a href="#双重检查（DCL：Double-Check-Lock）" class="headerlink" title="双重检查（DCL：Double Check Lock）"></a>双重检查（DCL：Double Check Lock）</h5><p>线程安全的实现方式：</p>
-<pre><code class="java">public class Singleton {
-
-    private static volatile Singleton singleton;
-
-    private Singleton() {
-    }
-
-    public static Singleton getInstance(){
-        if(null == singleton){
-            synchronized (Singleton.class){
-                if(null == singleton){
-                    singleton = new Singleton();
-                }
-            }
-        }
-        return singleton;
-    }
-}</code></pre>
-<p>面试官：为什么使用volatile修饰singleton变量？</p>
-<ol>
-<li>说的volatile，首先肯定回答volatile的可见性</li>
-<li>防止重排序优化，如果不用volatile修饰，多线程的情况下，可能会出现线程A进入synchronized代码块，执行new Singleton();，首先给singleton分配内存，但是还没有初始化变量，这时候线程B进入getInstance方法，进行第一个判断，此时singleton已经不为空，直接返回singleton，然后肯定报错。使用volatile修饰之后禁止jvm重排序优化，所以就不会出现上面的问题</li>
-</ol>
-<h5 id="静态内部类实现"><a href="#静态内部类实现" class="headerlink" title="静态内部类实现"></a>静态内部类实现</h5><p>使用静态内部类实现也是延迟加载，利用静态内部类去实现线程安全，只有在第一次调用getInstance方法的时候才会去加载SingletonHolder，初始化SINGLETON</p>
-<pre><code class="java">public class Singleton {
-
-    private Singleton() {
-    }
-
-    public static Singleton getInstance(){
-        return SingletonHolder.SINGLETON;
-    }
-
-    private static class SingletonHolder{
-        private static final Singleton SINGLETON = new Singleton();
-    }
-}</code></pre>
-<h5 id="枚举实现"><a href="#枚举实现" class="headerlink" title="枚举实现"></a>枚举实现</h5><p>枚举实现代码更简洁，线程安全，并且保证枚举不会被反序列化，反射和克隆</p>
-<pre><code class="java">/**
- * @auther: chenmingyu
- * @date: 2019/2/12 16:30
- * @description:
- */
-public enum Singleton {
-
-    SINGLETON;
-
-    /**
-     * 提供的方法
-     */
-    public void method(){
-        System.out.println(&quot;枚举实现&quot;);
-    }
-}</code></pre>
-<p><strong>推荐阅读：</strong><a href="https://chenmingyu.top/design/">23种设计模式详解</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://chenmingyu.top/design-singleton/" data-id="ckdn6w7z3001zaktw8jh59hvq" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" rel="tag">单例模式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-effective-note-one" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/effective-note-one/" class="article-date">
-  <time datetime="2019-01-18T06:14:10.000Z" itemprop="datePublished">2019-01-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/java/">java</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/effective-note-one/">effective java（第二版）读书笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>effective java（第二版）读书笔记</p>
-<p>在这本书里讲解了在Java编程中78条极具实用价值的经验规则，虽然是jdk是1.5的，但是其中的每条经验规则都值得我们去学习</p>
-</blockquote>
-<h3 id="创建和销毁对象"><a href="#创建和销毁对象" class="headerlink" title="创建和销毁对象"></a>创建和销毁对象</h3><h4 id="考虑使用静态工厂方法代替构造器"><a href="#考虑使用静态工厂方法代替构造器" class="headerlink" title="考虑使用静态工厂方法代替构造器"></a>考虑使用静态工厂方法代替构造器</h4><h5 id="优势："><a href="#优势：" class="headerlink" title="优势："></a>优势：</h5><ul>
-<li><p>静态工厂方法有名称</p>
-</li>
-<li><p>在使用静态工厂的时候，针对经常重复请求创建相同的对象可以使用预先创建好的对象，避免重复创建，进而极大的提升性能，比如Boolean.valueOf(boolean b)；</p>
-</li>
-<li><p>可以返回类型的任何子类型的对象</p>
-</li>
-<li><p>在创建参数化类型实例的时候，使代码更加简洁</p>
-</li>
-</ul>
-<h5 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h5><ul>
-<li>类如果没有公有的构造器，将不能被子类化</li>
-</ul>
-<p>解决办法就是：一个类要么为继承而设计，并提供文档说明，要么就禁止集成</p>
-<h4 id="遇到多个构造器参数时考虑使用构建器"><a href="#遇到多个构造器参数时考虑使用构建器" class="headerlink" title="遇到多个构造器参数时考虑使用构建器"></a>遇到多个构造器参数时考虑使用构建器</h4><h5 id="重叠构造器"><a href="#重叠构造器" class="headerlink" title="重叠构造器"></a>重叠构造器</h5><p>​    提供一个必要参数的构造器，然后第二个构造器有一个可选参数，然后而第二构造器有两个可选参数，以此类推，调用的时候就调用最少参数的构造方法去实例化；</p>
-<pre><code class="java">public Article(String title) {
-    this(title,&quot;默认作者&quot;);
+    void call();
 }
+被代理类实现Phoneab ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/design-decorator/" title="23种设计模式之装饰器模式">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="23种设计模式之装饰器模式"></a></div><div class="recent-post-info"><a class="article-title" href="/design-decorator/" title="23种设计模式之装饰器模式">23种设计模式之装饰器模式</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-03-01 10:35:31"><i class="far fa-calendar-alt"></i>2019-03-01</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></span></div><div class="content">装饰器模式装饰器模式属于结构型模式
+定义：动态地给一个对象添加一些额外的职责。就增加功能来说，装饰模式相比生成子类更为灵活
+装饰器模式可以为一个现有的类增加新功能，又不改变其结构，要求装饰类和被装饰类实现同一个接口，装饰类持有被装饰类的实例
+模式类图
+角色
 
-public Article(String title, String author) {
-    this.title = title;
-    this.author = author;
-}</code></pre>
-<p>使用重叠构造器不是不可以，但是当参数太多的时候，就会失去控制，代码变得繁重。</p>
-<h5 id="javaBeans模式"><a href="#javaBeans模式" class="headerlink" title="javaBeans模式"></a>javaBeans模式</h5><p>​    利用无参的构造方法new一个对象，然后set属性的值</p>
-<pre><code class="java">public static void main(String[] args) {
-        Author author = new Author();
-        author.setName(&quot;陈明羽&quot;);
-        author.setAddress(&quot;北京&quot;);
-}</code></pre>
-<h5 id="Builder模式"><a href="#Builder模式" class="headerlink" title="Builder模式"></a>Builder模式</h5><p>​    builder模式模拟了具有名称的可选参数，这种方式可以有多个可变参数，可以利用方法进行复制，代码更易于阅读和编写，而且十分灵活。</p>
-<pre><code class="java">/**
- * @auther: chenmingyu
- * @date: 2019/1/20 16:30
- * @description:
+抽象接口：able接口,最核心组件，被装饰类和装饰类都实现此接口
+被装饰类：Source，要被装饰的类
+装饰类：Decorator，持有Source类实例，装饰Source类，为Source类动态添加新功能
+
+优点装饰类和被装饰类相互解耦
+缺点多层的装饰比较复杂，减少装饰类的数量，可以降低系统的复杂度
+模式代码实现源码地址：https://github.com/mingyuHub/design-patterns
+以打电话为例，涉及Phoneable（接口），Phone（被装饰类），Decorator（装饰类）
+抽象接口被装饰类和装饰类都实现此接口
+/**
+ * @author: chenmingyu
+ * @date: 2019/3/1 10:20
+ * @description: 手机接口
  */
-public class Address {
+public interfac ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/design/" title="设计模式详解">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="设计模式详解"></a></div><div class="recent-post-info"><a class="article-title" href="/design/" title="设计模式详解">设计模式详解</a><div class="article-meta-wrap"><span class="article-meta"><i class="fas fa-thumbtack article-meta__icon sticky"></i><span class="sticky">置顶</span><span class="article-meta__separator">|</span></span><time class="post-meta__date" title="发表于 2019-02-28 16:15:27"><i class="far fa-calendar-alt"></i>2019-02-28</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></span></div><div class="content">设计模式
+学习设计模式不是一蹴而就的事情，需要长时间的积累，在平时写代码的时候多思考，学习设计模式的时候也不要死记硬背，要了解每个设计模式都解决了那些问题，另外就是最好要记住每种设计模式的类图，这样对于实操写代码的时候很有帮助    
 
-    private Integer firstCode;
+设计模式是软件设计中的最佳实践，是由前人的知识和经验总结而来，是针对不同特定场景问题的解决方案，通过学习设计模式，可以让我们知道在什么情况下应该使用什么设计模式，也可以增加我们对于软件设计的理解，设计出更稳定，扩展性更好的系统
+设计模式总共包括6大设计原则和23种设计模式，23种设计模式又分为创建型模式，结构型模式，行为型模式三种，每种模式解决的问题也不相同，创建型设计模式主要关注与如何创建对象；结构型设计模式主要关注于类和对象之间的关系；而行为型设计模式关注于对象之间的通信；
+23种设计模式每种设计模式都以定义，类图，角色，优缺点，示例的方式进行讲解
+源码地址：https://github.com/mingyuHub/design-patterns
+各模式之间关联：
 
-    private String firstName;
+创建型设计模式关注于如何创建对象
+单例模式保证在程序运行期间一个类只有一个实例，并 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/design-phototype/" title="23种设计模式之原型模式">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="23种设计模式之原型模式"></a></div><div class="recent-post-info"><a class="article-title" href="/design-phototype/" title="23种设计模式之原型模式">23种设计模式之原型模式</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-02-28 11:03:05"><i class="far fa-calendar-alt"></i>2019-02-28</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></span></div><div class="content">原型模式原型模式属于创建型设计模式
+定义：用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象
+原型模式通过克隆一个已经存在的对象实例来返回新的实例，而不是通过new去创建对象，多用于创建复杂的或者耗时的实例，因为这种情况下，复制一个已经存在的实例使程序运行更高效；
+java中复制对象是通过重写clone()实现的，原型类需要实现Cloneable接口，否则报CloneNotSupportedException异常
+模式类图
+角色
 
-    private Integer secondCode;
+抽象原型：Prototype，可以为接口或者抽象类，实现了Cloneable接口，重写了clone()方法，子类只需实现或集成即可拥有克隆功能
+具体原型：PrototypeA，PrototypeB，实现/集成了Prototype接口的类，拥有克隆方法
+工厂模式：原型模式常和工厂模式一起使用，通过 clone 的方法创建一个对象，然后由工厂方法提供给调用者
 
-    private String secondName;
+优点
+性能优良，比new一个对象性能好很多
+不受对象构造函数的约束
 
-    public static class Builder{
+实现源码地址：https://github.com/mingyuHub/design-patterns
+以获取笔对象为例子 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/design-abstract-factory/" title="23种设计模式之抽象工厂">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="23种设计模式之抽象工厂"></a></div><div class="recent-post-info"><a class="article-title" href="/design-abstract-factory/" title="23种设计模式之抽象工厂">23种设计模式之抽象工厂</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-02-27 17:51:13"><i class="far fa-calendar-alt"></i>2019-02-27</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></span></div><div class="content">抽象工厂抽象工厂模式属于创建型模式
+定义：为创建一组相关或相互依赖的对象提供一个接口，而且无须指定它们的具体类
+抽象工厂模式是对工厂方法模式的扩展，抽象工厂比工厂模式更为抽象，工厂方法模式针对产品等级结构，而抽象工厂针对产品族。
+产品族与产品等级结构的概念：
+​    产品族，是指位于不同产品等级结构中，功能相关联的产品组成的家族，比如游戏工厂生产射击类和塔防类两种产品，任天堂的射击类游戏和塔防类游戏为一个产品族，腾讯的射击类游戏和塔防类游戏为一个产品族
+​    产品等级结构，一个产品族由多个产品等级结构组成，射击类游戏是一个产品等级结构，塔防类游戏也是一个产品等级结构
+模式类图以游戏为例，定义一个抽象工厂，生产射击和塔防两种游戏，有两个具体的生产工厂，任天堂和腾讯，两个工厂生产各自品牌的两类游戏产品
 
-        private Integer firstCode;
+角色：
 
-        private String firstName;
-
-        private Integer secondCode;
-
-        private String secondName;
-
-        public Builder(Integer firstCode, Integer secondCode) {
-            this.firstCode = firstCode;
-            this.secondCode = secondCode;
-        }
-
-        public Builder firstName(String firstName){
-            this.firstName =firstName;
-            return this;
-        }
-
-        public Builder secondName(String secondName){
-            this.secondName =secondName;
-            return this;
-        }
-
-        public Address builder(){
-            return new Address(this);
-        }
-    }
-
-    public Address(Builder builder) {
-        this.firstCode = builder.firstCode;
-        this.firstName = builder.firstName;
-        this.secondCode = builder.secondCode;
-        this.secondName = builder.secondName;
-    }
-
-    @Override
-    public String toString() {
-        return &quot;Address{&quot; +
-                &quot;firstCode=&quot; + firstCode +
-                &quot;, firstName=&#39;&quot; + firstName + &#39;\&#39;&#39; +
-                &quot;, secondCode=&quot; + secondCode +
-                &quot;, secondName=&#39;&quot; + secondName + &#39;\&#39;&#39; +
-                &#39;}&#39;;
-    }
-
-    public static void main(String[] args) {
-        Address address = new Address.Builder(1,2).firstName(&quot;北京&quot;).secondName(&quot;丰台&quot;).builder();
-        System.out.println(address.toString());
-    }
-}</code></pre>
-<h4 id="使用私有构造器或者枚举类型强化singleton属性"><a href="#使用私有构造器或者枚举类型强化singleton属性" class="headerlink" title="使用私有构造器或者枚举类型强化singleton属性"></a>使用私有构造器或者枚举类型强化singleton属性</h4><p>如何写单例：</p>
-<p>使用枚举实现单例</p>
-<h4 id="通过私有构造器强化不可实例化的能力"><a href="#通过私有构造器强化不可实例化的能力" class="headerlink" title="通过私有构造器强化不可实例化的能力"></a>通过私有构造器强化不可实例化的能力</h4><p>这个就是如果你写的这类不想被实例化，就将构造方法private化</p>
-<h4 id="避免创建不必要的对象"><a href="#避免创建不必要的对象" class="headerlink" title="避免创建不必要的对象"></a>避免创建不必要的对象</h4><p>能用工厂获取对象的或者重复使用的对象就不要自己新new一个对象</p>
-<h4 id="避免使用终结方法"><a href="#避免使用终结方法" class="headerlink" title="避免使用终结方法"></a>避免使用终结方法</h4><h3 id="对于所有对象都通用的方法"><a href="#对于所有对象都通用的方法" class="headerlink" title="对于所有对象都通用的方法"></a>对于所有对象都通用的方法</h3><h4 id="覆盖equals时请遵守通用约定"><a href="#覆盖equals时请遵守通用约定" class="headerlink" title="覆盖equals时请遵守通用约定"></a>覆盖equals时请遵守通用约定</h4><p>覆盖equals方法是遵守通用原则</p>
-<ul>
-<li><p>自反省：对于非null的引用值x，x.equals(x)必须返回true</p>
-<p>(对于任何非null的引用值x，x.equals(null)必须返回false)；</p>
-</li>
-<li><p>对称性：x.equals(y)为true则y.equals(x)为true；</p>
-</li>
-<li><p>传递性：x.equals(y)为true，y.equals(z)为true则x.equals(z)为true；</p>
-</li>
-<li><p>一致性：多次调用结果一致；</p>
-<p>重写equals方法的时候一定要按照上面四个特性检查一下</p>
-</li>
-</ul>
-<h4 id="覆盖equals时总要覆盖hashCode"><a href="#覆盖equals时总要覆盖hashCode" class="headerlink" title="覆盖equals时总要覆盖hashCode"></a>覆盖equals时总要覆盖hashCode</h4><p>​    重写equals的时候一定要重写hashCode，否则所有跟hash有关的操作都可能会出现错误。</p>
-<h4 id="始终要覆盖toString"><a href="#始终要覆盖toString" class="headerlink" title="始终要覆盖toString"></a>始终要覆盖toString</h4><p> 提供好的toString可以使类使用起来更舒适，尤其当对象比较大的时候 ，调用toString时应该返回一个摘要信息，像system.out.println的实现都依赖于toString方法。所以一个好的toString方法应该是对当前类的描述，而不是所有属性结构。</p>
-<h4 id="谨慎的覆盖clone"><a href="#谨慎的覆盖clone" class="headerlink" title="谨慎的覆盖clone"></a>谨慎的覆盖clone</h4><p>克隆</p>
-<h5 id="考虑实现comparable接口"><a href="#考虑实现comparable接口" class="headerlink" title="考虑实现comparable接口"></a>考虑实现comparable接口</h5><p>排序</p>
-<h3 id="类和接口"><a href="#类和接口" class="headerlink" title="类和接口"></a>类和接口</h3><h4 id="使类和成员的可访问性最小化"><a href="#使类和成员的可访问性最小化" class="headerlink" title="使类和成员的可访问性最小化"></a>使类和成员的可访问性最小化</h4><p>一个方法如过被声明成private或者protected，一旦被Override之后，如过要再想改的话，就要考虑一下，就像是牵一发而动全身，而一个方法被声明为private，当你要改的时候就好弄了，想怎么改就怎么改</p>
-<p>所以就要尽可能的使每个类成员或方法的可访问性最小化，尽量不被外界访问</p>
-<p>java的访问级别</p>
-<ul>
-<li>private  自己用的</li>
-<li>package-private</li>
-<li>protected 想让子类用的</li>
-<li>public 对外提供的</li>
-</ul>
-<h4 id="在公有类中使用访问方法而非共有域"><a href="#在公有类中使用访问方法而非共有域" class="headerlink" title="在公有类中使用访问方法而非共有域"></a>在公有类中使用访问方法而非共有域</h4><p>这条啥意思那，就是访问类的变量的时候都使用提供的公共方法，像类的变量都用private修饰，然后提供get/set方法来访问变量</p>
-<h4 id="使可变性最小化"><a href="#使可变性最小化" class="headerlink" title="使可变性最小化"></a>使可变性最小化</h4><p>不可变类是指在类的实例不会改变，从实例被创建开始，实例所包含的所有的信息在其声明周期内不再改变。</p>
-<p>为了使类变成不可变的类，须遵守的5条规则</p>
-<ul>
-<li>不提供任何会修改对象状态的方法</li>
-<li>保证类不被扩展</li>
-<li>所有的域使用final修饰</li>
-<li>所有的域都是私有的</li>
-<li>确保对于任何可变组件的互斥访问：如果类具有可变对象的域，则必须确保该类的客户端无法获得指向这些对象的引用，并且不要使用客户端提供的对象引用来初始化可变的域</li>
-</ul>
-<p>优点：</p>
-<h4 id="复合优于继承"><a href="#复合优于继承" class="headerlink" title="复合优于继承"></a>复合优于继承</h4><h4 id="要么为继承而设计，并提供文档说明，要么就禁止集成"><a href="#要么为继承而设计，并提供文档说明，要么就禁止集成" class="headerlink" title="要么为继承而设计，并提供文档说明，要么就禁止集成"></a>要么为继承而设计，并提供文档说明，要么就禁止集成</h4><h6 id="为继承而设计，并提供文档说明"><a href="#为继承而设计，并提供文档说明" class="headerlink" title="为继承而设计，并提供文档说明"></a>为继承而设计，并提供文档说明</h6><ul>
-<li><p>文档必须说明可覆盖性和方法的自用性</p>
-<ul>
-<li>在文档注释尾部介绍可覆盖方法内部工作情况和调用其他方法的描述信息，就是对存在自用性的可覆盖方法，应该用文档精确描述调用细节</li>
-<li>为继承专门设计的类的唯一的测试方法就是编写子类。经验表明，3个子类通常就足以测试一个可扩展的类。</li>
-<li>可覆盖性: 可以被重写的方法</li>
-<li>自用性: 父类里可覆盖的方法调用了别的可覆盖的方法<ul>
-<li>将可覆盖方法的代码移到一个私有的一个辅助方法，然后可覆盖方法调用这个方法，别的方法也是去调用这个私有的方法</li>
-</ul>
-</li>
-<li>构造器决不能调用可被覆盖的方法,有可能会出错</li>
-</ul>
-</li>
-</ul>
-<h6 id="如何禁止继承"><a href="#如何禁止继承" class="headerlink" title="如何禁止继承"></a>如何禁止继承</h6><ul>
-<li><p>final 修饰</p>
-</li>
-<li><p>private 修饰构造函数</p>
-</li>
-<li><p>提供静态工厂获取对象</p>
-</li>
-</ul>
-<h4 id="接口优于抽象类"><a href="#接口优于抽象类" class="headerlink" title="接口优于抽象类"></a>接口优于抽象类</h4><p>java只允许单继承，多实现</p>
-<p>接口允许我们构造非层次结构的类型框架</p>
-<p>接口一旦被公开，切被广泛使用，在想修改基本上是不可能的</p>
-<p>通过对导出的每个重要接口都提供一个抽象的骨架实现类，把接口和抽象类的优点结合起来（骨架实现类）</p>
-<ul>
-<li>骨架实现类：如：AbstractSet</li>
-</ul>
-<h4 id="接口只用于定义类型"><a href="#接口只用于定义类型" class="headerlink" title="接口只用于定义类型"></a>接口只用于定义类型</h4><p>接口是一种规范，可以充当实现类的类型，不应该被用来导出常量</p>
-<p>反例：ObjectStreamConstants</p>
-<p>如果常量与接口或类密切相关，就应该定义在接口或类中</p>
-<h4 id="类层次优于标签类"><a href="#类层次优于标签类" class="headerlink" title="类层次优于标签类"></a>类层次优于标签类</h4><p>标签类</p>
-<ul>
-<li><p>缺点：过于冗长，可读性，有很多不相关的代码，增加了内存的占用</p>
-</li>
-<li><p>类层次</p>
-<ul>
-<li>为每种原始标签类都定义根类的具体子类</li>
-<li>类层次的好处：直观反映类型层次之间关系，访问的时候直接访问，而不是通过访问方法</li>
-</ul>
-</li>
-</ul>
-<h4 id="用函数对象表示策略"><a href="#用函数对象表示策略" class="headerlink" title="用函数对象表示策略"></a>用函数对象表示策略</h4><p>函数对象：主要用途就是实现策略模式</p>
-<h4 id="优先考虑静态成员类"><a href="#优先考虑静态成员类" class="headerlink" title="优先考虑静态成员类"></a>优先考虑静态成员类</h4><p>嵌套类</p>
-<ul>
-<li>嵌套类有四种：<ul>
-<li>静态成员类<ul>
-<li>当外部类需要使用内部类，而内部类无需外部类资源，并且内部类可以单独创建的时候</li>
-</ul>
-</li>
-<li>非静态成员类</li>
-<li>匿名类</li>
-<li>局部类    </li>
-</ul>
-</li>
-<li>静态成员类与非静态成员类的不同：<ul>
-<li>静态成员类不需要有指向外部类的引用。但非静态成员类需要持有对外部类的引用</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://chenmingyu.top/effective-note-one/" data-id="ckdn6w7zj002naktw26st3tk1" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/effective/" rel="tag">effective</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
-
-  <nav id="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/page/4/">&amp;laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/">下一页 &amp;raquo;</a>
-  </nav>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/elasticsearch/">elasticsearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/jvm/">jvm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nosql/">nosql</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tomcat/">tomcat</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/zookeeper/">zookeeper</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/">分布式事务</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">并发编程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/">网络协议</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Integer%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/" rel="tag">Integer缓存机制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aop/" rel="tag">aop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/effective/" rel="tag">effective</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/elasticsearch/" rel="tag">elasticsearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/email/" rel="tag">email</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exception/" rel="tag">exception</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gc/" rel="tag">gc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htmlunit/" rel="tag">htmlunit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/io/" rel="tag">io</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jvm%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/" rel="tag">jvm内存区域</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mybatis/" rel="tag">mybatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nio/" rel="tag">nio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rabbitmq/" rel="tag">rabbitmq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring%E6%BA%90%E7%A0%81/" rel="tag">spring源码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swagger2/" rel="tag">swagger2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thymeleaf/" rel="tag">thymeleaf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tomcat/" rel="tag">tomcat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zookeeper/" rel="tag">zookeeper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F/" rel="tag">中介者模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" rel="tag">二分查找</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="tag">二叉树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/" rel="tag">享元模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/" rel="tag">代理模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/" rel="tag">分布式事务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" rel="tag">单例模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/" rel="tag">原型模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E5%B0%84/" rel="tag">反射</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/" rel="tag">命令模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/" rel="tag">垃圾收集器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/" rel="tag">备忘录模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/" rel="tag">外观模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" rel="tag">定时任务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" rel="tag">工厂模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/" rel="tag">建造者模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8/" rel="tag">异常</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E6%AD%A5%E8%B0%83%E7%94%A8/" rel="tag">异步调用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82/" rel="tag">抽象工厂</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/" rel="tag">日志管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/" rel="tag">桥接模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95/" rel="tag">模板方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/" rel="tag">策略模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" rel="tag">类加载机制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B4%A2%E5%BC%95/" rel="tag">索引</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E7%A8%8B/" rel="tag">线程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/" rel="tag">线程池</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/" rel="tag">组合模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" rel="tag">网络协议</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/" rel="tag">装饰器模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/" rel="tag">观察者模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/" rel="tag">解释器模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F/" rel="tag">访问者模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/" rel="tag">责任链模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/" rel="tag">迭代器模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/" rel="tag">适配器模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="tag">配置文件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%94%81/" rel="tag">锁</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%86%E5%90%88/" rel="tag">集合</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Integer%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/" style="font-size: 10px;">Integer缓存机制</a> <a href="/tags/aop/" style="font-size: 10px;">aop</a> <a href="/tags/effective/" style="font-size: 10px;">effective</a> <a href="/tags/elasticsearch/" style="font-size: 12.5px;">elasticsearch</a> <a href="/tags/email/" style="font-size: 10px;">email</a> <a href="/tags/exception/" style="font-size: 10px;">exception</a> <a href="/tags/gc/" style="font-size: 10px;">gc</a> <a href="/tags/htmlunit/" style="font-size: 10px;">htmlunit</a> <a href="/tags/io/" style="font-size: 10px;">io</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/jvm%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/" style="font-size: 10px;">jvm内存区域</a> <a href="/tags/mybatis/" style="font-size: 12.5px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/nio/" style="font-size: 10px;">nio</a> <a href="/tags/rabbitmq/" style="font-size: 10px;">rabbitmq</a> <a href="/tags/redis/" style="font-size: 17.5px;">redis</a> <a href="/tags/springboot/" style="font-size: 20px;">springboot</a> <a href="/tags/spring%E6%BA%90%E7%A0%81/" style="font-size: 10px;">spring源码</a> <a href="/tags/swagger2/" style="font-size: 10px;">swagger2</a> <a href="/tags/thymeleaf/" style="font-size: 10px;">thymeleaf</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/zookeeper/" style="font-size: 10px;">zookeeper</a> <a href="/tags/%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">中介者模式</a> <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" style="font-size: 10px;">二分查找</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 10px;">二叉树</a> <a href="/tags/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">享元模式</a> <a href="/tags/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">代理模式</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/" style="font-size: 10px;">分布式事务</a> <a href="/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">单例模式</a> <a href="/tags/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">原型模式</a> <a href="/tags/%E5%8F%8D%E5%B0%84/" style="font-size: 10px;">反射</a> <a href="/tags/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">命令模式</a> <a href="/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/" style="font-size: 10px;">垃圾收集器</a> <a href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/" style="font-size: 12.5px;">备忘录模式</a> <a href="/tags/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">外观模式</a> <a href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" style="font-size: 10px;">定时任务</a> <a href="/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">工厂模式</a> <a href="/tags/%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">建造者模式</a> <a href="/tags/%E5%BC%82%E5%B8%B8/" style="font-size: 10px;">异常</a> <a href="/tags/%E5%BC%82%E6%AD%A5%E8%B0%83%E7%94%A8/" style="font-size: 10px;">异步调用</a> <a href="/tags/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82/" style="font-size: 10px;">抽象工厂</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 15px;">数据结构</a> <a href="/tags/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/" style="font-size: 10px;">日志管理</a> <a href="/tags/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">桥接模式</a> <a href="/tags/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95/" style="font-size: 10px;">模板方法</a> <a href="/tags/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">策略模式</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 12.5px;">算法</a> <a href="/tags/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" style="font-size: 10px;">类加载机制</a> <a href="/tags/%E7%B4%A2%E5%BC%95/" style="font-size: 10px;">索引</a> <a href="/tags/%E7%BA%BF%E7%A8%8B/" style="font-size: 10px;">线程</a> <a href="/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/" style="font-size: 10px;">线程池</a> <a href="/tags/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">组合模式</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" style="font-size: 10px;">网络协议</a> <a href="/tags/%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">装饰器模式</a> <a href="/tags/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">观察者模式</a> <a href="/tags/%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">解释器模式</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a> <a href="/tags/%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">访问者模式</a> <a href="/tags/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">责任链模式</a> <a href="/tags/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">迭代器模式</a> <a href="/tags/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">适配器模式</a> <a href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" style="font-size: 10px;">配置文件</a> <a href="/tags/%E9%94%81/" style="font-size: 10px;">锁</a> <a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 10px;">集合</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/mysql-create-index/">这道面试题你确定不看看吗：一条sql语句，有多个查询条件，你会选择哪个字段作为索引，为什么？</a>
-          </li>
-        
-          <li>
-            <a href="/zookeeper/">zookeeper命令详解</a>
-          </li>
-        
-          <li>
-            <a href="/data-structure-binary-search/">【数据结构】| 二分查找</a>
-          </li>
-        
-          <li>
-            <a href="/jvm-class-loader/">【jvm】类加载机制</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2020 陈明羽<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-  </div>
-</body>
-</html>
+抽象工厂：GameFactory，规定了生成射击类和塔防类两种游戏
+具体工厂：NintendoGameFactory，TencentGameFactory，负责生产各自品牌的射击类和塔防类游戏
+抽象产品：Gameable，ShootGame和TowerDefenceGame ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/4/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">陈明羽</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives"><div class="headline">文章</div><div class="length_num">69</div></a></div><div class="card-info-data-item is-center">      <a href="/tags"><div class="headline">标签</div><div class="length_num">64</div></a></div><div class="card-info-data-item is-center">     <a href="/categories"><div class="headline">分类</div><div class="length_num">13</div></a></div></div><div class="card-info-bookmark is-center"><button class="button--animated" id="bookmark-it" title="加入书签"><i class="fas fa-bookmark"></i><span>加入书签</span></button></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/xxxxx" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:xxxxxx@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-recent-item"><div class="aside-recent-post"><a href="/hello-world/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="Hello World" alt="Hello World"/></div><div class="aside-post-title"><div class="aside-post_title" href="/hello-world/" title="Hello World">Hello World</div><time class="aside-post_meta post-meta__date" title="发表于 2020-07-12 16:14:18">2020-07-12</time></div></a></div><div class="aside-recent-post"><a href="/mysql-create-index/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="这道面试题你确定不看看吗：一条sql语句，有多个查询条件，你会选择哪个字段作为索引，为什么？" alt="这道面试题你确定不看看吗：一条sql语句，有多个查询条件，你会选择哪个字段作为索引，为什么？"/></div><div class="aside-post-title"><div class="aside-post_title" href="/mysql-create-index/" title="这道面试题你确定不看看吗：一条sql语句，有多个查询条件，你会选择哪个字段作为索引，为什么？">这道面试题你确定不看看吗：一条sql语句，有多个查询条件，你会选择哪个字段作为索引，为什么？</div><time class="aside-post_meta post-meta__date" title="发表于 2019-12-03 21:12:29">2019-12-03</time></div></a></div><div class="aside-recent-post"><a href="/zookeeper/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="zookeeper命令详解" alt="zookeeper命令详解"/></div><div class="aside-post-title"><div class="aside-post_title" href="/zookeeper/" title="zookeeper命令详解">zookeeper命令详解</div><time class="aside-post_meta post-meta__date" title="发表于 2019-10-31 11:12:34">2019-10-31</time></div></a></div><div class="aside-recent-post"><a href="/data-structure-binary-search/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="【数据结构】| 二分查找" alt="【数据结构】| 二分查找"/></div><div class="aside-post-title"><div class="aside-post_title" href="/data-structure-binary-search/" title="【数据结构】| 二分查找">【数据结构】| 二分查找</div><time class="aside-post_meta post-meta__date" title="发表于 2019-10-25 17:49:33">2019-10-25</time></div></a></div><div class="aside-recent-post"><a href="/jvm-class-loader/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="【jvm】类加载机制" alt="【jvm】类加载机制"/></div><div class="aside-post-title"><div class="aside-post_title" href="/jvm-class-loader/" title="【jvm】类加载机制">【jvm】类加载机制</div><time class="aside-post_meta post-meta__date" title="发表于 2019-09-23 15:31:19">2019-09-23</time></div></a></div></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fas fa-folder-open"></i><span>分类</span></div><ul class="card-category-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/elasticsearch/"><span class="card-category-list-name">elasticsearch</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/java/"><span class="card-category-list-name">java</span><span class="card-category-list-count">21</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/jvm/"><span class="card-category-list-name">jvm</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/mysql/"><span class="card-category-list-name">mysql</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/nosql/"><span class="card-category-list-name">nosql</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/tomcat/"><span class="card-category-list-name">tomcat</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/zookeeper/"><span class="card-category-list-name">zookeeper</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/"><span class="card-category-list-name">分布式事务</span><span class="card-category-list-count">1</span></a></li>
+            <li class="card-category-list-item more is-center"><a class="card-category-list-link-more" href="/categories">
+                <span>查看更多</span><i class="fas fa-angle-right"></i></a></li>           
+            </ul></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Integer%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/" style="font-size: 16px; color: #999">Integer缓存机制</a> <a href="/tags/aop/" style="font-size: 16px; color: #999">aop</a> <a href="/tags/effective/" style="font-size: 16px; color: #999">effective</a> <a href="/tags/elasticsearch/" style="font-size: 17.5px; color: #999da3">elasticsearch</a> <a href="/tags/email/" style="font-size: 16px; color: #999">email</a> <a href="/tags/exception/" style="font-size: 16px; color: #999">exception</a> <a href="/tags/gc/" style="font-size: 16px; color: #999">gc</a> <a href="/tags/htmlunit/" style="font-size: 16px; color: #999">htmlunit</a> <a href="/tags/io/" style="font-size: 16px; color: #999">io</a> <a href="/tags/java/" style="font-size: 19px; color: #99a1ac">java</a> <a href="/tags/jvm%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/" style="font-size: 16px; color: #999">jvm内存区域</a> <a href="/tags/mybatis/" style="font-size: 17.5px; color: #999da3">mybatis</a> <a href="/tags/mysql/" style="font-size: 17.5px; color: #999da3">mysql</a> <a href="/tags/nio/" style="font-size: 16px; color: #999">nio</a> <a href="/tags/rabbitmq/" style="font-size: 16px; color: #999">rabbitmq</a> <a href="/tags/redis/" style="font-size: 20.5px; color: #99a5b6">redis</a> <a href="/tags/springboot/" style="font-size: 22px; color: #99a9bf">springboot</a> <a href="/tags/spring%E6%BA%90%E7%A0%81/" style="font-size: 16px; color: #999">spring源码</a> <a href="/tags/swagger2/" style="font-size: 16px; color: #999">swagger2</a> <a href="/tags/thymeleaf/" style="font-size: 16px; color: #999">thymeleaf</a> <a href="/tags/tomcat/" style="font-size: 16px; color: #999">tomcat</a> <a href="/tags/zookeeper/" style="font-size: 16px; color: #999">zookeeper</a> <a href="/tags/%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">中介者模式</a> <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" style="font-size: 16px; color: #999">二分查找</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 16px; color: #999">二叉树</a> <a href="/tags/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">享元模式</a> <a href="/tags/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">代理模式</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/" style="font-size: 16px; color: #999">分布式事务</a> <a href="/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">单例模式</a> <a href="/tags/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">原型模式</a> <a href="/tags/%E5%8F%8D%E5%B0%84/" style="font-size: 16px; color: #999">反射</a> <a href="/tags/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">命令模式</a> <a href="/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/" style="font-size: 16px; color: #999">垃圾收集器</a> <a href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/" style="font-size: 17.5px; color: #999da3">备忘录模式</a> <a href="/tags/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">外观模式</a> <a href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" style="font-size: 16px; color: #999">定时任务</a> <a href="/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">工厂模式</a> <a href="/tags/%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">建造者模式</a> <a href="/tags/%E5%BC%82%E5%B8%B8/" style="font-size: 16px; color: #999">异常</a> <a href="/tags/%E5%BC%82%E6%AD%A5%E8%B0%83%E7%94%A8/" style="font-size: 16px; color: #999">异步调用</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/07/"><span class="card-archive-list-date">七月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/12/"><span class="card-archive-list-date">十二月 2019</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/10/"><span class="card-archive-list-date">十月 2019</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/09/"><span class="card-archive-list-date">九月 2019</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/08/"><span class="card-archive-list-date">八月 2019</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/07/"><span class="card-archive-list-date">七月 2019</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/06/"><span class="card-archive-list-date">六月 2019</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/05/"><span class="card-archive-list-date">五月 2019</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item more is-center"><a class="card-archive-list-link-more" href="/archives">
+              <span>查看更多</span><i class="fas fa-angle-right"  ></i></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-article-name">文章数目 :</div><div class="webinfo-article-count">69</div></div><div class="webinfo-item">      <div class="webinfo-site-uv-name">本站访客数 :</div><div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="webinfo-site-name">本站总访问量 :</div><div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div></div></div></div></div></div></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By 陈明羽</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><button class="translate_chn_to_cht" id="translateLink" title="简繁转换">繁</button><button id="darkmode" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script src="https://cdn.jsdelivr.net/npm/typed.js"></script><script>var subtitleEffect = true
+if (subtitleEffect) { 
+  var typed = new Typed("#subtitle", {
+    strings: "今日事&#44;今日畢,Never put off till tomorrow what you can do today".split(","),
+    startDelay: 300,
+    typeSpeed: 150,
+    loop: true,
+    backSpeed: 50
+  })
+} else {
+  document.getElementById("subtitle").innerHTML = '今日事&#44;今日畢'
+}</script></body></html>

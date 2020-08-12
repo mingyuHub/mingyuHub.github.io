@@ -1,1202 +1,202 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>但行好事 莫问前程 - 明羽</title><meta name="description"><meta name="keywords" content="陈明羽,chenmingyu,java,架构"><meta name="author" content="陈明羽"><meta name="copyright" content="陈明羽"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://chenmingyu.top/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="website"><meta property="og:title" content="但行好事 莫问前程"><meta property="og:url" content="https://chenmingyu.top/"><meta property="og:site_name" content="但行好事 莫问前程"><meta property="og:description"><meta property="og:image" content="https://chenmingyu.top/img/avatar.png"><meta property="article:published_time" content="2020-08-12T13:20:16.001Z"><meta property="article:modified_time" content="2020-08-12T13:20:16.001Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
 
-  
-  <title>但行好事 莫问前程</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="但行好事 莫问前程">
-<meta property="og:url" content="https://chenmingyu.top/index.html">
-<meta property="og:site_name" content="但行好事 莫问前程">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="陈明羽">
-<meta property="article:tag" content="陈明羽">
-<meta property="article:tag" content="chenmingyu">
-<meta property="article:tag" content="java">
-<meta property="article:tag" content="架构">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="但行好事 莫问前程" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
 
-<meta name="generator" content="Hexo 4.2.1"></head>
+var autoChangeMode = 'false'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">但行好事 莫问前程</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">明羽</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://chenmingyu.top"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/hello-world/" class="article-date">
-  <time datetime="2020-07-12T08:14:18.495Z" itemprop="datePublished">2020-07-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/hello-world/">Hello World</a>
-    </h1>
-  
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: false,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false    
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isSidebar: false
+  }</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.1"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">69</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">64</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">13</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(https://i.loli.net/2020/05/01/IuWi8QbHvzjlOPw.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">但行好事 莫问前程</a></span><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site_title">但行好事 莫问前程</h1><div id="site_subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/xxxxx" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:xxxxxx@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll_down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/hello-world/" title="Hello World">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"></a></div><div class="recent-post-info"><a class="article-title" href="/hello-world/" title="Hello World">Hello World</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-07-12 16:14:18"><i class="far fa-calendar-alt"></i>2020-07-12</time></div><div class="content">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick StartCreate a new post$ hexo new &quot;My New Post&quot;
+More info: Writing
+Run server$ hexo server
+More info: Server
+Generate static files$ hexo generate
+More info: Generating
+Deploy to remote sites$ hexo deploy
+More info: Deployment
+</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/mysql-create-index/" title="这道面试题你确定不看看吗：一条sql语句，有多个查询条件，你会选择哪个字段作为索引，为什么？">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="这道面试题你确定不看看吗：一条sql语句，有多个查询条件，你会选择哪个字段作为索引，为什么？"></a></div><div class="recent-post-info"><a class="article-title" href="/mysql-create-index/" title="这道面试题你确定不看看吗：一条sql语句，有多个查询条件，你会选择哪个字段作为索引，为什么？">这道面试题你确定不看看吗：一条sql语句，有多个查询条件，你会选择哪个字段作为索引，为什么？</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-12-03 21:12:29"><i class="far fa-calendar-alt"></i>2019-12-03</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/mysql/">mysql</a></span></div><div class="content">
+每个面试题都是一个知识点，无论面不面试，都应该看看，掌握之后也是可以运用到开发中的，而且每个知识点都会衍生出很多问题，会的越多，掌握的知识点就越多，正所谓：不积跬步无以至千里，不积小流无以成江河…
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;</code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server</code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate</code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy</code></pre>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+今天的题目是：在mysql中，一条sql，有多个查询条件，你会选择哪个字段作为索引，依据是什么？
+sql示例是这样的：
+select * from table where field_a = xx and field_b = xx and field_c = xx
+思考一下，如果是你，你会选哪个字段作为索引，为啥那，如果你一点思路没有，就且听我慢慢道来…
+这个回答的时候，蒙肯定是不行的，你选择field_a字段肯定要把理由说出来，如果说不出来，直接说不会也要好过瞎蒙，起码留给面试官一个不会就是不会，不瞎蒙的印象  这都不知道，还说你会mysql
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://chenmingyu.top/hello-world/" data-id="ckdn6w7zp002xaktwb5131dj5" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
+解题：
+首先说索引，表中创建索引的目的是为提供更高效的查询，既然是提高效率，肯定是有高效的索引和低效的索引的区分，这道题其实也是说选择哪个字段作为索引会提供更高效的查询。
+为了循序渐进的剖析这个问题，我创建一个测试表 test，表中插入十万条测 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/zookeeper/" title="zookeeper命令详解">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="zookeeper命令详解"></a></div><div class="recent-post-info"><a class="article-title" href="/zookeeper/" title="zookeeper命令详解">zookeeper命令详解</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-10-31 11:12:34"><i class="far fa-calendar-alt"></i>2019-10-31</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/zookeeper/">zookeeper</a></span></div><div class="content">​    ZooKeeper 是一个分布式的，开放源码的分布式应用程序协调服务，是 Google 的 Chubby一个开源的实现。它提供了简单原始的功能，分布式应用可以基于它实现更高级的服务，比如分布式同步， 配置管理， 集群管理， 命名管理，队列管理。它被设计为易于编程，使用文件系统目录树作为数据模型 
+特点1、 最终一致性： client 不论连接到哪个 Server，展示给它都是同一个视图，这是 ZooKeeper最重要的性能。
+2、 可靠性：具有简单、健壮、良好的性能，如果消息 m 被到一台服务器接受，那么它将被所有的服务器接受。
+3、 实时性： ZooKeeper 保证客户端将在一个时间间隔范围内获得服务器的更新信息，或者服务器失效的信息。
+但由于网络延时等原因， ZooKeeper 不能保证两个客户端能同时得到刚更新的数据，如果需要最新数据，应该在
+读数据之前调用 sync()接口
+4、 等待无关（wait-free）：慢的或者失效的 client 不得干预快速的 client 的请求，使得每个client 都能有效的等待
+5、 原子性：更新只能成功或者失败，没有中间状态6 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/data-structure-binary-search/" title="【数据结构】| 二分查找">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【数据结构】| 二分查找"></a></div><div class="recent-post-info"><a class="article-title" href="/data-structure-binary-search/" title="【数据结构】| 二分查找">【数据结构】| 二分查找</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-10-25 17:49:33"><i class="far fa-calendar-alt"></i>2019-10-25</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="content">二分查找是一种效率较高的查找方法，时间复杂度是O(logn)
+二分查找：每次都通过跟区间中的中间元素对比，将待查找的区间缩小为一半，直到找到要查找的元素，或者区间被缩小为0
+使用前提：
 
+二分查找必须依赖顺序表结构（数组）
+二分查找查询的数据必须是有序的
 
-  
-    <article id="post-mysql-create-index" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/mysql-create-index/" class="article-date">
-  <time datetime="2019-12-03T13:12:29.000Z" itemprop="datePublished">2019-12-03</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/mysql/">mysql</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/mysql-create-index/">这道面试题你确定不看看吗：一条sql语句，有多个查询条件，你会选择哪个字段作为索引，为什么？</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>每个面试题都是一个知识点，无论面不面试，都应该看看，掌握之后也是可以运用到开发中的，而且每个知识点都会衍生出很多问题，会的越多，掌握的知识点就越多，正所谓：不积跬步无以至千里，不积小流无以成江河…</p>
-</blockquote>
-<p>今天的<strong>题目</strong>是：在mysql中，一条sql，有多个查询条件，你会选择哪个字段作为索引，依据是什么？</p>
-<p>sql示例是这样的：</p>
-<pre><code class="sql">select * from table where field_a = xx and field_b = xx and field_c = xx</code></pre>
-<p>思考一下，如果是你，你会选哪个字段作为索引，为啥那，如果你一点思路没有，就且听我慢慢道来…</p>
-<p>这个回答的时候，蒙肯定是不行的，你选择field_a字段肯定要把理由说出来，如果说不出来，直接说不会也要好过瞎蒙，起码留给面试官一个不会就是不会，不瞎蒙的印象  <em>这都不知道，还说你会mysql</em></p>
-<p><img src="mysql-create-index/lj.jpg" alt=""></p>
-<p><strong>解题</strong>：</p>
-<p>首先说索引，表中创建索引的目的是为提供更高效的查询，既然是提高效率，肯定是有高效的索引和低效的索引的区分，这道题其实也是说选择哪个字段作为索引会提供更高效的查询。</p>
-<p>为了循序渐进的剖析这个问题，我创建一个测试表 <strong>test</strong>，表中插入十万条测试数据，我们模拟一下这个问题</p>
-<p>表结构如下：</p>
-<pre><code class="mysql">CREATE TABLE `test` (
-  `id` int(20) NOT NULL AUTO_INCREMENT COMMENT &#39;主键&#39;,
-  `field_a` int(11) DEFAULT NULL,
-  `field_b` int(20) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=100001 DEFAULT CHARSET=utf8 COMMENT=&#39;测试表&#39;;</code></pre>
-<p>使用存储过程，添加测试数据：</p>
-<pre><code class="sql">delimiter ;;
-create procedure test()
-begin
-    declare i int;
-    set i=1;
-    while(i&lt;=100000)do
-        insert into test values(i, i, i%100);
-        set i=i+1;
-    end while;
-end;;
-delimiter ;
--- 执行
-call test();</code></pre>
-<p>添加field_a字段的数据是从1到100000，field_b字段的数据是从0到99，查一下数据，十万条数据已经添加成功了</p>
-<p><img src="mysql-create-index/2.png" alt=""></p>
-<p>那题目中的sql就变成了这样</p>
-<pre><code class="sql">select * from test where field_a = xx and field_b = xx</code></pre>
-<p>这时候在没创建索引的情况下我们先用执行一下explain</p>
-<p><img src="mysql-create-index/1.png" alt=""></p>
-<p>对于explain不熟悉的可以看下这篇文章 <a href="https://chenmingyu.top/mysql-optimize/">https://chenmingyu.top/mysql-optimize/</a></p>
-<p>从type字段我们知道sql走的全表扫描，但是预计的扫描行数 rows字段只有94001条，明显是跟表中的总数据量对不上啊，没事儿，别急，放心，且先放着</p>
-<p>我们再执行下面的sql看下表test的索引情况</p>
-<p><img src="mysql-create-index/3.png" alt="show index from test"></p>
-<p>我们需要关注的列是cardinality(基数)，这列表示索引中唯一值的数量的估计值，这个值越高，说明字段的区分度越高，代表着这列越适合作为索引出现，如果这个值非常小，就要考虑这个字段是否适合作为索引出现了，所以我们可以使用Cardinality列来判断索引是否具有高选择性</p>
-<p>当然还有一种方式可以计算索引是否具有高选择性，就是Cardinality的值/table_rows的值 如果尽可能接近1，那么这个索引具有高选择性，如果非常小，那么就要考虑是否可以删除该索引了</p>
-<p><em>可以使用 analyze table test 后Cardinality列与rows列显示的数值一致</em></p>
-<p>那我们知道了上面的知识后，再看一下这道题，是不是我们只要比较每个字段的Cardinality值的大小就可以选取那个字段作为索引了</p>
-<p>现在给field_a和field_b添加索引，现在表结构如下：</p>
-<pre><code class="sql">CREATE TABLE `test` (
-  `id` int(20) NOT NULL AUTO_INCREMENT COMMENT &#39;主键&#39;,
-  `field_a` int(11) DEFAULT NULL,
-  `field_b` int(20) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `idx_field_a` (`field_a`),
-  KEY `idx_field_b` (`field_b`)
-) ENGINE=InnoDB AUTO_INCREMENT=100001 DEFAULT CHARSET=utf8 COMMENT=&#39;测试表&#39;;</code></pre>
-<p>我们再看一下Cardinality列</p>
-<p><img src="mysql-create-index/6.png" alt=""></p>
-<p>明显idx_field_a索引要比idx_field_b索引的Cardinality值大，大胆猜测一下是不是idx_field_a索引要比idx_field_b索引的效率高？</p>
-<p>用force index强制使用索引，我们测下：</p>
-<p>使用explain看下</p>
-<pre><code class="sql">explain select * from test force index(idx_field_a) where field_a = 1 and field_b = 1;</code></pre>
-<p><img src="mysql-create-index/8.png" alt=""></p>
-<pre><code class="sql">explain select * from test force index(idx_field_b) where field_a = 1 and field_b = 1;</code></pre>
-<p><img src="mysql-create-index/7.png" alt=""></p>
-<p>虽然type都是ref，但是rows的值还是差距很大的，心里不禁暗暗有些激动，猜想与事实逐渐重合…</p>
-<p><img src="mysql-create-index/xl.png" alt=""></p>
-<p>执行sql，看下耗时</p>
-<pre><code class="sql">-- sql执行0.001s
-select * from test force index(idx_field_a) where field_a = 1 and field_b = 1;
--- sql执行0.004s
-select * from test force index(idx_field_b) where field_a = 1 and field_b = 1;</code></pre>
-<p>想要的效果已经出来，所以说上面的猜想是正确的<img src="mysql-create-index/gt.png" alt="img"></p>
-<p>上面的情况是建了索引所以可以看到Cardinality列的值，在没建索引的时候怎么办？</p>
-<p>再看下Cardinality的概念：表示唯一值的数量的预估值，所以我们可以用distinct 去计算字段的唯一值数量</p>
-<p>所以最终字段是否适合创建索引可以使用下面的sql进行判断，值等于1或趋近为1的字段最适合创建索引</p>
-<pre><code class="sql">-- 值为1
-select count(distinct field_a)/count(*) from test
--- 值为0.001
-select count(distinct field_b)/count(*) from test</code></pre>
-<p>显然字段field_a最适合建索引，与测试结果一致</p>
-<p><img src="mysql-create-index/ap.jpg" alt=""></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://chenmingyu.top/mysql-create-index/" data-id="ckdn6w80d003saktwaux2dj80" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%B4%A2%E5%BC%95/" rel="tag">索引</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-zookeeper" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/zookeeper/" class="article-date">
-  <time datetime="2019-10-31T03:12:34.000Z" itemprop="datePublished">2019-10-31</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/zookeeper/">zookeeper</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/zookeeper/">zookeeper命令详解</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>​    ZooKeeper 是一个分布式的，开放源码的分布式应用程序协调服务，是 Google 的 Chubby一个开源的实现。它提供了简单原始的功能，分布式应用可以基于它实现更高级的服务，比如<strong>分布式同步， 配置管理， 集群管理， 命名管理，队列管理</strong>。它被设计为易于编程，使用文件系统目录树作为数据模型 </p>
-<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>1、 最终一致性： client 不论连接到哪个 Server，展示给它都是同一个视图，这是 ZooKeeper最重要的性能。</p>
-<p>2、 可靠性：具有简单、健壮、良好的性能，如果消息 m 被到一台服务器接受，那么它将被所有的服务器接受。</p>
-<p>3、 实时性： ZooKeeper 保证客户端将在一个时间间隔范围内获得服务器的更新信息，或者服务器失效的信息。</p>
-<p>但由于网络延时等原因， ZooKeeper 不能保证两个客户端能同时得到刚更新的数据，如果需要最新数据，应该在</p>
-<p>读数据之前调用 sync()接口</p>
-<p>4、 等待无关（wait-free）：慢的或者失效的 client 不得干预快速的 client 的请求，使得每个client 都能有效的等待</p>
-<p>5、 原子性：更新只能成功或者失败，没有中间状态<br>6、 顺序性：包括全局有序和偏序两种：全局有序是指如果在一台服务器上消息 a 在消息 b前发布，则在所有Server 上消息 a 都将在消息 b 前被发布；偏序是指如果一个消息 b 在消息 a 后被同一个发送者发布， a 必将排在b 前面</p>
-<p><strong>zookeeper = 文件系统+事件监听</strong></p>
-<h4 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h4><p>ZooKeeper 的命名空间就是 ZooKeeper 应用的文件系统，它和 linux 的文件系统很像，也是树状，这样就可以确</p>
-<p>定每个路径都是唯一的，对于命名空间的操作必须都是绝对路径操作。与linux 文件系统不同的是，linux 文件系</p>
-<p>统有目录和文件的区别，而 ZooKeeper 统一叫做 znode，一个 znode 节点可以包含子 znode，同时也可以包含</p>
-<p>数据所以总结说来， znode 即是文件夹又是文件的概念，所以在 ZooKeeper 这里面就不叫文件文件也不叫文件夹，叫 znode，每个 znode 有唯一的路径识，既能存储数据，也能创建子 znode。但是 znode 只适合存储非常小量的数据，不能超过 1M，最好小于 1K </p>
-<p><img src="zookeeper/node.png" alt=""></p>
-<h4 id="事件监听"><a href="#事件监听" class="headerlink" title="事件监听"></a>事件监听</h4><p>客户端注册监听它关心的目录节点，当目录节点发生变化（数据改变、 节点删除、 子目录节点增加删除）时,ZooKeeper 会通知客户端。 监听机制保证 ZooKeeper 保存的任何的数据的任何改变都能快速的响应到监听了该节点的应用程序</p>
-<p>ZooKeeper 的 Watcher 机制主要包括客户端线程、 客户端 WatcherManager、 Zookeeper 服务器三部分。客户端在向 ZooKeeper 服务器注册的同时，会将 Watcher 对象存储在客户端的WatcherManager 当中。当ZooKeeper 服务器触发 Watcher 事件后，会向客户端发送通知，客户端线程从 WatcherManager 中取出对应的Watcher 对象来执行回调逻辑 </p>
-<p><img src="zookeeper/watch.png" alt=""></p>
-<h3 id="常用命令解析"><a href="#常用命令解析" class="headerlink" title="常用命令解析"></a>常用命令解析</h3><h5 id="help"><a href="#help" class="headerlink" title="help"></a>help</h5><p>查看客户端帮助命令</p>
-<pre><code class="shell">[zk: localhost:2181(CONNECTED) 8] help
-ZooKeeper -server host:port cmd args
-        stat path [watch]
-        set path data [version]
-        ls path [watch]
-        delquota [-n|-b] path
-        ls2 path [watch]
-        setAcl path acl
-        setquota -n|-b val path
-        history
-        redo cmdno
-        printwatches on|off
-        delete path [version]
-        sync path
-        listquota path
-        rmr path
-        get path [watch]
-        create [-s] [-e] path data acl
-        addauth scheme auth
-        quit
-        getAcl path
-        close
-        connect host:port</code></pre>
-<h5 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h5><p><strong>create [-s] [-e] path data acl</strong></p>
-<p>-s和-e分别指定节点特性：顺序或临时节点，acl是权限控制</p>
-<pre><code class="shell">[zk: localhost:2181(CONNECTED) 11] create /name my
-Created /name</code></pre>
-<h5 id="读取"><a href="#读取" class="headerlink" title="读取"></a>读取</h5><p> <strong>ls path [watch]</strong></p>
-<pre><code class="shell">[zk: localhost:2181(CONNECTED) 38] ls /
-[zookeeper, name, dubbo]</code></pre>
-<p><strong>get path [watch]</strong></p>
-<pre><code class="shell">[zk: localhost:2181(CONNECTED) 39] get /name
-my
-cZxid = 0xe17
-ctime = Thu Oct 31 15:07:37 CST 2019
-mZxid = 0xe17
-mtime = Thu Oct 31 15:07:37 CST 2019
-pZxid = 0xe17
-cversion = 0
-dataVersion = 0
-aclVersion = 0
-ephemeralOwner = 0x0
-dataLength = 2
-numChildren = 0</code></pre>
-<p>详细信息</p>
-<ul>
-<li>my：节点的值，如果值则空一行</li>
-<li>cZxid ：创建节点的事务id</li>
-<li>ctime ： 节点的创建时间</li>
-<li>mZxid ：修改节点的事务id</li>
-<li>mtime ：修改节点的时间</li>
-<li>pZxid ：子节点的id</li>
-<li>cversion : 子节点的版本</li>
-<li>dataVersion ： 当前节点数据的版本</li>
-<li>aclVersion ：权限的版本</li>
-<li>ephemeralOwner ：判断是否是临时节点</li>
-<li>dataLength ： 数据的长度</li>
-<li>numChildren ：子节点的数量</li>
-</ul>
-<h5 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h5><p><strong>set path data [version]</strong></p>
-<pre><code class="shell">[zk: localhost:2181(CONNECTED) 45] set /name mingyu
-cZxid = 0xe17
-ctime = Thu Oct 31 15:07:37 CST 2019
-mZxid = 0xe27
-mtime = Thu Oct 31 15:26:13 CST 2019
-pZxid = 0xe17
-cversion = 0
-dataVersion = 2
-aclVersion = 0
-ephemeralOwner = 0x0
-dataLength = 6
-numChildren = 0
-# 版本号更新，因为/name节点的版本号是2了所以执行版本号为1时，更新失败
-[zk: localhost:2181(CONNECTED) 46] set /name my 1
-version No is not valid : /name
-# 更新成功
-[zk: localhost:2181(CONNECTED) 47] set /name my 2
-cZxid = 0xe17
-ctime = Thu Oct 31 15:07:37 CST 2019
-...</code></pre>
-<h5 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h5><p><strong>delete path [version]</strong></p>
-<pre><code class="shell">[zk: localhost:2181(CONNECTED) 55] delete /name
-# 删除不是当前版本号的节点
-[zk: localhost:2181(CONNECTED) 60] delete /name 0
-version No is not valid : /name</code></pre>
-<p>除了版本号不一致不能进行删除外，如果要删除的节点有子节点也是不能进行删除的</p>
-<pre><code class="shell">[zk: localhost:2181(CONNECTED) 75] delete /name
-Node not empty: /name</code></pre>
-<h4 id="watch通知"><a href="#watch通知" class="headerlink" title="watch通知"></a>watch通知</h4><p>通过help命令查看带有watch选项的命令，可以对当前操作节点增加监听操作的</p>
-<p>带有watch选项的命令：<strong>stat，get，ls，ls2</strong></p>
-<h5 id="stat-设置监听"><a href="#stat-设置监听" class="headerlink" title="stat 设置监听"></a>stat 设置监听</h5><pre><code class="shell">[zk: localhost:2181(CONNECTED) 82] stat /test watch
-Node does not exist: /test
-[zk: localhost:2181(CONNECTED) 83] create /test test
-Created /test
-WATCHER::
-# NodeCreated表示创建节点，路径是：/test
-WatchedEvent state:SyncConnected type:NodeCreated path:/test</code></pre>
-<h5 id="get-设置监听"><a href="#get-设置监听" class="headerlink" title="get 设置监听"></a>get 设置监听</h5><pre><code class="shell">[zk: localhost:2181(CONNECTED) 84] get /test watch
-test
-cZxid = 0xe39
-ctime = Thu Oct 31 16:12:12 CST 2019
-mZxid = 0xe39
-mtime = Thu Oct 31 16:12:12 CST 2019
-pZxid = 0xe39
-cversion = 0
-dataVersion = 0
-aclVersion = 0
-ephemeralOwner = 0x0
-dataLength = 4
-numChildren = 0
-[zk: localhost:2181(CONNECTED) 85] set /test 1
-
-WATCHER::cZxid = 0xe39
-# NodeDataChanged 节点数据改变，路径是：/test
-WatchedEvent state:SyncConnected type:NodeDataChanged path:/testctime = Thu Oct
-31 16:12:12 CST 2019
-
-mZxid = 0xe3a
-mtime = Thu Oct 31 16:14:25 CST 2019
-pZxid = 0xe39
-cversion = 0
-dataVersion = 1
-aclVersion = 0
-ephemeralOwner = 0x0
-dataLength = 1
-numChildren = 0</code></pre>
-<h5 id="ls-设置监听"><a href="#ls-设置监听" class="headerlink" title="ls 设置监听"></a>ls 设置监听</h5><pre><code class="shell">[zk: localhost:2181(CONNECTED) 86] ls /test watch
-[]
-[zk: localhost:2181(CONNECTED) 87] create /test/date date
-
-WATCHER::Created /test/date
-# NodeChildrenChanged 子节点发生改变，路径是：/test
-WatchedEvent state:SyncConnected type:NodeChildrenChanged path:/test</code></pre>
-<h5 id="ls2"><a href="#ls2" class="headerlink" title="ls2"></a>ls2</h5><p>ls命令和stat命令的整合</p>
-<pre><code class="shell">[zk: localhost:2181(CONNECTED) 88] ls2 /test watch
-[date]
-cZxid = 0xe39
-ctime = Thu Oct 31 16:12:12 CST 2019
-mZxid = 0xe3a
-mtime = Thu Oct 31 16:14:25 CST 2019
-pZxid = 0xe3b
-cversion = 1
-dataVersion = 1
-aclVersion = 0
-ephemeralOwner = 0x0
-dataLength = 1
-numChildren = 1</code></pre>
-<p>利用ls2命令给/test节点加上监听</p>
-<pre><code class="shell"># 对子节点的数据进行修改不会触犯watch监听
-[zk: localhost:2181(CONNECTED) 89] set /test/date 1
-cZxid = 0xe3b
-ctime = Thu Oct 31 16:18:09 CST 2019
-mZxid = 0xe3c
-mtime = Thu Oct 31 16:21:46 CST 2019
-pZxid = 0xe3b
-cversion = 0
-dataVersion = 1
-aclVersion = 0
-ephemeralOwner = 0x0
-dataLength = 1
-numChildren = 0
-# 只有创建子节点和删除子节点时会触发watch监听
-[zk: localhost:2181(CONNECTED) 94] delete /test/date
-
-WATCHER::
-# NodeDeleted 节点删除，路径：/test/date
-WatchedEvent state:SyncConnected type:NodeDeleted path:/test/date</code></pre>
-<h4 id="acl-权限"><a href="#acl-权限" class="headerlink" title="acl 权限"></a>acl 权限</h4><p>zookeeper使用ACL权限控制机制来保障数据安全</p>
-<p>zookeeper中的节点有5种操作权限：<code>CREATE</code>、<code>READ</code>、<code>WRITE</code>、<code>DELETE</code>、<code>ADMIN</code> 对应的就是增、查、改、删、管理权限，这5种权限简写为<code>crwda</code></p>
-<p> <em>注：这5种权限中，delete是指对子节点的删除权限，其它4种权限指对自身节点的操作权限</em></p>
-<p><img src="zookeeper/1.png" alt=""></p>
-<h4 id="权限模式：Scheme"><a href="#权限模式：Scheme" class="headerlink" title="权限模式：Scheme"></a>权限模式：Scheme</h4><p><strong>ip</strong></p>
-<p>​    ip模式通过ip地址粒度来进行权限控制，例如配置了：ip:192.168.1.100即表示权限控制都是针对这个ip地址的，同时也支持按网段分配，比如：192.168.1.*</p>
-<p><strong>Digest</strong></p>
-<p>​    Digest是最常用的权限控制模式，类似于<code>username:password</code>形成的权限标识来进行权限配置，zookeeper会对形成的权限标识先后进行两次编码处理，分别是SHA-1加密算法，BASE64编码。</p>
-<p><strong>World</strong></p>
-<p>​    World是一种最开放的权限控制模式，这种权限控制方式几乎没有任何作用，数据节点的访问权限对所有用户开放，即所有用户都可以在不进行任何权限校验的情况下操作ZooKeeper上的数据。World模式也可以看作是一种特殊的Digest模式，它只有一个权限标识，即world:anyone <em>默认权限</em></p>
-<p><strong>Super</strong></p>
-<p>​    Super模式是一种特殊的Digest模式，在Super模式下，超级用户可以对任意ZooKeeper上的数据节点进行任何操作</p>
-<p>通过help名称查看带有acl关键字的名，包括：<strong>getAcl，setAcl，create</strong> </p>
-<p>使用：<code>[scheme:id:permissions]</code>来表示acl权限</p>
-<p><strong>world模式</strong></p>
-<p>格式：<strong>world:anyone:permissions</strong> </p>
-<h5 id="查询权限"><a href="#查询权限" class="headerlink" title="查询权限"></a>查询权限</h5><p><strong>getAcl path</strong></p>
-<pre><code class="shell">[zk: localhost:2181(CONNECTED) 96]  getAcl /name
-&#39;world,&#39;anyone
-: cdrwa</code></pre>
-<p>world：认证方式，anyone：任何人，cdrwa：权限</p>
-<p>所以我们可以对/name节点进行任何操作</p>
-<h5 id="设置权限"><a href="#设置权限" class="headerlink" title="设置权限"></a>设置权限</h5><p><strong>setAcl path acl</strong></p>
-<pre><code class="shell">[zk: localhost:2181(CONNECTED) 123] setAcl /acl world:anyone:cw
-cZxid = 0xe4e
-ctime = Thu Oct 31 17:01:41 CST 2019
-mZxid = 0xe4e
-mtime = Thu Oct 31 17:01:41 CST 2019
-pZxid = 0xe4e
-cversion = 0
-dataVersion = 0
-aclVersion = 1
-ephemeralOwner = 0x0
-dataLength = 2
-numChildren = 0</code></pre>
-<p>对/name节点增加create和write权限，我们测试一下</p>
-<pre><code class="shell"># 因为没有读的权限，所以get提示没权限
-[zk: localhost:2181(CONNECTED) 124] get /acl
-Authentication is not valid : /acl
-# 改节点数据的时候操作正常
-[zk: localhost:2181(CONNECTED) 125] set /acl my
-cZxid = 0xe4e
-ctime = Thu Oct 31 17:01:41 CST 2019
-mZxid = 0xe52
-mtime = Thu Oct 31 17:03:45 CST 2019
-pZxid = 0xe4e
-cversion = 0
-dataVersion = 1
-aclVersion = 1
-ephemeralOwner = 0x0
-dataLength = 2
-numChildren = 0</code></pre>
-<p><strong>Digest模式</strong></p>
-<p>格式： <strong>scheme:username:password:permissions</strong> </p>
-<p>Digest模式中 scheme 分为两种：digest和auto</p>
-<p><strong>scheme：digest</strong></p>
-<pre><code class="shell"># 设置权限
-[zk: localhost:2181(CONNECTED) 135] setAcl /acl digest:name:my:cr
-cZxid = 0xe56
-ctime = Thu Oct 31 17:29:12 CST 2019
-mZxid = 0xe56
-mtime = Thu Oct 31 17:29:12 CST 2019
-pZxid = 0xe56
-cversion = 0
-dataVersion = 0
-aclVersion = 1
-ephemeralOwner = 0x0
-dataLength = 1
-numChildren = 0
-# 获取权限，密码没加密
-[zk: localhost:2181(CONNECTED) 136] getAcl /acl
-&#39;digest,&#39;name:my
-: cr</code></pre>
-<p><strong>scheme：auto</strong></p>
-<p>使用 <strong>addauth scheme auth</strong> 命令增加</p>
-<pre><code class="shell"># 使用auto 设置权限
-[zk: localhost:2181(CONNECTED) 153] addauth digest a:a
-# 获取权限，password加密了
-[zk: localhost:2181(CONNECTED) 4] getAcl /cmy
-&#39;digest,&#39;a:mDmPUap4qvYwm+PZOtJ/scGyHLY=
-: crw</code></pre>
-<h5 id="ip"><a href="#ip" class="headerlink" title="ip"></a>ip</h5><p>格式：<strong>ip:Ip-address:permissions</strong></p>
-<pre><code class="shell"># 设置权限
-[zk: localhost:2181(CONNECTED) 9] setAcl /ip ip:192.168.1.1:cr
-cZxid = 0xe6a
-ctime = Thu Oct 31 17:50:29 CST 2019
-mZxid = 0xe6a
-mtime = Thu Oct 31 17:50:29 CST 2019
-pZxid = 0xe6a
-cversion = 0
-dataVersion = 0
-aclVersion = 1
-ephemeralOwner = 0x0
-dataLength = 3
-numChildren = 0
-# 查看权限
-[zk: localhost:2181(CONNECTED) 10] getAcl /ip
-&#39;ip,&#39;192.168.1.1
-: cr</code></pre>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://chenmingyu.top/zookeeper/" data-id="ckdn6w81t005xaktw1byb8uyy" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/zookeeper/" rel="tag">zookeeper</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-data-structure-binary-search" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/data-structure-binary-search/" class="article-date">
-  <time datetime="2019-10-25T09:49:33.000Z" itemprop="datePublished">2019-10-25</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/data-structure-binary-search/">【数据结构】| 二分查找</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>二分查找是一种效率较高的查找方法，时间复杂度是O(logn)</p>
-<p>二分查找：每次都通过跟区间中的中间元素对比，将待查找的区间缩小为一半，直到找到要查找的元素，或<br>者区间被缩小为0</p>
-<p><strong>使用前提：</strong></p>
-<ol>
-<li>二分查找必须依赖顺序表结构（数组）</li>
-<li>二分查找查询的数据必须是有序的</li>
-</ol>
-<p>关于查询数据的大小，如果查询的数据太小，直接遍历就可以，两者效率相差不大，如果要查找的数据太大，因为二分查找必须依赖顺序表结构，所以需要申请的空间必须是连续的，有可能会出现没有足够的连续内存空间的情况</p>
-<p><strong>实现：</strong></p>
-<p>数组arr：{1,4,7,8,12,43,56,87,98,323,3545,5685}，利用二分查找返回数组下标</p>
-<p>例：查找43输出5</p>
-<pre><code class="java">public static int binary(int[] arr, int n){
+关于查询数据的大小，如果查询的数据太小，直接遍历就可以，两者效率相差不大，如果要查找的数据太大，因为二分查找必须依赖顺序表结构，所以需要申请的空间必须是连续的，有可能会出现没有足够的连续内存空间的情况
+实现：
+数组arr：{1,4,7,8,12,43,56,87,98,323,3545,5685}，利用二分查找返回数组下标
+例：查找43输出5
+public static int binary(int[] arr, int n){
     int start = 0;
     int end = arr.length - 1;
     while (start&lt;=end){
         int mid = (start + end)/2;
         if(arr[mid]== n){
-            return mid;
-        } else if (n &gt; arr[mid]) {
-            start = mid + 1;
-        } else {
-            end = mid - 1;
-        }
-    }
-    return -1;
-}</code></pre>
-<p><strong>递归实现：</strong></p>
-<pre><code class="java">public static int binary(int[] arr, int n, int start, int end){
-    if(start &gt; end){
-        return -1;
-    }
-    int mid = (start + end)/2;
-    if(arr[mid] == n){
-        return mid;
-    } else if (n &gt; arr[mid]) {
-        return binary(arr, n, mid + 1, end);
-    } else {
-        return binary(arr, n, start, mid - 1);
-    }
-}</code></pre>
-<p>当数组中没有重复数据时，可以使用上述方法，但是有些需求可能是数组中有重复数据，需要查找数组中某个数的第一次出现的下标</p>
-<p>例：数组{1,4,7,43,43,43,56,87,98,323,3545,5685}，查找43输出3</p>
-<pre><code class="java">public static int binary(int[] arr, int n){
-    int start = 0;
-    int end = arr.length - 1;
-    while (start&lt;=end){
-        int mid = (start + end)/2;
-        if(arr[mid] == n &amp;&amp; mid&gt;0 &amp;&amp; arr[mid -1] != n ){
-            return mid;
-        } else if (n &gt; arr[mid]) {
-            start = mid + 1;
-        } else {
-            end = mid - 1;
-        }
-    }
-    return -1;
-}</code></pre>
+            retur ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/jvm-class-loader/" title="【jvm】类加载机制">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【jvm】类加载机制"></a></div><div class="recent-post-info"><a class="article-title" href="/jvm-class-loader/" title="【jvm】类加载机制">【jvm】类加载机制</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-09-23 15:31:19"><i class="far fa-calendar-alt"></i>2019-09-23</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/jvm/">jvm</a></span></div><div class="content">
+虚拟机把描述类的数据从class文件加载到内存，并对数据进行校验、转换解析和初始化，最终形成可以被虚拟机直接使用的Java类型
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://chenmingyu.top/data-structure-binary-search/" data-id="ckdn6w7wr0007aktwaxjtaohj" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" rel="tag">二分查找</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li></ul>
+类的生命周期加载，验证，准备，解析，初始化，使用，卸载七个阶段，其中验证，准备，解析三个部分统称为链接
 
-    </footer>
-  </div>
-  
-</article>
+加载，验证，准备，初始化和卸载这5个阶段的顺序是固定的，为了支持动态绑定，解析这个过程可以发生在初始化阶段之后
+加载阶段加载阶段，主要完成以下3件事情：
 
+通过“类全名”来获取定义此类的二进制字节流
+将字节流所代表的静态存储结构转换为方法区的运行时数据结构
+在java堆中生成一个代表这个类的java.lang.Class对象，作为方法区这些数据的访问入口
 
-  
-    <article id="post-jvm-class-loader" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/jvm-class-loader/" class="article-date">
-  <time datetime="2019-09-23T07:31:19.000Z" itemprop="datePublished">2019-09-23</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/jvm/">jvm</a>
-  </div>
+加载阶段完成后，虚拟机外部的二进制字节流就按照虚拟机所需的格式存储在方法区之中，方法区中的数据存储格式有虚拟机实现自定义
+验证阶段验证阶段是为了确保class文件的字节流中包含的信息符合当前虚拟机的要求，并且不会危害虚拟机自身的安全
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/jvm-class-loader/">【jvm】类加载机制</a>
-    </h1>
-  
+文件格式验证
+基于字节流验证，验证字节流是否符合Class文件格式的规范，并且能被当前虚拟机处理
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>虚拟机把描述类的数据从class文件加载到内存，并对数据进行校验、转换解析和初始化，最终形成可以被虚拟机直接使用的Java类型</p>
-</blockquote>
-<h3 id="类的生命周期"><a href="#类的生命周期" class="headerlink" title="类的生命周期"></a>类的生命周期</h3><p>加载，验证，准备，解析，初始化，使用，卸载七个阶段，其中验证，准备，解析三个部分统称为链接</p>
-<p><img src="jvm-class-loader/%E7%B1%BB%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.jpg" alt=""></p>
-<p>加载，验证，准备，初始化和卸载这5个阶段的顺序是固定的，为了支持动态绑定，解析这个过程可以发生在初始化阶段之后</p>
-<h4 id="加载阶段"><a href="#加载阶段" class="headerlink" title="加载阶段"></a>加载阶段</h4><p>加载阶段，主要完成以下3件事情：</p>
-<ol>
-<li>通过“类全名”来获取定义此类的二进制字节流</li>
-<li>将字节流所代表的静态存储结构转换为方法区的运行时数据结构</li>
-<li>在java堆中生成一个代表这个类的java.lang.Class对象，作为方法区这些数据的访问入口</li>
-</ol>
-<p>加载阶段完成后，虚拟机外部的二进制字节流就按照虚拟机所需的格式存储在方法区之中，方法区中的数据存储格式有虚拟机实现自定义</p>
-<h4 id="验证阶段"><a href="#验证阶段" class="headerlink" title="验证阶段"></a>验证阶段</h4><p>验证阶段是为了确保class文件的字节流中包含的信息符合当前虚拟机的要求，并且不会危害虚拟机自身的安全</p>
-<ol>
-<li><p>文件格式验证</p>
-<p>基于字节流验证，验证字节流是否符合Class文件格式的规范，并且能被当前虚拟机处理</p>
-</li>
-<li><p>元数据验证</p>
-<p>基于方法区的存储结构验证，对字节码描述信息进行语义验证</p>
-</li>
-<li><p>字节码验证</p>
-<p>基于方法区的存储结构验证，进行数据流和控制流的验证</p>
-</li>
-<li><p>符号引用验证</p>
-<p>基于方法区的存储结构验证，发生在解析中，是否可以将符号引用成功解析为直接引用</p>
-</li>
-</ol>
-<h4 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h4><p>准备阶段是正是为类变量分配内存并设置类变量初始值的阶段</p>
-<pre><code class="java">// 初始值为0
-public static int value = 123;
-// final修饰，赋值为123
-public static final int value = 123;</code></pre>
-<h4 id="解析阶段"><a href="#解析阶段" class="headerlink" title="解析阶段"></a>解析阶段</h4><p>解析阶段是将常量池内的符号引用替换为直接引用的过程</p>
-<ul>
-<li><p>符号引用与虚拟机实现的布局无关，引用的目标并不一定要已经加载到内存中。各种虚拟机实现的内存布局可以各不相同，但是它们能接受的符号引用必须是一致的，因为符号引用的字面量形式明确定义在Java虚拟机规范的Class文件格式中。</p>
-</li>
-<li><p>直接引用可以是指向目标的指针，相对偏移量或是一个能间接定位到目标的句柄。如果有了直接引用，那引用的目标必定已经在内存中存在</p>
-</li>
-</ul>
-<p>主要有四种：类或接口的解析，字段解析，类方法解析，接口方法解析</p>
-<h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><p>初始化阶段做的事就是执行类的初始化方法<clinit>。方法<clinit>是由编译器自动生成的。就是将static变量赋值指定的值并且static静态代码块中赋值指定值</p>
-<p>java中，对于初始化阶段，有且只有以下五种情况才会对要求类立刻初始化：</p>
-<ol>
-<li>使用new关键字实例化对象、访问或者设置一个类的静态字段（被final修饰、编译器优化时已经放入常量池的例外）、调用类方法，都会初始化该静态字段或者静态方法所在的类。</li>
-<li>初始化类的时候，如果其父类没有被初始化过，则要先触发其父类初始化。</li>
-<li>使用java.lang.reflect包的方法进行反射调用的时候，如果类没有被初始化，则要先初始化。</li>
-<li>虚拟机启动时，用户会先初始化要执行的主类（含有main方法）</li>
-<li>jdk 1.7后，如果java.lang.invoke.MethodHandle的实例最后对应的解析结果是 REF_getStatic、REF_putStatic、REF_invokeStatic方法句柄，并且这个方法所在类没有初始化，则先初始化</li>
-</ol>
-<p> 注意：</p>
-<ol>
-<li>父类定义的静态代码块优先于子类的静态代码块先执行</li>
-<li>子类引用父类的静态字段不会被初始化</li>
-<li>前面我们提到过final修饰的static变量在准备阶段就在方法区上赋值了，在解析阶段中实际上<clinit>方法什么都不用做。final static 变量在编译期就完成了在元空间的赋值。而static 变量在准备阶段为默认值，初始化阶段进行赋值</li>
-</ol>
-<h3 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h3><p>类加载器负责加载所有的类，其为所有被载入内存中的类生成一个java.lang.Class实例对象。一旦一个类被加载如JVM中，同一个类就不会被再次载入了</p>
-<p>比较两个类是否相等，只有在这两个类是由同一个类加载其加载的前提下才有意义，否则，即使这两个类来源于同一个Class文件，被同一个虚拟机加载，只要加载它们的类加载器不同，那么这两个类就必定不相等</p>
-<p>java提供的类加载器主要有下面三个：</p>
-<ol>
-<li><p>Bootstrap ClassLoader</p>
-<p>用来加载 Java 的核心库，是用原生代码来实现的，并不继承自 <code>java.lang.ClassLoader</code></p>
-</li>
-<li><p>Extensions ClassLoader</p>
-<p>用来加载 Java 的扩展库。Java 虚拟机的实现会提供一个扩展库目录。该类加载器在此目录里面查找并加载 Java 类</p>
-</li>
-<li><p>Application ClassLoade</p>
-<p>根据 Java 应用的类路径（CLASSPATH）来加载 Java 类。一般来说，Java 应用的类都是由它来完成加载的。可以通过 <code>ClassLoader.getSystemClassLoader()</code>来获取它</p>
-</li>
-</ol>
-<p>除了系统提供的类加载器以外，开发人员可以通过继承 <code>java.lang.ClassLoader</code>类的方式实现自己的类加载器，来满足一些特殊的需求</p>
-<h4 id="双亲委派模型"><a href="#双亲委派模型" class="headerlink" title="双亲委派模型"></a>双亲委派模型</h4><p>下图为类加载器的双亲委派模型：</p>
-<p><img src="jvm-class-loader/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8.jpg" alt=""></p>
-<p><em>双亲委派模型并不是一个强制性的约束模型，而是java设计者推荐给开发者的类加载器实现方式</em></p>
-<p><strong>双亲委派模型的工作过程：</strong></p>
-<p>​    如果一个类加载器收到了类加载请求，它并不会自己先去加载，而是把这个请求委托给父类的加载器去执行，如果父类加载器还存在其父类加载器，则进一步向上委托，依次递归，请求最终将到达顶层的启动类加载器，如果父类加载器可以完成类加载任务，就成功返回，倘若父类加载器无法完成此加载任务，子加载器才会尝试自己去加载</p>
-<p><strong>优势：</strong></p>
-<p>​    采用双亲委派模式的是好处是Java类随着它的类加载器一起具备了一种带有优先级的层次关系，通过这种层级关可以避免类的重复加载。其次是考虑到安全因素，java核心api中定义类型不会被随意替换</p>
-<p>参考：</p>
-<p><a href="https://www.ibm.com/developerworks/cn/java/j-lo-classloader/" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/java/j-lo-classloader/</a></p>
-<p><a href="https://blog.csdn.net/m0_38075425/article/details/81627349" target="_blank" rel="noopener">https://blog.csdn.net/m0_38075425/article/details/81627349</a></p>
+元数据验证
+基于方法区的存储结构验证，对字节码描述信息进行语义验证 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/jvm-gc-collector/" title="【jvm】垃圾收集器">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【jvm】垃圾收集器"></a></div><div class="recent-post-info"><a class="article-title" href="/jvm-gc-collector/" title="【jvm】垃圾收集器">【jvm】垃圾收集器</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-09-19 11:35:46"><i class="far fa-calendar-alt"></i>2019-09-19</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/jvm/">jvm</a></span></div><div class="content">在了解垃圾收集算法之后，我们要看一下基于垃圾收集算法实现的垃圾收集器是如何实现的，本文出现的垃圾收集器都是HotSpot虚拟机提供的实现
+堆内存是垃圾收集器主要回收垃圾对象的地方，堆内存可以根据对象生命周期的不同细分为新生代和老年代，每个年代都可以选择适合的垃圾收集算法，新生代使用复制算法，老年代使用标记清除或者标记整理算法
+HotSpot虚拟机提供了7种垃圾收集器，其中适用于新生代的三种，老年代的三种，还有一种新生代老年代都适用
+新生代垃圾收集器：Serial收集器，ParNew收集器，Parallel Scavenge收集器
+老年代垃圾收集器：Serial Old收集器，Parallel Old收集器，CMS收集器
+都适用的收集器：G1收集器
+所有垃圾收集器组合情况如下：
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://chenmingyu.top/jvm-class-loader/" data-id="ckdn6w7zy003aaktwfmgd19ia" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" rel="tag">类加载机制</a></li></ul>
+图中连线的收集器表明可以一起搭配使用
+Serial 收集器Serial收集器曾是jdk1.3之前新生代收集器的唯一选择，串行收集器，单线程工作，所以效率高，但是会产生Stop The World，适用于堆内存比较小的时候使用，使用复制算法回收垃圾对象
 
-    </footer>
-  </div>
-  
-</article>
+参数设置：-XX:+UseSerialGC  使用Seri ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/jvm-memory/" title="【jvm】内存区域">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【jvm】内存区域"></a></div><div class="recent-post-info"><a class="article-title" href="/jvm-memory/" title="【jvm】内存区域">【jvm】内存区域</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-09-17 17:58:30"><i class="far fa-calendar-alt"></i>2019-09-17</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/jvm/">jvm</a></span></div><div class="content">​    jvm在执行的过程中会把它所管理的内存划分为若干个不同的数据区域，这些数据区域中，有些依赖着用户线程的启动和结束而建立和销毁，有些则随着jvm进程的启动而创建
+内存区域jvm的运行数据区域可以分为两种：线程私有和线程共享
+线程私有: 每个线程的私有数据，包括: 程序计数器、java虚拟机栈、本地方法栈
+线程共享: 所有线程共享的部分，包括:  Java 堆、方法区、常量池
+jvm内存区域划图示
 
+运行时数据区域程序计数器程序计数器是较小的内存空间，它可以看做是当前线程所执行的字节码的行号指示器，用来执行选取小一条需要执行的字节码指令，属于线程私有的内存
+如果执行的是一个java方法，这个计数器记录的是正在执行的虚拟机字节码指令地址，如果执行的是Native方法，这个计数器值为空
+虚拟机栈虚拟机栈，也是线程私有的，它的生命周期与线程相同，每个方法在执行时都创建一个栈帧，每个方法从调用到执行完成，对应着一个栈帧的入栈到出栈
+虚拟机栈描述的是java方法执行的动态内存模型
+栈帧存储的数据包括: 局部变量表，操作数栈，动态链接，方法出口等信息
+在虚拟机栈中，规定了两种异常：
 
-  
-    <article id="post-jvm-gc-collector" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/jvm-gc-collector/" class="article-date">
-  <time datetime="2019-09-19T03:35:46.000Z" itemprop="datePublished">2019-09-19</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/jvm/">jvm</a>
-  </div>
+当栈调 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/jvm-gc/" title="【jvm】GC与垃圾回收算法">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【jvm】GC与垃圾回收算法"></a></div><div class="recent-post-info"><a class="article-title" href="/jvm-gc/" title="【jvm】GC与垃圾回收算法">【jvm】GC与垃圾回收算法</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-09-17 17:00:06"><i class="far fa-calendar-alt"></i>2019-09-17</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/jvm/">jvm</a></span></div><div class="content">GCGrabage Collection GC 垃圾收集，在了解了jvm的内存区域之后，要关心的问题就是垃圾收集了，因为我们的内存是有限的，程序在运行中会不断的产生新的对象占用内存空间，所以我们需要一个垃圾收集机制去回收内存
+在java内存运行时区域的各个部分，其中程序计数器，虚拟机栈，本地方法栈三个区域随着线程的创建而创建，销毁而销毁，栈中的每个栈帧分配多少内存基本上在类结构确定下来是就抑制了，所以这几个区域不需要过多考虑回收的问题，方法结束或者线程结束，内存自然就回收了，而在堆和方法区这两块区域中，我们只有在程序运行期间才能知道会创建哪些对象，这部分内存的分配合回收都是动态的，所以我们主要关注点在如果进行回收堆内存和方法区这两块区域的垃圾内存
+对象是否存活垃圾收集，我们首先要判断哪些对象是垃圾的对象
+引用计数算法：每个对象都添加一个引用计数器，当有地方引用它的时候，计数器就加1，当引用失效的时候计数器就减1，这样通过这个引用计数器就可以知道当前对象是否被引用，但是这种方式的弊端就是无法解决循环引用的问题，假如a持有b的引用，b持有a的引用，两个对象的计数器都是1，但是a和b这两个对 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/java-reflect/" title="java反射">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="java反射"></a></div><div class="recent-post-info"><a class="article-title" href="/java-reflect/" title="java反射">java反射</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-09-11 10:10:39"><i class="far fa-calendar-alt"></i>2019-09-11</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/java/">java</a></span></div><div class="content">在运行状态中，对于任何一个类，我们都能够知道这个类有哪些方法和属性。对于任何一个对象，我们都能够对它的方法和属性进行调用。我们把这种动态获取对象信息和调用对象方法的功能称之为反射机制。
+反射中常用的到的类
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/jvm-gc-collector/">【jvm】垃圾收集器</a>
-    </h1>
-  
+Class类: 代表类的实体，在运行的Java应用程序中表示类和接口
+Field类: 代表类的属性
+Method类: 代表类的方法
+Constructor类: 代表类的构造方法
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在了解垃圾收集算法之后，我们要看一下基于垃圾收集算法实现的垃圾收集器是如何实现的，本文出现的垃圾收集器都是HotSpot虚拟机提供的实现</p>
-<p>堆内存是垃圾收集器主要回收垃圾对象的地方，堆内存可以根据对象生命周期的不同细分为新生代和老年代，每个年代都可以选择适合的垃圾收集算法，新生代使用复制算法，老年代使用标记清除或者标记整理算法</p>
-<p>HotSpot虚拟机提供了7种垃圾收集器，其中适用于新生代的三种，老年代的三种，还有一种新生代老年代都适用</p>
-<p>新生代垃圾收集器：Serial收集器，ParNew收集器，Parallel Scavenge收集器</p>
-<p>老年代垃圾收集器：Serial Old收集器，Parallel Old收集器，CMS收集器</p>
-<p>都适用的收集器：G1收集器</p>
-<p>所有垃圾收集器组合情况如下：</p>
-<p><img src="jvm-gc-collector/Garbage-Collector-set.jpg" alt=""></p>
-<p>图中连线的收集器表明可以一起搭配使用</p>
-<h4 id="Serial-收集器"><a href="#Serial-收集器" class="headerlink" title="Serial 收集器"></a>Serial 收集器</h4><p>Serial收集器曾是jdk1.3之前新生代收集器的唯一选择，串行收集器，单线程工作，所以效率高，但是会产生Stop The World，适用于堆内存比较小的时候使用，使用复制算法回收垃圾对象</p>
-<p><img src="jvm-gc-collector/serial.png" alt=""></p>
-<p><strong>参数设置：</strong>-XX:+UseSerialGC  使用Serial收集器</p>
-<h4 id="ParNew-收集器"><a href="#ParNew-收集器" class="headerlink" title="ParNew 收集器"></a>ParNew 收集器</h4><p>parNew收集器是Serial收集器的多线程版本，并行收集器，除了多线程收集外，其余功能与Serial收集器基本一致，在新生代中，除了Serial收集器，只有ParNew收集器可以与CMS收集器一起使用，所以目前为止这个收集器是新生代最常用的收集器</p>
-<p>![](jvm-gc-collector/parallel .png)</p>
-<p><strong>参数设置：</strong></p>
-<ul>
-<li>-XX:+UseParNewGC：使用ParNew收集器</li>
-<li>-XX:ParallelGCThreads：用来限制垃圾收集的线程数</li>
-</ul>
-<h4 id="Parallel-Scavenge-收集器"><a href="#Parallel-Scavenge-收集器" class="headerlink" title="Parallel Scavenge 收集器"></a>Parallel Scavenge 收集器</h4><p>并行收集器，同样使用复制算法，与其余两种年轻代收集器不同的地方在于它的关注点，Serial和ParNew收集器的关注点在于尽可能的缩短Stop The World的时间，而Parallel Scavenge收集器的关注点在于吞吐量</p>
-<p>吞吐量=运行用户代码时间/（运行用户代码时间+垃圾收集时间），比如虚拟机运行100分钟，垃圾收集时间是1分钟，那么吞吐量就是99%</p>
-<p>![](jvm-gc-collector/parallel scavenge.png)</p>
-<p><strong>参数设置：</strong></p>
-<ul>
-<li>-XX:+UseParallelGC：使用Parallel收集器</li>
-<li>-XX:MaxGCPauseMillis：控制最大垃圾收集停顿时间</li>
-<li>-XX:GCTimeRatio：设置吞吐量大小，默认为99，允许1%的垃圾收集时间</li>
-<li>-XX:+UseAdaptiveSizePolicy：自适应调节，设置之后就不需要手动设置新生代大小</li>
-</ul>
-<h4 id="Serial-Old-收集器"><a href="#Serial-Old-收集器" class="headerlink" title="Serial Old 收集器"></a>Serial Old 收集器</h4><p>Serial Old收集器是Serial的老年代版本，单线程收集器，使用标记整理算法</p>
-<p>可以与Parallel Scavenge收集器搭配使用，也可以作为CMS收集器发生Concurrent Mode Failure时老年代的备选方案使用</p>
-<p><img src="jvm-gc-collector/serial.png" alt=""></p>
-<h4 id="Parallel-Old-收集器"><a href="#Parallel-Old-收集器" class="headerlink" title="Parallel Old 收集器"></a>Parallel Old 收集器</h4><p>Parallel Old收集器是Parallel Scavenge收集器的老年代版本，使用标记整理算法</p>
-<p>在注重吞吐量及CPU资源敏感的场景，可以用考虑使用Parallel Scavenge+Parallel Old收集器</p>
-<p>![](jvm-gc-collector/parallel scavenge.png)</p>
-<p><strong>参数设置：</strong>-XX:+UseParallelOldGC：使用Parallel Scavenge + Parallel Old收集器</p>
-<h4 id="CMS收集器"><a href="#CMS收集器" class="headerlink" title="CMS收集器"></a>CMS收集器</h4><p>CMS（Concurrent Mark Sweep）收集器是一种以获取最短回收停顿时间为目标的收集器，目前使用最多的垃圾收集器，使用这类收集器的应用重视服务的响应速度，希望系统停顿时间最短，以给用户带来较好的体验</p>
-<p>使用标记清除算法，共4个步骤</p>
-<ol>
-<li>初始标记（CMS initial mark）</li>
-<li>并发标记（CMS concurrent mark）</li>
-<li>重新标记（CMS remark）</li>
-<li>并发清除（CMS concurrent sweep）</li>
-</ol>
-<p>初始标记、重新标记这两个步骤仍然需要Stop The World，初始标记仅仅只是标记一下GC Roots能直接关联到的对象，速度很快，并发标记阶段就是进行GC Roots Tracing的过程，而重新标记阶段则是为了修正并发标记期间，因用户程序继续运作而导致标记产生变动的那一部分对象的标记记录，这个阶段的停顿时间一般会比初始标记阶段稍长一些，但远比并发标记的时间短</p>
-<p>耗时较长的并发标记和并发清除的线程可以与用户线程一起工作，所以总体上来说，CMS收集器的内存回收过程是与用户线程一起并发地执行</p>
-<p><img src="jvm-gc-collector/cms.png" alt=""></p>
-<p>优点：并发收集，低停顿</p>
-<p>缺点：</p>
-<ol>
-<li><p>对CPU资源敏感</p>
-<p>CMS默认启动的回收线程数量是(CPU数量+3)/4，当CPU数量小于4时，并发操作时会占用一半的CPU去进行垃圾收集</p>
-</li>
-<li><p>无法处理浮动垃圾，可能回导致Concurrent Mode Failure失败而导致领一次Full GC的产生</p>
-<p>CMS收集器触发GC时需要预留一部分空间供并发收集时使用，通过设置参数-XX:CMSInitiatingOccupancyFraction的值来提高触发的百分比</p>
-<p>当预留的空间无法满足需求时就会发生Concurrent Mode Failure失败，这时，java虚拟机就会采用Serial Old收集器回收老年代垃圾，代价就是停顿时间变长</p>
-<p>所以-XX:CMSInitiatingOccupancyFraction参数设置的过高容易频繁触发Concurrent Mode Failure失败，导致性能降低</p>
-</li>
-<li><p>产生大量空间碎片</p>
-<p>设置-XX:+ UseCMSCompactAtFullCollection参数，开启空间压碎，默认是开启的，开启后FUll GC时会进行内存整理，空间碎片问题解决，但是停顿时间就会变长</p>
-<p>设置-XX:+ CMSFullGCsBeforeCompaction参数，设置进行几次Full GC后，进行一次碎片整理，默认是0，表示每次进入Full GC时都进行碎片整理</p>
-</li>
-</ol>
-<p><strong>参数设置：</strong></p>
-<ul>
-<li>-XX:+UseConcMarkSweepGC：使用CMS收集器 + PerNew收集器</li>
-<li>-XX:ParallelCMSThreads：设定CMS的线程数量</li>
-</ul>
-<h4 id="G1-收集器"><a href="#G1-收集器" class="headerlink" title="G1 收集器"></a>G1 收集器</h4><p>G1是一款面向服务端应用的垃圾收集器，HotSpot开发团队赋予它的使命是未来可以替换掉JDK1.5中发布的CMS收集器</p>
-<p>G1收集器采用标记整理算法，所以G1收集器不会产生空间碎片</p>
-<p>G1特点：</p>
-<ul>
-<li><p>并行与并发</p>
-<p>G1可以充分的利用多CPU和多核环境下的硬件优势用来缩短Stop The World的停顿时间</p>
-</li>
-<li><p>可预测的停顿</p>
-<p>降低停顿时间是G1和CMS的共同关注点，但G1除了追求低停顿外，还能建立可预测的停顿时间模型，能让使用者明确指定在一个长度为N毫秒的时间片段内，消耗在垃圾收集上的时间不得超过N毫秒，这几乎已经是实时Java（RTSJ）的垃圾收集器的特征了</p>
-</li>
-</ul>
-<p>G1收集器将整个Java堆划分为多个大小相等的独立区域（Region），虽然还保留有新生代和老年代的概念，但新生代和老年代不再是物理隔阂了，它们都是一部分（可以不连续）Region的集合</p>
-<p>G1的新生代收集跟ParNew类似，当新生代占用达到一定比例的时候，开始出发收集；和CMS类似，G1收集器收集老年代对象会有短暂停顿</p>
-<p>收集步骤：</p>
-<ol>
-<li><p>初始标记</p>
-<p>标记一下GC Roots能直接关联到的对象</p>
-</li>
-<li><p>并发标记</p>
-<p>从GC Roots出发，开始对堆中对象进行可达性分析，找出存活对象</p>
-</li>
-<li><p>最终标记</p>
-<p>为了修正并发标记阶段因用户程序继续运行而导致标记产生变动的那一部分标记记录</p>
-</li>
-<li><p>筛选回收</p>
-<p>对各个Region的回收价值和成本进行排序，根据用户所期待的GC停顿时间来制定回收计划</p>
-</li>
-</ol>
-<p><img src="jvm-gc-collector/g1.png" alt=""></p>
-<p>参考：<a href="https://www.cnblogs.com/ityouknow/p/5614961.html" target="_blank" rel="noopener">jvm系列(三):java GC算法 垃圾收集器</a></p>
-<p>深入理解java虚拟机第二版</p>
-<p>更多阅读：<a href="https://chenmingyu.top/categories/">https://chenmingyu.top/categories/</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://chenmingyu.top/jvm-gc-collector/" data-id="ckdn6w802003haktw79ffhh46" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/" rel="tag">垃圾收集器</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-jvm-memory" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/jvm-memory/" class="article-date">
-  <time datetime="2019-09-17T09:58:30.000Z" itemprop="datePublished">2019-09-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/jvm/">jvm</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/jvm-memory/">【jvm】内存区域</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>​    jvm在执行的过程中会把它所管理的内存划分为若干个不同的数据区域，这些数据区域中，有些依赖着用户线程的启动和结束而建立和销毁，有些则随着jvm进程的启动而创建</p>
-<h3 id="内存区域"><a href="#内存区域" class="headerlink" title="内存区域"></a>内存区域</h3><p>jvm的运行数据区域可以分为两种：线程私有和线程共享</p>
-<p>线程私有: 每个线程的私有数据，包括: 程序计数器、java虚拟机栈、本地方法栈</p>
-<p>线程共享: 所有线程共享的部分，包括:  Java 堆、方法区、常量池</p>
-<p><strong>jvm内存区域划图示</strong></p>
-<p><img src="jvm-memory%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F.png" alt=""></p>
-<h3 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h3><h4 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h4><p>程序计数器是较小的内存空间，它可以看做是当前线程所执行的字节码的行号指示器，用来执行选取小一条需要执行的字节码指令，属于线程私有的内存</p>
-<p>如果执行的是一个java方法，这个计数器记录的是正在执行的虚拟机字节码指令地址，如果执行的是Native方法，这个计数器值为空</p>
-<h4 id="虚拟机栈"><a href="#虚拟机栈" class="headerlink" title="虚拟机栈"></a>虚拟机栈</h4><p>虚拟机栈，也是线程私有的，它的生命周期与线程相同，每个方法在执行时都创建一个栈帧，每个方法从调用到执行完成，对应着一个栈帧的入栈到出栈</p>
-<p>虚拟机栈描述的是java方法执行的动态内存模型</p>
-<p>栈帧存储的数据包括: 局部变量表，操作数栈，动态链接，方法出口等信息</p>
-<p>在虚拟机栈中，规定了两种异常：</p>
-<ol>
-<li>当栈调用深度大于JVM所允许的范围，会抛出StackOverflowError的错误</li>
-<li>当虚拟机栈在扩展内存时无法申请到足够的内存，会抛出OutOfMemoryError异常</li>
-</ol>
-<h4 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h4><p>线程私有，与虚拟机栈提供的功能类似，只不过执行的是本地方法，也就是用Native修饰的方法</p>
-<h4 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h4><p>堆是被线程共享的一块内存区域，随着jvm的启动而创建，用来存放对象实例和数组</p>
-<p>这块区域也是GC进行垃圾回收的主要区域，当申请不到空间时会抛出 OutOfMemoryError异常</p>
-<p>堆可以细分为新生代和老年代，新生代用来存放存活时间较短的对象，老年代用来存放存活时间较长的对象，新生代还可以细分为一个Eden区和两个Survivor；</p>
-<h4 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h4><p>方法区也是被线程共享的一块内存区域，用来存虚拟机中加载的类信息，常量，静态变量，即时编译器编译后的代码等数据</p>
-<p>方法区是jvm的规范，而接下来要说的永久代和元空间正式jvm规范的一种实现</p>
-<p><strong>永久代（Permanent Space）</strong></p>
-<p>在jdk1.7时，方法区被叫做永久代（Permanent Space），由于方法区主要存储类的相关信息，所以对于动态生成类的情况比较容易出现永久代的内存溢出，当永久代出现内存溢出，会抛出java.lang.OutOfMemoryError: PermGen space异常</p>
-<p><strong>元空间（MetaSpace）</strong></p>
-<p>在jdk1.8中移除了永久代，使用元空间代替，jdk1.7中，存储在永久代的部分数据就已经转移到了堆内存或者是直接内存。但永久代仍存在于jdk1.7中，并没完全移除，譬如符号引用(Symbols)转移到了直接内存；字面量(interned strings)，类的静态变量(class statics)转移到了堆内存</p>
-<p>元空间的本质和永久代类似，都是对JVM规范中方法区的实现。不过元空间与永久代之间最大的区别在于：元空间并不在虚拟机中，而是使用本地内存。因此，默认情况下，元空间的大小仅受本地内存限制，但可以通过以下参数来指定元空间的大小：</p>
-<ul>
-<li>-XX:MetaspaceSize，初始空间大小，达到该值就会触发垃圾收集进行类型卸载，同时GC会对该值进行调整：如果释放了大量的空间，就适当降低该值；如果释放了很少的空间，那么在不超过MaxMetaspaceSize时，适当提高该值。</li>
-<li>-XX:MaxMetaspaceSize，最大空间，默认是没有限制的，最大内存受本地内存的限制</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://chenmingyu.top/jvm-memory/" data-id="ckdn6w80a003oaktwfyqhdm0n" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jvm%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/" rel="tag">jvm内存区域</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-jvm-gc" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/jvm-gc/" class="article-date">
-  <time datetime="2019-09-17T09:00:06.000Z" itemprop="datePublished">2019-09-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/jvm/">jvm</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/jvm-gc/">【jvm】GC与垃圾回收算法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="GC"><a href="#GC" class="headerlink" title="GC"></a>GC</h3><p>Grabage Collection GC 垃圾收集，在了解了jvm的内存区域之后，要关心的问题就是垃圾收集了，因为我们的内存是有限的，程序在运行中会不断的产生新的对象占用内存空间，所以我们需要一个垃圾收集机制去回收内存</p>
-<p>在java内存运行时区域的各个部分，其中程序计数器，虚拟机栈，本地方法栈三个区域随着线程的创建而创建，销毁而销毁，栈中的每个栈帧分配多少内存基本上在类结构确定下来是就抑制了，所以这几个区域不需要过多考虑回收的问题，方法结束或者线程结束，内存自然就回收了，而在堆和方法区这两块区域中，我们只有在程序运行期间才能知道会创建哪些对象，这部分内存的分配合回收都是动态的，所以我们主要关注点在如果进行回收堆内存和方法区这两块区域的垃圾内存</p>
-<h4 id="对象是否存活"><a href="#对象是否存活" class="headerlink" title="对象是否存活"></a>对象是否存活</h4><p>垃圾收集，我们首先要判断哪些对象是垃圾的对象</p>
-<p><strong>引用计数算法：</strong>每个对象都添加一个引用计数器，当有地方引用它的时候，计数器就加1，当引用失效的时候计数器就减1，这样通过这个引用计数器就可以知道当前对象是否被引用，但是这种方式的弊端就是无法解决循环引用的问题，假如a持有b的引用，b持有a的引用，两个对象的计数器都是1，但是a和b这两个对象只是被对方引用，假如这两个对象都是垃圾对象，但是由于计数器不为零，所以无法进行回收</p>
-<p><strong>可达性分析算法：</strong>当一个对象到GC Roots没有任何引用链相连的时候，就证明这个对象是不可达的对象</p>
-<p>所以这个GC Roots很重要，包括以下几种：</p>
-<ul>
-<li>虚拟机栈中引用的对象</li>
-<li>方法区中类静态属性引用的对象，常量引用的对象</li>
-<li>本地方法栈中JNI引用的对象</li>
-</ul>
-<p><img src="jvm-gc/gcroots.jpg" alt=""></p>
-<h4 id="4种引用"><a href="#4种引用" class="headerlink" title="4种引用"></a>4种引用</h4><p>无论哪种算法都需要判断引用，jdk中存在着4种引用</p>
-<ol>
-<li><p>强引用（Strong Reference）</p>
-<pre><code class="java">Object object = new Object();</code></pre>
-<p>当内存不够时，程序会抛出异常，也不会进行回收强引用指向的对象</p>
-</li>
-<li><p>软引用（Soft Reference）</p>
-<p>用来描述一些有用但非必须的对象，必要时可以进行垃圾回收</p>
-<pre><code class="java">SoftReference&lt;Object&gt; softReference = new SoftReference&lt;&gt;(object);</code></pre>
-<p>当内存充足时，垃圾收集器不会回收弱引用指向的对象，当内存不足时，垃圾收集器才会回收软引用指向的对象</p>
-</li>
-<li><p>弱引用（Weak Reference）</p>
-<p>描述非必须对象</p>
-<pre><code class="java">WeakReference&lt;Object&gt; weakReference = new WeakReference&lt;&gt;(object);</code></pre>
-<p>每次垃圾收集时被回收</p>
-</li>
-<li><p>虚引用（Phantom Reference）</p>
-<p>这个引用类型强度最低，一个对象是否有虚引用对其生存周期没有任何影响</p>
-<pre><code class="java">PhantomReference&lt;Object&gt; phantomReference = new PhantomReference&lt;&gt;(object, new ReferenceQueue&lt;&gt;());</code></pre>
-<p>每次垃圾收集时被回收</p>
-<p>虚引用必须和引用队列(ReferenceQueue)联合使用。当垃圾回收器准备回收一个对象时，如果发现它还有虚引用，就会在回收对象的内存之前，把这个虚引用加入到与之关联的引用队列中</p>
-</li>
-</ol>
-<h4 id="二次标记"><a href="#二次标记" class="headerlink" title="二次标记"></a>二次标记</h4><p>在发现不可达对象后，这对象也不是一定会回收，一个对象被回收，至少要经历两次标记过程</p>
-<p>第一次：当对象不可达时被第一次标记</p>
-<p>第二次：如果未可达对象，没有覆盖finalize()方法不需要执行finalize()方法，或者已经执行过finalize()方法了，此时进行第二次标记</p>
-<p>如果未可达对象有必要执行finalize()方法，则会被放入一个F-Queue的队列中，后续jvm会创建一个低优先级的线程去执行它，只要未可达对象在finalize()方法里重新将自己赋予给某个类的对象或者对象的属性，就可以避免被垃圾回收</p>
-<p><strong>验证：</strong></p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/9/18 18:19
- * @description:
- */
-public class FinalizeTest {
-
-    private static FinalizeTest FINALIZE_TEST;
-
-    public void test(){
-        System.out.println(&quot;当前存活&quot;);
-    }
-
-    @Override
-    protected void finalize() throws Throwable {
-        FINALIZE_TEST = this;
-        System.out.println(&quot;执行finalize方法&quot;);
-    }
-
-    public static void main(String[] args) throws Exception {
-
-        FINALIZE_TEST = new FinalizeTest();
-        FINALIZE_TEST = null;
-        System.gc();
-        TimeUnit.SECONDS.sleep(2L);
-        if(FINALIZE_TEST != null){
-            FINALIZE_TEST.test();
-        } else {
-            System.out.println(&quot;已死亡&quot;);
-        }
-
-        FINALIZE_TEST = null;
-        System.gc();
-        TimeUnit.SECONDS.sleep(2L);
-        if(FINALIZE_TEST != null){
-            FINALIZE_TEST.test();
-        } else {
-            System.out.println(&quot;已死亡&quot;);
-        }
-    }
-}</code></pre>
-<p><strong>输出：</strong></p>
-<p><img src="jvm-gc/1.png" alt=""></p>
-<p>当一次手动调用gc时，FINALIZE_TEST对象被第一次标记，但是在执行finalize()方法时，重新将自己赋给了静态变量，这样这个对象就有重新有了强引用，避免了被回收</p>
-<p>第二次手动调用gc时，FINALIZE_TEST对象被第一次标记，不在执行finalize()方法，因为finalize()方法只会被系统自动调用一次，所以之后不会再执行finalize()方法，进行了二次标记，然后对象被垃圾收集器回收</p>
-<p>经过两次标记之后，对象基本上就会被回收了</p>
-<p><em>可以自己将上面重写finalize()方法去掉，自己试一下效果</em> </p>
-<h4 id="方法区回收"><a href="#方法区回收" class="headerlink" title="方法区回收"></a>方法区回收</h4><p>对方法区的回收主要是对无用类的回收</p>
-<p>无用类的条件：</p>
-<ol>
-<li>该类的所有实例都已经被回收</li>
-<li>加载该类的ClassLoader已经被回收</li>
-<li>该类对应的Class对象没有在任何地方被引用，无法在任何地方通过反射访问该类</li>
-</ol>
-<p>方法区的垃圾回收性价比低，所以java虚拟机规范中要求虚拟机可以不在方法区实现垃圾收集</p>
-<h3 id="垃圾收集算法"><a href="#垃圾收集算法" class="headerlink" title="垃圾收集算法"></a>垃圾收集算法</h3><h4 id="标记清除算法"><a href="#标记清除算法" class="headerlink" title="标记清除算法"></a>标记清除算法</h4><p>算法分为两个部分：标记和清除</p>
-<p><strong>标记阶段：</strong>首先按照可达性分析，将GC Roots可达的对象进行标记，未被标记的对象就是需要回收的对象</p>
-<p><strong>清除阶段：</strong>在标记完成后统一回收所有未被标记的对象</p>
-<p>这种算法适用于垃圾比较少的区域，比如老年代</p>
-<p><img src="jvm-gc/%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4.jpg" alt=""></p>
-<p><strong>缺点：</strong>标记和清除过程效率都不高，回收后会产生大量不连续的内存碎片，空间碎片太多可能导致后续分配大对象时，无法找到足够的连续内存而触发领另一次GC</p>
-<h4 id="复制算法"><a href="#复制算法" class="headerlink" title="复制算法"></a>复制算法</h4><p>复制算法将内存空间分为大小相同的两块，每次只使用其中一块，在垃圾回收时，将正在使用的内存中的存活对象复制到未使用的内存块中，之后清除掉正在使用的内存中所有对象，交换两块内存的角色，周而复始</p>
-<p><img src="jvm-gc/%E5%A4%8D%E5%88%B6.jpg" alt=""></p>
-<p>优点：使用复制算法解决了标记清除算法的效率问题，分配内存时不用在考虑内存碎片的问题，按顺序分配内存，运行效率高</p>
-<p>缺点：内存可用率缩小为原来的一半，如果对象存活率较高时，效率将会变低</p>
-<p>这种算法适用于新生代</p>
-<p>有研究表明，新生代中的对象有98%都是朝生夕死的，所以不需要按照1:1的比例来划分内存，而是将内存分为一块较大的内存区域叫Eden区和两块较小的内存区域叫Survivor区，每次使用 Eden 空间和其中一块 Survivor。在回收时，将 Eden 和 Survivor 中还存活着的对象一次性复制到另一块 Survivor 空间上，最后清理 Eden 和 使用过的那一块 Survivor</p>
-<p>HotSpot 虚拟机的 Eden 和 Survivor 的大小比例默认为 8:1，保证了内存的利用率达到 90 %。如果每次回收有多于 10% 的对象存活，那么一块 Survivor 空间就不够用了，此时需要依赖于老年代进行分配担保，也就是借用老年代的空间，如果老年代的内存不够用，就会触发一次fullGC</p>
-<h4 id="标记整理算法"><a href="#标记整理算法" class="headerlink" title="标记整理算法"></a>标记整理算法</h4><p>标记整理算法可以分为三个阶段，第一标记阶段，第二整理阶段，第三清除</p>
-<p>实现过程是首先进行标记，将存活的对象标记出来，在内存中把存活的对象往一端移动，直接回收边界以外的内存，所以不会产生内存碎片，提高了内存的利用率，这种算法适用于老年代</p>
-<p><img src="jvm-gc/%E6%A0%87%E8%AE%B0%E6%95%B4%E7%90%86.jpg" alt=""></p>
-<p>缺点：效率不高，不仅要标记存活对象还要整理所有存活对象的引用地址</p>
-<h4 id="分代收集算法"><a href="#分代收集算法" class="headerlink" title="分代收集算法"></a>分代收集算法</h4><p>分代收集算法根据对象存活的生命周期不同将内存划分为不同的区域，一般是把堆分成新生代和老年代，这样就可以根据各个年代的特点采用最合适的收集算法</p>
-<p>新生代：新生代中每次垃圾收集都有大量垃圾对象需要回收，只有少量的对象存活，所以选择复制算法是最高效的，只需要移动少量的对象即可</p>
-<p>老年代：老年代中对象存活率高，没有额外的空间对它进行分配担保，所以可以采用标记清除或者标记整理算法</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://chenmingyu.top/jvm-gc/" data-id="ckdn6w805003laktw2qlpczyz" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gc/" rel="tag">gc</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-java-reflect" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/java-reflect/" class="article-date">
-  <time datetime="2019-09-11T02:10:39.000Z" itemprop="datePublished">2019-09-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/java/">java</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/java-reflect/">java反射</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在运行状态中，对于任何一个类，我们都能够知道这个类有哪些方法和属性。对于任何一个对象，我们都能够对它的方法和属性进行调用。我们把这种动态获取对象信息和调用对象方法的功能称之为反射机制。</p>
-<p><strong>反射中常用的到的类</strong></p>
-<ol>
-<li>Class类: 代表类的实体，在运行的Java应用程序中表示类和接口</li>
-<li>Field类: 代表类的属性</li>
-<li>Method类: 代表类的方法</li>
-<li>Constructor类: 代表类的构造方法</li>
-</ol>
-<p><strong>Class类</strong></p>
-<p>Class对象的由来是将class文件读入内存，并为之创建一个Class对象</p>
-<p>Class类表示正在运行的java应用程序中的类和接口，也就是jvm中有N多的实例每个类都有该Class对象，包括基本数据类型</p>
-<pre><code class="java">package com.my.concurrent.reflect;
+Class类
+Class对象的由来是将class文件读入内存，并为之创建一个Class对象
+Class类表示正在运行的java应用程序中的类和接口，也就是jvm中有N多的实例每个类都有该Class对象，包括基本数据类型
+package com.my.concurrent.reflect;
 
 import org.springframework.util.StringUtils;
 
@@ -1205,828 +205,35 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 /**
- * @author: chenmingyu
- * @date: 2019/9/17 11:07
- * @description:
- */
-public class Reflect {
-
-    private String name;
-
-    private final int age = 25;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    private Boolean isMy(String name) {
-        if(name.equals(&quot;my&quot;)){
-            return Boolean.TRUE;
-        }
-        return Boolean.FALSE;
-    }
-
-    @Override
-    public String toString() {
-        return &quot;Reflect{&quot; +
-                &quot;name=&#39;&quot; + name + &#39;\&#39;&#39; +
-                &#39;}&#39;;
-    }
-}</code></pre>
-<p><strong>获取class类的三种方式</strong></p>
-<pre><code class="java">// 第1种 
-Class var = Reflect.class;
-System.out.println(var.getName());
-// 第2种
-Reflect var1 = new Reflect();
-Class var2 =var1.getClass();
-System.out.println(var2.getName());
-// 第3种 常用
-Class var3 = Class.forName(&quot;com.my.concurrent.reflect.Reflect&quot;);
-System.out.println(var3.getName());</code></pre>
-<p><strong>使用Class类创建实例</strong></p>
-<pre><code class="java">Class reflectClass = Class.forName(&quot;com.my.concurrent.reflect.Reflect&quot;);
-Reflect reflect = (Reflect)reflectClass.newInstance();
-reflect.setName(&quot;my&quot;);
-System.out.println(reflect.toString());</code></pre>
-<p>Class 没有公共构造方法。Class对象是在加载类时由 Java 虚拟机以及通过调用类加载器中的defineClass 方法自动构造的。也就是这不需要我们自己去处理创建，JVM已经帮我们创建好了</p>
-<p><strong>Field类</strong></p>
-<p>访问私有的属性</p>
-<pre><code class="java">Class reflectClass = Class.forName(&quot;com.my.concurrent.reflect.Reflect&quot;);
-Field ageField = reflectClass.getDeclaredField(&quot;age&quot;);
-ageField.setAccessible(Boolean.TRUE);
-int age = (int) ageField.get(reflect);
-System.out.println(age);</code></pre>
-<p><strong>Method类</strong></p>
-<p>执行私有方法</p>
-<pre><code class="java">Class reflectClass = Class.forName(&quot;com.my.concurrent.reflect.Reflect&quot;);
-Method method = reflectClass.getDeclaredMethod(&quot;isMy&quot;, String.class);
-method.setAccessible(Boolean.TRUE);
-Boolean result= (Boolean) method.invoke(reflect,&quot;xn&quot;);
-System.out.println(result);</code></pre>
-<p><strong>Constructor类</strong></p>
-<p>通过Constructor类创建对象实例</p>
-<pre><code class="java">Class reflectClass = Class.forName(&quot;com.my.concurrent.reflect.Reflect&quot;);
-Constructor constructor = reflectClass.getConstructor();
-Reflect constructorReflect = (Reflect) constructor.newInstance();
-constructorReflect.setName(&quot;xn&quot;);
-System.out.println(constructorReflect.toString());</code></pre>
-<p>在获取私有属性或者方法的时候要用方法中带有Declared的方法，这类方法可以反射到私有的方法和属性，没有Declared的只能用来反射公有的方法和属性</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://chenmingyu.top/java-reflect/" data-id="ckdn6w800003eaktw6tp75bak" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8F%8D%E5%B0%84/" rel="tag">反射</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-java-integer-cache" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/java-integer-cache/" class="article-date">
-  <time datetime="2019-08-28T02:16:19.000Z" itemprop="datePublished">2019-08-28</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/java/">java</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/java-integer-cache/">java包装类的缓存机制</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>java 包装类的缓存机制，是在Java 5中引入的一个有助于节省内存、提高性能的功能，只有在自动装箱时有效</p>
-<p><strong>Integer包装类</strong></p>
-<p>举个栗子：</p>
-<pre><code class="java">Integer a = 127;
+ * @au ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/java-integer-cache/" title="java包装类的缓存机制">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="java包装类的缓存机制"></a></div><div class="recent-post-info"><a class="article-title" href="/java-integer-cache/" title="java包装类的缓存机制">java包装类的缓存机制</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-08-28 10:16:19"><i class="far fa-calendar-alt"></i>2019-08-28</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/java/">java</a></span></div><div class="content">java 包装类的缓存机制，是在Java 5中引入的一个有助于节省内存、提高性能的功能，只有在自动装箱时有效
+Integer包装类
+举个栗子：
+Integer a = 127;
 Integer b = 127;
-System.out.println(a == b);</code></pre>
-<p>这段代码输出的结果为true</p>
-<p>使用自动装箱将基本类型转为封装类对象这个过程其实底层实现是调用封装类的valueOf方法：</p>
-<p>Integer a =127; 相当于 Integer a =  Integer.valueOf(127);</p>
-<p>看一下Integer的valueOf方法：</p>
-<pre><code class="java">public static Integer valueOf(int i) {
+System.out.println(a == b);
+这段代码输出的结果为true
+使用自动装箱将基本类型转为封装类对象这个过程其实底层实现是调用封装类的valueOf方法：
+Integer a =127; 相当于 Integer a =  Integer.valueOf(127);
+看一下Integer的valueOf方法：
+public static Integer valueOf(int i) {
     if (i &gt;= IntegerCache.low &amp;&amp; i &lt;= IntegerCache.high)
         return IntegerCache.cache[i + (-IntegerCache.low)];
     return new Integer(i);
-}</code></pre>
-<p>如果入参 i 大于等于IntegerCache.low或者小于等于IntegerCache.high)，就从IntegerCache中获取对象</p>
-<p>看一下IntegerCache：</p>
-<pre><code class="java">private static class IntegerCache {
-    static final int low = -128;
-    static final int high;
-    static final Integer cache[];
-
-    static {
-        // high value may be configured by property
-        int h = 127;
-        String integerCacheHighPropValue =
-            sun.misc.VM.getSavedProperty(&quot;java.lang.Integer.IntegerCache.high&quot;);
-        if (integerCacheHighPropValue != null) {
-            try {
-                int i = parseInt(integerCacheHighPropValue);
-                i = Math.max(i, 127);
-                // Maximum array size is Integer.MAX_VALUE
-                h = Math.min(i, Integer.MAX_VALUE - (-low) -1);
-            } catch( NumberFormatException nfe) {
-                // If the property cannot be parsed into an int, ignore it.
-            }
-        }
-        high = h;
-
-        cache = new Integer[(high - low) + 1];
-        int j = low;
-        for(int k = 0; k &lt; cache.length; k++)
-            cache[k] = new Integer(j++);
-
-        // range [-128, 127] must be interned (JLS7 5.1.7)
-        assert IntegerCache.high &gt;= 127;
-    }
-
-    private IntegerCache() {}
-}</code></pre>
-<p>默认范围为：-128到127之间，范围的最大值可以通过java.lang.Integer.IntegerCache.high设置，通过for循环将范围内的数据实例化为Integer对象放到cache数组里</p>
-<p>在测试一下：</p>
-<pre><code class="java">Integer a = 128;
-Integer b = 128;
-System.out.println(a == b);</code></pre>
-<p>输出结果为false，所以如果没有指定cache最大值时，在-128到127之间使用自动装箱时，会使用缓存</p>
-<p><strong>Byte包装类</strong></p>
-<p>再举个栗子：</p>
-<pre><code class="java">public static void main(String[] args) {
-    Byte a = 127;
-    Byte b = 127;
-    System.out.println(a == b); //true
-}</code></pre>
-<p>由于Byte范围在-128到127之间，所以Byte的valueOf都是从ByteCache缓存中获取的</p>
-<pre><code class="java">public static Byte valueOf(byte b) {
-    final int offset = 128;
-    return ByteCache.cache[(int)b + offset];
-}</code></pre>
-<p>ByteCache类：</p>
-<pre><code class="java">private static class ByteCache {
-    private ByteCache(){}
-
-    static final Byte cache[] = new Byte[-(-128) + 127 + 1];
-
-    static {
-        for(int i = 0; i &lt; cache.length; i++)
-            cache[i] = new Byte((byte)(i - 128));
-    }
-}</code></pre>
-<p>与IntegerCache相比，ByteCache的最大值是不能修改的就是127</p>
-<p><strong>Short包装类</strong></p>
-<pre><code class="java">public static Short valueOf(short s) {
-    final int offset = 128;
-    int sAsInt = s;
-    if (sAsInt &gt;= -128 &amp;&amp; sAsInt &lt;= 127) { // must cache
-        return ShortCache.cache[sAsInt + offset];
-    }
-    return new Short(s);
-}</code></pre>
-<p>ShortCache类：</p>
-<pre><code class="java">private static class ShortCache {
-    private ShortCache(){}
-
-    static final Short cache[] = new Short[-(-128) + 127 + 1];
-
-    static {
-        for(int i = 0; i &lt; cache.length; i++)
-            cache[i] = new Short((short)(i - 128));
-    }
-}</code></pre>
-<p>ShortCache的最大值也不可以修改，范围只能在-128 ~ 127之间</p>
-<p><strong>Long包装类</strong>的valueOf方法和LongCache类与Short包装类的实现一致，范围也是只能在-128 ~ 127之间</p>
-<p><strong>Character包装类</strong></p>
-<p>valueOf方法：</p>
-<pre><code class="java">public static Character valueOf(char c) {
-    if (c &lt;= 127) { // must cache
-        return CharacterCache.cache[(int)c];
-    }
-    return new Character(c);
-}</code></pre>
-<p>CharacterCache类：</p>
-<pre><code class="java">private static class CharacterCache {
-    private CharacterCache(){}
-
-    static final Character cache[] = new Character[127 + 1];
-
-    static {
-        for (int i = 0; i &lt; cache.length; i++)
-            cache[i] = new Character((char)i);
-    }
-}</code></pre>
-<p>Character的缓存范围在0 ~ 127之间</p>
-<p><strong>Boolean包装类</strong></p>
-<p>valueOf方法：</p>
-<pre><code class="java">public static Boolean valueOf(boolean b) {
-    return (b ? TRUE : FALSE);
-}</code></pre>
-<p>TRUE跟FALSE都是static final修饰的静态变量</p>
-<pre><code class="java">public static final Boolean TRUE = new Boolean(true);
-public static final Boolean FALSE = new Boolean(false);</code></pre>
-<p><strong>Float包装类 &amp; Double包装类</strong></p>
-<p>valueOf方法：</p>
-<pre><code class="java">public static Float valueOf(float f) {
-    return new Float(f);
 }
-public static Double valueOf(double d) {
-    return new Double(d);
-}</code></pre>
-<p>Float和Double没有使用缓存，直接new的对象</p>
-<p><strong>总结：</strong></p>
-<p>java的包装类中：Byte，Short，Integer，Long，Character使用static代码块进行初始化缓存，其中Integer的最大值可以通过java.lang.Integer.IntegerCache.high设置；Boolean使用static final实例化的对象；Float和Double直接new的对象没有使用缓存</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://chenmingyu.top/java-integer-cache/" data-id="ckdn6w7zu0033aktw8dukah4p" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Integer%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/" rel="tag">Integer缓存机制</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-distributed-transaction" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/distributed-transaction/" class="article-date">
-  <time datetime="2019-08-27T12:11:32.000Z" itemprop="datePublished">2019-08-27</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/">分布式事务</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/distributed-transaction/">让我们聊一聊分布式事务</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一个复杂的系统往往都是从一个小而简的系统发展衍化而来，为了满足日益增长的业务需求，不断的增加系统的复杂度，从单体架构逐步发展为分布式架构，而分布式系统架构的设计主要关注：高性能，高可用，高拓展</p>
-<h2 id="分布式事务"><a href="#分布式事务" class="headerlink" title="分布式事务"></a>分布式事务</h2><p>高可用是指系统无中断的执行功能的能了，代表了系统的可用程度，是进行系统设计时必须要遵守的准则之一。</p>
-<p>而高可用的实现方案，无外乎就是冗余，就存储的高可用而言，问题不在于如何进行数据备份，而在于如何规避数据不一致对业务造成的影响</p>
-<p>对于分布式系统而言，要保证分布式系统中的数据一致性就需要一种方案，可以保证数据在子系统中始终保持一致，避免业务出现问题，这种实现方案就叫做分布式事务，要么一起成功，要么一起失败，必须是一个整体性的事务</p>
-<p><strong>举个栗子：</strong></p>
-<p>​    在电商网站中，用户对商品进行下单，需要在订单表中创建一条订单数据，同时需要在库存表中修改当前商品的剩余库存数量，两步操作一个添加，一个修改，我们一定要保证这两步操作一定同时操作成功或失败，否则业务就会出现问题</p>
-<p><strong>建立时：</strong></p>
-<p>​    业务量不大，用户少，系统只是一个单体架构，订单表与库存表都在一个数据库中，这时可以使用mysql的本地事务保证数据一致性</p>
-<p><img src="distributed-transaction/%E5%8D%95%E4%BD%93%E6%9E%B6%E6%9E%84.png" alt=""></p>
-<p><strong>发展期：</strong></p>
-<p>​    业务发展迅速，用户量变多，单数据已经出现了性能瓶颈，按照业务纬度进行分库，分为订单库和库存库，由于跨库跨机器，mysql的本地事务不能再保证订单库和库存库的数据一致性，这时候就需要分布式事务来保证</p>
-<p><img src="distributed-transaction/%E5%88%86%E5%BA%93.png" alt=""></p>
-<p><strong>成熟期：</strong></p>
-<p>​    业务拓展，单体架构已经满足不了需求，进而衍化成了分布式系统，这时的订单和库存已经拆分为了两个子系统提供服务，子系统间使用rpc进行通信，但是无论系统发展成什么样，我们都要保证业务不出问题，保证订单和库存的数据一致，这时候要思考下在服务之间我们应如何保证数据一致</p>
-<p><img src="distributed-transaction/%E6%9C%8D%E5%8A%A1%E6%8B%86%E5%88%86.png" alt=""></p>
-<h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>​    在讲解具体方案之前，有必要了解一下分布式中数据设计需要遵循的理论基础，CAP理论和BACS理论，为后面的实践铺平道路</p>
-<h3 id="CAP理论"><a href="#CAP理论" class="headerlink" title="CAP理论"></a>CAP理论</h3><p>CAP：Consistency Acailability Partition tolerance 的简写</p>
-<ul>
-<li><p>Consistency：一致性</p>
-<p>对某个客户端来说，读操作能够返回最新的写操作结果</p>
-</li>
-<li><p>Acailability：可用性</p>
-<p>非故障节点在合理的时间内返回合理的响应</p>
-</li>
-<li><p>Partition tolerance：分区容错性</p>
-<p>当出现网络分区后，系统能够继续提供服务  <em>你知道什么是网络分区吗 ~~</em></p>
-</li>
-</ul>
-<p>因为分布式系统中系统肯定部署在多台机器上，无法保证网络做到100%的可靠，所以网络分区一定存在，即P一定存在；</p>
-<p>在出现网络分区后，就出现了可用性和一致性的问题，我们必须要在这两者之间进行取舍，因此就有了两种架构：CP架构，AP架构；</p>
-<h4 id="CP架构"><a href="#CP架构" class="headerlink" title="CP架构"></a>CP架构</h4><p>当网络分区出现后，为了保证一致性，就必须拒接请求，否则无法保证一致性</p>
-<p><img src="distributed-transaction/CP.png" alt=""></p>
-<ol>
-<li>当没有出网络分区时，系统A与系统B的数据一致，X=1</li>
-<li>将系统A的X修改为2，X=2</li>
-<li>当出现网络分区后，系统A与系统B之间的数据同步数据失败，系统B的X=1</li>
-<li>当客户端请求系统B时，为了保证一致性，此时系统B应拒绝服务请求，返回错误码或错误信息</li>
-</ol>
-<p>上面这种方式就违背了可用性的要求，只满足一致性和分区容错，即CP</p>
-<p>CAP理论是忽略网络延迟，从系统A同步数据到系统B的网络延迟是忽略的</p>
-<p>CP架构保证了客户端在获取数据时一定是最近的写操作，或者获取到异常信息，绝不会出现数据不一致的情况</p>
-<h4 id="AP架构"><a href="#AP架构" class="headerlink" title="AP架构"></a>AP架构</h4><p>当网络分区出现后，为了保证可用性，系统B可以返回旧值，保证系统的可用性</p>
-<p><img src="distributed-transaction/AP.png" alt=""></p>
-<ol>
-<li>当没有出网络分区时，系统A与系统B的数据一致，X=1</li>
-<li>将系统A的X修改为2，X=2</li>
-<li>当出现网络分区后，系统A与系统B之间的数据同步数据失败，系统B的X=1</li>
-<li>当客户端请求系统B时，为了保证可用性，此时系统B应返回旧值，X=1</li>
-</ol>
-<p>上面这种方式就违背了一致性的要求，只满足可用性和分区容错，即AP</p>
-<p>CP架构保证了客户端在获取数据时无论返回的是最新值还是旧值，系统一定是可用的</p>
-<p><strong>CAP理论关注粒度是数据，而不是整体系统设计的策略</strong></p>
-<h3 id="BASE理论"><a href="#BASE理论" class="headerlink" title="BASE理论"></a>BASE理论</h3><p>​    BASE理论指的是基本可用 Basically Available，软状态 Soft Stat，最终一致性 Eventual Consistency，核心思想是即便无法做到强一致性，但应该可以有采用适合的方式保证最终一致性</p>
-<p>BASE：Basically Available  Soft Stat  Eventual Consistency的简写</p>
-<ul>
-<li><p>BA：Basically Available 基本可用</p>
-<p>分布式系统在出现故障的时候，允许损失部分可用性，即保证核心可用</p>
-</li>
-<li><p>S：Soft Stat 软状态</p>
-<p>允许系统存在中间状态，而该中间状态不会影响系统整体可用性</p>
-</li>
-<li><p>E：Consistency 最终一致性</p>
-<p>系统中的所有数据副本经过一定时间后，最终能够达到一致的状态</p>
-</li>
-</ul>
-<p>BASE理论本质上是对CAP理论的延伸，是对 CAP 中 AP 方案的一个补充</p>
-<h2 id="分布式事务协议"><a href="#分布式事务协议" class="headerlink" title="分布式事务协议"></a>分布式事务协议</h2><p>​    前提：在单体架构中，事务的保证有mysql实现，不用我们实现，当单个数据库的性能出现瓶颈的时候，对数据库进行分表分库处理，按业务纬度将订单和库存的表分为两个库，订单库和库存库</p>
-<h3 id="X-Open-XA-协议"><a href="#X-Open-XA-协议" class="headerlink" title="X/Open XA 协议"></a>X/Open XA 协议</h3><p>XA是一个分布式事务协议，由Tuxedo提出。XA规范主要定义了（全局）事务管理器（Transaction Manager）和（局部）资源管理器（Resource Manager）之间的接口。XA接口是双向的系统接口，在事务管理器Transaction Manager）以及一个或多个资源管理器（Resource Manager）之间形成通信桥梁</p>
-<p><img src="distributed-transaction/XA.png" alt=""></p>
-<p>XA协议采用<strong>两阶段提交</strong>方式来管理分布式事务。XA接口提供资源管理器与事务管理器之间进行通信的标准接口</p>
-<h3 id="2PC-二阶段提交-协议"><a href="#2PC-二阶段提交-协议" class="headerlink" title="2PC 二阶段提交 协议"></a>2PC 二阶段提交 协议</h3><p>​    二阶段提交（Two-phase Commit），是指，为了使基于分布式系统架构下的所有节点在进行事务提交时保持一致性而设计的一种算法(Algorithm)。通常，二阶段提交也被称为是一种协议(Protocol)。在分布式系统中，每个节点虽然可以知晓自己的操作时成功或者失败，却无法知道其他节点的操作的成功或失败。当一个事务跨越多个节点时，为了保持事务的ACID特性，需要引入一个作为协调者的组件来统一掌控所有节点(称作参与者)的操作结果并最终指示这些节点是否要把操作结果进行真正的提交(比如将更新后的数据写入磁盘等等)。因此，二阶段提交的算法思路可以概括为： 参与者将操作成败通知协调者，再由协调者根据所有参与者的反馈情报决定各参与者是否要提交操作还是中止操作</p>
-<p>二阶段提交算法的成立基于以下假设：</p>
-<ol>
-<li>该分布式系统中，存在一个节点作为协调者(Coordinator)，其他节点作为参与者(Cohorts)。且节点之间可以进行网络通信。</li>
-<li>所有节点都采用预写式日志，且日志被写入后即被保持在可靠的存储设备上，即使节点损坏不会导致日志数据的消失。</li>
-<li>所有节点不会永久性损坏，即使损坏后仍然可以恢复</li>
-</ol>
-<p>二阶段提交分为两阶段：第一阶段：投票阶段，第二阶段：提交阶段</p>
-<p><img src="distributed-transaction/2pc.jpg" alt=""></p>
-<p><strong>投票阶段 Prepares</strong></p>
-<p><img src="distributed-transaction/2pc-1.png" alt=""></p>
-<ol>
-<li>协调者向所有参与者询问是否可以执行提交操作，并开始等待各参与者的响应</li>
-<li>参与者执行事务操作，如果执行成功就返回Yes响应，如果执行失败就返回No响应</li>
-<li>如果协调者接受参与者响应超时，也会认为执行事务操作失败</li>
-</ol>
-<p><strong>提交阶段 commit</strong></p>
-<p><img src="distributed-transaction/2pc-2.png" alt=""></p>
-<ol>
-<li>如果第一阶段汇中所有参与者都返回yes响应，协调者向所有参与者发出提交请求，所有参与者提交事务</li>
-<li>如果第一阶段中有一个或者多个参与者返回no响应，协调者向所有参与者发出回滚请求，所有参与者进行回滚操作</li>
-</ol>
-<p>二阶段提交优点：尽量保证了数据的强一致，但不是100%一致</p>
-<p>缺点：</p>
-<ul>
-<li><p>单点故障</p>
-<p>由于协调者的重要性，一旦协调者发生故障，参与者会一直阻塞，尤其时在第二阶段，协调者发生故障，那么所有的参与者都处于锁定事务资源的状态中，而无法继续完成事务操作</p>
-</li>
-<li><p>同步阻塞</p>
-<p>由于所有节点在执行操作时都是同步阻塞的，当参与者占有公共资源时，其他第三方节点访问公共资源不得不处于阻塞状态</p>
-</li>
-<li><p>数据不一致</p>
-<p>在第二阶段中，当协调者想参与者发送提交事务请求之后，发生了局部网络异常或者在发送提交事务请求过程中协调者发生了故障，这会导致只有一部分参与者接收到了提交事务请求。而在这部分参与者接到提交事务请求之后就会执行提交事务操作。但是其他部分未接收到提交事务请求的参与者则无法提交事务。从而导致分布式系统中的数据不一致</p>
-</li>
-</ul>
-<p><strong>二阶段提交的问题</strong></p>
-<p>​    如果协调者在第二阶段发送提交请求之后挂掉，而唯一接受到这条消息的参与者执行之后也挂掉了，即使协调者通过选举协议产生了新的协调者并通知其他参与者进行提交或回滚操作的话，都可能会与这个已经执行的参与者执行的操作不一样，当这个挂掉的参与者恢复之后，就会产生数据不一致的问题</p>
-<h3 id="3PC-三阶段提交-协议"><a href="#3PC-三阶段提交-协议" class="headerlink" title="3PC 三阶段提交 协议"></a>3PC 三阶段提交 协议</h3><p>​    三阶段提交（Three-phase commit），三阶段提交是为解决两阶段提交协议|的缺点而设计的。 与两阶段提交不同的是，三阶段提交是“非阻塞”协议。三阶段提交在两阶段提交的第一阶段与第二阶段之间插入了一个准备阶段，使得原先在两阶段提交中，参与者在投票之后，由于协调者发生崩溃或错误，而导致参与者处于无法知晓是否提交或者中止的“不确定状态”所产生的可能相当长的延时的问题得以解决</p>
-<p>三阶段提交的三个阶段：CanCommit，PreCommit，DoCommit三个阶段</p>
-<p><img src="distributed-transaction/3pc.jpg" alt=""></p>
-<p><strong>询问阶段 CanCommit</strong></p>
-<p>协调者向参与者发送commit请求，参与者如果可以提交就返回Yes响应，否则返回No响应</p>
-<p><strong>准备阶段 PreCommit</strong></p>
-<p>协调者根据参与者在<strong>询问阶段</strong>的响应判断是否执行事务还是中断事务</p>
-<ul>
-<li>如果所有参与者都返回Yes，则执行事务</li>
-<li>如果参与者有一个或多个参与者返回No或者超时，则中断事务</li>
-</ul>
-<p>参与者执行完操作之后返回ACK响应，同时开始等待最终指令</p>
-<p><strong>提交阶段 DoCommit</strong></p>
-<p>协调者根据参与者在<strong>准备阶段</strong>的响应判断是否执行事务还是中断事务</p>
-<ul>
-<li>如果所有参与者都返回正确的ACK响应，则提交事务</li>
-<li>如果参与者有一个或多个参与者收到错误的ACK响应或者超时，则中断事务</li>
-<li>如果参与者无法及时接收到来自协调者的提交或者中断事务请求时，会在等待超时之后，会继续进行事务提交</li>
-</ul>
-<p>协调者收到所有参与者的ACK响应，完成事务</p>
-<p><strong>解决二阶段提交时的问题</strong></p>
-<p>​    在三阶段提交中，如果在第三阶段协调者发送提交请求之后挂掉，并且唯一的接受的参与者执行提交操作之后也挂掉了，这时协调者通过选举协议产生了新的协调者，在二阶段提交时存在的问题就是新的协调者不确定已经执行过事务的参与者是执行的提交事务还是中断事务，但是在三阶段提交时，肯定得到了第二阶段的再次确认，那么第二阶段必然是已经正确的执行了事务操作，只等待提交事务了，所以新的协调者可以从第二阶段中分析出应该执行的操作，进行提交或者中断事务操作，这样即使挂掉的参与者恢复过来，数据也是一致的。</p>
-<p>​    所以，三阶段提交解决了二阶段提交中存在的由于协调者和参与者同时挂掉可能导致的数据一致性问题和单点故障问题，并减少阻塞，因为一旦参与者无法及时收到来自协调者的信息之后，他会默认执行提交事务，而不会一直持有事务资源并处于阻塞状态。</p>
-<p><strong>三阶段提交的问题</strong></p>
-<p>​    在<strong>提交阶段</strong>如果发送的是中断事务请求，但是由于网络问题，导致部分参与者没有接到请求，那么参与者会在等待超时之后执行提交事务操作，这样这些由于网络问题导致提交事务的参与者的数据就与接受到中断事务请求的参与者存在数据不一致的问题。</p>
-<p><strong>所以无论是2PC还是3PC都不能保证分布式系统中的数据100%一致</strong></p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="强一致性分布式事务"><a href="#强一致性分布式事务" class="headerlink" title="强一致性分布式事务"></a>强一致性分布式事务</h3><p><strong>单体架构多数据源</strong>，在业务开发中，肯定是先执行对订单库的操作，但是不提交事务，再执行对库存库的操作，也不提交事务，如果两个操作都成功，在一起提交事务，如果有一个操作失败，则两个都进行回滚</p>
-<h4 id="基于2PC-XA协议实现的JTA"><a href="#基于2PC-XA协议实现的JTA" class="headerlink" title="基于2PC/XA协议实现的JTA"></a>基于2PC/XA协议实现的JTA</h4><p>我们已经知道了2PC和XA协议的原理，而JTA是java规范，是XA在java上的实现</p>
-<p>JTA(Java Transaction Manager) :</p>
-<ol>
-<li>TransactionManager : 常用方法,可以开启,回滚,获取事务. begin(),rollback()…</li>
-<li>XAResouce : 资源管理,通过Session来进行事务管理,commit(xid)…</li>
-<li>XID : 每一个事务都分配一个特定的XID</li>
-</ol>
-<p>JTA主要的原理是二阶段提交，当整个业务完成了之后只是第一阶段提交，在第二阶段提交之前会检查其他所有事务是否已经提交，如果前面出现了错误或是没有提交，那么第二阶段就不会提交，而是直接回滚，这样所有的事务都会做回滚操作</p>
-<p>基于JTA这种方案实现分布式事务的强一致性</p>
-<p><strong>JTA的特点：</strong></p>
-<ul>
-<li>基于两阶段提交，有可能会出现数据不一致的情况</li>
-<li>事务时间过长，阻塞</li>
-<li>性能低，吞吐量低</li>
-</ul>
-<p><strong>实现</strong>可以使用基于JTA实现的jar包<strong>Atomikos</strong> <em>使用例子可以自己百度一下</em></p>
-<p>​    正常架构设计中是否应该出现这种跨库的操作，我觉得是不应该的，如果过按业务拆分将数据源进行分库，我们应该同时将服务也拆分出去才合适，应遵循一个系统只操作一个数据源（主从没关系），避免后续可能会出现的多个系统调用一个数据源的情况</p>
-<h3 id="最终一致性分布式事务方案（柔性事务）"><a href="#最终一致性分布式事务方案（柔性事务）" class="headerlink" title="最终一致性分布式事务方案（柔性事务）"></a>最终一致性分布式事务方案（柔性事务）</h3><p>JTA方案适用于单体架构多数据源时实现分布式事务，但对于微服务间的分布式事务就无能为力了，我们需要使用其他的方案实现分布式事务</p>
-<h4 id="本地消息表"><a href="#本地消息表" class="headerlink" title="本地消息表"></a>本地消息表</h4><p>本地消息表的核心思想是将分布式事务拆分成本地事务进行处理</p>
-<p>以本文中例子，在订单系统新增一条消息表，将新增订单和新增消息放到一个事务里完成，然后通过轮询的方式去查询消息表，将消息推送到mq，库存系统去消费mq</p>
-<p><img src="distributed-transaction/%E6%9C%AC%E5%9C%B0%E6%B6%88%E6%81%AF%E8%A1%A8.png" alt=""></p>
-<p><strong>执行流程：</strong></p>
-<ol>
-<li>订单系统，添加一条订单和一条消息，在一个事务里提交</li>
-<li>订单系统，使用定时任务轮询查询状态为未同步的消息表，发送到mq，如果发送失败，就重试发送</li>
-<li>库存系统，接收mq消息，修改库存表，需要保证幂等操作</li>
-<li>如果修改成功，调用rpc接口修改订单系统消息表的状态为已完成或者直接删除这条消息</li>
-<li>如果修改失败，可以不做处理，等待重试</li>
-</ol>
-<p>订单系统中的消息有可能由于业务问题会一直重复发送，所以为了避免这种情况可以记录一下 发送次数，当达到次数限制之后报警，人工接入处理；库存系统需要保证幂等，避免同一条消息被多次消费造成数据一致；</p>
-<p>本地消息表这种方案实现了最终一致性，需要在业务系统里增加消息表，业务逻辑中多一次插入的DB操作，所以性能会有损耗，而且最终一致性的间隔主要有定时任务的间隔时间决定</p>
-<h4 id="MQ消息事务"><a href="#MQ消息事务" class="headerlink" title="MQ消息事务"></a>MQ消息事务</h4><p>消息事务的原理是将两个事务通过消息中间件进行异步解耦</p>
-<p>订单系统执行自己的本地事务，并发送mq消息，库存系统接收消息，执行自己的本地事务，乍一看，好像跟本地消息表的实现方案类似，只是省去 了对本地消息表的操作和轮询发送mq的操作，但实际上两种方案的实现是不一样的</p>
-<p>消息事务一定要保证业务操作与消息发送的一致性，如果业务操作成功，这条消息也一定投递成功</p>
-<p><img src="distributed-transaction/%E6%B6%88%E6%81%AF%E4%BA%8B%E5%8A%A1.jpg" alt=""></p>
-<p>消息事务依赖于消息中间件的事务消息，基于消息中间件的二阶段提交实现的，RocketMQ就支持事务消息</p>
-<p><strong>执行流程：</strong></p>
-<ol>
-<li>发送prepare消息到消息中间件</li>
-<li>发送成功后，执行本地事务</li>
-<li>如果事务执行成功，则commit，消息中间件将消息下发至消费端</li>
-<li>如果事务执行失败，则回滚，消息中间件将这条prepare消息删除</li>
-<li>消费端接收到消息进行消费，如果消费失败，则不断重试</li>
-</ol>
-<p>这种方案也是实现了最终一致性，对比本地消息表实现方案，不需要再建消息表，不再依赖本地数据库事务了，所以这种方案更适用于高并发的场景</p>
-<h4 id="最大努力通知"><a href="#最大努力通知" class="headerlink" title="最大努力通知"></a>最大努力通知</h4><p>最大努力通知相比前两种方案实现简单，适用于一些最终一致性要求较低的业务，比如支付通知，短信通知这种业务</p>
-<p>以支付通知为例，业务系统调用支付平台进行支付，支付平台进行支付，进行操作支付之后支付平台会尽量去通知业务系统支付操作是否成功，但是会有一个最大通知次数，如果超过这个次数后还是通知失败，就不再通知，业务系统自行调用支付平台提供一个查询接口，供业务系统进行查询支付操作是否成功</p>
-<p><img src="distributed-transaction/%E6%9C%80%E5%A4%A7%E5%8A%AA%E5%8A%9B%E9%80%9A%E7%9F%A5.png" alt=""></p>
-<p><strong>执行流程：</strong></p>
-<ol>
-<li>业务系统调用支付平台支付接口， 并在本地进行记录，支付状态为支付中</li>
-<li>支付平台进行支付操作之后，无论成功还是失败，都需要给业务系统一个结果通知</li>
-<li>如果通知一直失败则根据重试规则进行重试，达到最大通知次数后，不在通知</li>
-<li>支付平台提供查询订单支付操作结果接口</li>
-<li>业务系统根据一定业务规则去支付平台查询支付结果</li>
-</ol>
-<p>这种方案也是实现了最终一致性</p>
-<h4 id="补偿事务TCC"><a href="#补偿事务TCC" class="headerlink" title="补偿事务TCC"></a>补偿事务TCC</h4><p>TCC Try-Confirm-Cancel的简称，针对每个操作，都需要有一个其对应的确认和取消操作，当操作成功时调用确认操作，当操作失败时调用取消操作，类似于二阶段提交，只不过是这里的提交和回滚是针对业务上的，所以基于TCC实现的分布式事务也可以看做是对业务的一种补偿机制</p>
-<p>TCC的三阶段：</p>
-<ol>
-<li>Try 阶段：对业务系统做检测及资源预留</li>
-<li>Confirm 阶段：对业务系统做确认提交，Try阶段执行成功并开始执行 Confirm阶段时，默认 Confirm阶段是不会出错的。即：只要Try成功，Confirm一定成功</li>
-<li>Cancel 阶段：在业务执行错误，需要回滚的状态下执行的业务取消，预留资源释放</li>
-</ol>
-<p>在try阶段，是对业务系统进行检查及资源预览，比如订单和存储操作，需要检查库存剩余数量是否够用，并进行预留，预留操作的话就是新建一个可用库存数量字段，Try阶段操作是对这个可用库存数量进行操作</p>
-<p>比如下一个订单减一个库存:</p>
-<p><img src="distributed-transaction/TCC.png" alt=""></p>
-<p><strong>执行流程：</strong></p>
-<ol>
-<li>Try阶段：订单系统将当前订单状态设置为支付中，库存系统校验当前剩余库存数量是否大于1，然后将可用库存数量设置为库存剩余数量-1，</li>
-<li>如果Try阶段执行成功，执行Confirm 阶段，将订单状态修改为支付成功，库存剩余数量修改为可用库存数量</li>
-<li>如果Try阶段执行失败，执行Cancel 阶段，将订单状态修改为支付失败，可用库存数量修改为库存剩余数量</li>
-</ol>
-<p>基于TCC实现分布式事务，代码逻辑想对复杂一些，需要将原来的接口的逻辑拆分为：try，confirm ，cancel 三个接口的逻辑</p>
-<p>基于TCC实现的分布式事务框架：ByteTCC，tcc-transaction</p>
-<p>ByteTCC：<a href="https://github.com/liuyangming/ByteTCC" target="_blank" rel="noopener">https://github.com/liuyangming/ByteTCC</a></p>
-<p>tcc-transaction：<a href="https://github.com/changmingxie/tcc-transaction" target="_blank" rel="noopener">https://github.com/changmingxie/tcc-transaction</a></p>
-<blockquote>
-<p>读完之后应该对分布式事务有了一个大致的了解，在实际生产中我们要尽量避免使用分布式事务，能转化为本地事务就用本地事务，如果必须使用分布式事务，还需要从业务角度多思考使用哪种方案更适合</p>
-<p>总之行动之前多思考</p>
-</blockquote>
-<p><strong>推荐阅读：</strong></p>
-<p><a href="https://chenmingyu.top/design/">23种设计模式详解</a></p>
-<p><a href="https://chenmingyu.top/network-protocol/">浅析网络协议</a></p>
-<p><a href="https://chenmingyu.top/concurrent-lock/">java并发编程 | 锁详解：AQS，Lock，ReentrantLock，ReentrantReadWriteLock</a></p>
-<p><a href="https://chenmingyu.top/concurrent-threadpool/">java并发编程 | 线程池详解</a></p>
-<p><strong>参考：</strong></p>
-<p><a href="https://baike.baidu.com/" target="_blank" rel="noopener">百度百科</a></p>
-<p><a href="https://juejin.im/post/5d11ed966fb9a07ee0632534" target="_blank" rel="noopener">分布式事务解决方案</a></p>
-<p><a href="https://juejin.im/post/5b98b8daf265da0af77503af" target="_blank" rel="noopener">深入理解分布式事务</a></p>
-<p><a href="http://www.hollischuang.com/archives/1580" target="_blank" rel="noopener">深入理解分布式系统的2PC和3PC</a></p>
-<p><a href="https://www.jianshu.com/p/24deaea53875" target="_blank" rel="noopener">柔性事务：最大努力通知</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://chenmingyu.top/distributed-transaction/" data-id="ckdn6w7zh002kaktwb8c8crmj" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/" rel="tag">分布式事务</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-network-protocol" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/network-protocol/" class="article-date">
-  <time datetime="2019-08-22T06:34:42.000Z" itemprop="datePublished">2019-08-22</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/">网络协议</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/network-protocol/">浅析网络协议</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>本文部分内容摘自 极客时间：趣谈网络协议和网络协议入门，只是个人的一个学习总结</p>
-</blockquote>
-<p>参考资料：</p>
-<p><a href="https://time.geekbang.org/column/intro/85" target="_blank" rel="noopener">极客时间：趣谈网络协议</a></p>
-<p><a href="http://www.ruanyifeng.com/blog/2012/05/internet_protocol_suite_part_i.html" target="_blank" rel="noopener">网络协议入门</a></p>
-<p>网络协议指的是计算机网络中互相通信的对等实体之间交换信息时所必须遵守的规则的集合。</p>
-<p><img src="network-protocol/%E5%9B%BE%E7%89%871.png" alt=""></p>
-<p>​    由于网络节点之间联系的复杂性，在制定协议时，通常把复杂成分分解成一些简单成分，然后再将它们复合起来，最常用的复合技术就是层次方式，无论是OSI七层模型，还是TCP/IP模型，从上而下，每一层都依赖下一层，每一层都在他的下层提供的服务基础上提供更高级的服务，所以在传输数据时可以没有层但是一定会有下层，比如使用传输层传输数据，一定会有网络层和链路层，不一定会有应用层，如果使用应用层传输数据，一定有传输层，网络层，链路层。</p>
-<h3 id="TCP-IP五层模型"><a href="#TCP-IP五层模型" class="headerlink" title="TCP/IP五层模型"></a>TCP/IP五层模型</h3><p>TCP/IP是一组协议的代名词，它还包括许多协议，组成了TCP/IP协议簇；</p>
-<p>开篇的图片中，在TCP/IP概念层模型中将数据链路层与物理层统称为链路层，其实这个分不分对于我们学习网络协议的影响不大；</p>
-<p>下图中右侧是每一层常用的协议，通过上面我们知道应用层依赖传输层，传输层依赖网络层，网络层依赖数据链路层，数据链路层依赖物理层，我们从最下层开始逐层递进，分析每一层的作用及数据包格式。</p>
-<p><img src="network-protocol/%E4%BA%94%E5%B1%82%E5%8D%8F%E8%AE%AE.png" alt=""></p>
-<h4 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h4><p><strong>物理层提供的服务：在物理主机之间传输比特流。</strong></p>
-<p>​    两台电脑之间需要通信，首先我们需要将电脑连接起来。物理层<strong>就是把电脑连接起来的物理手段。它主要规定了网络的一些电气特性，作用是负责传送0和1的电信号。</strong>数据的单位称为比特（bit）。</p>
-<p><img src="network-protocol/%E7%BB%84%E7%BD%91.png" alt=""></p>
-<h4 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h4><p><strong>数据链路层提供的服务：在同一子网络主机之间的数据传输。</strong></p>
-<p>​    在物理层提供比特流服务的基础上，建立相邻结点之间的数据链路，通过差错控制提供数据帧（Frame）在信道上无差错的传输，并进行各电路上的动作系列。<strong>数据链路层在不可靠的物理介质上提供可靠的传输（确定了0和1的分组方式，数据的单位称为帧）。</strong></p>
-<p><strong>以太网</strong></p>
-<p>​    以太网规定，连入网络的所有设备，都必须具有“网卡”接口。数据包必须是从一块网卡，传送到另一块网卡。网卡的地址，数据包的发送地址和接收地址，每块网卡出厂的时候，都有一个全世界独一无二的MAC地址，长度是48个二进制位，通常用12个十六进制数表示，前6个十六进制数是厂商编号，后6个是该厂商的网卡流水号。有了MAC地址，就可以定位网卡和数据包的路径了。</p>
-<p>MAC地址示例：0A-11-22-33-44-01</p>
-<p>​    现在我们已经知道了，接入网络的设备需要通过MAC地址进行通信，那么电脑A（本机）要与电脑B（目标）进行通信，电脑A是如何知道电脑B的MAC地址那？</p>
-<p>答案是ARP协议。</p>
-<p><strong>ARP协议</strong></p>
-<p>​    地址解析协议（英语：Address Resolution Protocol，缩写：ARP）是一个通过解析网络层地址来找寻数据链路层地址的网络传输协议。</p>
-<p>百度百科：<a href="https://baike.baidu.com/item/ARP/609343?fromtitle=ARP%E5%8D%8F%E8%AE%AE&amp;fromid=1742212&amp;fr=aladdin" target="_blank" rel="noopener">https://baike.baidu.com/item/ARP/609343?fromtitle=ARP%E5%8D%8F%E8%AE%AE&amp;fromid=1742212&amp;fr=aladdin</a></p>
-<p>简单理解就是，可以通过已知的目标机器的IP来获取目标机器的MAC地址。</p>
-<p>ARP协议使用<strong>广播</strong>的方式来获取目标的MAC地址</p>
-<p>​    如果两台主机在同一个子网络，那么我们可以用ARP协议，得到对方的MAC地址。ARP协议也是发出一个数据包（包含在以太网数据包中），其中包含它所要查询主机的IP地址，在对方的MAC地址这一栏，填的是FF:FF:FF:FF:FF:FF，表示这是一个“广播”地址。它所在子网络的每一台主机，都会收到这个数据包，从中取出IP地址，与自身的IP地址进行比较。如果两者相同，都做出回复，向对方报告自己的MAC地址（会缓存），否则就丢弃这个包。</p>
-<p>向本网络内所有计算机发送，让每台计算机自己判断，是否为接收方：</p>
-<p><img src="network-protocol/arp1.png" alt=""></p>
-<p>广播过程：</p>
-<p><img src="network-protocol/arp2.png" alt=""></p>
-<p>这样就可以获取到机器D的MAC地址了，之后可以进行通信了；</p>
-<p>为了避免每次都用 ARP 请求，机器本地也会进行 ARP 缓存。当然机器会不断地上线下线，IP 也可能会变，所以 ARP 的 MAC 地址缓存过一段时间就会过期 ；</p>
-<p><strong>跨子网获取MAC地址</strong></p>
-<p>我们看一下ARP协议在跨子网的时候ip和MAC是如何变化的？</p>
-<p><img src="network-protocol/ARP3.png" alt=""></p>
-<p>​    如果目标IP和源IP不在同一个子网络，就需要发送ARP协议，首先获取到网关的MAC地址，然后将源MAC和网关MAC放入链路层数据包的标头，网关收到数据包后，发现MAC地址匹配然后取出IP地址，查看是否是自己局域网的，如果不是就继续跳转，直到找到这个目标IP所在的局域网，在这个局域网上发送ARP，获取到目标地址的MAC地址。</p>
-<p><strong>数据格式：</strong></p>
-<p>链路层的数据的单位称为帧，每一帧分成两个部分：标头Head和数据Data。</p>
-<p><img src="network-protocol/%E9%93%BE%E8%B7%AF%E5%B1%82.png" alt=""></p>
-<p>链路层数据包格式：</p>
-<p><img src="network-protocol%E5%9B%BE%E7%89%873.png" alt=""></p>
-<h4 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h4><p><strong>网络层提供的服务：跨子网络的主机之间的数据传输</strong></p>
-<p>​    以太网协议，依靠MAC地址发送数据，但是互联网是由无数个子网络组成的一个巨大网络，而且以太网采用广播方式发送数据包，这时如果要使用广播的方式进行数据传递肯定是不行的，<strong>所以跨子网中通信需要采用路由的方式进行通信（数据的单位称为数据包）</strong>。</p>
-<p>这个路由就是网络地址，使得我们能够区分不同的计算机是否属于同一个子网络；</p>
-<p>网络地址帮助我们确定计算机所在的子网络，MAC地址则将数据包送到该子网络中的目标网卡。</p>
-<p><strong>IP协议</strong></p>
-<p>规定网络地址的协议，叫做<strong>IP协议</strong>，IP协议是不可靠、无连接的协议。</p>
-<p>​    IP协议所定义的地址，就被称为<strong>IP地址</strong>，它的任务仅仅是根据源主机和目的主机的地址来传送数据。为此目的，IP定义了寻址方法和数据报的封装结构。第一个架构的主要版本为IPv4，目前仍然是广泛使用的互联网协议，尽管世界各地正在积极部署IPv6。</p>
-<p>IP协议第四版，简称IPv4：</p>
-<p><img src="network-protocol/ip.png" alt=""></p>
-<p>用分成四段的十进制数表示IP地址，从0.0.0.0一直到255.255.255.255，这个地址分成两个部分，前一部分代表网络，后一部分代表主机，比如前24位，后24位</p>
-<p><strong>子网掩码</strong>：用来判断两个ip是否处于同一个子网络。</p>
-<p>​    形式上等同于IP地址，也是一个32位二进制数字，它的网络部分全部为1，主机部分全部为0，比如：11111111.11111111.11111111.00000000</p>
-<p><strong>判断是两个IP否是子网的方法：</strong></p>
-<p>​    将两个IP地址与子网掩码分别进行AND运算（两个数位都为1，运算结果为1，否则为0），然后比较结果是否相同。</p>
-<p><strong>DHCP协议</strong></p>
-<p>​    动态主机配置协议，DHCP（Dynamic Host Configuration Protocol，动态主机配置协议）通常被应用在大型的局域网络环境中，主要作用是集中的管理、分配IP地址，使网络环境中的主机动态的获得IP地址、Gateway地址、DNS服务器地址等信息，并能够提升地址的使用率。</p>
-<p><strong>数据格式：</strong></p>
-<p>根据IP协议发送的数据，就叫做IP数据包，我们将IP数据包放到链路层数据包的数据部分：</p>
-<p><img src="network-protocol/%E7%BD%91%E7%BB%9C%E5%B1%82%E6%95%B0%E6%8D%AE%E5%8C%85.png" alt=""></p>
-<p>IP数据包的标头格式：</p>
-<p><img src="network-protocol/ip%E5%A4%B4.png" alt=""></p>
-<p>在网络层进行数据传输时：</p>
-<p>​    首先查看目标IP和自己是否在同一个子网络，如果是就发送ARP协议获取这个地址对应的MAC地址，然后将源MAC和目标MAC地址放入链路层数据包，发送出去即可，如果不在同一个子网络，就需要发送ARP协议，首先获取到网关的MAC地址，然后将源MAC和网关MAC放入链路层数据包的标头，网关收到数据包后，发现MAC地址匹配然后取出IP地址，查看是否是自己局域网的，如果不是就继续跳转，直到找到这个目标IP所在的局域网，在这个局域网上发送ARP，获取到目标地址的MAC地址。</p>
-<h4 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h4><p><strong>传输层提供的服务：在进程之间提供数据传输</strong></p>
-<p>​    传输层（Transport Layer）在计算机网络中是互联网协议包与开放系统互连（OSI）网络堆栈中协议的分层结构中的方法的一个概念划分。<strong>该层的协议为应用进程提供端到端的通信服务。它提供面向连接的数据流支持、可靠性、流量控制、多路复用等服务。</strong></p>
-<p>作用就是建立<strong>端口到端口</strong>的通信。相比之下，网络层的功能是建立<strong>主机到主机</strong>的通信。只要确定主机和端口，我们就能实现程序之间的交流。</p>
-<p>传输层的数据包格式也是分为标头和数据两部分，嵌在IP数据包的数据部分：</p>
-<p><img src="network-protocol/%E4%BC%A0%E8%BE%93%E5%B1%82%E6%95%B0%E6%8D%AE%E5%8C%85.png" alt=""></p>
-<p><strong>UDP协议</strong></p>
-<p>​    用户数据报协议，无连接协议，无服务状态，会丢包，不能保证数据包顺序到达，基于数据报，不需要建立连接，谁监听谁就能收到消息，数据报是一个一个的发，一个一个的收，处理速度快，延时低。</p>
-<p>UDP数据包的标头格式：</p>
-<p><img src="network-protocol/upd.png" alt=""></p>
-<p>看这个包含的内容就只UDP比较简单，负责的比较少，只有源端口号和目标端口号，根据端口号，将数据交给相应的应用程序 。</p>
-<p>UDP协议适用场景：</p>
-<ul>
-<li>需要资源少，在网络情况比较好的内网，或对于丢包不敏感的应用</li>
-<li>不需要一对一建立连接，而是可以广播的应用</li>
-<li>需要处理速度快，时延低，可以容忍少数丢表</li>
-</ul>
-<p><strong>TCP协议</strong></p>
-<p>​    传输控制协议，为了提高网络的可靠性，每发出一个数据包都要求确认。如果有一个数据包遗失，就收不到确认，发出方就知道有必要重发这个数据包了，所以TCP协议是可靠的，面向连接的协议，基于字节流，没有顺序，丢包的问题，提供了连接维护，流量控制，拥塞控制，缺点就是过程复杂，相比UDP消耗更多的资源。</p>
-<p>TCP数据包的标头格式：</p>
-<p><img src="network-protocol/tcp%E6%A0%87%E5%A4%B4.png" alt=""></p>
-<p>对比UDP的标头明显复杂了很多：</p>
-<ul>
-<li>源端口号和目的端口号跟UDP一样</li>
-<li>序号用来解决乱序问题</li>
-<li>确认序号用来解决丢包问题</li>
-<li>还有一些状态位，例如 SYN 是发起一个连接，ACK 是回复，RST 是重新连接，FIN 是结束连接等。TCP 是面向连接的，因而双方要维护连接的状态，这些带状态位的包的发送，会引起双方的状态变更</li>
-<li>窗口大小用来做流量控制，通信双方各声明一个窗口，标识自己当前能够的处理能力 </li>
-</ul>
-<h4 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h4><p><strong>应用层提供的服务：规定好应用的数据格式</strong></p>
-<p>​    应用程序收到传输层的数据，接下来就要进行解读。由于互联网是开放架构，数据来源五花八门，必须事先规定好格式，否则根本无法解读。所以<strong>应用层的作用，就是规定应用程序的数据格式</strong>。</p>
-<p><strong>HTTP协议</strong></p>
-<p>​    HTTP协议，即超文本传输协议(Hypertext transfer protocol)。是一种详细规定了浏览器和万维网(WWW = World Wide Web)服务器之间互相通信的规则，通过因特网传送万维网文档的数据传送协议。</p>
-<p>​    HTTP协议是用于从WWW服务器传输超文本到本地浏览器的传送协议。它可以使浏览器更加高效，使网络传输减少。它不仅保证计算机正确快速地传输超文本文档，还确定传输文档中的哪一部分，以及哪部分内容首先显示(如文本先于图形)等。</p>
-<p>​    HTTP 是基于 TCP 协议的 ，所以它使用面向连接的方式发送请求，通过 stream 二进制流的方式传给对方。当然，到了 TCP 层，它会把二进制流变成一个的报文段发送给服务器 。</p>
-<p>http请求的格式：</p>
-<p> <img src="network-protocol/Http%E7%9A%84%E8%AF%B7%E6%B1%82%E6%A0%BC%E5%BC%8F.png" alt=""></p>
-<ul>
-<li><p>请求行中的方法是指请求的方式，常用的就GET，PUT，POST，DELETE等；</p>
-</li>
-<li><p>首部每一行以键/值的形式写入，键值间用:分割，多个值之间以;分割，每行以回车符换行符为结束；</p>
-<p>常见的键有：</p>
-<p>​    User-Agent：产生请求的浏览器类型</p>
-<p>​    Host：请求的主机名，允许多个域名同处一个IP地址</p>
-<p>​    Accept：客户端可识别的内容类型列表</p>
-</li>
-<li><p>实体就是我们请求的正文实体；</p>
-</li>
-</ul>
-<p>http响应的格式：</p>
-<p><img src="network-protocol/HTTP%E5%93%8D%E5%BA%94%E6%A0%BC%E5%BC%8F.png" alt=""></p>
-<p>响应的格式与请求的类似，少了方法，多了响应的状态码，就是请求的结果，比如：200,404,500</p>
-<p>HTTP的数据包是嵌在TCP数据包的数据部分，所以这是我们最终的数据包格式：</p>
-<p><img src="network-protocol/%E5%BA%94%E7%94%A8%E5%B1%82%E6%95%B0%E6%8D%AE%E5%8C%85.png" alt=""></p>
-<p>完整的HTTP请求过程：</p>
-<p><img src="network-protocol/%E5%AE%8C%E6%95%B4%E7%9A%84http%E8%AF%B7%E6%B1%82.png" alt=""></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://chenmingyu.top/network-protocol/" data-id="ckdn6w80p0042aktw98vyfoly" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" rel="tag">网络协议</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">下一页 &amp;raquo;</a>
-  </nav>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/elasticsearch/">elasticsearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/jvm/">jvm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nosql/">nosql</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tomcat/">tomcat</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/zookeeper/">zookeeper</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/">分布式事务</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">并发编程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/">网络协议</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Integer%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/" rel="tag">Integer缓存机制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aop/" rel="tag">aop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/effective/" rel="tag">effective</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/elasticsearch/" rel="tag">elasticsearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/email/" rel="tag">email</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exception/" rel="tag">exception</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gc/" rel="tag">gc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htmlunit/" rel="tag">htmlunit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/io/" rel="tag">io</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jvm%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/" rel="tag">jvm内存区域</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mybatis/" rel="tag">mybatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nio/" rel="tag">nio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rabbitmq/" rel="tag">rabbitmq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring%E6%BA%90%E7%A0%81/" rel="tag">spring源码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swagger2/" rel="tag">swagger2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thymeleaf/" rel="tag">thymeleaf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tomcat/" rel="tag">tomcat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zookeeper/" rel="tag">zookeeper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F/" rel="tag">中介者模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" rel="tag">二分查找</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="tag">二叉树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/" rel="tag">享元模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/" rel="tag">代理模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/" rel="tag">分布式事务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" rel="tag">单例模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/" rel="tag">原型模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E5%B0%84/" rel="tag">反射</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/" rel="tag">命令模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/" rel="tag">垃圾收集器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/" rel="tag">备忘录模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/" rel="tag">外观模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" rel="tag">定时任务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" rel="tag">工厂模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/" rel="tag">建造者模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8/" rel="tag">异常</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E6%AD%A5%E8%B0%83%E7%94%A8/" rel="tag">异步调用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82/" rel="tag">抽象工厂</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/" rel="tag">日志管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/" rel="tag">桥接模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95/" rel="tag">模板方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/" rel="tag">策略模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" rel="tag">类加载机制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B4%A2%E5%BC%95/" rel="tag">索引</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E7%A8%8B/" rel="tag">线程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/" rel="tag">线程池</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/" rel="tag">组合模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" rel="tag">网络协议</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/" rel="tag">装饰器模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/" rel="tag">观察者模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/" rel="tag">解释器模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F/" rel="tag">访问者模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/" rel="tag">责任链模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/" rel="tag">迭代器模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/" rel="tag">适配器模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="tag">配置文件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%94%81/" rel="tag">锁</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%86%E5%90%88/" rel="tag">集合</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Integer%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/" style="font-size: 10px;">Integer缓存机制</a> <a href="/tags/aop/" style="font-size: 10px;">aop</a> <a href="/tags/effective/" style="font-size: 10px;">effective</a> <a href="/tags/elasticsearch/" style="font-size: 12.5px;">elasticsearch</a> <a href="/tags/email/" style="font-size: 10px;">email</a> <a href="/tags/exception/" style="font-size: 10px;">exception</a> <a href="/tags/gc/" style="font-size: 10px;">gc</a> <a href="/tags/htmlunit/" style="font-size: 10px;">htmlunit</a> <a href="/tags/io/" style="font-size: 10px;">io</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/jvm%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/" style="font-size: 10px;">jvm内存区域</a> <a href="/tags/mybatis/" style="font-size: 12.5px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/nio/" style="font-size: 10px;">nio</a> <a href="/tags/rabbitmq/" style="font-size: 10px;">rabbitmq</a> <a href="/tags/redis/" style="font-size: 17.5px;">redis</a> <a href="/tags/springboot/" style="font-size: 20px;">springboot</a> <a href="/tags/spring%E6%BA%90%E7%A0%81/" style="font-size: 10px;">spring源码</a> <a href="/tags/swagger2/" style="font-size: 10px;">swagger2</a> <a href="/tags/thymeleaf/" style="font-size: 10px;">thymeleaf</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/zookeeper/" style="font-size: 10px;">zookeeper</a> <a href="/tags/%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">中介者模式</a> <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" style="font-size: 10px;">二分查找</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 10px;">二叉树</a> <a href="/tags/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">享元模式</a> <a href="/tags/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">代理模式</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/" style="font-size: 10px;">分布式事务</a> <a href="/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">单例模式</a> <a href="/tags/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">原型模式</a> <a href="/tags/%E5%8F%8D%E5%B0%84/" style="font-size: 10px;">反射</a> <a href="/tags/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">命令模式</a> <a href="/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/" style="font-size: 10px;">垃圾收集器</a> <a href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/" style="font-size: 12.5px;">备忘录模式</a> <a href="/tags/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">外观模式</a> <a href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" style="font-size: 10px;">定时任务</a> <a href="/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">工厂模式</a> <a href="/tags/%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">建造者模式</a> <a href="/tags/%E5%BC%82%E5%B8%B8/" style="font-size: 10px;">异常</a> <a href="/tags/%E5%BC%82%E6%AD%A5%E8%B0%83%E7%94%A8/" style="font-size: 10px;">异步调用</a> <a href="/tags/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82/" style="font-size: 10px;">抽象工厂</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 15px;">数据结构</a> <a href="/tags/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/" style="font-size: 10px;">日志管理</a> <a href="/tags/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">桥接模式</a> <a href="/tags/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95/" style="font-size: 10px;">模板方法</a> <a href="/tags/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">策略模式</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 12.5px;">算法</a> <a href="/tags/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" style="font-size: 10px;">类加载机制</a> <a href="/tags/%E7%B4%A2%E5%BC%95/" style="font-size: 10px;">索引</a> <a href="/tags/%E7%BA%BF%E7%A8%8B/" style="font-size: 10px;">线程</a> <a href="/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/" style="font-size: 10px;">线程池</a> <a href="/tags/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">组合模式</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" style="font-size: 10px;">网络协议</a> <a href="/tags/%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">装饰器模式</a> <a href="/tags/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">观察者模式</a> <a href="/tags/%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">解释器模式</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a> <a href="/tags/%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">访问者模式</a> <a href="/tags/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">责任链模式</a> <a href="/tags/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">迭代器模式</a> <a href="/tags/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">适配器模式</a> <a href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" style="font-size: 10px;">配置文件</a> <a href="/tags/%E9%94%81/" style="font-size: 10px;">锁</a> <a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 10px;">集合</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/mysql-create-index/">这道面试题你确定不看看吗：一条sql语句，有多个查询条件，你会选择哪个字段作为索引，为什么？</a>
-          </li>
-        
-          <li>
-            <a href="/zookeeper/">zookeeper命令详解</a>
-          </li>
-        
-          <li>
-            <a href="/data-structure-binary-search/">【数据结构】| 二分查找</a>
-          </li>
-        
-          <li>
-            <a href="/jvm-class-loader/">【jvm】类加载机制</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2020 陈明羽<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-  </div>
-</body>
-</html>
+如果入参 i 大于等于IntegerCache.low或者 ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">陈明羽</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives"><div class="headline">文章</div><div class="length_num">69</div></a></div><div class="card-info-data-item is-center">      <a href="/tags"><div class="headline">标签</div><div class="length_num">64</div></a></div><div class="card-info-data-item is-center">     <a href="/categories"><div class="headline">分类</div><div class="length_num">13</div></a></div></div><div class="card-info-bookmark is-center"><button class="button--animated" id="bookmark-it" title="加入书签"><i class="fas fa-bookmark"></i><span>加入书签</span></button></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/xxxxx" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:xxxxxx@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-recent-item"><div class="aside-recent-post"><a href="/hello-world/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="Hello World" alt="Hello World"/></div><div class="aside-post-title"><div class="aside-post_title" href="/hello-world/" title="Hello World">Hello World</div><time class="aside-post_meta post-meta__date" title="发表于 2020-07-12 16:14:18">2020-07-12</time></div></a></div><div class="aside-recent-post"><a href="/mysql-create-index/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="这道面试题你确定不看看吗：一条sql语句，有多个查询条件，你会选择哪个字段作为索引，为什么？" alt="这道面试题你确定不看看吗：一条sql语句，有多个查询条件，你会选择哪个字段作为索引，为什么？"/></div><div class="aside-post-title"><div class="aside-post_title" href="/mysql-create-index/" title="这道面试题你确定不看看吗：一条sql语句，有多个查询条件，你会选择哪个字段作为索引，为什么？">这道面试题你确定不看看吗：一条sql语句，有多个查询条件，你会选择哪个字段作为索引，为什么？</div><time class="aside-post_meta post-meta__date" title="发表于 2019-12-03 21:12:29">2019-12-03</time></div></a></div><div class="aside-recent-post"><a href="/zookeeper/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="zookeeper命令详解" alt="zookeeper命令详解"/></div><div class="aside-post-title"><div class="aside-post_title" href="/zookeeper/" title="zookeeper命令详解">zookeeper命令详解</div><time class="aside-post_meta post-meta__date" title="发表于 2019-10-31 11:12:34">2019-10-31</time></div></a></div><div class="aside-recent-post"><a href="/data-structure-binary-search/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="【数据结构】| 二分查找" alt="【数据结构】| 二分查找"/></div><div class="aside-post-title"><div class="aside-post_title" href="/data-structure-binary-search/" title="【数据结构】| 二分查找">【数据结构】| 二分查找</div><time class="aside-post_meta post-meta__date" title="发表于 2019-10-25 17:49:33">2019-10-25</time></div></a></div><div class="aside-recent-post"><a href="/jvm-class-loader/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="【jvm】类加载机制" alt="【jvm】类加载机制"/></div><div class="aside-post-title"><div class="aside-post_title" href="/jvm-class-loader/" title="【jvm】类加载机制">【jvm】类加载机制</div><time class="aside-post_meta post-meta__date" title="发表于 2019-09-23 15:31:19">2019-09-23</time></div></a></div></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fas fa-folder-open"></i><span>分类</span></div><ul class="card-category-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/elasticsearch/"><span class="card-category-list-name">elasticsearch</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/java/"><span class="card-category-list-name">java</span><span class="card-category-list-count">21</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/jvm/"><span class="card-category-list-name">jvm</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/mysql/"><span class="card-category-list-name">mysql</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/nosql/"><span class="card-category-list-name">nosql</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/tomcat/"><span class="card-category-list-name">tomcat</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/zookeeper/"><span class="card-category-list-name">zookeeper</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/"><span class="card-category-list-name">分布式事务</span><span class="card-category-list-count">1</span></a></li>
+            <li class="card-category-list-item more is-center"><a class="card-category-list-link-more" href="/categories">
+                <span>查看更多</span><i class="fas fa-angle-right"></i></a></li>           
+            </ul></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Integer%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/" style="font-size: 16px; color: #999">Integer缓存机制</a> <a href="/tags/aop/" style="font-size: 16px; color: #999">aop</a> <a href="/tags/effective/" style="font-size: 16px; color: #999">effective</a> <a href="/tags/elasticsearch/" style="font-size: 17.5px; color: #999da3">elasticsearch</a> <a href="/tags/email/" style="font-size: 16px; color: #999">email</a> <a href="/tags/exception/" style="font-size: 16px; color: #999">exception</a> <a href="/tags/gc/" style="font-size: 16px; color: #999">gc</a> <a href="/tags/htmlunit/" style="font-size: 16px; color: #999">htmlunit</a> <a href="/tags/io/" style="font-size: 16px; color: #999">io</a> <a href="/tags/java/" style="font-size: 19px; color: #99a1ac">java</a> <a href="/tags/jvm%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/" style="font-size: 16px; color: #999">jvm内存区域</a> <a href="/tags/mybatis/" style="font-size: 17.5px; color: #999da3">mybatis</a> <a href="/tags/mysql/" style="font-size: 17.5px; color: #999da3">mysql</a> <a href="/tags/nio/" style="font-size: 16px; color: #999">nio</a> <a href="/tags/rabbitmq/" style="font-size: 16px; color: #999">rabbitmq</a> <a href="/tags/redis/" style="font-size: 20.5px; color: #99a5b6">redis</a> <a href="/tags/springboot/" style="font-size: 22px; color: #99a9bf">springboot</a> <a href="/tags/spring%E6%BA%90%E7%A0%81/" style="font-size: 16px; color: #999">spring源码</a> <a href="/tags/swagger2/" style="font-size: 16px; color: #999">swagger2</a> <a href="/tags/thymeleaf/" style="font-size: 16px; color: #999">thymeleaf</a> <a href="/tags/tomcat/" style="font-size: 16px; color: #999">tomcat</a> <a href="/tags/zookeeper/" style="font-size: 16px; color: #999">zookeeper</a> <a href="/tags/%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">中介者模式</a> <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" style="font-size: 16px; color: #999">二分查找</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 16px; color: #999">二叉树</a> <a href="/tags/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">享元模式</a> <a href="/tags/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">代理模式</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/" style="font-size: 16px; color: #999">分布式事务</a> <a href="/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">单例模式</a> <a href="/tags/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">原型模式</a> <a href="/tags/%E5%8F%8D%E5%B0%84/" style="font-size: 16px; color: #999">反射</a> <a href="/tags/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">命令模式</a> <a href="/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/" style="font-size: 16px; color: #999">垃圾收集器</a> <a href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/" style="font-size: 17.5px; color: #999da3">备忘录模式</a> <a href="/tags/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">外观模式</a> <a href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" style="font-size: 16px; color: #999">定时任务</a> <a href="/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">工厂模式</a> <a href="/tags/%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">建造者模式</a> <a href="/tags/%E5%BC%82%E5%B8%B8/" style="font-size: 16px; color: #999">异常</a> <a href="/tags/%E5%BC%82%E6%AD%A5%E8%B0%83%E7%94%A8/" style="font-size: 16px; color: #999">异步调用</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/07/"><span class="card-archive-list-date">七月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/12/"><span class="card-archive-list-date">十二月 2019</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/10/"><span class="card-archive-list-date">十月 2019</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/09/"><span class="card-archive-list-date">九月 2019</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/08/"><span class="card-archive-list-date">八月 2019</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/07/"><span class="card-archive-list-date">七月 2019</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/06/"><span class="card-archive-list-date">六月 2019</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/05/"><span class="card-archive-list-date">五月 2019</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item more is-center"><a class="card-archive-list-link-more" href="/archives">
+              <span>查看更多</span><i class="fas fa-angle-right"  ></i></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-article-name">文章数目 :</div><div class="webinfo-article-count">69</div></div><div class="webinfo-item">      <div class="webinfo-site-uv-name">本站访客数 :</div><div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="webinfo-site-name">本站总访问量 :</div><div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div></div></div></div></div></div></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By 陈明羽</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><button class="translate_chn_to_cht" id="translateLink" title="简繁转换">繁</button><button id="darkmode" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script src="https://cdn.jsdelivr.net/npm/typed.js"></script><script>var subtitleEffect = true
+if (subtitleEffect) { 
+  var typed = new Typed("#subtitle", {
+    strings: "今日事&#44;今日畢,Never put off till tomorrow what you can do today".split(","),
+    startDelay: 300,
+    typeSpeed: 150,
+    loop: true,
+    backSpeed: 50
+  })
+} else {
+  document.getElementById("subtitle").innerHTML = '今日事&#44;今日畢'
+}</script></body></html>
