@@ -1,184 +1,2254 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>但行好事 莫问前程 - 明羽</title><meta name="description" content="但行好事 莫问前程"><meta name="keywords" content="陈明羽,chenmingyu,java,架构"><meta name="author" content="明羽"><meta name="copyright" content="明羽"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://chenmingyu.top/page/2/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="website"><meta property="og:title" content="但行好事 莫问前程"><meta property="og:url" content="https://chenmingyu.top/page/2/"><meta property="og:site_name" content="但行好事 莫问前程"><meta property="og:description" content="但行好事 莫问前程"><meta property="og:image" content="https://chenmingyu.top/img/avatar.jpg"><meta property="article:published_time" content="2020-12-02T04:13:15.235Z"><meta property="article:modified_time" content="2020-12-02T04:13:15.235Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
-  document.documentElement.setAttribute('data-theme', 'dark')
-  if (document.querySelector('meta[name="theme-color"]') !== null) {
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
-  }
-}
-var activateLightMode = function () {
-  document.documentElement.setAttribute('data-theme', 'light')
-  if (document.querySelector('meta[name="theme-color"]') !== null) {
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
-  }
-}
 
-var getCookies = function (name) {
-  const value = `; ${document.cookie}`
-  const parts = value.split(`; ${name}=`)
-  if (parts.length === 2) return parts.pop().split(';').shift()
-}
 
-var autoChangeMode = 'false'
-var t = getCookies('theme')
-if (autoChangeMode === '1') {
-  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
-  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
-  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="renderer" content="webkit">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="description" content="但行好事 莫问前程">
 
-  if (t === undefined) {
-    if (isLightMode) activateLightMode()
-    else if (isDarkMode) activateDarkMode()
-    else if (isNotSpecified || hasNoSupport) {
-      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
-      var now = new Date()
-      var hour = now.getHours()
-      var isNight = hour <= 6 || hour >= 18
-      isNight ? activateDarkMode() : activateLightMode()
+	
+		
+			<link rel="stylesheet" href="/bower_components/fancybox/source/jquery.fancybox.css">
+		
+		<link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/css/style.css">
+	
+
+	<title>但行好事 莫问前程 - 明羽</title>
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+<header id="header">
+	<div class="center">
+		<div class="wrap">
+			<div id="site">
+				<h1>
+					<a href="/">但行好事 莫问前程</a>
+					
+						<a class="github" href="https://github.com/dnxbf321" target="_blank" rel="noopener">
+	  					<svg aria-hidden="true" class="octicon octicon-mark-github" height="28" role="img" version="1.1" viewBox="0 0 16 16" width="28"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59 0.4 0.07 0.55-0.17 0.55-0.38 0-0.19-0.01-0.82-0.01-1.49-2.01 0.37-2.53-0.49-2.69-0.94-0.09-0.23-0.48-0.94-0.82-1.13-0.28-0.15-0.68-0.52-0.01-0.53 0.63-0.01 1.08 0.58 1.23 0.82 0.72 1.21 1.87 0.87 2.33 0.66 0.07-0.52 0.28-0.87 0.51-1.07-1.78-0.2-3.64-0.89-3.64-3.95 0-0.87 0.31-1.59 0.82-2.15-0.08-0.2-0.36-1.02 0.08-2.12 0 0 0.67-0.21 2.2 0.82 0.64-0.18 1.32-0.27 2-0.27 0.68 0 1.36 0.09 2 0.27 1.53-1.04 2.2-0.82 2.2-0.82 0.44 1.1 0.16 1.92 0.08 2.12 0.51 0.56 0.82 1.27 0.82 2.15 0 3.07-1.87 3.75-3.65 3.95 0.29 0.25 0.54 0.73 0.54 1.48 0 1.07-0.01 1.93-0.01 2.2 0 0.21 0.15 0.46 0.55 0.38C13.71 14.53 16 11.53 16 8 16 3.58 12.42 0 8 0z"></path></svg>
+						</a>
+					
+				</h1>
+				
+					<h2>
+						<a href="/">明羽</a>
+					</h2>
+				
+			</div>
+			<nav id="menu">
+				<ul>
+					
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives/">归档</a></li>
+					
+				</ul>
+			</nav>
+		</div>
+	</div>
+</header>
+
+<div id="content">
+	<div class="center">
+		<div class="main-col">
+			
+
+	
+		
+		<article class="post">
+	<div class="post-content">
+		<header>
+			
+				<div class="meta">
+					<div class="icon">
+						
+							<i class="fa fa-file"></i>
+						
+					</div>
+					<time datetime="2019-09-17T09:00:06.000Z">2019-09-17</time>
+				</div>
+			
+			
+	
+		<h1 class="title" data-role="articleTitle"><a href="/jvm-gc/">【jvm】GC与垃圾回收算法</a></h1>
+	
+
+		</header>
+		<div class="entry">
+			
+				<h3 id="GC"><a href="#GC" class="headerlink" title="GC"></a>GC</h3><p>Grabage Collection GC 垃圾收集，在了解了jvm的内存区域之后，要关心的问题就是垃圾收集了，因为我们的内存是有限的，程序在运行中会不断的产生新的对象占用内存空间，所以我们需要一个垃圾收集机制去回收内存</p>
+<p>在java内存运行时区域的各个部分，其中程序计数器，虚拟机栈，本地方法栈三个区域随着线程的创建而创建，销毁而销毁，栈中的每个栈帧分配多少内存基本上在类结构确定下来是就抑制了，所以这几个区域不需要过多考虑回收的问题，方法结束或者线程结束，内存自然就回收了，而在堆和方法区这两块区域中，我们只有在程序运行期间才能知道会创建哪些对象，这部分内存的分配合回收都是动态的，所以我们主要关注点在如果进行回收堆内存和方法区这两块区域的垃圾内存</p>
+<h4 id="对象是否存活"><a href="#对象是否存活" class="headerlink" title="对象是否存活"></a>对象是否存活</h4><p>垃圾收集，我们首先要判断哪些对象是垃圾的对象</p>
+<p><strong>引用计数算法：</strong>每个对象都添加一个引用计数器，当有地方引用它的时候，计数器就加1，当引用失效的时候计数器就减1，这样通过这个引用计数器就可以知道当前对象是否被引用，但是这种方式的弊端就是无法解决循环引用的问题，假如a持有b的引用，b持有a的引用，两个对象的计数器都是1，但是a和b这两个对象只是被对方引用，假如这两个对象都是垃圾对象，但是由于计数器不为零，所以无法进行回收</p>
+<p><strong>可达性分析算法：</strong>当一个对象到GC Roots没有任何引用链相连的时候，就证明这个对象是不可达的对象</p>
+<p>所以这个GC Roots很重要，包括以下几种：</p>
+<ul>
+<li>虚拟机栈中引用的对象</li>
+<li>方法区中类静态属性引用的对象，常量引用的对象</li>
+<li>本地方法栈中JNI引用的对象</li>
+</ul>
+<p><img src="/jvm-gc/gcroots.jpg" alt></p>
+<h4 id="4种引用"><a href="#4种引用" class="headerlink" title="4种引用"></a>4种引用</h4><p>无论哪种算法都需要判断引用，jdk中存在着4种引用</p>
+<ol>
+<li><p>强引用（Strong Reference）</p>
+<pre><code class="java">Object object = new Object();</code></pre>
+<p>当内存不够时，程序会抛出异常，也不会进行回收强引用指向的对象</p>
+</li>
+<li><p>软引用（Soft Reference）</p>
+<p>用来描述一些有用但非必须的对象，必要时可以进行垃圾回收</p>
+<pre><code class="java">SoftReference&lt;Object&gt; softReference = new SoftReference&lt;&gt;(object);</code></pre>
+<p>当内存充足时，垃圾收集器不会回收弱引用指向的对象，当内存不足时，垃圾收集器才会回收软引用指向的对象</p>
+</li>
+<li><p>弱引用（Weak Reference）</p>
+<p>描述非必须对象</p>
+<pre><code class="java">WeakReference&lt;Object&gt; weakReference = new WeakReference&lt;&gt;(object);</code></pre>
+<p>每次垃圾收集时被回收</p>
+</li>
+<li><p>虚引用（Phantom Reference）</p>
+<p>这个引用类型强度最低，一个对象是否有虚引用对其生存周期没有任何影响</p>
+<pre><code class="java">PhantomReference&lt;Object&gt; phantomReference = new PhantomReference&lt;&gt;(object, new ReferenceQueue&lt;&gt;());</code></pre>
+<p>每次垃圾收集时被回收</p>
+<p>虚引用必须和引用队列(ReferenceQueue)联合使用。当垃圾回收器准备回收一个对象时，如果发现它还有虚引用，就会在回收对象的内存之前，把这个虚引用加入到与之关联的引用队列中</p>
+</li>
+</ol>
+<h4 id="二次标记"><a href="#二次标记" class="headerlink" title="二次标记"></a>二次标记</h4><p>在发现不可达对象后，这对象也不是一定会回收，一个对象被回收，至少要经历两次标记过程</p>
+<p>第一次：当对象不可达时被第一次标记</p>
+<p>第二次：如果未可达对象，没有覆盖finalize()方法不需要执行finalize()方法，或者已经执行过finalize()方法了，此时进行第二次标记</p>
+<p>如果未可达对象有必要执行finalize()方法，则会被放入一个F-Queue的队列中，后续jvm会创建一个低优先级的线程去执行它，只要未可达对象在finalize()方法里重新将自己赋予给某个类的对象或者对象的属性，就可以避免被垃圾回收</p>
+<p><strong>验证：</strong></p>
+<pre><code class="java">/**
+ * @author: chenmingyu
+ * @date: 2019/9/18 18:19
+ * @description:
+ */
+public class FinalizeTest {
+
+    private static FinalizeTest FINALIZE_TEST;
+
+    public void test(){
+        System.out.println(&quot;当前存活&quot;);
     }
-    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
-      if (Cookies.get('theme') === undefined) {
-        e.matches ? activateDarkMode() : activateLightMode()
-      }
-    })
-  } else if (t === 'light') activateLightMode()
-  else activateDarkMode()
-} else if (autoChangeMode === '2') {
-  now = new Date()
-  hour = now.getHours()
-  isNight = hour <= 6 || hour >= 18
-  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
-  else if (t === 'light') activateLightMode()
-  else activateDarkMode()
-} else {
-  if (t === 'dark') activateDarkMode()
-  else if (t === 'light') activateLightMode()
-}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
-  root: '/',
-  algolia: undefined,
-  localSearch: undefined,
-  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  bookmark: {
-    message_prev: '按',
-    message_next: '键将本页加入书签'
-  },
-  runtime_unit: '天',
-  runtime: false,
-  copyright: undefined,
-  ClickShowText: undefined,
-  medium_zoom: false,
-  fancybox: true,
-  Snackbar: undefined,
-  justifiedGallery: {
-    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
-    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
-  },
-  baiduPush: false,
-  highlightCopy: true,
-  highlightLang: true,
-  isPhotoFigcaption: false,
-  islazyload: true,
-  isanchor: false    
-}</script><script>var GLOBAL_CONFIG_SITE = { 
-  isPost: false,
-  isHome: true,
-  isHighlightShrink: false,
-  isSidebar: false
-  }</script><noscript><style>
-#nav {
-  opacity: 1
+
+    @Override
+    protected void finalize() throws Throwable {
+        FINALIZE_TEST = this;
+        System.out.println(&quot;执行finalize方法&quot;);
+    }
+
+    public static void main(String[] args) throws Exception {
+
+        FINALIZE_TEST = new FinalizeTest();
+        FINALIZE_TEST = null;
+        System.gc();
+        TimeUnit.SECONDS.sleep(2L);
+        if(FINALIZE_TEST != null){
+            FINALIZE_TEST.test();
+        } else {
+            System.out.println(&quot;已死亡&quot;);
+        }
+
+        FINALIZE_TEST = null;
+        System.gc();
+        TimeUnit.SECONDS.sleep(2L);
+        if(FINALIZE_TEST != null){
+            FINALIZE_TEST.test();
+        } else {
+            System.out.println(&quot;已死亡&quot;);
+        }
+    }
+}</code></pre>
+<p><strong>输出：</strong></p>
+<p><img src="/jvm-gc/1.png" alt></p>
+<p>当一次手动调用gc时，FINALIZE_TEST对象被第一次标记，但是在执行finalize()方法时，重新将自己赋给了静态变量，这样这个对象就有重新有了强引用，避免了被回收</p>
+<p>第二次手动调用gc时，FINALIZE_TEST对象被第一次标记，不在执行finalize()方法，因为finalize()方法只会被系统自动调用一次，所以之后不会再执行finalize()方法，进行了二次标记，然后对象被垃圾收集器回收</p>
+<p>经过两次标记之后，对象基本上就会被回收了</p>
+<p><em>可以自己将上面重写finalize()方法去掉，自己试一下效果</em> </p>
+<h4 id="方法区回收"><a href="#方法区回收" class="headerlink" title="方法区回收"></a>方法区回收</h4><p>对方法区的回收主要是对无用类的回收</p>
+<p>无用类的条件：</p>
+<ol>
+<li>该类的所有实例都已经被回收</li>
+<li>加载该类的ClassLoader已经被回收</li>
+<li>该类对应的Class对象没有在任何地方被引用，无法在任何地方通过反射访问该类</li>
+</ol>
+<p>方法区的垃圾回收性价比低，所以java虚拟机规范中要求虚拟机可以不在方法区实现垃圾收集</p>
+<h3 id="垃圾收集算法"><a href="#垃圾收集算法" class="headerlink" title="垃圾收集算法"></a>垃圾收集算法</h3><h4 id="标记清除算法"><a href="#标记清除算法" class="headerlink" title="标记清除算法"></a>标记清除算法</h4><p>算法分为两个部分：标记和清除</p>
+<p><strong>标记阶段：</strong>首先按照可达性分析，将GC Roots可达的对象进行标记，未被标记的对象就是需要回收的对象</p>
+<p><strong>清除阶段：</strong>在标记完成后统一回收所有未被标记的对象</p>
+<p>这种算法适用于垃圾比较少的区域，比如老年代</p>
+<p><img src="/jvm-gc/%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4.jpg" alt></p>
+<p><strong>缺点：</strong>标记和清除过程效率都不高，回收后会产生大量不连续的内存碎片，空间碎片太多可能导致后续分配大对象时，无法找到足够的连续内存而触发领另一次GC</p>
+<h4 id="复制算法"><a href="#复制算法" class="headerlink" title="复制算法"></a>复制算法</h4><p>复制算法将内存空间分为大小相同的两块，每次只使用其中一块，在垃圾回收时，将正在使用的内存中的存活对象复制到未使用的内存块中，之后清除掉正在使用的内存中所有对象，交换两块内存的角色，周而复始</p>
+<p><img src="/jvm-gc/%E5%A4%8D%E5%88%B6.jpg" alt></p>
+<p>优点：使用复制算法解决了标记清除算法的效率问题，分配内存时不用在考虑内存碎片的问题，按顺序分配内存，运行效率高</p>
+<p>缺点：内存可用率缩小为原来的一半，如果对象存活率较高时，效率将会变低</p>
+<p>这种算法适用于新生代</p>
+<p>有研究表明，新生代中的对象有98%都是朝生夕死的，所以不需要按照1:1的比例来划分内存，而是将内存分为一块较大的内存区域叫Eden区和两块较小的内存区域叫Survivor区，每次使用 Eden 空间和其中一块 Survivor。在回收时，将 Eden 和 Survivor 中还存活着的对象一次性复制到另一块 Survivor 空间上，最后清理 Eden 和 使用过的那一块 Survivor</p>
+<p>HotSpot 虚拟机的 Eden 和 Survivor 的大小比例默认为 8:1，保证了内存的利用率达到 90 %。如果每次回收有多于 10% 的对象存活，那么一块 Survivor 空间就不够用了，此时需要依赖于老年代进行分配担保，也就是借用老年代的空间，如果老年代的内存不够用，就会触发一次fullGC</p>
+<h4 id="标记整理算法"><a href="#标记整理算法" class="headerlink" title="标记整理算法"></a>标记整理算法</h4><p>标记整理算法可以分为三个阶段，第一标记阶段，第二整理阶段，第三清除</p>
+<p>实现过程是首先进行标记，将存活的对象标记出来，在内存中把存活的对象往一端移动，直接回收边界以外的内存，所以不会产生内存碎片，提高了内存的利用率，这种算法适用于老年代</p>
+<p><img src="/jvm-gc/%E6%A0%87%E8%AE%B0%E6%95%B4%E7%90%86.jpg" alt></p>
+<p>缺点：效率不高，不仅要标记存活对象还要整理所有存活对象的引用地址</p>
+<h4 id="分代收集算法"><a href="#分代收集算法" class="headerlink" title="分代收集算法"></a>分代收集算法</h4><p>分代收集算法根据对象存活的生命周期不同将内存划分为不同的区域，一般是把堆分成新生代和老年代，这样就可以根据各个年代的特点采用最合适的收集算法</p>
+<p>新生代：新生代中每次垃圾收集都有大量垃圾对象需要回收，只有少量的对象存活，所以选择复制算法是最高效的，只需要移动少量的对象即可</p>
+<p>老年代：老年代中对象存活率高，没有额外的空间对它进行分配担保，所以可以采用标记清除或者标记整理算法</p>
+
+			
+		</div>
+		<footer class="clearfix">
+			
+				
+				
+					<div class="disqus-comment">
+						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/jvm-gc/#disqus_thread" class="comment-link"> 评论</a>
+					</div>
+				
+			
+			
+	<div class="categories">
+		<i class="fa fa-folder"></i>
+		
+			<a href="/categories/jvm/">jvm</a>
+		
+	</div>
+
+			
+	<div class="tags">
+		<i class="fa fa-tags"></i>
+		
+			<a href="/tags/gc/">#gc</a>
+		
+	</div>
+
+		</footer>
+	</div>
+</article>
+	
+		
+		<article class="post">
+	<div class="post-content">
+		<header>
+			
+				<div class="meta">
+					<div class="icon">
+						
+							<i class="fa fa-file"></i>
+						
+					</div>
+					<time datetime="2019-09-11T02:10:39.000Z">2019-09-11</time>
+				</div>
+			
+			
+	
+		<h1 class="title" data-role="articleTitle"><a href="/java-reflect/">java反射</a></h1>
+	
+
+		</header>
+		<div class="entry">
+			
+				<p>在运行状态中，对于任何一个类，我们都能够知道这个类有哪些方法和属性。对于任何一个对象，我们都能够对它的方法和属性进行调用。我们把这种动态获取对象信息和调用对象方法的功能称之为反射机制。</p>
+<p><strong>反射中常用的到的类</strong></p>
+<ol>
+<li>Class类: 代表类的实体，在运行的Java应用程序中表示类和接口</li>
+<li>Field类: 代表类的属性</li>
+<li>Method类: 代表类的方法</li>
+<li>Constructor类: 代表类的构造方法</li>
+</ol>
+<p><strong>Class类</strong></p>
+<p>Class对象的由来是将class文件读入内存，并为之创建一个Class对象</p>
+<p>Class类表示正在运行的java应用程序中的类和接口，也就是jvm中有N多的实例每个类都有该Class对象，包括基本数据类型</p>
+<pre><code class="java">package com.my.concurrent.reflect;
+
+import org.springframework.util.StringUtils;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+
+/**
+ * @author: chenmingyu
+ * @date: 2019/9/17 11:07
+ * @description:
+ */
+public class Reflect {
+
+    private String name;
+
+    private final int age = 25;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    private Boolean isMy(String name) {
+        if(name.equals(&quot;my&quot;)){
+            return Boolean.TRUE;
+        }
+        return Boolean.FALSE;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Reflect{&quot; +
+                &quot;name=&#39;&quot; + name + &#39;\&#39;&#39; +
+                &#39;}&#39;;
+    }
+}</code></pre>
+<p><strong>获取class类的三种方式</strong></p>
+<pre><code class="java">// 第1种 
+Class var = Reflect.class;
+System.out.println(var.getName());
+// 第2种
+Reflect var1 = new Reflect();
+Class var2 =var1.getClass();
+System.out.println(var2.getName());
+// 第3种 常用
+Class var3 = Class.forName(&quot;com.my.concurrent.reflect.Reflect&quot;);
+System.out.println(var3.getName());</code></pre>
+<p><strong>使用Class类创建实例</strong></p>
+<pre><code class="java">Class reflectClass = Class.forName(&quot;com.my.concurrent.reflect.Reflect&quot;);
+Reflect reflect = (Reflect)reflectClass.newInstance();
+reflect.setName(&quot;my&quot;);
+System.out.println(reflect.toString());</code></pre>
+<p>Class 没有公共构造方法。Class对象是在加载类时由 Java 虚拟机以及通过调用类加载器中的defineClass 方法自动构造的。也就是这不需要我们自己去处理创建，JVM已经帮我们创建好了</p>
+<p><strong>Field类</strong></p>
+<p>访问私有的属性</p>
+<pre><code class="java">Class reflectClass = Class.forName(&quot;com.my.concurrent.reflect.Reflect&quot;);
+Field ageField = reflectClass.getDeclaredField(&quot;age&quot;);
+ageField.setAccessible(Boolean.TRUE);
+int age = (int) ageField.get(reflect);
+System.out.println(age);</code></pre>
+<p><strong>Method类</strong></p>
+<p>执行私有方法</p>
+<pre><code class="java">Class reflectClass = Class.forName(&quot;com.my.concurrent.reflect.Reflect&quot;);
+Method method = reflectClass.getDeclaredMethod(&quot;isMy&quot;, String.class);
+method.setAccessible(Boolean.TRUE);
+Boolean result= (Boolean) method.invoke(reflect,&quot;xn&quot;);
+System.out.println(result);</code></pre>
+<p><strong>Constructor类</strong></p>
+<p>通过Constructor类创建对象实例</p>
+<pre><code class="java">Class reflectClass = Class.forName(&quot;com.my.concurrent.reflect.Reflect&quot;);
+Constructor constructor = reflectClass.getConstructor();
+Reflect constructorReflect = (Reflect) constructor.newInstance();
+constructorReflect.setName(&quot;xn&quot;);
+System.out.println(constructorReflect.toString());</code></pre>
+<p>在获取私有属性或者方法的时候要用方法中带有Declared的方法，这类方法可以反射到私有的方法和属性，没有Declared的只能用来反射公有的方法和属性</p>
+
+			
+		</div>
+		<footer class="clearfix">
+			
+				
+				
+					<div class="disqus-comment">
+						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/java-reflect/#disqus_thread" class="comment-link"> 评论</a>
+					</div>
+				
+			
+			
+	<div class="categories">
+		<i class="fa fa-folder"></i>
+		
+			<a href="/categories/java/">java</a>
+		
+	</div>
+
+			
+	<div class="tags">
+		<i class="fa fa-tags"></i>
+		
+			<a href="/tags/%E5%8F%8D%E5%B0%84/">#反射</a>
+		
+	</div>
+
+		</footer>
+	</div>
+</article>
+	
+		
+		<article class="post">
+	<div class="post-content">
+		<header>
+			
+				<div class="meta">
+					<div class="icon">
+						
+							<i class="fa fa-file"></i>
+						
+					</div>
+					<time datetime="2019-08-28T02:16:19.000Z">2019-08-28</time>
+				</div>
+			
+			
+	
+		<h1 class="title" data-role="articleTitle"><a href="/java-integer-cache/">java包装类的缓存机制</a></h1>
+	
+
+		</header>
+		<div class="entry">
+			
+				<p>java 包装类的缓存机制，是在Java 5中引入的一个有助于节省内存、提高性能的功能，只有在自动装箱时有效</p>
+<p><strong>Integer包装类</strong></p>
+<p>举个栗子：</p>
+<pre><code class="java">Integer a = 127;
+Integer b = 127;
+System.out.println(a == b);</code></pre>
+<p>这段代码输出的结果为true</p>
+<p>使用自动装箱将基本类型转为封装类对象这个过程其实底层实现是调用封装类的valueOf方法：</p>
+<p>Integer a =127; 相当于 Integer a =  Integer.valueOf(127);</p>
+<p>看一下Integer的valueOf方法：</p>
+<pre><code class="java">public static Integer valueOf(int i) {
+    if (i &gt;= IntegerCache.low &amp;&amp; i &lt;= IntegerCache.high)
+        return IntegerCache.cache[i + (-IntegerCache.low)];
+    return new Integer(i);
+}</code></pre>
+<p>如果入参 i 大于等于IntegerCache.low或者小于等于IntegerCache.high)，就从IntegerCache中获取对象</p>
+<p>看一下IntegerCache：</p>
+<pre><code class="java">private static class IntegerCache {
+    static final int low = -128;
+    static final int high;
+    static final Integer cache[];
+
+    static {
+        // high value may be configured by property
+        int h = 127;
+        String integerCacheHighPropValue =
+            sun.misc.VM.getSavedProperty(&quot;java.lang.Integer.IntegerCache.high&quot;);
+        if (integerCacheHighPropValue != null) {
+            try {
+                int i = parseInt(integerCacheHighPropValue);
+                i = Math.max(i, 127);
+                // Maximum array size is Integer.MAX_VALUE
+                h = Math.min(i, Integer.MAX_VALUE - (-low) -1);
+            } catch( NumberFormatException nfe) {
+                // If the property cannot be parsed into an int, ignore it.
+            }
+        }
+        high = h;
+
+        cache = new Integer[(high - low) + 1];
+        int j = low;
+        for(int k = 0; k &lt; cache.length; k++)
+            cache[k] = new Integer(j++);
+
+        // range [-128, 127] must be interned (JLS7 5.1.7)
+        assert IntegerCache.high &gt;= 127;
+    }
+
+    private IntegerCache() {}
+}</code></pre>
+<p>默认范围为：-128到127之间，范围的最大值可以通过java.lang.Integer.IntegerCache.high设置，通过for循环将范围内的数据实例化为Integer对象放到cache数组里</p>
+<p>在测试一下：</p>
+<pre><code class="java">Integer a = 128;
+Integer b = 128;
+System.out.println(a == b);</code></pre>
+<p>输出结果为false，所以如果没有指定cache最大值时，在-128到127之间使用自动装箱时，会使用缓存</p>
+<p><strong>Byte包装类</strong></p>
+<p>再举个栗子：</p>
+<pre><code class="java">public static void main(String[] args) {
+    Byte a = 127;
+    Byte b = 127;
+    System.out.println(a == b); //true
+}</code></pre>
+<p>由于Byte范围在-128到127之间，所以Byte的valueOf都是从ByteCache缓存中获取的</p>
+<pre><code class="java">public static Byte valueOf(byte b) {
+    final int offset = 128;
+    return ByteCache.cache[(int)b + offset];
+}</code></pre>
+<p>ByteCache类：</p>
+<pre><code class="java">private static class ByteCache {
+    private ByteCache(){}
+
+    static final Byte cache[] = new Byte[-(-128) + 127 + 1];
+
+    static {
+        for(int i = 0; i &lt; cache.length; i++)
+            cache[i] = new Byte((byte)(i - 128));
+    }
+}</code></pre>
+<p>与IntegerCache相比，ByteCache的最大值是不能修改的就是127</p>
+<p><strong>Short包装类</strong></p>
+<pre><code class="java">public static Short valueOf(short s) {
+    final int offset = 128;
+    int sAsInt = s;
+    if (sAsInt &gt;= -128 &amp;&amp; sAsInt &lt;= 127) { // must cache
+        return ShortCache.cache[sAsInt + offset];
+    }
+    return new Short(s);
+}</code></pre>
+<p>ShortCache类：</p>
+<pre><code class="java">private static class ShortCache {
+    private ShortCache(){}
+
+    static final Short cache[] = new Short[-(-128) + 127 + 1];
+
+    static {
+        for(int i = 0; i &lt; cache.length; i++)
+            cache[i] = new Short((short)(i - 128));
+    }
+}</code></pre>
+<p>ShortCache的最大值也不可以修改，范围只能在-128 ~ 127之间</p>
+<p><strong>Long包装类</strong>的valueOf方法和LongCache类与Short包装类的实现一致，范围也是只能在-128 ~ 127之间</p>
+<p><strong>Character包装类</strong></p>
+<p>valueOf方法：</p>
+<pre><code class="java">public static Character valueOf(char c) {
+    if (c &lt;= 127) { // must cache
+        return CharacterCache.cache[(int)c];
+    }
+    return new Character(c);
+}</code></pre>
+<p>CharacterCache类：</p>
+<pre><code class="java">private static class CharacterCache {
+    private CharacterCache(){}
+
+    static final Character cache[] = new Character[127 + 1];
+
+    static {
+        for (int i = 0; i &lt; cache.length; i++)
+            cache[i] = new Character((char)i);
+    }
+}</code></pre>
+<p>Character的缓存范围在0 ~ 127之间</p>
+<p><strong>Boolean包装类</strong></p>
+<p>valueOf方法：</p>
+<pre><code class="java">public static Boolean valueOf(boolean b) {
+    return (b ? TRUE : FALSE);
+}</code></pre>
+<p>TRUE跟FALSE都是static final修饰的静态变量</p>
+<pre><code class="java">public static final Boolean TRUE = new Boolean(true);
+public static final Boolean FALSE = new Boolean(false);</code></pre>
+<p><strong>Float包装类 &amp; Double包装类</strong></p>
+<p>valueOf方法：</p>
+<pre><code class="java">public static Float valueOf(float f) {
+    return new Float(f);
 }
-.justified-gallery img{
-  opacity: 1
+public static Double valueOf(double d) {
+    return new Double(d);
+}</code></pre>
+<p>Float和Double没有使用缓存，直接new的对象</p>
+<p><strong>总结：</strong></p>
+<p>java的包装类中：Byte，Short，Integer，Long，Character使用static代码块进行初始化缓存，其中Integer的最大值可以通过java.lang.Integer.IntegerCache.high设置；Boolean使用static final实例化的对象；Float和Double直接new的对象没有使用缓存</p>
+
+			
+		</div>
+		<footer class="clearfix">
+			
+				
+				
+					<div class="disqus-comment">
+						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/java-integer-cache/#disqus_thread" class="comment-link"> 评论</a>
+					</div>
+				
+			
+			
+	<div class="categories">
+		<i class="fa fa-folder"></i>
+		
+			<a href="/categories/java/">java</a>
+		
+	</div>
+
+			
+	<div class="tags">
+		<i class="fa fa-tags"></i>
+		
+			<a href="/tags/Integer%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/">#Integer缓存机制</a>
+		
+	</div>
+
+		</footer>
+	</div>
+</article>
+	
+		
+		<article class="post">
+	<div class="post-content">
+		<header>
+			
+				<div class="meta">
+					<div class="icon">
+						
+							<i class="fa fa-file"></i>
+						
+					</div>
+					<time datetime="2019-08-27T12:11:32.000Z">2019-08-27</time>
+				</div>
+			
+			
+	
+		<h1 class="title" data-role="articleTitle"><a href="/distributed-transaction/">让我们聊一聊分布式事务</a></h1>
+	
+
+		</header>
+		<div class="entry">
+			
+				<p>一个复杂的系统往往都是从一个小而简的系统发展衍化而来，为了满足日益增长的业务需求，不断的增加系统的复杂度，从单体架构逐步发展为分布式架构，而分布式系统架构的设计主要关注：高性能，高可用，高拓展</p>
+<h2 id="分布式事务"><a href="#分布式事务" class="headerlink" title="分布式事务"></a>分布式事务</h2><p>高可用是指系统无中断的执行功能的能了，代表了系统的可用程度，是进行系统设计时必须要遵守的准则之一。</p>
+<p>而高可用的实现方案，无外乎就是冗余，就存储的高可用而言，问题不在于如何进行数据备份，而在于如何规避数据不一致对业务造成的影响</p>
+<p>对于分布式系统而言，要保证分布式系统中的数据一致性就需要一种方案，可以保证数据在子系统中始终保持一致，避免业务出现问题，这种实现方案就叫做分布式事务，要么一起成功，要么一起失败，必须是一个整体性的事务</p>
+<p><strong>举个栗子：</strong></p>
+<p>​    在电商网站中，用户对商品进行下单，需要在订单表中创建一条订单数据，同时需要在库存表中修改当前商品的剩余库存数量，两步操作一个添加，一个修改，我们一定要保证这两步操作一定同时操作成功或失败，否则业务就会出现问题</p>
+<p><strong>建立时：</strong></p>
+<p>​    业务量不大，用户少，系统只是一个单体架构，订单表与库存表都在一个数据库中，这时可以使用mysql的本地事务保证数据一致性</p>
+<p><img src="/distributed-transaction/%E5%8D%95%E4%BD%93%E6%9E%B6%E6%9E%84.png" alt></p>
+<p><strong>发展期：</strong></p>
+<p>​    业务发展迅速，用户量变多，单数据已经出现了性能瓶颈，按照业务纬度进行分库，分为订单库和库存库，由于跨库跨机器，mysql的本地事务不能再保证订单库和库存库的数据一致性，这时候就需要分布式事务来保证</p>
+<p><img src="/distributed-transaction/%E5%88%86%E5%BA%93.png" alt></p>
+<p><strong>成熟期：</strong></p>
+<p>​    业务拓展，单体架构已经满足不了需求，进而衍化成了分布式系统，这时的订单和库存已经拆分为了两个子系统提供服务，子系统间使用rpc进行通信，但是无论系统发展成什么样，我们都要保证业务不出问题，保证订单和库存的数据一致，这时候要思考下在服务之间我们应如何保证数据一致</p>
+<p><img src="/distributed-transaction/%E6%9C%8D%E5%8A%A1%E6%8B%86%E5%88%86.png" alt></p>
+<h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>​    在讲解具体方案之前，有必要了解一下分布式中数据设计需要遵循的理论基础，CAP理论和BACS理论，为后面的实践铺平道路</p>
+<h3 id="CAP理论"><a href="#CAP理论" class="headerlink" title="CAP理论"></a>CAP理论</h3><p>CAP：Consistency Acailability Partition tolerance 的简写</p>
+<ul>
+<li><p>Consistency：一致性</p>
+<p>对某个客户端来说，读操作能够返回最新的写操作结果</p>
+</li>
+<li><p>Acailability：可用性</p>
+<p>非故障节点在合理的时间内返回合理的响应</p>
+</li>
+<li><p>Partition tolerance：分区容错性</p>
+<p>当出现网络分区后，系统能够继续提供服务  <em>你知道什么是网络分区吗 ~~</em></p>
+</li>
+</ul>
+<p>因为分布式系统中系统肯定部署在多台机器上，无法保证网络做到100%的可靠，所以网络分区一定存在，即P一定存在；</p>
+<p>在出现网络分区后，就出现了可用性和一致性的问题，我们必须要在这两者之间进行取舍，因此就有了两种架构：CP架构，AP架构；</p>
+<h4 id="CP架构"><a href="#CP架构" class="headerlink" title="CP架构"></a>CP架构</h4><p>当网络分区出现后，为了保证一致性，就必须拒接请求，否则无法保证一致性</p>
+<p><img src="/distributed-transaction/CP.png" alt></p>
+<ol>
+<li>当没有出网络分区时，系统A与系统B的数据一致，X=1</li>
+<li>将系统A的X修改为2，X=2</li>
+<li>当出现网络分区后，系统A与系统B之间的数据同步数据失败，系统B的X=1</li>
+<li>当客户端请求系统B时，为了保证一致性，此时系统B应拒绝服务请求，返回错误码或错误信息</li>
+</ol>
+<p>上面这种方式就违背了可用性的要求，只满足一致性和分区容错，即CP</p>
+<p>CAP理论是忽略网络延迟，从系统A同步数据到系统B的网络延迟是忽略的</p>
+<p>CP架构保证了客户端在获取数据时一定是最近的写操作，或者获取到异常信息，绝不会出现数据不一致的情况</p>
+<h4 id="AP架构"><a href="#AP架构" class="headerlink" title="AP架构"></a>AP架构</h4><p>当网络分区出现后，为了保证可用性，系统B可以返回旧值，保证系统的可用性</p>
+<p><img src="/distributed-transaction/AP.png" alt></p>
+<ol>
+<li>当没有出网络分区时，系统A与系统B的数据一致，X=1</li>
+<li>将系统A的X修改为2，X=2</li>
+<li>当出现网络分区后，系统A与系统B之间的数据同步数据失败，系统B的X=1</li>
+<li>当客户端请求系统B时，为了保证可用性，此时系统B应返回旧值，X=1</li>
+</ol>
+<p>上面这种方式就违背了一致性的要求，只满足可用性和分区容错，即AP</p>
+<p>CP架构保证了客户端在获取数据时无论返回的是最新值还是旧值，系统一定是可用的</p>
+<p><strong>CAP理论关注粒度是数据，而不是整体系统设计的策略</strong></p>
+<h3 id="BASE理论"><a href="#BASE理论" class="headerlink" title="BASE理论"></a>BASE理论</h3><p>​    BASE理论指的是基本可用 Basically Available，软状态 Soft Stat，最终一致性 Eventual Consistency，核心思想是即便无法做到强一致性，但应该可以有采用适合的方式保证最终一致性</p>
+<p>BASE：Basically Available  Soft Stat  Eventual Consistency的简写</p>
+<ul>
+<li><p>BA：Basically Available 基本可用</p>
+<p>分布式系统在出现故障的时候，允许损失部分可用性，即保证核心可用</p>
+</li>
+<li><p>S：Soft Stat 软状态</p>
+<p>允许系统存在中间状态，而该中间状态不会影响系统整体可用性</p>
+</li>
+<li><p>E：Consistency 最终一致性</p>
+<p>系统中的所有数据副本经过一定时间后，最终能够达到一致的状态</p>
+</li>
+</ul>
+<p>BASE理论本质上是对CAP理论的延伸，是对 CAP 中 AP 方案的一个补充</p>
+<h2 id="分布式事务协议"><a href="#分布式事务协议" class="headerlink" title="分布式事务协议"></a>分布式事务协议</h2><p>​    前提：在单体架构中，事务的保证有mysql实现，不用我们实现，当单个数据库的性能出现瓶颈的时候，对数据库进行分表分库处理，按业务纬度将订单和库存的表分为两个库，订单库和库存库</p>
+<h3 id="X-Open-XA-协议"><a href="#X-Open-XA-协议" class="headerlink" title="X/Open XA 协议"></a>X/Open XA 协议</h3><p>XA是一个分布式事务协议，由Tuxedo提出。XA规范主要定义了（全局）事务管理器（Transaction Manager）和（局部）资源管理器（Resource Manager）之间的接口。XA接口是双向的系统接口，在事务管理器Transaction Manager）以及一个或多个资源管理器（Resource Manager）之间形成通信桥梁</p>
+<p><img src="/distributed-transaction/XA.png" alt></p>
+<p>XA协议采用<strong>两阶段提交</strong>方式来管理分布式事务。XA接口提供资源管理器与事务管理器之间进行通信的标准接口</p>
+<h3 id="2PC-二阶段提交-协议"><a href="#2PC-二阶段提交-协议" class="headerlink" title="2PC 二阶段提交 协议"></a>2PC 二阶段提交 协议</h3><p>​    二阶段提交（Two-phase Commit），是指，为了使基于分布式系统架构下的所有节点在进行事务提交时保持一致性而设计的一种算法(Algorithm)。通常，二阶段提交也被称为是一种协议(Protocol)。在分布式系统中，每个节点虽然可以知晓自己的操作时成功或者失败，却无法知道其他节点的操作的成功或失败。当一个事务跨越多个节点时，为了保持事务的ACID特性，需要引入一个作为协调者的组件来统一掌控所有节点(称作参与者)的操作结果并最终指示这些节点是否要把操作结果进行真正的提交(比如将更新后的数据写入磁盘等等)。因此，二阶段提交的算法思路可以概括为： 参与者将操作成败通知协调者，再由协调者根据所有参与者的反馈情报决定各参与者是否要提交操作还是中止操作</p>
+<p>二阶段提交算法的成立基于以下假设：</p>
+<ol>
+<li>该分布式系统中，存在一个节点作为协调者(Coordinator)，其他节点作为参与者(Cohorts)。且节点之间可以进行网络通信。</li>
+<li>所有节点都采用预写式日志，且日志被写入后即被保持在可靠的存储设备上，即使节点损坏不会导致日志数据的消失。</li>
+<li>所有节点不会永久性损坏，即使损坏后仍然可以恢复</li>
+</ol>
+<p>二阶段提交分为两阶段：第一阶段：投票阶段，第二阶段：提交阶段</p>
+<p><img src="/distributed-transaction/2pc.jpg" alt></p>
+<p><strong>投票阶段 Prepares</strong></p>
+<p><img src="/distributed-transaction/2pc-1.png" alt></p>
+<ol>
+<li>协调者向所有参与者询问是否可以执行提交操作，并开始等待各参与者的响应</li>
+<li>参与者执行事务操作，如果执行成功就返回Yes响应，如果执行失败就返回No响应</li>
+<li>如果协调者接受参与者响应超时，也会认为执行事务操作失败</li>
+</ol>
+<p><strong>提交阶段 commit</strong></p>
+<p><img src="/distributed-transaction/2pc-2.png" alt></p>
+<ol>
+<li>如果第一阶段汇中所有参与者都返回yes响应，协调者向所有参与者发出提交请求，所有参与者提交事务</li>
+<li>如果第一阶段中有一个或者多个参与者返回no响应，协调者向所有参与者发出回滚请求，所有参与者进行回滚操作</li>
+</ol>
+<p>二阶段提交优点：尽量保证了数据的强一致，但不是100%一致</p>
+<p>缺点：</p>
+<ul>
+<li><p>单点故障</p>
+<p>由于协调者的重要性，一旦协调者发生故障，参与者会一直阻塞，尤其时在第二阶段，协调者发生故障，那么所有的参与者都处于锁定事务资源的状态中，而无法继续完成事务操作</p>
+</li>
+<li><p>同步阻塞</p>
+<p>由于所有节点在执行操作时都是同步阻塞的，当参与者占有公共资源时，其他第三方节点访问公共资源不得不处于阻塞状态</p>
+</li>
+<li><p>数据不一致</p>
+<p>在第二阶段中，当协调者想参与者发送提交事务请求之后，发生了局部网络异常或者在发送提交事务请求过程中协调者发生了故障，这会导致只有一部分参与者接收到了提交事务请求。而在这部分参与者接到提交事务请求之后就会执行提交事务操作。但是其他部分未接收到提交事务请求的参与者则无法提交事务。从而导致分布式系统中的数据不一致</p>
+</li>
+</ul>
+<p><strong>二阶段提交的问题</strong></p>
+<p>​    如果协调者在第二阶段发送提交请求之后挂掉，而唯一接受到这条消息的参与者执行之后也挂掉了，即使协调者通过选举协议产生了新的协调者并通知其他参与者进行提交或回滚操作的话，都可能会与这个已经执行的参与者执行的操作不一样，当这个挂掉的参与者恢复之后，就会产生数据不一致的问题</p>
+<h3 id="3PC-三阶段提交-协议"><a href="#3PC-三阶段提交-协议" class="headerlink" title="3PC 三阶段提交 协议"></a>3PC 三阶段提交 协议</h3><p>​    三阶段提交（Three-phase commit），三阶段提交是为解决两阶段提交协议|的缺点而设计的。 与两阶段提交不同的是，三阶段提交是“非阻塞”协议。三阶段提交在两阶段提交的第一阶段与第二阶段之间插入了一个准备阶段，使得原先在两阶段提交中，参与者在投票之后，由于协调者发生崩溃或错误，而导致参与者处于无法知晓是否提交或者中止的“不确定状态”所产生的可能相当长的延时的问题得以解决</p>
+<p>三阶段提交的三个阶段：CanCommit，PreCommit，DoCommit三个阶段</p>
+<p><img src="/distributed-transaction/3pc.jpg" alt></p>
+<p><strong>询问阶段 CanCommit</strong></p>
+<p>协调者向参与者发送commit请求，参与者如果可以提交就返回Yes响应，否则返回No响应</p>
+<p><strong>准备阶段 PreCommit</strong></p>
+<p>协调者根据参与者在<strong>询问阶段</strong>的响应判断是否执行事务还是中断事务</p>
+<ul>
+<li>如果所有参与者都返回Yes，则执行事务</li>
+<li>如果参与者有一个或多个参与者返回No或者超时，则中断事务</li>
+</ul>
+<p>参与者执行完操作之后返回ACK响应，同时开始等待最终指令</p>
+<p><strong>提交阶段 DoCommit</strong></p>
+<p>协调者根据参与者在<strong>准备阶段</strong>的响应判断是否执行事务还是中断事务</p>
+<ul>
+<li>如果所有参与者都返回正确的ACK响应，则提交事务</li>
+<li>如果参与者有一个或多个参与者收到错误的ACK响应或者超时，则中断事务</li>
+<li>如果参与者无法及时接收到来自协调者的提交或者中断事务请求时，会在等待超时之后，会继续进行事务提交</li>
+</ul>
+<p>协调者收到所有参与者的ACK响应，完成事务</p>
+<p><strong>解决二阶段提交时的问题</strong></p>
+<p>​    在三阶段提交中，如果在第三阶段协调者发送提交请求之后挂掉，并且唯一的接受的参与者执行提交操作之后也挂掉了，这时协调者通过选举协议产生了新的协调者，在二阶段提交时存在的问题就是新的协调者不确定已经执行过事务的参与者是执行的提交事务还是中断事务，但是在三阶段提交时，肯定得到了第二阶段的再次确认，那么第二阶段必然是已经正确的执行了事务操作，只等待提交事务了，所以新的协调者可以从第二阶段中分析出应该执行的操作，进行提交或者中断事务操作，这样即使挂掉的参与者恢复过来，数据也是一致的。</p>
+<p>​    所以，三阶段提交解决了二阶段提交中存在的由于协调者和参与者同时挂掉可能导致的数据一致性问题和单点故障问题，并减少阻塞，因为一旦参与者无法及时收到来自协调者的信息之后，他会默认执行提交事务，而不会一直持有事务资源并处于阻塞状态。</p>
+<p><strong>三阶段提交的问题</strong></p>
+<p>​    在<strong>提交阶段</strong>如果发送的是中断事务请求，但是由于网络问题，导致部分参与者没有接到请求，那么参与者会在等待超时之后执行提交事务操作，这样这些由于网络问题导致提交事务的参与者的数据就与接受到中断事务请求的参与者存在数据不一致的问题。</p>
+<p><strong>所以无论是2PC还是3PC都不能保证分布式系统中的数据100%一致</strong></p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="强一致性分布式事务"><a href="#强一致性分布式事务" class="headerlink" title="强一致性分布式事务"></a>强一致性分布式事务</h3><p><strong>单体架构多数据源</strong>，在业务开发中，肯定是先执行对订单库的操作，但是不提交事务，再执行对库存库的操作，也不提交事务，如果两个操作都成功，在一起提交事务，如果有一个操作失败，则两个都进行回滚</p>
+<h4 id="基于2PC-XA协议实现的JTA"><a href="#基于2PC-XA协议实现的JTA" class="headerlink" title="基于2PC/XA协议实现的JTA"></a>基于2PC/XA协议实现的JTA</h4><p>我们已经知道了2PC和XA协议的原理，而JTA是java规范，是XA在java上的实现</p>
+<p>JTA(Java Transaction Manager) :</p>
+<ol>
+<li>TransactionManager : 常用方法,可以开启,回滚,获取事务. begin(),rollback()…</li>
+<li>XAResouce : 资源管理,通过Session来进行事务管理,commit(xid)…</li>
+<li>XID : 每一个事务都分配一个特定的XID</li>
+</ol>
+<p>JTA主要的原理是二阶段提交，当整个业务完成了之后只是第一阶段提交，在第二阶段提交之前会检查其他所有事务是否已经提交，如果前面出现了错误或是没有提交，那么第二阶段就不会提交，而是直接回滚，这样所有的事务都会做回滚操作</p>
+<p>基于JTA这种方案实现分布式事务的强一致性</p>
+<p><strong>JTA的特点：</strong></p>
+<ul>
+<li>基于两阶段提交，有可能会出现数据不一致的情况</li>
+<li>事务时间过长，阻塞</li>
+<li>性能低，吞吐量低</li>
+</ul>
+<p><strong>实现</strong>可以使用基于JTA实现的jar包<strong>Atomikos</strong> <em>使用例子可以自己百度一下</em></p>
+<p>​    正常架构设计中是否应该出现这种跨库的操作，我觉得是不应该的，如果过按业务拆分将数据源进行分库，我们应该同时将服务也拆分出去才合适，应遵循一个系统只操作一个数据源（主从没关系），避免后续可能会出现的多个系统调用一个数据源的情况</p>
+<h3 id="最终一致性分布式事务方案（柔性事务）"><a href="#最终一致性分布式事务方案（柔性事务）" class="headerlink" title="最终一致性分布式事务方案（柔性事务）"></a>最终一致性分布式事务方案（柔性事务）</h3><p>JTA方案适用于单体架构多数据源时实现分布式事务，但对于微服务间的分布式事务就无能为力了，我们需要使用其他的方案实现分布式事务</p>
+<h4 id="本地消息表"><a href="#本地消息表" class="headerlink" title="本地消息表"></a>本地消息表</h4><p>本地消息表的核心思想是将分布式事务拆分成本地事务进行处理</p>
+<p>以本文中例子，在订单系统新增一条消息表，将新增订单和新增消息放到一个事务里完成，然后通过轮询的方式去查询消息表，将消息推送到mq，库存系统去消费mq</p>
+<p><img src="/distributed-transaction/%E6%9C%AC%E5%9C%B0%E6%B6%88%E6%81%AF%E8%A1%A8.png" alt></p>
+<p><strong>执行流程：</strong></p>
+<ol>
+<li>订单系统，添加一条订单和一条消息，在一个事务里提交</li>
+<li>订单系统，使用定时任务轮询查询状态为未同步的消息表，发送到mq，如果发送失败，就重试发送</li>
+<li>库存系统，接收mq消息，修改库存表，需要保证幂等操作</li>
+<li>如果修改成功，调用rpc接口修改订单系统消息表的状态为已完成或者直接删除这条消息</li>
+<li>如果修改失败，可以不做处理，等待重试</li>
+</ol>
+<p>订单系统中的消息有可能由于业务问题会一直重复发送，所以为了避免这种情况可以记录一下 发送次数，当达到次数限制之后报警，人工接入处理；库存系统需要保证幂等，避免同一条消息被多次消费造成数据一致；</p>
+<p>本地消息表这种方案实现了最终一致性，需要在业务系统里增加消息表，业务逻辑中多一次插入的DB操作，所以性能会有损耗，而且最终一致性的间隔主要有定时任务的间隔时间决定</p>
+<h4 id="MQ消息事务"><a href="#MQ消息事务" class="headerlink" title="MQ消息事务"></a>MQ消息事务</h4><p>消息事务的原理是将两个事务通过消息中间件进行异步解耦</p>
+<p>订单系统执行自己的本地事务，并发送mq消息，库存系统接收消息，执行自己的本地事务，乍一看，好像跟本地消息表的实现方案类似，只是省去 了对本地消息表的操作和轮询发送mq的操作，但实际上两种方案的实现是不一样的</p>
+<p>消息事务一定要保证业务操作与消息发送的一致性，如果业务操作成功，这条消息也一定投递成功</p>
+<p><img src="/distributed-transaction/%E6%B6%88%E6%81%AF%E4%BA%8B%E5%8A%A1.jpg" alt></p>
+<p>消息事务依赖于消息中间件的事务消息，基于消息中间件的二阶段提交实现的，RocketMQ就支持事务消息</p>
+<p><strong>执行流程：</strong></p>
+<ol>
+<li>发送prepare消息到消息中间件</li>
+<li>发送成功后，执行本地事务</li>
+<li>如果事务执行成功，则commit，消息中间件将消息下发至消费端</li>
+<li>如果事务执行失败，则回滚，消息中间件将这条prepare消息删除</li>
+<li>消费端接收到消息进行消费，如果消费失败，则不断重试</li>
+</ol>
+<p>这种方案也是实现了最终一致性，对比本地消息表实现方案，不需要再建消息表，不再依赖本地数据库事务了，所以这种方案更适用于高并发的场景</p>
+<h4 id="最大努力通知"><a href="#最大努力通知" class="headerlink" title="最大努力通知"></a>最大努力通知</h4><p>最大努力通知相比前两种方案实现简单，适用于一些最终一致性要求较低的业务，比如支付通知，短信通知这种业务</p>
+<p>以支付通知为例，业务系统调用支付平台进行支付，支付平台进行支付，进行操作支付之后支付平台会尽量去通知业务系统支付操作是否成功，但是会有一个最大通知次数，如果超过这个次数后还是通知失败，就不再通知，业务系统自行调用支付平台提供一个查询接口，供业务系统进行查询支付操作是否成功</p>
+<p><img src="/distributed-transaction/%E6%9C%80%E5%A4%A7%E5%8A%AA%E5%8A%9B%E9%80%9A%E7%9F%A5.png" alt></p>
+<p><strong>执行流程：</strong></p>
+<ol>
+<li>业务系统调用支付平台支付接口， 并在本地进行记录，支付状态为支付中</li>
+<li>支付平台进行支付操作之后，无论成功还是失败，都需要给业务系统一个结果通知</li>
+<li>如果通知一直失败则根据重试规则进行重试，达到最大通知次数后，不在通知</li>
+<li>支付平台提供查询订单支付操作结果接口</li>
+<li>业务系统根据一定业务规则去支付平台查询支付结果</li>
+</ol>
+<p>这种方案也是实现了最终一致性</p>
+<h4 id="补偿事务TCC"><a href="#补偿事务TCC" class="headerlink" title="补偿事务TCC"></a>补偿事务TCC</h4><p>TCC Try-Confirm-Cancel的简称，针对每个操作，都需要有一个其对应的确认和取消操作，当操作成功时调用确认操作，当操作失败时调用取消操作，类似于二阶段提交，只不过是这里的提交和回滚是针对业务上的，所以基于TCC实现的分布式事务也可以看做是对业务的一种补偿机制</p>
+<p>TCC的三阶段：</p>
+<ol>
+<li>Try 阶段：对业务系统做检测及资源预留</li>
+<li>Confirm 阶段：对业务系统做确认提交，Try阶段执行成功并开始执行 Confirm阶段时，默认 Confirm阶段是不会出错的。即：只要Try成功，Confirm一定成功</li>
+<li>Cancel 阶段：在业务执行错误，需要回滚的状态下执行的业务取消，预留资源释放</li>
+</ol>
+<p>在try阶段，是对业务系统进行检查及资源预览，比如订单和存储操作，需要检查库存剩余数量是否够用，并进行预留，预留操作的话就是新建一个可用库存数量字段，Try阶段操作是对这个可用库存数量进行操作</p>
+<p>比如下一个订单减一个库存:</p>
+<p><img src="/distributed-transaction/TCC.png" alt></p>
+<p><strong>执行流程：</strong></p>
+<ol>
+<li>Try阶段：订单系统将当前订单状态设置为支付中，库存系统校验当前剩余库存数量是否大于1，然后将可用库存数量设置为库存剩余数量-1，</li>
+<li>如果Try阶段执行成功，执行Confirm 阶段，将订单状态修改为支付成功，库存剩余数量修改为可用库存数量</li>
+<li>如果Try阶段执行失败，执行Cancel 阶段，将订单状态修改为支付失败，可用库存数量修改为库存剩余数量</li>
+</ol>
+<p>基于TCC实现分布式事务，代码逻辑想对复杂一些，需要将原来的接口的逻辑拆分为：try，confirm ，cancel 三个接口的逻辑</p>
+<p>基于TCC实现的分布式事务框架：ByteTCC，tcc-transaction</p>
+<p>ByteTCC：<a href="https://github.com/liuyangming/ByteTCC" target="_blank" rel="noopener">https://github.com/liuyangming/ByteTCC</a></p>
+<p>tcc-transaction：<a href="https://github.com/changmingxie/tcc-transaction" target="_blank" rel="noopener">https://github.com/changmingxie/tcc-transaction</a></p>
+<blockquote>
+<p>读完之后应该对分布式事务有了一个大致的了解，在实际生产中我们要尽量避免使用分布式事务，能转化为本地事务就用本地事务，如果必须使用分布式事务，还需要从业务角度多思考使用哪种方案更适合</p>
+<p>总之行动之前多思考</p>
+</blockquote>
+<p><strong>推荐阅读：</strong></p>
+<p><a href="https://chenmingyu.top/design/">23种设计模式详解</a></p>
+<p><a href="https://chenmingyu.top/network-protocol/">浅析网络协议</a></p>
+<p><a href="https://chenmingyu.top/concurrent-lock/">java并发编程 | 锁详解：AQS，Lock，ReentrantLock，ReentrantReadWriteLock</a></p>
+<p><a href="https://chenmingyu.top/concurrent-threadpool/">java并发编程 | 线程池详解</a></p>
+<p><strong>参考：</strong></p>
+<p><a href="https://baike.baidu.com/" target="_blank" rel="noopener">百度百科</a></p>
+<p><a href="https://juejin.im/post/5d11ed966fb9a07ee0632534" target="_blank" rel="noopener">分布式事务解决方案</a></p>
+<p><a href="https://juejin.im/post/5b98b8daf265da0af77503af" target="_blank" rel="noopener">深入理解分布式事务</a></p>
+<p><a href="http://www.hollischuang.com/archives/1580" target="_blank" rel="noopener">深入理解分布式系统的2PC和3PC</a></p>
+<p><a href="https://www.jianshu.com/p/24deaea53875" target="_blank" rel="noopener">柔性事务：最大努力通知</a></p>
+
+			
+		</div>
+		<footer class="clearfix">
+			
+				
+				
+					<div class="disqus-comment">
+						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/distributed-transaction/#disqus_thread" class="comment-link"> 评论</a>
+					</div>
+				
+			
+			
+	<div class="categories">
+		<i class="fa fa-folder"></i>
+		
+			<a href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/">分布式事务</a>
+		
+	</div>
+
+			
+	<div class="tags">
+		<i class="fa fa-tags"></i>
+		
+			<a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/">#分布式事务</a>
+		
+	</div>
+
+		</footer>
+	</div>
+</article>
+	
+		
+		<article class="post">
+	<div class="post-content">
+		<header>
+			
+				<div class="meta">
+					<div class="icon">
+						
+							<i class="fa fa-file"></i>
+						
+					</div>
+					<time datetime="2019-08-22T06:34:42.000Z">2019-08-22</time>
+				</div>
+			
+			
+	
+		<h1 class="title" data-role="articleTitle"><a href="/network-protocol/">浅析网络协议</a></h1>
+	
+
+		</header>
+		<div class="entry">
+			
+				<blockquote>
+<p>本文部分内容摘自 极客时间：趣谈网络协议和网络协议入门，只是个人的一个学习总结</p>
+</blockquote>
+<p>参考资料：</p>
+<p><a href="https://time.geekbang.org/column/intro/85" target="_blank" rel="noopener">极客时间：趣谈网络协议</a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2012/05/internet_protocol_suite_part_i.html" target="_blank" rel="noopener">网络协议入门</a></p>
+<p>网络协议指的是计算机网络中互相通信的对等实体之间交换信息时所必须遵守的规则的集合。</p>
+<p><img src="/network-protocol/%E5%9B%BE%E7%89%871.png" alt></p>
+<p>​    由于网络节点之间联系的复杂性，在制定协议时，通常把复杂成分分解成一些简单成分，然后再将它们复合起来，最常用的复合技术就是层次方式，无论是OSI七层模型，还是TCP/IP模型，从上而下，每一层都依赖下一层，每一层都在他的下层提供的服务基础上提供更高级的服务，所以在传输数据时可以没有层但是一定会有下层，比如使用传输层传输数据，一定会有网络层和链路层，不一定会有应用层，如果使用应用层传输数据，一定有传输层，网络层，链路层。</p>
+<h3 id="TCP-IP五层模型"><a href="#TCP-IP五层模型" class="headerlink" title="TCP/IP五层模型"></a>TCP/IP五层模型</h3><p>TCP/IP是一组协议的代名词，它还包括许多协议，组成了TCP/IP协议簇；</p>
+<p>开篇的图片中，在TCP/IP概念层模型中将数据链路层与物理层统称为链路层，其实这个分不分对于我们学习网络协议的影响不大；</p>
+<p>下图中右侧是每一层常用的协议，通过上面我们知道应用层依赖传输层，传输层依赖网络层，网络层依赖数据链路层，数据链路层依赖物理层，我们从最下层开始逐层递进，分析每一层的作用及数据包格式。</p>
+<p><img src="/network-protocol/%E4%BA%94%E5%B1%82%E5%8D%8F%E8%AE%AE.png" alt></p>
+<h4 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h4><p><strong>物理层提供的服务：在物理主机之间传输比特流。</strong></p>
+<p>​    两台电脑之间需要通信，首先我们需要将电脑连接起来。物理层<strong>就是把电脑连接起来的物理手段。它主要规定了网络的一些电气特性，作用是负责传送0和1的电信号。</strong>数据的单位称为比特（bit）。</p>
+<p><img src="/network-protocol/%E7%BB%84%E7%BD%91.png" alt></p>
+<h4 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h4><p><strong>数据链路层提供的服务：在同一子网络主机之间的数据传输。</strong></p>
+<p>​    在物理层提供比特流服务的基础上，建立相邻结点之间的数据链路，通过差错控制提供数据帧（Frame）在信道上无差错的传输，并进行各电路上的动作系列。<strong>数据链路层在不可靠的物理介质上提供可靠的传输（确定了0和1的分组方式，数据的单位称为帧）。</strong></p>
+<p><strong>以太网</strong></p>
+<p>​    以太网规定，连入网络的所有设备，都必须具有“网卡”接口。数据包必须是从一块网卡，传送到另一块网卡。网卡的地址，数据包的发送地址和接收地址，每块网卡出厂的时候，都有一个全世界独一无二的MAC地址，长度是48个二进制位，通常用12个十六进制数表示，前6个十六进制数是厂商编号，后6个是该厂商的网卡流水号。有了MAC地址，就可以定位网卡和数据包的路径了。</p>
+<p>MAC地址示例：0A-11-22-33-44-01</p>
+<p>​    现在我们已经知道了，接入网络的设备需要通过MAC地址进行通信，那么电脑A（本机）要与电脑B（目标）进行通信，电脑A是如何知道电脑B的MAC地址那？</p>
+<p>答案是ARP协议。</p>
+<p><strong>ARP协议</strong></p>
+<p>​    地址解析协议（英语：Address Resolution Protocol，缩写：ARP）是一个通过解析网络层地址来找寻数据链路层地址的网络传输协议。</p>
+<p>百度百科：<a href="https://baike.baidu.com/item/ARP/609343?fromtitle=ARP%E5%8D%8F%E8%AE%AE&amp;fromid=1742212&amp;fr=aladdin" target="_blank" rel="noopener">https://baike.baidu.com/item/ARP/609343?fromtitle=ARP%E5%8D%8F%E8%AE%AE&amp;fromid=1742212&amp;fr=aladdin</a></p>
+<p>简单理解就是，可以通过已知的目标机器的IP来获取目标机器的MAC地址。</p>
+<p>ARP协议使用<strong>广播</strong>的方式来获取目标的MAC地址</p>
+<p>​    如果两台主机在同一个子网络，那么我们可以用ARP协议，得到对方的MAC地址。ARP协议也是发出一个数据包（包含在以太网数据包中），其中包含它所要查询主机的IP地址，在对方的MAC地址这一栏，填的是FF:FF:FF:FF:FF:FF，表示这是一个“广播”地址。它所在子网络的每一台主机，都会收到这个数据包，从中取出IP地址，与自身的IP地址进行比较。如果两者相同，都做出回复，向对方报告自己的MAC地址（会缓存），否则就丢弃这个包。</p>
+<p>向本网络内所有计算机发送，让每台计算机自己判断，是否为接收方：</p>
+<p><img src="/network-protocol/arp1.png" alt></p>
+<p>广播过程：</p>
+<p><img src="/network-protocol/arp2.png" alt></p>
+<p>这样就可以获取到机器D的MAC地址了，之后可以进行通信了；</p>
+<p>为了避免每次都用 ARP 请求，机器本地也会进行 ARP 缓存。当然机器会不断地上线下线，IP 也可能会变，所以 ARP 的 MAC 地址缓存过一段时间就会过期 ；</p>
+<p><strong>跨子网获取MAC地址</strong></p>
+<p>我们看一下ARP协议在跨子网的时候ip和MAC是如何变化的？</p>
+<p><img src="/network-protocol/ARP3.png" alt></p>
+<p>​    如果目标IP和源IP不在同一个子网络，就需要发送ARP协议，首先获取到网关的MAC地址，然后将源MAC和网关MAC放入链路层数据包的标头，网关收到数据包后，发现MAC地址匹配然后取出IP地址，查看是否是自己局域网的，如果不是就继续跳转，直到找到这个目标IP所在的局域网，在这个局域网上发送ARP，获取到目标地址的MAC地址。</p>
+<p><strong>数据格式：</strong></p>
+<p>链路层的数据的单位称为帧，每一帧分成两个部分：标头Head和数据Data。</p>
+<p><img src="/network-protocol/%E9%93%BE%E8%B7%AF%E5%B1%82.png" alt></p>
+<p>链路层数据包格式：</p>
+<p><img src="/network-protocol/network-protocol%E5%9B%BE%E7%89%873.png" alt></p>
+<h4 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h4><p><strong>网络层提供的服务：跨子网络的主机之间的数据传输</strong></p>
+<p>​    以太网协议，依靠MAC地址发送数据，但是互联网是由无数个子网络组成的一个巨大网络，而且以太网采用广播方式发送数据包，这时如果要使用广播的方式进行数据传递肯定是不行的，<strong>所以跨子网中通信需要采用路由的方式进行通信（数据的单位称为数据包）</strong>。</p>
+<p>这个路由就是网络地址，使得我们能够区分不同的计算机是否属于同一个子网络；</p>
+<p>网络地址帮助我们确定计算机所在的子网络，MAC地址则将数据包送到该子网络中的目标网卡。</p>
+<p><strong>IP协议</strong></p>
+<p>规定网络地址的协议，叫做<strong>IP协议</strong>，IP协议是不可靠、无连接的协议。</p>
+<p>​    IP协议所定义的地址，就被称为<strong>IP地址</strong>，它的任务仅仅是根据源主机和目的主机的地址来传送数据。为此目的，IP定义了寻址方法和数据报的封装结构。第一个架构的主要版本为IPv4，目前仍然是广泛使用的互联网协议，尽管世界各地正在积极部署IPv6。</p>
+<p>IP协议第四版，简称IPv4：</p>
+<p><img src="/network-protocol/ip.png" alt></p>
+<p>用分成四段的十进制数表示IP地址，从0.0.0.0一直到255.255.255.255，这个地址分成两个部分，前一部分代表网络，后一部分代表主机，比如前24位，后24位</p>
+<p><strong>子网掩码</strong>：用来判断两个ip是否处于同一个子网络。</p>
+<p>​    形式上等同于IP地址，也是一个32位二进制数字，它的网络部分全部为1，主机部分全部为0，比如：11111111.11111111.11111111.00000000</p>
+<p><strong>判断是两个IP否是子网的方法：</strong></p>
+<p>​    将两个IP地址与子网掩码分别进行AND运算（两个数位都为1，运算结果为1，否则为0），然后比较结果是否相同。</p>
+<p><strong>DHCP协议</strong></p>
+<p>​    动态主机配置协议，DHCP（Dynamic Host Configuration Protocol，动态主机配置协议）通常被应用在大型的局域网络环境中，主要作用是集中的管理、分配IP地址，使网络环境中的主机动态的获得IP地址、Gateway地址、DNS服务器地址等信息，并能够提升地址的使用率。</p>
+<p><strong>数据格式：</strong></p>
+<p>根据IP协议发送的数据，就叫做IP数据包，我们将IP数据包放到链路层数据包的数据部分：</p>
+<p><img src="/network-protocol/%E7%BD%91%E7%BB%9C%E5%B1%82%E6%95%B0%E6%8D%AE%E5%8C%85.png" alt></p>
+<p>IP数据包的标头格式：</p>
+<p><img src="/network-protocol/ip%E5%A4%B4.png" alt></p>
+<p>在网络层进行数据传输时：</p>
+<p>​    首先查看目标IP和自己是否在同一个子网络，如果是就发送ARP协议获取这个地址对应的MAC地址，然后将源MAC和目标MAC地址放入链路层数据包，发送出去即可，如果不在同一个子网络，就需要发送ARP协议，首先获取到网关的MAC地址，然后将源MAC和网关MAC放入链路层数据包的标头，网关收到数据包后，发现MAC地址匹配然后取出IP地址，查看是否是自己局域网的，如果不是就继续跳转，直到找到这个目标IP所在的局域网，在这个局域网上发送ARP，获取到目标地址的MAC地址。</p>
+<h4 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h4><p><strong>传输层提供的服务：在进程之间提供数据传输</strong></p>
+<p>​    传输层（Transport Layer）在计算机网络中是互联网协议包与开放系统互连（OSI）网络堆栈中协议的分层结构中的方法的一个概念划分。<strong>该层的协议为应用进程提供端到端的通信服务。它提供面向连接的数据流支持、可靠性、流量控制、多路复用等服务。</strong></p>
+<p>作用就是建立<strong>端口到端口</strong>的通信。相比之下，网络层的功能是建立<strong>主机到主机</strong>的通信。只要确定主机和端口，我们就能实现程序之间的交流。</p>
+<p>传输层的数据包格式也是分为标头和数据两部分，嵌在IP数据包的数据部分：</p>
+<p><img src="/network-protocol/%E4%BC%A0%E8%BE%93%E5%B1%82%E6%95%B0%E6%8D%AE%E5%8C%85.png" alt></p>
+<p><strong>UDP协议</strong></p>
+<p>​    用户数据报协议，无连接协议，无服务状态，会丢包，不能保证数据包顺序到达，基于数据报，不需要建立连接，谁监听谁就能收到消息，数据报是一个一个的发，一个一个的收，处理速度快，延时低。</p>
+<p>UDP数据包的标头格式：</p>
+<p><img src="/network-protocol/upd.png" alt></p>
+<p>看这个包含的内容就只UDP比较简单，负责的比较少，只有源端口号和目标端口号，根据端口号，将数据交给相应的应用程序 。</p>
+<p>UDP协议适用场景：</p>
+<ul>
+<li>需要资源少，在网络情况比较好的内网，或对于丢包不敏感的应用</li>
+<li>不需要一对一建立连接，而是可以广播的应用</li>
+<li>需要处理速度快，时延低，可以容忍少数丢表</li>
+</ul>
+<p><strong>TCP协议</strong></p>
+<p>​    传输控制协议，为了提高网络的可靠性，每发出一个数据包都要求确认。如果有一个数据包遗失，就收不到确认，发出方就知道有必要重发这个数据包了，所以TCP协议是可靠的，面向连接的协议，基于字节流，没有顺序，丢包的问题，提供了连接维护，流量控制，拥塞控制，缺点就是过程复杂，相比UDP消耗更多的资源。</p>
+<p>TCP数据包的标头格式：</p>
+<p><img src="/network-protocol/tcp%E6%A0%87%E5%A4%B4.png" alt></p>
+<p>对比UDP的标头明显复杂了很多：</p>
+<ul>
+<li>源端口号和目的端口号跟UDP一样</li>
+<li>序号用来解决乱序问题</li>
+<li>确认序号用来解决丢包问题</li>
+<li>还有一些状态位，例如 SYN 是发起一个连接，ACK 是回复，RST 是重新连接，FIN 是结束连接等。TCP 是面向连接的，因而双方要维护连接的状态，这些带状态位的包的发送，会引起双方的状态变更</li>
+<li>窗口大小用来做流量控制，通信双方各声明一个窗口，标识自己当前能够的处理能力 </li>
+</ul>
+<h4 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h4><p><strong>应用层提供的服务：规定好应用的数据格式</strong></p>
+<p>​    应用程序收到传输层的数据，接下来就要进行解读。由于互联网是开放架构，数据来源五花八门，必须事先规定好格式，否则根本无法解读。所以<strong>应用层的作用，就是规定应用程序的数据格式</strong>。</p>
+<p><strong>HTTP协议</strong></p>
+<p>​    HTTP协议，即超文本传输协议(Hypertext transfer protocol)。是一种详细规定了浏览器和万维网(WWW = World Wide Web)服务器之间互相通信的规则，通过因特网传送万维网文档的数据传送协议。</p>
+<p>​    HTTP协议是用于从WWW服务器传输超文本到本地浏览器的传送协议。它可以使浏览器更加高效，使网络传输减少。它不仅保证计算机正确快速地传输超文本文档，还确定传输文档中的哪一部分，以及哪部分内容首先显示(如文本先于图形)等。</p>
+<p>​    HTTP 是基于 TCP 协议的 ，所以它使用面向连接的方式发送请求，通过 stream 二进制流的方式传给对方。当然，到了 TCP 层，它会把二进制流变成一个的报文段发送给服务器 。</p>
+<p>http请求的格式：</p>
+<p> <img src="/network-protocol/Http%E7%9A%84%E8%AF%B7%E6%B1%82%E6%A0%BC%E5%BC%8F.png" alt></p>
+<ul>
+<li><p>请求行中的方法是指请求的方式，常用的就GET，PUT，POST，DELETE等；</p>
+</li>
+<li><p>首部每一行以键/值的形式写入，键值间用:分割，多个值之间以;分割，每行以回车符换行符为结束；</p>
+<p>常见的键有：</p>
+<p>​    User-Agent：产生请求的浏览器类型</p>
+<p>​    Host：请求的主机名，允许多个域名同处一个IP地址</p>
+<p>​    Accept：客户端可识别的内容类型列表</p>
+</li>
+<li><p>实体就是我们请求的正文实体；</p>
+</li>
+</ul>
+<p>http响应的格式：</p>
+<p><img src="/network-protocol/HTTP%E5%93%8D%E5%BA%94%E6%A0%BC%E5%BC%8F.png" alt></p>
+<p>响应的格式与请求的类似，少了方法，多了响应的状态码，就是请求的结果，比如：200,404,500</p>
+<p>HTTP的数据包是嵌在TCP数据包的数据部分，所以这是我们最终的数据包格式：</p>
+<p><img src="/network-protocol/%E5%BA%94%E7%94%A8%E5%B1%82%E6%95%B0%E6%8D%AE%E5%8C%85.png" alt></p>
+<p>完整的HTTP请求过程：</p>
+<p><img src="network-protocol/%E5%AE%8C%E6%95%B4%E7%9A%84http%E8%AF%B7%E6%B1%82.png" alt></p>
+
+			
+		</div>
+		<footer class="clearfix">
+			
+				
+				
+					<div class="disqus-comment">
+						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/network-protocol/#disqus_thread" class="comment-link"> 评论</a>
+					</div>
+				
+			
+			
+	<div class="categories">
+		<i class="fa fa-folder"></i>
+		
+			<a href="/categories/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/">网络协议</a>
+		
+	</div>
+
+			
+	<div class="tags">
+		<i class="fa fa-tags"></i>
+		
+			<a href="/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/">#网络协议</a>
+		
+	</div>
+
+		</footer>
+	</div>
+</article>
+	
+		
+		<article class="post">
+	<div class="post-content">
+		<header>
+			
+				<div class="meta">
+					<div class="icon">
+						
+							<i class="fa fa-file"></i>
+						
+					</div>
+					<time datetime="2019-08-21T10:20:26.000Z">2019-08-21</time>
+				</div>
+			
+			
+	
+		<h1 class="title" data-role="articleTitle"><a href="/java-exception/">java异常体系</a></h1>
+	
+
+		</header>
+		<div class="entry">
+			
+				<p>异常是一个在程序执行期间发生的事件，它中断正在执行的程序的正常指令流。为了能够及时有效地处理程序中的运行错误，必须使用异常类</p>
+<p>异常类如果使用正确，可以提高程序的可读性，可靠性和可维护性，如果使用不当会带来负面效果</p>
+<p><strong>java异常体系</strong></p>
+<p>Java 异常强制用户考虑程序的强健性和安全性。异常处理不应用来控制程序的正常流程，其主要作用是捕获程序在运行时发生的异常并进行相应处理</p>
+<p><img src="/java-exception/throwable.png" alt></p>
+<p> java中所有的异常类型都是 <strong>java.lang.Throwable</strong>的子类，分为两种类型<strong>Error错误</strong>和<strong>Exception异常</strong></p>
+<p><strong>Error</strong></p>
+<p>程序中无法处理的错误，表示运行应用程序中出现了严重的错误，出现此类异常，JVM将终止线程</p>
+<p>比如：</p>
+<p><strong>Exception</strong></p>
+<ul>
+<li><p><strong>运行时异常</strong>：</p>
+<p>此类异常实现都是RuntimeException类及其子类</p>
+<p>运行时异常不必在代码中强制进行try-catch</p>
+<p>这类异常通常由程序逻辑错误引起，应尽量避免此类异常的发生</p>
+</li>
+<li><p><strong>非运行时异常</strong></p>
+<p>除了运行时异常外，继承了Exception的异常类</p>
+<p>非运行时异常必须要在程序中进行try-catch，如果不处理，则程序编译不通过</p>
+</li>
+</ul>
+<p><strong>自定义异常</strong></p>
+<p>自定义异常需要继承Exception类</p>
+<pre><code class="java">public class WarnException extends Exception {
+
+    public WarnException(String message) {
+        super(message);
+    }
+}</code></pre>
+<p>测试：</p>
+<pre><code class="java">public static void test() throws WarnException{
+    try {
+         int i= 1/0;
+    }catch (Exception e){
+        throw new WarnException(&quot;自定义异常&quot;);
+    }
+}</code></pre>
+<p>异常信息：</p>
+<p><img src="/java-exception/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8.png" alt></p>
+<p><strong>异常处理流程</strong></p>
+<p>捕获异常：</p>
+<pre><code class="java">try {
+
+} catch (Exception e) {
+    e.printStackTrace();
+} finally {
+}</code></pre>
+<ul>
+<li><p>执行流程：</p>
+<p>正常try-catch中无异常时：执行顺序是try - finally</p>
+<p>正常try-catch中有异常时：执行顺序是try - catch - finally</p>
+</li>
+</ul>
+<p>捕获多重异常：</p>
+<pre><code class="java">try{
+
+}catch(WarnException we){
+
+}catch(Exception e){
+
+}finally{
+
+}</code></pre>
+<p>try代码块后跟多个catch代码块，这种情况就叫<strong>多重捕获</strong></p>
+<p>抛出异常：</p>
+<pre><code class="java">public static void test() throws WarnException{
+    try {
+         int i= 1/0;
+    }catch (Exception e){
+        throw new WarnException(&quot;自定义异常&quot;);
+    }
+}</code></pre>
+<p>在方法上抛出异常使用<strong>throws</strong>关键字，如果一个方法没有捕获一个检查性异常，那么该方法必须使用 <strong>throws</strong> 关键字来抛出这个异常</p>
+<p>在方法内抛出异常使用<strong>throw</strong>关键字</p>
+<p><strong>常见异常</strong></p>
+<p>Error：</p>
+<ul>
+<li>NoClassDefFoundError：类定义错误</li>
+<li>OutOfMemoryError：内存溢出错误</li>
+<li>StackOverflowError：堆栈溢出错误</li>
+<li>UnknownError：未知错误</li>
+</ul>
+<p>RuntimeException/运行时异常：</p>
+<ul>
+<li>NullPointerException：空指针异常</li>
+<li>NumberFormatException：数字格式异常</li>
+<li>ClassCastException：类型转换异常</li>
+<li>IndexOutOfBoundsException：索引越界异常</li>
+</ul>
+<p>非运行时异常：</p>
+<ul>
+<li>IOException：IO异常</li>
+<li>SQLException：sql异常</li>
+<li>FileNotFoundException：文件找不到异常</li>
+<li>ClassNotFoundException：找不到类异常</li>
+</ul>
+
+			
+		</div>
+		<footer class="clearfix">
+			
+				
+				
+					<div class="disqus-comment">
+						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/java-exception/#disqus_thread" class="comment-link"> 评论</a>
+					</div>
+				
+			
+			
+	<div class="categories">
+		<i class="fa fa-folder"></i>
+		
+			<a href="/categories/java/">java</a>
+		
+	</div>
+
+			
+	<div class="tags">
+		<i class="fa fa-tags"></i>
+		
+			<a href="/tags/java/">#java</a>
+		
+			<a href="/tags/%E5%BC%82%E5%B8%B8/">#异常</a>
+		
+	</div>
+
+		</footer>
+	</div>
+</article>
+	
+		
+		<article class="post">
+	<div class="post-content">
+		<header>
+			
+				<div class="meta">
+					<div class="icon">
+						
+							<i class="fa fa-file"></i>
+						
+					</div>
+					<time datetime="2019-08-17T07:35:03.000Z">2019-08-17</time>
+				</div>
+			
+			
+	
+		<h1 class="title" data-role="articleTitle"><a href="/nio/">一文看懂java io系统</a></h1>
+	
+
+		</header>
+		<div class="entry">
+			
+				<blockquote>
+<p>学习java IO系统，重点是学会IO模型，了解了各种IO模型之后就可以更好的理解java IO</p>
+</blockquote>
+<p>Java IO 是一套Java用来读写数据（输入和输出）的API。大部分程序都要处理一些输入，并由输入产生一些输出。Java为此提供了java.io包</p>
+<p>java中io系统可以分为Bio，Nio，Aio三种io模型</p>
+<ol>
+<li>关于Bio，我们需要知道什么是同步阻塞IO模型，Bio操作的对象：流，以及如何使用Bio进行网络编程，使用Bio进行网络编程的问题</li>
+<li>关于Nio，我们需要知道什么是同步非阻塞IO模型，什么是多路复用Io模型，以及Nio中的Buffer,Channel,Selector的概念，以及如何使用Nio进行网络编程</li>
+<li>关于Aio，我们需要知道什么是异步非阻塞IO模型，Aio可以使用几种方式实现异步操作，以及如何使用Aio进行网络编程</li>
+</ol>
+<h3 id="BIO"><a href="#BIO" class="headerlink" title="BIO"></a>BIO</h3><p>BIO是同步阻塞IO，JDK1.4之前只有这一个IO模型，BIO操作的对象是流，一个线程只能处理一个流的IO请求，如果想要同时处理多个流就需要使用多线程</p>
+<p>流包括字符流和字节流，流从概念上来说是一个连续的数据流。当程序需要读数据的时候就需要使用输入流读取数据，当需要往外写数据的时候就需要输出流</p>
+<h4 id="阻塞IO模型"><a href="#阻塞IO模型" class="headerlink" title="阻塞IO模型"></a>阻塞IO模型</h4><p><img src="/nio/bio%E6%A8%A1%E5%9E%8B.png" alt></p>
+<p>在Linux中，当应用进程调用<strong>recvfrom</strong>方法调用数据的时候，如果内核没有把数据准备好不会立刻返回，而是会经历等待数据准备就绪，数据从内核复制到用户空间之后再返回，这期间应用进程一直阻塞直到返回，所以被称为阻塞IO模型</p>
+<h4 id="流"><a href="#流" class="headerlink" title="流"></a>流</h4><p>BIO中操作的流主要有两大类，字节流和字符流，两类根据流的方向都可以分为输入流和输出流</p>
+<p>按照类型和输入输出方向可分为：</p>
+<ol>
+<li>输入字节流：InputStream</li>
+<li>输出字节流：OutputStream</li>
+<li>输入字符流：Reader</li>
+<li>输出字符流：Writer</li>
+</ol>
+<p>字节流主要用来处理字节或二进制对象，字符流用来处理字符文本或字符串</p>
+<p>使用<code>InputStreamReader</code>可以将输入字节流转化为输入字符流</p>
+<pre><code class="java">Reader reader  =  new InputStreamReader(inputStream);</code></pre>
+<p>使用<code>OutputStreamWriter</code>可以将输出字节流转化为输出字符流</p>
+<pre><code>Writer writer = new OutputStreamWriter(outputStream)</code></pre><p>我们可以在程序中通过InputStream和Reader从数据源中读取数据，然后也可以在程序中将数据通过OutputStream和Writer输出到目标媒介中</p>
+<p><img src="/nio/1.png" alt></p>
+<p>在使用字节流的时候，InputStream和OutputStream都是抽象类，我们实例化的都是他们的子类，每一个子类都有自己的作用范围</p>
+<p><img src="/nio/%E5%AD%97%E8%8A%82%E6%B5%81.png" alt="图是网上的，侵删"></p>
+<p>在使用字符流的时候也是，Reader和Writer都是抽象类，我们实例化的都是他们的子类，每一个子类都有自己的作用范围</p>
+<p><img src="/nio/%E5%AD%97%E7%AC%A6%E6%B5%81.png" alt="图是网上的，侵删"></p>
+<p><strong>以读写文件为例</strong></p>
+<p>从数据源中读取数据</p>
+<p>输入字节流：<strong>InputStream</strong></p>
+<pre><code class="java">public static void main(String[] args) throws Exception{
+    File file = new File(&quot;D:/a.txt&quot;);
+    InputStream inputStream = new FileInputStream(file);
+    byte[] bytes = new byte[(int) file.length()];
+    inputStream.read(bytes);
+    System.out.println(new String(bytes));
+    inputStream.close();
+}</code></pre>
+<p>输入字符流：<strong>Reader</strong></p>
+<pre><code class="java">public static void main(String[] args) throws Exception{
+    File file = new File(&quot;D:/a.txt&quot;);
+    Reader reader = new FileReader(file);
+    char[] bytes = new char[(int) file.length()];
+    reader.read(bytes);
+    System.out.println(new String(bytes));
+    reader.close();
+}</code></pre>
+<p>输出到目标媒介</p>
+<p>输出字节流：<strong>OutputStream</strong></p>
+<pre><code class="java">public static void main(String[] args) throws Exception{
+    String var = &quot;hai this is a test&quot;;
+    File file = new File(&quot;D:/b.txt&quot;);
+    OutputStream outputStream = new FileOutputStream(file);
+    outputStream.write(var.getBytes());
+    outputStream.close();
+}</code></pre>
+<p>输出字符流：<strong>Writer</strong></p>
+<pre><code class="java">public static void main(String[] args) throws Exception{
+    String var = &quot;hai this is a test&quot;;
+    File file = new File(&quot;D:/b.txt&quot;);
+    Writer writer = new FileWriter(file);
+    writer.write(var);
+    writer.close();
+}</code></pre>
+<p><strong>BufferedInputStream</strong></p>
+<p>在使用InputStream的时候，都是一个字节一个字节的读或写，而BufferedInputStream为输入字节流提供了缓冲区，读数据的时候会一次读取一块数据放到缓冲区里，当缓冲区里的数据被读完之后，输入流会再次填充数据缓冲区，直到输入流被读完，有了缓冲区就能够提高很多io速度</p>
+<p>使用方式将输入流包装到BufferedInputStream中</p>
+<pre><code class="java">/**
+ * inputStream 输入流
+ * 1024 内部缓冲区大小为1024byte
+ */
+BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream,1024);</code></pre>
+<p><strong>BufferedOutputStream</strong></p>
+<p>BufferedOutputStream可以为输出字节流提供缓冲区，作用与BufferedInputStream类似</p>
+<p>使用方式将输出流包装到BufferedOutputStream中</p>
+<pre><code class="java">/**
+ * outputStream 输出流
+ * 1024 内部缓冲区大小为1024byte
+ */
+BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(outputStream,1024);</code></pre>
+<p>字节流提供了带缓冲区的，那字符流肯定也提供了BufferedReader和BufferedWriter</p>
+<p><strong>BufferedReader</strong></p>
+<p>为输入字符流提供缓冲区，使用方式如下</p>
+<pre><code class="java">BufferedReader bufferedReader = new BufferedReader(reader,1024);</code></pre>
+<p><strong>BufferedWriter</strong></p>
+<p>为输出字符流提供缓冲区，使用方式如下</p>
+<pre><code class="java">BufferedWriter bufferedWriter = new BufferedWriter(writer,1024);</code></pre>
+<h4 id="BIO模型-网络编程"><a href="#BIO模型-网络编程" class="headerlink" title="BIO模型 网络编程"></a>BIO模型 网络编程</h4><p>当使用BIO模型进行Socket编程的时候，服务端通常使用while循环中调用accept方法，在没有客户端请求时，accept方法会一直阻塞，直到接收到请求并返回处理的相应，这个过程都是线性的，只有处理完当前的请求之后才会接受处理后面的请求，这样通常会导致通信线程被长时间阻塞</p>
+<p>BIO模型处理多个连接： </p>
+<p><img src="/nio/bio%E7%BA%BF%E7%A8%8B.png" alt></p>
+<p>在这种模式中我们通常用一个线程去接受请求，然后用一个线程池去处理请求，用这种方式并发管理多个Socket客户端连接，像这样：</p>
+<p><img src="/nio/BIO%E7%BA%BF%E7%A8%8B+%E7%BA%BF%E7%A8%8B%E6%B1%A0.png" alt></p>
+<p>使用BIO模型进行网络编程的问题在于缺乏弹性伸缩能力，客户端并发访问数量和服务器线程数量是1:1的关系，而且平时由于阻塞会有大量的线程处于等待状态，等待输入或者输出数据就绪，造成资源浪费，在面对大量并发的情况下，如果不使用线程池直接new线程的话，就会大致线程膨胀，系统性能下降，有可能导致堆栈的内存溢出，而且频繁的创建销毁线程，更浪费资源</p>
+<p>使用线程池可能是更优一点的方案，但是无法解决阻塞IO的阻塞问题，而且还需要考虑如果线程池的数量设置较小就会拒绝大量的Socket客户端的连接，如果线程池数量设置较大的时候，会导致大量的上下文切换，而且程序要为每个线程的调用栈都分配内存，其默认值大小区间为 64 KB 到 1 MB，浪费虚拟机内存</p>
+<p>BIO模型适用于链接数目固定而且比较少的架构，但是使用这种模型写的代码更直观简单易于理解</p>
+<h3 id="NIO"><a href="#NIO" class="headerlink" title="NIO"></a>NIO</h3><p>JDK 1.4版本以来，JDK发布了全新的I/O类库，简称NIO，是一种同步非阻塞IO模型</p>
+<h4 id="非阻塞IO模型"><a href="#非阻塞IO模型" class="headerlink" title="非阻塞IO模型"></a>非阻塞IO模型</h4><p>同步非阻塞IO模型实现：</p>
+<p><strong>非阻塞IO模型</strong></p>
+<p><img src="/nio/%E9%9D%9E%E9%98%BB%E5%A1%9EIO%E6%A8%A1%E5%9E%8B.png" alt></p>
+<p>应用进程调用<strong>recvfrom</strong>系统调用，如果内核数据没有准备好，会直接返回一个EWOULDBLOCK错误，应用进程不会阻塞，但是需要应用进程不断的轮询调用<strong>recvfrom</strong>，直到内核数据准备就绪，之后等待数据从内核复制到用户空间（这段时间会阻塞，但是耗时极小），复制完成后返回</p>
+<p><strong>IO复用模型</strong></p>
+<p><img src="/nio/IO%E5%A4%8D%E7%94%A8%E6%A8%A1%E5%9E%8B.png" alt></p>
+<p>IO复用模型，利用Linux系统提供的<strong>select，poll</strong>系统调用，将一个或者多个文件句柄（网络编程中的客户端链接）传递给select或者poll系统调用，应用进程阻塞在select上，这样就形成了一个进程对应多个Socket链接，然后select/poll会线性扫描这个Socket链接的集合，当只有少数socket有数据的时候，会导致效率下降，而且select/poll受限于所持有的文件句柄数量，默认值是1024个</p>
+<p><strong>信号驱动 IO模型</strong></p>
+<p><img src="/nio/%E4%BF%A1%E5%8F%B7%E9%A9%B1%E5%8A%A8IO%E6%A8%A1%E5%9E%8B.png" alt></p>
+<p>系统调用sigaction执行一个信号处理函数，这个系统调用不会阻塞应用进程，当数据准备就绪的时候，就为该进程生成一个SIGIO信号，通过信号回调通知应用程序调用recvfrom来读取数据</p>
+<h4 id="NIO的核心概念"><a href="#NIO的核心概念" class="headerlink" title="NIO的核心概念"></a>NIO的核心概念</h4><p><strong>Buffer</strong>（缓冲区）</p>
+<p>Buffer是一个对象，它包含一些要写入或者读出的数据，在NIO中所有数据都是用缓存区处理的，在读数据的时候要从缓冲区中读，写数据的时候会先写到缓冲区中，缓冲区本质上是一块可以写入数据，然后可以从中读取数据的一个数组，提供了对数据的结构化访问以及在内部维护了读写位置等信息</p>
+<p>实例化一个ByteBuffer</p>
+<pre><code class="java">//创建一个容量为1024个byte的缓冲区
+ByteBuffer buffer=ByteBuffer.allocate(1024);</code></pre>
+<p>如何使用Buffer：</p>
+<ol>
+<li>写入数据到Buffer</li>
+<li>调用<code>flip()</code>方法将Buffer从写模式切换到读模式</li>
+<li>从Buffer中读取数据</li>
+<li>调用<code>clear()</code>方法或者<code>compact()</code>方法清空缓冲区，让它可以再次被写入</li>
+</ol>
+<p>更多详细信息看这个：<a href="http://ifeve.com/buffers/" target="_blank" rel="noopener">http://ifeve.com/buffers/</a></p>
+<p><strong>Channel</strong>（通道）</p>
+<p>Channel（通道）数据总是从通道读取到缓冲区，或者从缓冲区写入到通道中，Channel只负责运输数据，而操作数据是Buffer</p>
+<p>通道与流类似，不同地方:</p>
+<ol>
+<li>在于条通道是双向的，可以同时进行读，写操作，而流是单向流动的，只能写入或者读取</li>
+<li>流的读写是阻塞的，通道可以异步读写</li>
+</ol>
+<p><img src="/nio/overview-channels-buffers.png" alt></p>
+<p>数据从Channel读到Buffer</p>
+<pre><code class="java">inChannel.read(buffer);</code></pre>
+<p>数据从Buffer写到Channel</p>
+<pre><code class="java">outChannel.write(buffer);</code></pre>
+<p>更多详细信息看这个：&lt;<a href="http://ifeve.com/channels/" target="_blank" rel="noopener">http://ifeve.com/channels/</a>&gt;</p>
+<p><strong>以复制文件为例</strong></p>
+<pre><code class="java">FileInputStream fileInputStream=new FileInputStream(new File(src));
+FileOutputStream fileOutputStream=new FileOutputStream(new File(dst));
+//获取输入输出channel通道
+FileChannel inChannel=fileInputStream.getChannel();
+FileChannel outChannel=fileOutputStream.getChannel();
+//创建容量为1024个byte的buffer
+ByteBuffer buffer=ByteBuffer.allocate(1024);
+while(true){
+    //从inChannel里读数据，如果读不到字节了就返回-1，文件就读完了
+    int eof =inChannel.read(buffer);
+    if(eof==-1){
+        break;
+    }
+    //将Buffer从写模式切换到读模式
+    buffer.flip();
+    //开始往outChannel写数据
+    outChannel.write(buffer);
+    //清空buffer
+    buffer.clear();
 }
-</style></noscript><meta name="generator" content="Hexo 4.2.1"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">69</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">64</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">14</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 诗词</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 我</span></a></div></div></div></div><div id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/img/1.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">但行好事 莫问前程</a></span><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 诗词</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 我</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site_title">但行好事 莫问前程</h1><div id="site_subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="mailto:cmysouls@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll_down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/distributed-transaction/" title="让我们聊一聊分布式事务">     <img class="post_bg" data-src="/img/10.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="让我们聊一聊分布式事务"></a></div><div class="recent-post-info"><a class="article-title" href="/distributed-transaction/" title="让我们聊一聊分布式事务">让我们聊一聊分布式事务</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-08-27 20:11:32"><i class="far fa-calendar-alt"></i>2019-08-27</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/">分布式事务</a></span></div><div class="content">一个复杂的系统往往都是从一个小而简的系统发展衍化而来，为了满足日益增长的业务需求，不断的增加系统的复杂度，从单体架构逐步发展为分布式架构，而分布式系统架构的设计主要关注：高性能，高可用，高拓展
-分布式事务高可用是指系统无中断的执行功能的能了，代表了系统的可用程度，是进行系统设计时必须要遵守的准则之一。
-而高可用的实现方案，无外乎就是冗余，就存储的高可用而言，问题不在于如何进行数据备份，而在于如何规避数据不一致对业务造成的影响
-对于分布式系统而言，要保证分布式系统中的数据一致性就需要一种方案，可以保证数据在子系统中始终保持一致，避免业务出现问题，这种实现方案就叫做分布式事务，要么一起成功，要么一起失败，必须是一个整体性的事务
-举个栗子：
-​    在电商网站中，用户对商品进行下单，需要在订单表中创建一条订单数据，同时需要在库存表中修改当前商品的剩余库存数量，两步操作一个添加，一个修改，我们一定要保证这两步操作一定同时操作成功或失败，否则业务就会出现问题
-建立时：
-​    业务量不大，用户少，系统只是一个单体架构，订单表与库存表都在一个数据库中，这时可以使用mysql的本地事务保证数据一 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/network-protocol/" title="浅析网络协议">     <img class="post_bg" data-src="/img/29.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="浅析网络协议"></a></div><div class="recent-post-info"><a class="article-title" href="/network-protocol/" title="浅析网络协议">浅析网络协议</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-08-22 14:34:42"><i class="far fa-calendar-alt"></i>2019-08-22</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/">网络协议</a></span></div><div class="content">
-本文部分内容摘自 极客时间：趣谈网络协议和网络协议入门，只是个人的一个学习总结
+inChannel.close();
+outChannel.close();
+fileInputStream.close();
+fileOutputStream.close();</code></pre>
+<p><strong>Selector</strong>（多路复用选择器）</p>
+<p>Selector是NIO编程的基础，主要作用就是将多个Channel注册到Selector上，如果Channel上发生读或写事件，Channel就处于就绪状态，就会被Selector轮询出来，然后通过SelectionKey就可以获取到已经就绪的Channel集合，进行IO操作了</p>
+<p>Selector与Channel，Buffer之间的关系</p>
+<p><img src="/nio/Selector.png" alt></p>
+<p>更多详细信息看这个：&lt;<a href="http://ifeve.com/selectors/" target="_blank" rel="noopener">http://ifeve.com/selectors/</a></p>
+<h4 id="NIO模型-网络编程"><a href="#NIO模型-网络编程" class="headerlink" title="NIO模型 网络编程"></a>NIO模型 网络编程</h4><p>JDK中NIO使用多路复用的IO模型，通过把多个IO阻塞复用到一个select的阻塞上，实现系统在单线程中可以同时处理多个客户端请求，节省系统开销，在JDK1.4和1.5 update10版本之前，JDK的Selector基于select/poll模型实现，在JDK 1.5 update10以上的版本，底层使用epoll代替了select/poll</p>
+<p>epoll较select/poll的优点在于：</p>
+<ol>
+<li>epoll支持打开的文件描述符数量不在受限制，select/poll可以打开的文件描述符数量有限</li>
+<li>select/poll使用轮询方式遍历整个文件描述符的集合，epoll基于每个文件描述符的callback函数回调</li>
+</ol>
+<p><strong>select，poll，epoll</strong>都是IO多路复用的机制。I/O多路复用就是通过一种机制，一个进程可以监视多个描述符，一旦某个描述符就绪（一般是读就绪或者写就绪），能够通知程序进行相应的读写操作。但select，poll，epoll本质上都是同步I/O，因为他们都需要在读写事件就绪后自己负责进行读写，也就是说这个读写过程是阻塞的，而异步I/O则无需自己负责进行读写</p>
+<p>NIO提供了两套不同的套接字通道实现网络编程，服务端：ServerSocketChannel和客户端SocketChannel，两种通道都支持阻塞和非阻塞模式</p>
+<p><strong>服务端代码</strong></p>
+<p>服务端接受客户端发送的消息输出，并给客户端发送一个消息</p>
+<pre><code class="java">        //创建多路复用选择器Selector
+        Selector selector=Selector.open();
+        //创建一个通道对象Channel，监听9001端口
+        ServerSocketChannel channel = ServerSocketChannel.open().bind(new InetSocketAddress(9001));
+        //设置channel为非阻塞
+        channel.configureBlocking(false);
+        //
+        /**
+         * 1.SelectionKey.OP_CONNECT：连接事件
+         * 2.SelectionKey.OP_ACCEPT：接收事件
+         * 3.SelectionKey.OP_READ：读事件
+         * 4.SelectionKey.OP_WRITE：写事件
+         *
+         * 将channel绑定到selector上并注册OP_ACCEPT事件
+         */
+        channel.register(selector,SelectionKey.OP_ACCEPT);
 
-参考资料：
-极客时间：趣谈网络协议
-网络协议入门
-网络协议指的是计算机网络中互相通信的对等实体之间交换信息时所必须遵守的规则的集合。
+        while (true){
+            //只有当OP_ACCEPT事件到达时，selector.select()会返回（一个key），如果该事件没到达会一直阻塞
+            selector.select();
+            //当有事件到达了，select()不在阻塞，然后selector.selectedKeys()会取到已经到达事件的SelectionKey集合
+            Set keys = selector.selectedKeys();
+            Iterator iterator = keys.iterator();
+            while (iterator.hasNext()){
+                SelectionKey key = (SelectionKey) iterator.next();
+                //删除这个SelectionKey，防止下次select方法返回已处理过的通道
+                iterator.remove();
+                //根据SelectionKey状态判断
+                if (key.isConnectable()){
+                    //连接成功
+                } else if (key.isAcceptable()){
+                    /**
+                     * 接受客户端请求
+                     *
+                     * 因为我们只注册了OP_ACCEPT事件，所以有客户端链接上，只会走到这
+                     * 我们要做的就是去读取客户端的数据，所以我们需要根据SelectionKey获取到serverChannel
+                     * 根据serverChannel获取到客户端Channel，然后为其再注册一个OP_READ事件
+                     */
+                    // 1，获取到ServerSocketChannel
+                    ServerSocketChannel serverChannel = (ServerSocketChannel) key.channel();
+                    // 2，因为已经确定有事件到达，所以accept()方法不会阻塞
+                    SocketChannel clientChannel = serverChannel.accept();
+                    // 3，设置channel为非阻塞
+                    clientChannel.configureBlocking(false);
+                    // 4，注册OP_READ事件
+                    clientChannel.register(key.selector(),SelectionKey.OP_READ);
+                } else if (key.isReadable()){
+                    // 通道可以读数据
+                    /**
+                     * 因为客户端连上服务器之后，注册了一个OP_READ事件发送了一些数据
+                     * 所以首先还是需要先获取到clientChannel
+                     * 然后通过Buffer读取clientChannel的数据
+                     */
+                    SocketChannel clientChannel = (SocketChannel) key.channel();
+                    ByteBuffer byteBuffer = ByteBuffer.allocate(BUF_SIZE);
+                    long bytesRead = clientChannel.read(byteBuffer);
+                    while (bytesRead&gt;0){
+                        byteBuffer.flip();
+                        System.out.println(&quot;client data ：&quot;+new String(byteBuffer.array()));
+                        byteBuffer.clear();
+                        bytesRead = clientChannel.read(byteBuffer);
+                    }
 
-​    由于网络节点之间联系的复杂性，在制定协议时，通常把复杂成分分解成一些简单成分，然后再将它们复合起来，最常用的复合技术就是层次方式，无论是OSI七层模型，还是TCP/IP模型，从上而下，每一层都依赖下一层，每一层都在他的下层提供的服务基础上提供更高级的服务，所以在传输数据时可以没有层但是一定会有下层，比如使用传输层传输数据，一定会有网络层和链路层，不一定会有应用层，如果使用应用层传输数据，一定有传输层，网络层，链路层。
-TCP/IP五层模型TCP/IP是一组协议的代名词，它还包括许多协议，组成了TCP/IP协议簇；
-开篇的图片中，在TCP/IP概念层模型中将数据链路层与物理层统称为链路层，其实这个分不分对于我们学习网络协议的影响不大；
-下图中右侧是每一层常用的协议，通过上面我们知道应用层依赖传输层，传输层依赖网络层，网络层依赖数据链路层，数据链路层依赖物理层，我 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/java-exception/" title="java异常体系">     <img class="post_bg" data-src="/img/25.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="java异常体系"></a></div><div class="recent-post-info"><a class="article-title" href="/java-exception/" title="java异常体系">java异常体系</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-08-21 18:20:26"><i class="far fa-calendar-alt"></i>2019-08-21</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/java/">java</a></span></div><div class="content">异常是一个在程序执行期间发生的事件，它中断正在执行的程序的正常指令流。为了能够及时有效地处理程序中的运行错误，必须使用异常类
-异常类如果使用正确，可以提高程序的可读性，可靠性和可维护性，如果使用不当会带来负面效果
-java异常体系
-Java 异常强制用户考虑程序的强健性和安全性。异常处理不应用来控制程序的正常流程，其主要作用是捕获程序在运行时发生的异常并进行相应处理
+                    /**
+                     * 我们服务端收到信息之后，我们再给客户端发送一个数据
+                     */
+                    byteBuffer.clear();
+                    byteBuffer.put(&quot;客户端你好，我是服务端，你看这NIO多难&quot;.getBytes(&quot;UTF-8&quot;));
+                    byteBuffer.flip();
+                    clientChannel.write(byteBuffer);
+                } else if (key.isWritable() &amp;&amp; key.isValid()){
+                    //通道可以写数据
+                }
 
- java中所有的异常类型都是 java.lang.Throwable的子类，分为两种类型Error错误和Exception异常
-Error
-程序中无法处理的错误，表示运行应用程序中出现了严重的错误，出现此类异常，JVM将终止线程
-比如：
-Exception
+            }
+        }</code></pre>
+<p><strong>客户端代码</strong></p>
+<p>客户端连接上服务端后，先给服务端发送一个消息，并接受服务端发送的消息</p>
+<pre><code class="java">Selector selector = Selector.open();
+SocketChannel clientChannel = SocketChannel.open();
+//将channel设置为非阻塞
+clientChannel.configureBlocking(false);
+//连接服务器
+clientChannel.connect(new InetSocketAddress(9001));
+//注册OP_CONNECT事件
+clientChannel.register(selector, SelectionKey.OP_CONNECT);
+while (true){
+    //如果事件没到达就一直阻塞着
+    selector.select();
+    Iterator&lt;SelectionKey&gt; iterator = selector.selectedKeys().iterator();
+    while (iterator.hasNext()){
+        SelectionKey key = iterator.next();
+        iterator.remove();
+        if (key.isConnectable()){
+            /**
+             * 连接服务器端成功
+             *
+             * 首先获取到clientChannel，然后通过Buffer写入数据，然后为clientChannel注册OP_READ时间
+             */
+            clientChannel = (SocketChannel) key.channel();
+            if (clientChannel.isConnectionPending()){
+                clientChannel.finishConnect();
+            }
+            clientChannel.configureBlocking(false);
+            ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
+            byteBuffer.clear();
+            byteBuffer.put(&quot;服务端你好，我是客户端，你看这NIO难吗&quot;.getBytes(&quot;UTF-8&quot;));
+            byteBuffer.flip();
+            clientChannel.write(byteBuffer);
+            clientChannel.register(key.selector(),SelectionKey.OP_READ);
+        } else if (key.isReadable()){
+            //通道可以读数据
+            clientChannel = (SocketChannel) key.channel();
+            ByteBuffer byteBuffer = ByteBuffer.allocate(BUF_SIZE);
+            long bytesRead = clientChannel.read(byteBuffer);
+            while (bytesRead&gt;0){
+                byteBuffer.flip();
+                System.out.println(&quot;server data ：&quot;+new String(byteBuffer.array()));
+                byteBuffer.clear();
+                bytesRead = clientChannel.read(byteBuffer);
+            }
+        } else if (key.isWritable() &amp;&amp; key.isValid()){
+            //通道可以写数据
+        }
+    }
+}</code></pre>
+<p>使用原生NIO类库十分复杂，NIO的类库和Api繁杂，使用麻烦，需要对网络编程十分熟悉，才能编写出高质量的NIO程序，所以并不建议直接使用原生NIO进行网络编程，而是使用一些成熟的框架，比如Netty</p>
+<h3 id="AIO"><a href="#AIO" class="headerlink" title="AIO"></a>AIO</h3><p>JDK1.7升级了Nio类库，成为Nio2.0，最主要的是提供了异步文件的IO操作，以及事件驱动IO，AIO的异步套接字通道是真正的异步非阻塞IO</p>
+<h4 id="异步IO模型"><a href="#异步IO模型" class="headerlink" title="异步IO模型"></a>异步IO模型</h4><p><img src="/nio/%E5%BC%82%E6%AD%A5IO%E6%A8%A1%E5%9E%8B.png" alt></p>
+<p>在Linux系统中，应用进程发起read操作，立刻可以去做其他的事，内核会将数据准备好并且复制到用空间后告诉应用进程，数据已经复制完成read操作</p>
+<h4 id="aio模型-网络编程"><a href="#aio模型-网络编程" class="headerlink" title="aio模型 网络编程"></a>aio模型 网络编程</h4><p><strong>异步操作</strong></p>
+<p>aio不需要通过多路复用器对注册的通道进行轮询操作就可以实现异步读写，从而简化了NIO的编程模型</p>
+<p>aio通过异步通道实现异步操作，异步通道提供了两种方式获取操作结果：</p>
+<ol>
+<li>通过Future类来获取异步操作的结果，不过要注意的是future.get()是阻塞方法，会阻塞线程</li>
+<li>通过回调的方式进行异步，通过传入一个CompletionHandler的实现类进行回调，CompletionHandler定义了两个方法，completed和failed两方法分别对应成功和失败</li>
+</ol>
+<p>Aio中的Channel都支持以上两种方式</p>
+<p>AIO提供了对应的异步套接字通道实现网络编程，服务端：AsynchronousServerSocketChannel和客户端AsynchronousSocketChannel </p>
+<p><strong>服务端</strong></p>
+<p>服务端向客户端发送消息，并接受客户端发送的消息</p>
+<pre><code class="java">AsynchronousServerSocketChannel server = AsynchronousServerSocketChannel.open().bind(new InetSocketAddress(&quot;127.0.0.1&quot;, 9001));
+//异步接受请求
+server.accept(null, new CompletionHandler&lt;AsynchronousSocketChannel, Void&gt;() {
+    //成功时
+    @Override
+    public void completed(AsynchronousSocketChannel result, Void attachment) {
+        try {
+            ByteBuffer buffer = ByteBuffer.allocate(1024);
+            buffer.put(&quot;我是服务端，客户端你好&quot;.getBytes());
+            buffer.flip();
+            result.write(buffer, null, new CompletionHandler&lt;Integer, Void&gt;(){
+                @Override
+                public void completed(Integer result, Void attachment) {
+                    System.out.println(&quot;服务端发送消息成功&quot;);
+                }
 
-运行时异常：
-此类异常实现都是RuntimeException类及其子类
-运行时异常不必在代码中强制进行try-catch
-这类异常通常由程序逻辑错误引起，应尽量避免此类异常的发生
+                @Override
+                public void failed(Throwable exc, Void attachment) {
+                    System.out.println(&quot;发送失败&quot;);
+                }
+            });
 
-非运行时异常
-除了运行时异常外，继承了Exception的异常类
-非运行时异常必须要在程序中进行try-catch，如果不处理，则程序编译不通过
+            ByteBuffer readBuffer = ByteBuffer.allocate(1024);
+            result.read(readBuffer, null, new CompletionHandler&lt;Integer, Void&gt;() {
+                //成功时调用
+                @Override
+                public void completed(Integer result, Void attachment) {
+                    System.out.println(new String(readBuffer.array()));
+                }
+                //失败时调用
+                @Override
+                public void failed(Throwable exc, Void attachment) {
+                    System.out.println(&quot;读取失败&quot;);
+                }
+            });
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    //失败时
+    @Override
+    public void failed(Throwable exc, Void attachment) {
+        exc.printStackTrace();
+    }
+});
+//防止线程执行完
+TimeUnit.SECONDS.sleep(1000L);</code></pre>
+<p><strong>客户端</strong></p>
+<p>客户端向服务端发送消息，并接受服务端发送的消息</p>
+<pre><code class="java">AsynchronousSocketChannel client = AsynchronousSocketChannel.open();
+Future&lt;Void&gt; future = client.connect(new InetSocketAddress(&quot;127.0.0.1&quot;, 9001));
+//阻塞，获取连接
+future.get();
 
-自定义异常
-自定义异常需要继承E ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/nio/" title="一文看懂java io系统">     <img class="post_bg" data-src="/img/16.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="一文看懂java io系统"></a></div><div class="recent-post-info"><a class="article-title" href="/nio/" title="一文看懂java io系统">一文看懂java io系统</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-08-17 15:35:03"><i class="far fa-calendar-alt"></i>2019-08-17</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/java/">java</a></span></div><div class="content">
-学习java IO系统，重点是学会IO模型，了解了各种IO模型之后就可以更好的理解java IO
+ByteBuffer buffer = ByteBuffer.allocate(1024);
+//读数据
+client.read(buffer, null, new CompletionHandler&lt;Integer, Void&gt;() {
+    //成功时调用
+    @Override
+    public void completed(Integer result, Void attachment) {
+        System.out.println(new String(buffer.array()));
+    }
+    //失败时调用
+    @Override
+    public void failed(Throwable exc, Void attachment) {
+        System.out.println(&quot;客户端接收消息失败&quot;);
+    }
+});
 
-Java IO 是一套Java用来读写数据（输入和输出）的API。大部分程序都要处理一些输入，并由输入产生一些输出。Java为此提供了java.io包
-java中io系统可以分为Bio，Nio，Aio三种io模型
+ByteBuffer writeBuffer = ByteBuffer.allocate(1024);
+writeBuffer.put(&quot;我是客户端，服务端你好&quot;.getBytes());
+writeBuffer.flip();
+//阻塞方法
+Future&lt;Integer&gt; write = client.write(writeBuffer);
+Integer r = write.get();
+if(r&gt;0){
+    System.out.println(&quot;客户端消息发送成功&quot;);
+}
+//休眠线程
+TimeUnit.SECONDS.sleep(1000L);</code></pre>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>各IO模型对比：</p>
+<p><img src="/nio/%E5%90%84IO%E6%A8%A1%E5%9E%8B%E5%AF%B9%E6%AF%94.png" alt></p>
+<p><em>伪异步IO是指使用线程池处理请求的Bio模型</em></p>
+<p>参考：</p>
+<p>netty权威指南 第二版</p>
+<p><a href="http://ifeve.com/java-nio-all/" target="_blank" rel="noopener">http://ifeve.com/java-nio-all/</a> 并发编程网</p>
+<p><a href="https://tech.meituan.com/2016/11/04/nio.html" target="_blank" rel="noopener">https://tech.meituan.com/2016/11/04/nio.html</a> 美团技术团队</p>
+<p><em>文中图片如有侵权，联系我删除</em></p>
 
-关于Bio，我们需要知道什么是同步阻塞IO模型，Bio操作的对象：流，以及如何使用Bio进行网络编程，使用Bio进行网络编程的问题
-关于Nio，我们需要知道什么是同步非阻塞IO模型，什么是多路复用Io模型，以及Nio中的Buffer,Channel,Selector的概念，以及如何使用Nio进行网络编程
-关于Aio，我们需要知道什么是异步非阻塞IO模型，Aio可以使用几种方式实现异步操作，以及如何使用Aio进行网络编程
+			
+		</div>
+		<footer class="clearfix">
+			
+				
+				
+					<div class="disqus-comment">
+						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/nio/#disqus_thread" class="comment-link"> 评论</a>
+					</div>
+				
+			
+			
+	<div class="categories">
+		<i class="fa fa-folder"></i>
+		
+			<a href="/categories/java/">java</a>
+		
+	</div>
 
-BIOBIO是同步阻塞IO，JDK1.4之前只有这一个IO模型，BIO操作的对象是流，一个线程只能处理一个流的IO请求，如果想要同时处理多个流就需要使用多线程
-流包括字符流和字节流，流从概念上来说是一个连续的数据流。当程序需要读数据的时候就需要使用输入流读 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/java-collection/" title="深入java集合体系">     <img class="post_bg" data-src="/img/25.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="深入java集合体系"></a></div><div class="recent-post-info"><a class="article-title" href="/java-collection/" title="深入java集合体系">深入java集合体系</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-08-16 10:23:48"><i class="far fa-calendar-alt"></i>2019-08-16</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/java/">java</a></span></div><div class="content">java中为了方便操作多个对象，需要将它们存放到一个容器中，这个容器就是集合类
-集合类提供了丰富的api来简化我们的编程，对于多个元素我们可能会有不同的需求，为此提供了多种集合类，底层数据结构包括数组，链表，队列，栈，哈希表等，所有我们就可以根据不同的需求选择合理的集合类进行解决
-集合类作为容器类可以存储任何类型的数据（存储对象的引用），无法存储基础类型，对于基础类型需要将其包装为包装类在进行存储，底层实现使用数组的集合类支持动态扩容
-java中的集合类都在java.util包中，可分为Collection集合和Map映射两种
-Collection实现Collection接口的集合类主要包括：List，Set，Queue
+			
+	<div class="tags">
+		<i class="fa fa-tags"></i>
+		
+			<a href="/tags/io/">#io</a>
+		
+			<a href="/tags/nio/">#nio</a>
+		
+	</div>
 
-List集合有序列表，可以存储重复数据
-ArrayList那基于数组实现，所以随机访问快，增删慢（需要移动数据），线程不安全
+		</footer>
+	</div>
+</article>
+	
+		
+		<article class="post">
+	<div class="post-content">
+		<header>
+			
+				<div class="meta">
+					<div class="icon">
+						
+							<i class="fa fa-file"></i>
+						
+					</div>
+					<time datetime="2019-08-16T02:23:48.000Z">2019-08-16</time>
+				</div>
+			
+			
+	
+		<h1 class="title" data-role="articleTitle"><a href="/java-collection/">深入java集合体系</a></h1>
+	
 
-ArrayList实现过程不难
-我们看一下添加元素的时候如何进行扩容
-public boolean add(E e) {
+		</header>
+		<div class="entry">
+			
+				<p>java中为了方便操作多个对象，需要将它们存放到一个容器中，这个容器就是集合类</p>
+<p>集合类提供了丰富的api来简化我们的编程，对于多个元素我们可能会有不同的需求，为此提供了多种集合类，底层数据结构包括数组，链表，队列，栈，哈希表等，所有我们就可以根据不同的需求选择合理的集合类进行解决</p>
+<p>集合类作为容器类可以存储任何类型的数据（存储对象的引用），无法存储基础类型，对于基础类型需要将其包装为包装类在进行存储，底层实现使用数组的集合类支持动态扩容</p>
+<p>java中的集合类都在java.util包中，可分为Collection集合和Map映射两种</p>
+<h3 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h3><p>实现Collection接口的集合类主要包括：List，Set，Queue</p>
+<p><img src="/java-collection/collection.png" alt></p>
+<h4 id="List集合"><a href="#List集合" class="headerlink" title="List集合"></a>List集合</h4><p>有序列表，可以存储重复数据</p>
+<h5 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h5><p>那基于数组实现，所以随机访问快，增删慢（需要移动数据），线程不安全</p>
+<p><img src="/java-collection/ArrayList.png" alt></p>
+<p>ArrayList实现过程不难</p>
+<p>我们看一下<strong>添加元素</strong>的时候如何进行扩容</p>
+<pre><code class="java">public boolean add(E e) {
     //扩容方法
-    ensureCapacityInternal(size + 1);  // Increm ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/data-structure-tree/" title="【数据结构】| 众树纷纭">     <img class="post_bg" data-src="/img/19.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【数据结构】| 众树纷纭"></a></div><div class="recent-post-info"><a class="article-title" href="/data-structure-tree/" title="【数据结构】| 众树纷纭">【数据结构】| 众树纷纭</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-07-17 16:39:15"><i class="far fa-calendar-alt"></i>2019-07-17</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="content">数据结构中的树有多种形式，如：二叉树，二叉搜索树，平衡二叉搜索树，红黑树，线段树，trie树，二叉堆等
-每一种树结构都是由最基础的树演化而来，每种树的产生都是为了解决某些问题，所以学习的过程也是先学习基础树结构的概念，之后会按照演化顺序进行讲解
-树是由有限个结点（假设为n）构成的集合
-比如下面这棵树：
+    ensureCapacityInternal(size + 1);  // Increments modCount!!
+    elementData[size++] = e;
+    return true;
+}
 
-基础概念：
-父节点：A是B的父节点，A也是C的父节点，B是D的父节点
-子节点：B是A的子节点，C是A的子节点，G是C的子节点
-兄弟节点：B，C拥有共同的父节点A，所以B和C叫兄弟节点
-根节点：没有父节点的节点，叫做根节点，如图中的A就是根节点，一棵树只有一个根节点
-叶子节点：没有子节点的节点，叫做叶子节点，如图中的D，E，F，G节点
-二叉树二叉树是众多树型结构中的一种
-顾名思义，二叉树中的每个节点最多只能有两个节点，此为二叉，两个节点分别是左子节点和右子节点 ，每个子节点也可是一棵树，也可称为左子树和右子树
+private void ensureCapacityInternal(int minCapacity) {
+    //如果数组是空的，使用默认初始容量 10
+    if (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA) {
+        minCapacity = Math.max(DEFAULT_CAPACITY, minCapacity);
+    }
+    //扩容
+    ensureExplicitCapacity(minCapacity);
+}
+private void ensureExplicitCapacity(int minCapacity) {
+    modCount++;
+    // overflow-conscious code
+    if (minCapacity - elementData.length &gt; 0)
+        grow(minCapacity);
+}
+private void grow(int minCapacity) {
+    // overflow-conscious code
+    int oldCapacity = elementData.length;
+    // 新的数组容量扩充为原来的1.5倍
+    int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);
+    if (newCapacity - minCapacity &lt; 0)
+        newCapacity = minCapacity;
+    if (newCapacity - MAX_ARRAY_SIZE &gt; 0)
+        newCapacity = hugeCapacity(minCapacity);
+    // 调用System.arraycopy方法进行扩容
+    elementData = Arrays.copyOf(elementData, newCapacity);
+}</code></pre>
+<p>默认扩容的大小为原来的1.5倍</p>
+<p><strong>删除方法</strong></p>
+<pre><code class="java">public E remove(int index) {
+    rangeCheck(index);
 
-上图中的三棵树都属二叉树，而二叉树中又有两种比较特殊的树：满二叉树和完全二叉树
-满二叉树：
-​    在一棵二叉树中，如果每个结点都存在左子节点和右子节点，并且所有的叶子节点都在 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/concurrent-lock/" title="java并发编程 | 锁详解：AQS，Lock，ReentrantLock，ReentrantReadWriteLock">     <img class="post_bg" data-src="/img/22.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="java并发编程 | 锁详解：AQS，Lock，ReentrantLock，ReentrantReadWriteLock"></a></div><div class="recent-post-info"><a class="article-title" href="/concurrent-lock/" title="java并发编程 | 锁详解：AQS，Lock，ReentrantLock，ReentrantReadWriteLock">java并发编程 | 锁详解：AQS，Lock，ReentrantLock，ReentrantReadWriteLock</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-07-11 10:18:15"><i class="far fa-calendar-alt"></i>2019-07-11</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">并发编程</a></span></div><div class="content">锁锁是用来控制多个线程访问共享资源的方式，java中可以使用synchronized和Lock实现锁的功能
-synchronized是java中的关键字，隐藏获取和释放锁的过程，Lock是java中的接口，需要主动的获取锁和释放锁，synchronized是排他锁，而Lock支持可中断获取锁，超时获取锁
-Lock提供的接口
-public interface Lock {
+    modCount++;
+    E oldValue = elementData(index);
+
+    int numMoved = size - index - 1;
+    if (numMoved &gt; 0)
+        System.arraycopy(elementData, index+1, elementData, index,
+                         numMoved);
+    elementData[--size] = null; // clear to let GC do its work
+
+    return oldValue;
+}</code></pre>
+<p>删除数据的时候，如果删除的数据后面还有数据需要在删除数据后将删除数据后面的数据往前移动<br>扩容和新增删除需要移动数组，底层使用方法都是<strong>System.arraycopy()</strong></p>
+<h5 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h5><p>基于双向链表实现，所以增删快，查询慢，线程不安全</p>
+<p><img src="/java-collection/LinkedList.png" alt></p>
+<p>LinkedList中维护了双向链表的头节点和尾节点，让我们看一下节点的结构Node</p>
+<p><img src="/java-collection/LinkedList-node.png" alt></p>
+<p>Node的属性有当前节点的值，下一个节点和前一个节点，LinkedList整个结构非常清晰</p>
+<p><strong>添加元素</strong></p>
+<pre><code class="java">public boolean add(E e) {
+    linkLast(e);
+    return true;
+}
+
+/**
+ * Links e as last element.
+ */
+void linkLast(E e) {
+    // 将最后一个元素赋给变量 l
+    final Node&lt;E&gt; l = last;
+    // 构造新的节点 newNode
+    final Node&lt;E&gt; newNode = new Node&lt;&gt;(l, e, null);
+    // 将newNode放到队列尾部
+    last = newNode;
+    // 如果原队列尾部的节点为null
+    if (l == null)
+        // 新构造的节点为队列头节点
+        first = newNode;
+    else
+        // 不为空则将 l 的next节点指向 newNode
+        l.next = newNode;
+    // 队列数量加1
+    size++;
+    // 操作次数加1
+    modCount++;
+}     </code></pre>
+<p>代码逻辑清晰，新添加的元素加到队列的尾部</p>
+<p><strong>删除元素</strong></p>
+<pre><code class="java">public E remove() {
+    return removeFirst();
+}
+
+public E removeFirst() {
+    final Node&lt;E&gt; f = first;
+    if (f == null)
+        throw new NoSuchElementException();
+    return unlinkFirst(f);
+}
+
+/**
+ * Unlinks non-null first node f.
+ */
+private E unlinkFirst(Node&lt;E&gt; f) {
+    // 获取当前节点的元素及下一个节点
+    final E element = f.item;
+    final Node&lt;E&gt; next = f.next;
+    f.item = null;
+    f.next = null; // help GC
+    // 将下一个元素设置为队列首元素
+    first = next;
+    if (next == null)
+        // 队列为空队列
+        last = null;
+    else
+        // 队列首元素的前一个节点引用置为null
+        next.prev = null;
+    size--;
+    modCount++;
+    return element;
+}</code></pre>
+<p>删除的操作逻辑也比较清晰，删除队列的头节点</p>
+<p>还有一些其他方法，代码逻辑也比较清晰，可自行查看</p>
+<p>LinkedList实现了Deque接口，而Deque接口继承自Queue接口，因此LinkedList也提供了对于队列的实现，能实现队列肯定也能实现栈</p>
+<h5 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h5><p>Vector也是数组实现，线程安全，性能较ArrayList差</p>
+<p><strong>添加元素</strong></p>
+<pre><code class="java">public synchronized boolean add(E e) {
+    modCount++;
+    ensureCapacityHelper(elementCount + 1);
+    elementData[elementCount++] = e;
+    return true;
+}
+private void ensureCapacityHelper(int minCapacity) {
+    // overflow-conscious code
+    if (minCapacity - elementData.length &gt; 0)
+        grow(minCapacity);
+}
+private void grow(int minCapacity) {
+    // overflow-conscious code
+    int oldCapacity = elementData.length;
+    // 扩容为原来的一倍
+    int newCapacity = oldCapacity + ((capacityIncrement &gt; 0) ?                                         capacityIncrement : oldCapacity);
+    if (newCapacity - minCapacity &lt; 0)
+        newCapacity = minCapacity;
+    if (newCapacity - MAX_ARRAY_SIZE &gt; 0)
+        newCapacity = hugeCapacity(minCapacity);
+    elementData = Arrays.copyOf(elementData, newCapacity);
+}</code></pre>
+<p>看源码的时候可以看到，Vector的方法都使用synchronized进行修饰，所以线程安全，但是加锁就意味着性能损耗，与ArrayList不同的是扩容时容量会扩为原来的一倍</p>
+<p><strong>Stack</strong></p>
+<p><strong>栈：保证数据先进后出，简称FILO原则</strong></p>
+<p>Stack继承Vector类，实现了栈操作，看源码可以看到它调用的都是Vector的方法，这个类也基本不怎么会用，如果想要实现一个栈可以用实现了<strong>Dueue</strong>接口的子类，比如LinkedList，后面会讲到</p>
+<h4 id="Queue队列"><a href="#Queue队列" class="headerlink" title="Queue队列"></a>Queue队列</h4><p><strong>队列一种特殊的线性表，遵循的原则就是“先入先出”，简称FIFO</strong></p>
+<p>先看一下Queue接口定义的方法</p>
+<p><img src="/java-collection/Queue.png" alt></p>
+<ul>
+<li>add：添加元素到队列尾部，如果操作失败会报异常</li>
+</ul>
+<ul>
+<li>remove：获取队列首部第一个元素，并从队列中删除，如果操作失败会报异常</li>
+</ul>
+<ul>
+<li>element：获取队列首部第一个元素，单不从队列中删除，如果操作失败会报异常</li>
+</ul>
+<ul>
+<li>offer：添加一个元素到队列尾部，操作失败不会报异常</li>
+</ul>
+<ul>
+<li>poll：获取队列首部第一个元素，并从队列中删除，操作失败不会报异常</li>
+</ul>
+<ul>
+<li>peek：获取队列首部第一个元素，单不从队列中删除，操作失败不会报异常</li>
+</ul>
+<p><strong>队列新元素都插入队列的末尾，移除元素都移除队列的头部</strong></p>
+<p><strong>队列</strong></p>
+<p><strong>Queue</strong>接口的子类按不同维度可以分为两种，一种是阻塞还是非阻塞队列，一种是单端还是双端队列</p>
+<p>阻塞与非阻塞主要看是否实现了<strong>BlockingQueue</strong>接口或<strong>BlockingDeque</strong>接口，实现了的是阻塞队列，比如：ArrayBlockingQueue，LinkedBlockingQueue，LinkedBlockingDeque</p>
+<p>未实现的是非阻塞队列，比如：ArrayDeque，LinkedList，PriorityQueue</p>
+<p>*<em>Deque *</em>接口是Queue接口的子接口，代表一个双端队列，比如前面学过的LinkedList</p>
+<p>Deque 接口提供的方法：</p>
+<p><img src="/java-collection/deque.png" alt></p>
+<p>方法的作用可以根据方法名看出来，对比queue接口提供的方法，queue接口只提供了在队列尾部添加元素，获取移除队列首部的元素，而Deque接口实现了对于队列双端的添加删除操作</p>
+<p>Deque 接口的实现类不仅可以当做队列，也可以实现栈，比如使用入栈方法：<em>offerFirst(E e);</em> 出栈方法：<em>E peekFirst()</em></p>
+<h5 id="阻塞队列与非阻塞队列实现区别"><a href="#阻塞队列与非阻塞队列实现区别" class="headerlink" title="阻塞队列与非阻塞队列实现区别"></a>阻塞队列与非阻塞队列实现区别</h5><p>阻塞接口提供的方法：</p>
+<p>看下BlockingQueue接口</p>
+<p><img src="/java-collection/blockingQueue.png" alt></p>
+<p>阻塞接口中的阻塞方法</p>
+<ul>
+<li>put : 用来向队尾存入元素，如果队列满，则等待； </li>
+<li>take: 用来从队首取元素，如果队列为空，则等待； </li>
+<li>offer(E e,long timeout, TimeUnit unit) : 用来向队尾存入元素，如果队列满，则等待一定的时间，当时间期限达到时，如果还没有插入成功，则返回false；否则返回true； </li>
+<li>poll(long timeout, TimeUnit unit) : 用来从队首取元素，如果队列空，则等待一定的时间，当时间期限达到时，如果取到，则返回null；否则返回取得的元素；</li>
+</ul>
+<p>以ArrayBlockingQueue为例：</p>
+<p><img src="/java-collection/java-collection%5Carrayblockingqueue.png" alt></p>
+<p>阻塞队列与非阻塞队列的实现区别就是是否使用了ReentrantLock和Condition</p>
+<p><strong>添加元素：put(E e) 方法</strong></p>
+<pre><code class="java">public void put(E e) throws InterruptedException {
+    checkNotNull(e);
+    final ReentrantLock lock = this.lock;
+    lock.lockInterruptibly();
+    try {
+           // 队列满了
+        while (count == items.length)
+            //进入等待状态
+            notFull.await();
+        enqueue(e);
+    } finally {
+        lock.unlock();
+    }
+}</code></pre>
+<p>当数组里的数量等于数组的长度，也就是队列满了，执行<em>notFull.await();</em>进行阻塞，直到当前线程被中断或者其他线程调用了改notFull这个Condition的signal()方法或signalAll()方法</p>
+<p>删除元素时阻塞的原理也是一样的，调用notEmpty.await()进行阻塞，唤醒条件也是一样的</p>
+<pre><code class="java">public E take() throws InterruptedException {
+    final ReentrantLock lock = this.lock;
+    lock.lockInterruptibly();
+    try {
+        while (count == 0)
+            notEmpty.await();
+        return dequeue();
+    } finally {
+        lock.unlock();
+    }
+}</code></pre>
+<p>所以，阻塞队列的实现原理就是用ReentrantLock和Condition实现的</p>
+<h4 id="Set集合"><a href="#Set集合" class="headerlink" title="Set集合"></a>Set集合</h4><p>无序集合，不允许存放重复的元素</p>
+<h5 id="HashSet"><a href="#HashSet" class="headerlink" title="HashSet"></a>HashSet</h5><p>无序集合，允许元素为null</p>
+<p><img src="/java-collection/java-collection%5CHashSet.png" alt></p>
+<p>HashSet底层使用HashMap实现，采用HashCode算法来存取集合中的元素，因此具有比较好的读取和查找性能</p>
+<p>对于添加的元素key为要添加值，value为一个static final object对象，对于添加重复的值，以前的值会被覆盖</p>
+<p>对于HashSet的迭代，只需要调用的是HashMap的keySet()来获取到map中的key值的Set集合进行迭代</p>
+<pre><code class="java">public Iterator&lt;E&gt; iterator() {
+    return map.keySet().iterator();
+}</code></pre>
+<h5 id="LinkedHashSet"><a href="#LinkedHashSet" class="headerlink" title="LinkedHashSet"></a>LinkedHashSet</h5><p>HashSet的子类，底层实现是LinkedHashMap，利用双向链表保证了元素的有序性</p>
+<pre><code class="java">public LinkedHashSet() {
+    super(16, .75f, true);
+}
+HashSet(int initialCapacity, float loadFactor, boolean dummy) {
+    map = new LinkedHashMap&lt;&gt;(initialCapacity, loadFactor);
+}</code></pre>
+<h5 id="TreeSet"><a href="#TreeSet" class="headerlink" title="TreeSet"></a>TreeSet</h5><p>TreeSet实现了SortedSet接口，所以这个是一种有序的Set集合，查看源码发现底层实现是用的TreeMap，而TreeMap使用红黑树实现</p>
+<pre><code class="java">public TreeSet() {
+    this(new TreeMap&lt;E,Object&gt;());
+}</code></pre>
+<p>使用TreeSet时需要注意，添加到TreeSet中的对象需要实现Comparable重写compareTo接口，或者自定义一个类实现Comparator接口重写compare方法，否则会报异常（讲TreeMap时会详解）</p>
+<p><img src="/java-collection/treeSet-exception.png" alt></p>
+<p>Set集合的实现基本都是复用了Map的实现，使用map中的key存储set中的数据</p>
+<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><p>Map，散列表，它存储的内容是键值对映射(key-value)，先上个图，介绍下要讲的四种map实现</p>
+<p><img src="/java-collection/map.png" alt></p>
+<h4 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h4><p>最常用的当属HashMap，jdk1.7时底层实现的数据结构是散列表（数组+链表），jdk1.8时底层数据结构为数组+链表/红黑树，1.8加入红黑树是为了解决链表过长所带来的性能消耗</p>
+<p>结构如下：<em>网上找的图片</em></p>
+<p><img src="/java-collection/hashMap.jpg" alt></p>
+<p>常用的属性：</p>
+<pre><code class="java">/**
+ * 默认容量
+ */
+static final int DEFAULT_INITIAL_CAPACITY = 1 &lt;&lt; 4; // aka 16
+
+/**
+ * 默认的平衡因子
+ */
+static final float DEFAULT_LOAD_FACTOR = 0.75f;
+
+/**
+ * 由链表转为红黑树的阈值
+ */
+static final int TREEIFY_THRESHOLD = 8;
+
+/**
+ * 由红黑树转为链表的阈值
+ */
+static final int UNTREEIFY_THRESHOLD = 6;
+
+/*
+ * 负载因子
+ */
+final float loadFactor;
+
+/**
+ * 是否扩容的阈值 threshold = 容量 * loadFactor
+ */
+int threshold;
+
+/**
+ * 数组，桶，槽位 存储该位置上的链表的头节点
+ */
+transient Node&lt;K,V&gt;[] table;</code></pre>
+<p>我们知道Hashmap中的数组存储的是链表的头节点的引用，那我们看下节点的结构：</p>
+<p>为链表时节点的结构：</p>
+<p><img src="/java-collection/map.Entry.png" alt></p>
+<p>包括hash值，key，value，以及指向下一个节点的引用</p>
+<p>为红黑树时节点的结构：</p>
+<p><img src="/java-collection/map.TreeNode.png" alt></p>
+<p>包括父节点，左右节点，和节点颜色</p>
+<p>对元素进行操作时，比如添加操作，会通过key的hash值找对应的数组下标位置，如果该位置对应的链表或红黑树为空，则该元素为头节点，如果有元素，则调用equals方法进行比较，如果相等就进行覆盖，如果不相等就进行添加</p>
+<h4 id="LinkedHashMap"><a href="#LinkedHashMap" class="headerlink" title="LinkedHashMap"></a>LinkedHashMap</h4><p>LinkedHashMap继承自HashMap，与hashMap相比最大的区别在于LinkedHashMap存储的数据是有序的</p>
+<p>在LinkedHashMap内部维护了一个双端队列，保证添加的数据的顺序性</p>
+<p><img src="/java-collection/LinkedHashMap.Entry.png" alt></p>
+<p>LinkedHashMap重写了HashMap提供的模板方法来对<strong>链表</strong>进行维护</p>
+<p>在HashMap中的put操作</p>
+<p><img src="/java-collection/LinkedHashMap%E9%87%8D%E5%86%99%E6%96%B9%E6%B3%951.png" alt></p>
+<p>其中afterNodeAccess(e)就是暴露给子类的模板方法，此外还有：</p>
+<p><img src="/java-collection/HashMap%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95.png" alt></p>
+<h4 id="TreeMap"><a href="#TreeMap" class="headerlink" title="TreeMap"></a>TreeMap</h4><p>TreeMap是SortedMap接口的实现类</p>
+<p>TreeMap 是一个有序的key-value集合，通过红黑树实现，每个key-value作为红黑树的一个节点</p>
+<p><img src="/java-collection/treeMap.png" alt></p>
+<p>Comparator，在讲TreeSet的时候说过，TreeSet支持两种排序方式，自然排序和定制排序</p>
+<p>自然排序：key需要实现Comparable接口重写compareTo接口，而且所有的key应该是同一个类的对象，否则会抛出异常</p>
+<p>定制排序：自定义一个类实现Comparator接口重写compare方法，这个类负责对TreeMap中的所有key进行排序，否则会抛出异常</p>
+<p>我们看下红黑树的节点：</p>
+<p><img src="/java-collection/TreeMap.Entry.png" alt></p>
+<p>包括：key，value信息，父节点，左右节点和节点颜色</p>
+<p>在HashMap中判断节点是否相等时，是先比较key的hash值，如果相等在用equals进行比较</p>
+<p>而在TreeMap中是两个key通过compareTo()方法如果返回值是0，则两个key相等</p>
+<h4 id="HashTable"><a href="#HashTable" class="headerlink" title="HashTable"></a>HashTable</h4><p>Hashtable，散列表，存储的也是键值对，继承自Dictionary抽象类，其提供的方法都是同步的，key和value都不可以为null，数据结构为散列表（数组+链表）</p>
+<p><img src="/java-collection/hashtable.png" alt></p>
+<p>实现原理与HashMap相同，使用Synchronize实现线程安全，看了源码，扩容时容量为newCapacity = (oldCapacity &lt;&lt; 1) + 1;  感兴趣的可以自行查看一下源码</p>
+<blockquote>
+<p>终于写完了，Java中常用的集合类都有讲到，不过有些地方只是一概而过，感兴趣的可自行看一下源码实现</p>
+</blockquote>
+
+			
+		</div>
+		<footer class="clearfix">
+			
+				
+				
+					<div class="disqus-comment">
+						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/java-collection/#disqus_thread" class="comment-link"> 评论</a>
+					</div>
+				
+			
+			
+	<div class="categories">
+		<i class="fa fa-folder"></i>
+		
+			<a href="/categories/java/">java</a>
+		
+	</div>
+
+			
+	<div class="tags">
+		<i class="fa fa-tags"></i>
+		
+			<a href="/tags/%E9%9B%86%E5%90%88/">#集合</a>
+		
+	</div>
+
+		</footer>
+	</div>
+</article>
+	
+		
+		<article class="post">
+	<div class="post-content">
+		<header>
+			
+				<div class="meta">
+					<div class="icon">
+						
+							<i class="fa fa-file"></i>
+						
+					</div>
+					<time datetime="2019-07-17T08:39:15.000Z">2019-07-17</time>
+				</div>
+			
+			
+	
+		<h1 class="title" data-role="articleTitle"><a href="/data-structure-tree/">【数据结构】| 众树纷纭</a></h1>
+	
+
+		</header>
+		<div class="entry">
+			
+				<p><strong>数据结构中的树有多种形式，如：二叉树，二叉搜索树，平衡二叉搜索树，红黑树，线段树，trie树，二叉堆等</strong></p>
+<p>每一种树结构都是由最基础的树演化而来，每种树的产生都是为了解决某些问题，所以学习的过程也是先学习基础树结构的概念，之后会按照演化顺序进行讲解</p>
+<p><strong>树是由有限个结点（假设为n）构成的集合</strong></p>
+<p>比如下面这棵树：</p>
+<p><img src="/data-structure-tree/tree.png" alt></p>
+<p><strong>基础概念：</strong></p>
+<p><strong>父节点：</strong>A是B的父节点，A也是C的父节点，B是D的父节点</p>
+<p><strong>子节点：</strong>B是A的子节点，C是A的子节点，G是C的子节点</p>
+<p><strong>兄弟节点：</strong>B，C拥有共同的父节点A，所以B和C叫兄弟节点</p>
+<p><strong>根节点：</strong>没有父节点的节点，叫做根节点，如图中的A就是根节点，一棵树只有一个根节点</p>
+<p><strong>叶子节点：</strong>没有子节点的节点，叫做叶子节点，如图中的D，E，F，G节点</p>
+<h3 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h3><p>二叉树是众多树型结构中的一种</p>
+<p>顾名思义，二叉树中的每个节点最多只能有两个节点，此为二叉，两个节点分别是左子节点和右子节点 ，每个子节点也可是一棵树，也可称为左子树和右子树</p>
+<p><img src="/data-structure-tree/%E4%BA%8C%E5%8F%89%E6%A0%91.png" alt></p>
+<p>上图中的三棵树都属二叉树，而二叉树中又有两种比较特殊的树：满二叉树和完全二叉树</p>
+<p><strong>满二叉树：</strong></p>
+<p>​    在一棵二叉树中，如果每个结点都存在左子节点和右子节点，并且所有的叶子节点都在同一层中，这种二叉树叫满二叉树，如上图中的<strong>树1</strong></p>
+<p><strong>完全二叉树：</strong></p>
+<p>​    在一棵二叉树中，如果叶子节点都在最底下两层，最后一层叶子节点都靠左排列，并且除了最后一层，其他层的节点个数都要达到最大，这种二叉树叫做完全二叉树，如上图中的<strong>树2</strong></p>
+<p><em>满二叉树也是一种特殊的完全二叉树</em></p>
+<h4 id="二叉树的存储"><a href="#二叉树的存储" class="headerlink" title="二叉树的存储"></a>二叉树的存储</h4><p>在了解了二叉树的概念之后，我们思考一下该使用何种数据结构如何进行二叉树的存储？</p>
+<h5 id="顺序存储结构"><a href="#顺序存储结构" class="headerlink" title="顺序存储结构"></a>顺序存储结构</h5><p>使用数组存储二叉树节点</p>
+<p>以一颗完全二叉树为例，<strong>如果父节点的下标为<code>i</code>，则父节点的左子节点为<code>2*i</code>，右子节点为`2*i+1</strong>`，所以为了方便计算子节点，我们将数组0位置空置，树中节点从根节点开始从数组下标为1的位置进行顺序插入，这样进行节点计算时较为方便</p>
+<p><img src="/data-structure-tree/%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8.png" alt></p>
+<p>完全二叉树的可以按顺序的填满数组，只浪费数组下标为0的那块内存，那我们接下来看下非完全二叉树的顺序存储</p>
+<p><img src="/data-structure-tree/%E9%9D%9E%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8.png" alt></p>
+<p>我们根据计算节点的公式，可以算出所有子节点对应数组的下标位置，树5这棵二叉树由于B节点没有左子节点，可以计算出这个缺失的节点下标位置为4，这样下标为4的内存就浪费了，如上图</p>
+<p>对于这种内存的浪费，树5其实并不明显，可以想象一下如果一棵二叉树有大量的子节点缺失就会导致浪费大量的内存空间</p>
+<p><strong>所以如果二叉树是一颗完全二叉树，我们使用数组进行存储，是最节省内存的一种方式</strong></p>
+<h5 id="链式存储"><a href="#链式存储" class="headerlink" title="链式存储"></a>链式存储</h5><p>那非完全二叉树有没有什么好的存储方式那？</p>
+<p>使用链表存储二叉树节点</p>
+<p>使用链表存储节点的时候，链表的每个节点包括三个字段：二叉树的节点数据，二叉树节点的左子节点的引用，下图中简称左引用，二叉树节点的右子节点的引用，下图中简称右引用</p>
+<p><img src="/data-structure-tree/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8.png" alt></p>
+<p>使用链表方式存储比使用数组方式存储需要额外存储二叉树节点的左右子节点的引用，但是对于存储大量缺失子节点的二叉树，无疑是比数组更优的一种方法</p>
+<h4 id="二叉树的遍历"><a href="#二叉树的遍历" class="headerlink" title="二叉树的遍历"></a>二叉树的遍历</h4><p>在已经了解了二叉树的存储方式后，我们看一下如何遍历二叉树</p>
+<p>常见的遍历方式有四种：前序遍历，中序遍历，后序遍历，层次遍历</p>
+<p><img src="/data-structure-tree/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86.png" alt></p>
+<h5 id="前序遍历"><a href="#前序遍历" class="headerlink" title="前序遍历"></a>前序遍历</h5><p><strong>对于树中的任意节点来说，先打印这个节点，然后再打印它的左子节点，最后打印它的右子节点</strong> </p>
+<p>以树6为例：</p>
+<ol>
+<li>从根节点出发，首先输出这个节点，输出A</li>
+<li>向左到达B，输出B，之后继续向左到达D，输出D，在到达H，输出H</li>
+<li>H是叶子节点，所以返回D，但是D已经输出过了，所以访问D的右子节点I，输出I</li>
+<li>I是叶子节点，所以继续返回到B，访问B的右子节点E，输出E</li>
+<li>依照这种方式进行输出</li>
+</ol>
+<p>输出结果为：A-&gt;B-&gt;D-&gt;H-&gt;I-&gt;E-&gt;C-&gt;F-&gt;G</p>
+<h5 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h5><p><strong>对于树中的任意节点来说，先打印它的左子节点，然后再打印它本身，最后打印它的右子节点</strong> </p>
+<p>以树6为例：</p>
+<ol>
+<li>从根节点出发，先不输出他本身，继续向左访问到B，在向左访问到D，再到H</li>
+<li>H没有子节点，因此输出自己，再返回到D，输出D，之后访问D的右子节点I，输出I</li>
+<li>之后再返回到D，因为D已经输出，在往上返回，到B，输出B，之后访问B的右子节点E，输出E</li>
+<li>依照这种方式进行输出</li>
+</ol>
+<p>输出结果为：H-&gt;D-&gt;I-&gt;B-&gt;E-&gt;A-&gt;F-&gt;C-&gt;G</p>
+<h5 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h5><p><strong>对于树中的任意节点来说，先打印它的左子节点，然后再打印它的右子节点，最后打印这个节点本身</strong> </p>
+<p>以树6为例：</p>
+<ol>
+<li>从根节点出发，首先输出自己，继续向左访问到B，直到叶子节点H</li>
+<li>H无子节点，输出H，返回到D，继续访问D的右子节点I，I无子节点，输出I</li>
+<li>再次返回到D，此时D的子节点都已输出，所以此时输出D，继续返回到B，访问B的右子节点E</li>
+<li>E无子节点，故输出E</li>
+<li>依照这种方式进行输出</li>
+</ol>
+<p>输出结果为：H-&gt;I-&gt;D-&gt;E-&gt;B-&gt;F-&gt;G-&gt;C-&gt;A</p>
+<h5 id="层次遍历"><a href="#层次遍历" class="headerlink" title="层次遍历"></a>层次遍历</h5><p><strong>从二叉树的根结点开始，从上至下逐层遍历，在同一层，则按从左至右的顺序对每个结点逐个访问</strong></p>
+<p>以树6为例：</p>
+<p>输出结果为：A-&gt;B-&gt;C-&gt;D-&gt;E-&gt;F-&gt;G-&gt;H-&gt;I</p>
+<h3 id="二叉搜索树"><a href="#二叉搜索树" class="headerlink" title="二叉搜索树"></a>二叉搜索树</h3><p><strong>概念：</strong>在二叉搜索树中，任意一个节点，其左子树中的每个节点的值，都要小于这个节点的值，其右子树中的每个节点的值都大于这个节点的值</p>
+<p>如下图：</p>
+<p><img src="/data-structure-tree/%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91.png" alt></p>
+<h4 id="查找操作"><a href="#查找操作" class="headerlink" title="查找操作"></a>查找操作</h4><p>因为二叉搜索树中任意一个节点的左子树中的节点都小于这个节点的值，右子树中的节点都大于这个节点的值，查询时从根节点开始，如果查询的值小于根节点的值，就去左子树中查询，如果大于根节点的值，就去右子树中查询</p>
+<p><strong>在树7中以查找4为例：</strong></p>
+<p><img src="/data-structure-tree/%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91%E6%9F%A5%E8%AF%A2.png" alt></p>
+<h4 id="插入操作"><a href="#插入操作" class="headerlink" title="插入操作"></a>插入操作</h4><p>插入操作跟查找操作类似，都是根据二叉查找树的特性进行查询可以插入新节点的位置</p>
+<p><strong>在树7中以插入12为例：</strong></p>
+<p><img src="/data-structure-tree/%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91%E6%8F%92%E5%85%A5.png" alt></p>
+<h4 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h4><p>删除节点比较复杂，主要是根据要删除的子节点数量进行不同处理</p>
+<p><strong>情况1：删除的节点没有子节点，这种情况直接找到节点删除即可</strong></p>
+<p>比如删除节点4：</p>
+<p><img src="/data-structure-tree/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%88%A0%E9%99%A41.png" alt></p>
+<p><strong>情况2：删除的节点有一个子节点，删除节点，移动其子节点</strong></p>
+<p>比如删除节点3：</p>
+<p><img src="/data-structure-tree/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%88%A0%E9%99%A42.png" alt></p>
+<p><strong>情况3：删除的节点有两个子节点，首先需要找到右子树中最小的节点，将当前节点替换为最小节点，然后删除最小节点</strong></p>
+<p>比如删除节点5：</p>
+<p><img src="/data-structure-tree/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%88%A0%E9%99%A4%E6%83%85%E5%86%B53.png" alt></p>
+<h4 id="退化为链表"><a href="#退化为链表" class="headerlink" title="退化为链表"></a>退化为链表</h4><p>当二叉搜索树是满二叉树或完全二叉树时，其查找，添加，删除的时间复杂度是log(n)，当一颗二叉搜索树极度不平衡时，其操作的时间复杂度退化为O(n)</p>
+<p>比如向二叉搜索树中按顺序添加 1,2,3,4 ，其二叉搜索树的结构如下图：</p>
+<p><img src="/data-structure-tree/%E6%9E%81%E5%BA%A6%E4%B8%8D%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91.png" alt></p>
+<p>这时二叉搜索树退化为链表，即便不是退化为链表这种极端情况，只要有左右两颗子树不平衡的情况在（实际上使用时绝大部分都是不平衡的），其操作的时间复杂度就会退化</p>
+<h3 id="平衡二叉搜索树（AVL）"><a href="#平衡二叉搜索树（AVL）" class="headerlink" title="平衡二叉搜索树（AVL）"></a>平衡二叉搜索树（AVL）</h3><p>为了解决将有顺序数据添加到二叉查找树时导致二叉搜索树性能变差的情况出现，就需要二叉搜索树可以自己进行自平衡操作，进而使二叉搜索树达到平衡状态，在进行自平衡操作之前，需要了解下平衡的概念</p>
+<h4 id="平衡二叉搜索树的平衡"><a href="#平衡二叉搜索树的平衡" class="headerlink" title="平衡二叉搜索树的平衡"></a>平衡二叉搜索树的平衡</h4><p>对于任意一个节点，左右子树的高度之差的绝对值不超过1，那么这棵二叉搜索树是平衡的</p>
+<p><strong>节点高度：</strong>左右子树最高的节点高度+1</p>
+<p><strong>平衡因子：</strong>左右子树的高度差的绝对值，所以一个平衡二叉搜索树的任意一个节点的平衡因子不能大于1</p>
+<p>在二叉搜索树的基础上，满足平衡条件的二叉树，就是平衡二叉搜索树，如下图：</p>
+<p><img src="/data-structure-tree/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91.png" alt></p>
+<p>使用这种方式，我们就可以计算出二叉搜索树是否是平衡的，树8的任意一个节点的平衡因子都在-1,0,1之间，所以树8是平衡二叉搜索树</p>
+<h4 id="平衡二叉搜索树的自平衡"><a href="#平衡二叉搜索树的自平衡" class="headerlink" title="平衡二叉搜索树的自平衡"></a>平衡二叉搜索树的自平衡</h4><p>一颗平衡二叉搜索树当添加节点的时候，必须更新其父节点的平衡因子，可分为两种情况：</p>
+<ol>
+<li>递归更新父节点的平衡因子，直到根节点</li>
+<li>当父节点的平衡因子为0时其祖先节点的平衡因子不会发生改变，停止更新</li>
+</ol>
+<p>根据添加的节点位置可以分为4种情况：</p>
+<h5 id="情况1：添加的节点在左子树的左边，简称为LL"><a href="#情况1：添加的节点在左子树的左边，简称为LL" class="headerlink" title="情况1：添加的节点在左子树的左边，简称为LL"></a>情况1：添加的节点在左子树的左边，简称为LL</h5><p><img src="/data-structure-tree/LL.png" alt></p>
+<ol>
+<li>添加的节点F为D节点的左子节点</li>
+<li>递归更新父节点的平衡因子，A节点额平衡因子为2</li>
+<li>因此以A节点为根节点的子树需要进行自平衡操作</li>
+<li>对A节点进行右旋转操作</li>
+</ol>
+<p>此时自平衡操作完成，二叉搜索树重新变为平衡二叉搜索树</p>
+<h5 id="情况2：添加的节点在右子树的右边，简称为RR"><a href="#情况2：添加的节点在右子树的右边，简称为RR" class="headerlink" title="情况2：添加的节点在右子树的右边，简称为RR"></a>情况2：添加的节点在右子树的右边，简称为RR</h5><p><img src="/data-structure-tree/RR.png" alt></p>
+<ol>
+<li>添加节点F为E的右子节点</li>
+<li>递归更新父节点的平衡因子，A节点额平衡因子为2</li>
+<li>因此以A节点为根节点的子树需要进行自平衡操作</li>
+<li>对A节点进行左旋转操作</li>
+</ol>
+<h5 id="情况3：添加的节点在左子树的右边，简称为LR"><a href="#情况3：添加的节点在左子树的右边，简称为LR" class="headerlink" title="情况3：添加的节点在左子树的右边，简称为LR"></a>情况3：添加的节点在左子树的右边，简称为LR</h5><p>首先我们尝试使用LL解决方法，对A节点进行右旋转，不过很明显平衡之后的二叉搜索树肯定不是平衡的，B的平衡因子还是2</p>
+<p><img src="/data-structure-tree/LR%E6%8F%92%E5%85%A5.png" alt></p>
+<p>所以直接使用右旋转操作是行不通的</p>
+<p>针对这种情况，<strong>需要先将LR转为LL，之后就可以进LL的自平衡操作了</strong>，具体流程如下</p>
+<p><img src="/data-structure-tree/LR%E6%97%8B%E8%BD%AC.png" alt></p>
+<ol>
+<li>对B进行左旋转，使LR转化为LL</li>
+<li>转化为LL后，使用处理LL的自平衡操作，对A进行右旋转</li>
+</ol>
+<p><strong>无论添加的节点F是E的左子节点还是右子节点，对以上整个自平衡的操作并无影响</strong></p>
+<h5 id="情况4：添加的节点在右子树的左边，简称为RL"><a href="#情况4：添加的节点在右子树的左边，简称为RL" class="headerlink" title="情况4：添加的节点在右子树的左边，简称为RL"></a>情况4：添加的节点在右子树的左边，简称为RL</h5><p>这种情况和LR情况类似，需要先将RL转为RR，之后进行RR的自平衡操作即可</p>
+<p><img src="/data-structure-tree/E:%5Cmy%5Cmyblog%5Csource_posts%5Cdata-structure-tree%5CRL%E6%97%8B%E8%BD%AC.png" alt></p>
+<ol>
+<li>对C进行右旋转，使RL转换为RR</li>
+<li>转化为RR之后，使用RR的自平衡操作，对A进行左旋转</li>
+</ol>
+<h5 id="总结一下自平衡转换的规则"><a href="#总结一下自平衡转换的规则" class="headerlink" title="总结一下自平衡转换的规则"></a>总结一下自平衡转换的规则</h5><p>如果是LL，对不平衡的节点进行右旋转</p>
+<p>如果是RR，对不平衡的节点进行左旋转</p>
+<p>如果是LR，先左旋，变成LL，在右旋转</p>
+<p>如果是RL，先右旋，变成RR，在左旋转</p>
+<p><em>L对应右旋转，R对应左旋转</em></p>
+<p>本来想一篇把开头写的二叉树，二叉搜索树，平衡二叉搜索树，红黑树，线段树，trie树，二叉堆等都讲明白，但是写到平衡二叉搜索树的时候发现篇幅太长了，所以剩下的树放到下一篇去写</p>
+<p>画图不易，欢迎点赞</p>
+<p>有问题可以评论，一起讨论</p>
+
+			
+		</div>
+		<footer class="clearfix">
+			
+				
+				
+					<div class="disqus-comment">
+						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/data-structure-tree/#disqus_thread" class="comment-link"> 评论</a>
+					</div>
+				
+			
+			
+	<div class="categories">
+		<i class="fa fa-folder"></i>
+		
+			<a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+		
+	</div>
+
+			
+	<div class="tags">
+		<i class="fa fa-tags"></i>
+		
+			<a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">#数据结构</a>
+		
+			<a href="/tags/%E7%AE%97%E6%B3%95/">#算法</a>
+		
+			<a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">#二叉树</a>
+		
+	</div>
+
+		</footer>
+	</div>
+</article>
+	
+		
+		<article class="post">
+	<div class="post-content">
+		<header>
+			
+				<div class="meta">
+					<div class="icon">
+						
+							<i class="fa fa-file"></i>
+						
+					</div>
+					<time datetime="2019-07-11T02:18:15.000Z">2019-07-11</time>
+				</div>
+			
+			
+	
+		<h1 class="title" data-role="articleTitle"><a href="/concurrent-lock/">java并发编程 | 锁详解：AQS，Lock，ReentrantLock，ReentrantReadWriteLock</a></h1>
+	
+
+		</header>
+		<div class="entry">
+			
+				<h3 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h3><p>锁是用来控制多个线程访问共享资源的方式，<code>java</code>中可以使用<code>synchronized</code>和<code>Lock</code>实现锁的功能</p>
+<p><code>synchronized</code>是java中的关键字，隐藏获取和释放锁的过程，<code>Lock</code>是java中的接口，需要主动的获取锁和释放锁，<code>synchronized</code>是排他锁，而<code>Lock</code>支持可中断获取锁，超时获取锁</p>
+<p><code>Lock</code>提供的接口</p>
+<pre><code class="java">public interface Lock {
 
     /**
      * 获取锁，调用该方法后当前线程获取锁，获取到锁之后从该方法返回
@@ -196,56 +2266,701 @@ public interface Lock {
     boolean tryLock();
 
     /**
-     * 超时获取锁，在超时时间内获取到锁，在超时时间被中断，超时时 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/es-query/" title="Elasticsearch 查询语句详解">     <img class="post_bg" data-src="/img/2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Elasticsearch 查询语句详解"></a></div><div class="recent-post-info"><a class="article-title" href="/es-query/" title="Elasticsearch 查询语句详解">Elasticsearch 查询语句详解</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-07-10 10:11:03"><i class="far fa-calendar-alt"></i>2019-07-10</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/elasticsearch/">elasticsearch</a></span></div><div class="content">本文主要详细介绍es中常用的查询语句，以及使用的时候一些需要注意的事项
-如对es不了解，建议先看 es基础: https://juejin.im/post/5cdc07446fb9a0322e73b5b5
-url参数搜索这种方式就是类似于get请求，将请求参数拼接到链接上，例GET /school/student/_search?参数，多个参数用&amp;分开
-查询所有命令：GET /school/student/_search
-返回：
-{
-  &quot;took&quot;: 7, //查询耗时，毫秒
-  &quot;timed_out&quot;: false, //是否超时，timeout 不是停止执行查询，它仅仅是告知正在协调的节点返回到目前为止收集的结果并且关闭连接
-  &quot;_shards&quot;: {
-    &quot;total&quot;: 5, //请求的分片数量，索引拆成了5个分片，所以对于搜索请求，会打到所有的primary shard
-    &quot;successful&quot;: 5,
-    &quot;skipped&quot;:  ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/mysql-one/" title="mysql系列">     <img class="post_bg" data-src="/img/21.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="mysql系列"></a></div><div class="recent-post-info"><a class="article-title" href="/mysql-one/" title="mysql系列">mysql系列</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-07-09 14:58:39"><i class="far fa-calendar-alt"></i>2019-07-09</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/mysql/">mysql</a></span></div><div class="content">
-本文内容为：极客时间《mysql45讲》的内容
+     * 超时获取锁，在超时时间内获取到锁，在超时时间被中断，超时时间内为获取到锁，三种情况下会从该方法返回
+     */
+    boolean tryLock(long time, TimeUnit unit) throws InterruptedException;
 
-1.基础架构：一条SQL查询语句是如何执行的 ?执行下面这个查询语句时 ,在 MySQL 内部的执行过程 
-select * from T where id = 10;
+    /**
+     * 释放锁
+     */
+    void unlock();
 
-大体来说，MySQL 可以分为 Server 层和存储引擎层两部分。
-Server 层包括连接器、查询缓存、分析器、优化器、执行器等，涵盖 MySQL 的大多数核心服务功能，以及所有的内置函数（如日期、时间、数学和加密函数等），所有跨存储引擎的功能都在这一层实现，比如存储过程、触发器、视图等。
-而存储引擎层负责数据的存储和提取。其架构模式是插件式的，支持 InnoDB、MyISAM、Memory 等多个存储引擎。现在最常用的存储引擎是 InnoDB，它从 MySQL 5.5.5 版本开始成为了默认存储引擎 
-连接器：
-链接客户端，校验权限
-缓存：
-MySQL 拿到一个查询请求后，会先到查询缓存看看，之前是不是执行过这条语句。之前执行过的语句及其结果可能会以 key-value 对的形式，被直接缓存在内存中。key 是查询的语句，value 是查询的结果。如果你的查询 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/concurrent-thread/" title="java并发编程 | 线程详解">     <img class="post_bg" data-src="/img/18.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="java并发编程 | 线程详解"></a></div><div class="recent-post-info"><a class="article-title" href="/concurrent-thread/" title="java并发编程 | 线程详解">java并发编程 | 线程详解</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-07-08 11:10:54"><i class="far fa-calendar-alt"></i>2019-07-08</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">并发编程</a></span></div><div class="content">进程与线程进程：操作系统在运行一个程序的时候就会为其创建一个进程（比如一个java程序），进程是资源分配的最小单位，一个进程包含多个线程
-线程：线程是cpu调度的最小单位，每个线程拥有各自的计数器，对战和局部变量等属性，并且能过访问共享的内存变量
-线程的状态java线程的生命周期总共包括6个阶段：
+    /**
+     * 获取等待通知组件，只有当前线程获取到锁之后才可以调用该组件的wait()方法，释放锁
+     */
+    Condition newCondition();
+}</code></pre>
+<h4 id="队列同步器"><a href="#队列同步器" class="headerlink" title="队列同步器"></a>队列同步器</h4><p>队列同步器<code>AbstractQueuedSynchronizer</code>（<code>AQS</code>简称同步器）是用来构建锁或者其他同步组件的基础框架</p>
+<p><code>java</code>中锁的实现基本都是通过聚合了一个同步器的子类完成线程访问控制的，同步器是实现锁的关键，可以这么理解，锁面向编程者，隐藏了实现细节，同步器面向锁的实现，简化了锁的实现方式，屏蔽了同步状态管理，线程排队，等待与唤醒等底层操作，通过<code>AbstractQueuedSynchronizer</code>我们可以很方便的实现一个锁</p>
+<h5 id="设计原则"><a href="#设计原则" class="headerlink" title="设计原则"></a>设计原则</h5><p>同步器的设计基于模板方法模式，提供的模板方法主要包括：独占锁获取锁与释放同步状态，共享式获取与释放同步状态，获取同步队列中等待线程情况</p>
+<p><strong>独占式操作</strong></p>
+<p>想要实现一个独占式锁需要重写以下方法</p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>void acquire(int arg)</td>
+<td>独占式获取同步状态，同一时刻只能有一个线程可以获取到同步状态，获取失败进入同步队列等待</td>
+</tr>
+<tr>
+<td>void acquireInterruptibly(int arg)</td>
+<td>独占式获取同步状态，响应中断操作，被中断时会抛异常并返回</td>
+</tr>
+<tr>
+<td>boolean tryAcquireNanos(int arg, long nanosTimeout)</td>
+<td>独占式获取同步状态，响应中断操作，并且增加了超时限制，如果规定时间没有获得同步状态就返回false，否则返回true</td>
+</tr>
+<tr>
+<td>boolean release(int arg)</td>
+<td>独占式释放同步状态，在释放同步状态之后，将同步队列中的第一个节点包含的线程唤醒</td>
+</tr>
+</tbody></table>
+<p><strong>共享式操作</strong></p>
+<p>想要实现一个共享锁需要重写以下方法</p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>void acquireShared(int arg)</td>
+<td>共享式获取同步状态，同一时刻可以有多个线程获取到同步状态</td>
+</tr>
+<tr>
+<td>void acquireSharedInterruptibly(int arg)</td>
+<td>共享式获取同步状态，响应中断操作</td>
+</tr>
+<tr>
+<td>boolean tryAcquireSharedNanos(int arg, long nanosTimeout)</td>
+<td>共享式获取同步状态，响应中断操作，并且增加了超时限制，如果规定时间没有获得同步状态就返回false，否则返回true</td>
+</tr>
+<tr>
+<td>boolean releaseShared(int arg)</td>
+<td>共享式释放同步状态</td>
+</tr>
+</tbody></table>
+<h5 id="获取同步队列线程信息"><a href="#获取同步队列线程信息" class="headerlink" title="获取同步队列线程信息"></a>获取同步队列线程信息</h5><table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Collection<Thread> getQueuedThreads()</Thread></td>
+<td>获取同步队列上的线程集合</td>
+</tr>
+</tbody></table>
+<p>在这些模板方法中，多次提到了同步队列，我们看一下<code>AQS</code>是如何实现同步队列的</p>
+<p>首先看下<code>AbstractQueuedSynchronizer</code>的类图</p>
+<p><img src="/concurrent-lock/abstractQueuedSynchronizer.png" alt></p>
+<h5 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h5><p><code>Node</code>类是<code>AbstractQueuedSynchronizer</code>类的内部类，同步器依靠内部的一个同步队列来完成同步状态的管理，当前线程获取同步状态失败的时候，同步器会将当前线程及等待信息构造成一个<code>Node</code>节点加入到同步队列中</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>waitStatus</td>
+<td>该线程等待状态，包含如下：<br>CANCELLED 值为1，表示需要从同步队列中取消等待<br>SIGNAL值为-1，表示后继节点处于等待状态，如果当前节点释放同步状态会通知后继节点，使得后继节点的线程能够运行<br>CONDITION值为-2，表示节点在等待队列中<br>PROPAGATE值为-3，表示下一次共享式同步状态获取将会无条件传播下去<br>INITIAL值为0，表示初始状态</td>
+</tr>
+<tr>
+<td>prev:Node</td>
+<td>前驱节点</td>
+</tr>
+<tr>
+<td>next:Node</td>
+<td>后继节点</td>
+</tr>
+<tr>
+<td>thread:Thread</td>
+<td>当前线程</td>
+</tr>
+<tr>
+<td>nextWaiter:Node</td>
+<td>下一个等待节点</td>
+</tr>
+</tbody></table>
+<p>可以看到<code>AQS中</code>的节点信息包含前驱和后继节点，所以我们知道了AQS的同步队列是双向链表结构的</p>
+<h5 id="AQS"><a href="#AQS" class="headerlink" title="AQS"></a>AQS</h5><p><code>AQS</code>中的几个重要属性</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>state:int</td>
+<td>同步状态：如果等于0，锁属于空闲状态，如果等于1，标识锁被占用，如果大于1，则表示锁被当前持有的线程多次加锁，即重入状态</td>
+</tr>
+<tr>
+<td>head:Node</td>
+<td>队列的头节点</td>
+</tr>
+<tr>
+<td>tail:Node</td>
+<td>队列的尾节点</td>
+</tr>
+<tr>
+<td>unsafe:Unsafe</td>
+<td>AQS中的cas算法实现</td>
+</tr>
+</tbody></table>
+<p><code>AQS</code>中提供了三个方法对同步状态进行操作</p>
+<ol>
+<li><code>getState()</code>获取到同步状态</li>
+<li><code>setState(int newState)</code>设置同步状态</li>
+<li><code>compareAndSetState(int expect, int update)</code>使用<code>CAS</code>设置当前状态，该方法能够保证设置的原子性</li>
+</ol>
+<p><code>AQS</code>的基本结构如下图所示</p>
+<p><img src="/concurrent-lock/AQS.png" alt></p>
+<p>在同步器中<code>head</code>和<code>tail</code>的节点的引用指向同步队列的头，尾节点，这样在后面操作节点入列和出列的时候只需要操作同步器中的<code>head</code>和<code>tail</code>节点就可以</p>
+<h4 id="独占式锁"><a href="#独占式锁" class="headerlink" title="独占式锁"></a>独占式锁</h4><h5 id="ReentrantLock"><a href="#ReentrantLock" class="headerlink" title="ReentrantLock"></a>ReentrantLock</h5><p><code>ReentrantLock</code>重入锁，内部AQS的实现是基于独占式获取/释放同步状态的。我们学习一下<code>ReentrantLock</code>的实现原理来进一步加深对<code>AQS</code>的理解</p>
+<p>重进入是指任意线程在获取到锁之后能够再次获取该锁而不会被锁阻塞，它表示一个线程可以对资源重复加锁，同时支持获取锁时使用公平锁还是非公平锁</p>
+<p>例：</p>
+<pre><code class="java">/**
+ * @author: chenmingyu
+ * @date: 2019/4/12 15:09
+ * @description: ReentrantLock
+ */
+public class ReentrantLockTest {
 
-初始状态：线程被创建，但是还没有调用start()方法
-运行状态：java中将就绪状态和运行状态统称为运行状态
-阻塞状态：线程阻塞，线程等待进入synchronized修饰的代码块或方法
-等待状态：线程进入等待状态，需要调用notify()或notifyAll()进行唤醒
-超时等待状态：线程进入等待状态，在指定时间后自行返回
-终止状态：线程执行完毕
+    private static Lock LOCK = new ReentrantLock();
 
-在某一时刻，线程只能处于其中的一个状态
+    public static void main(String[] args) {
+        Runnable r1 = new TestThread();
+        new Thread(r1,&quot;r1&quot;).start();
+        Runnable r2 = new TestThread();
+        new Thread(r2,&quot;r2&quot;).start();
+    }
 
-线程初始化后，调用start()方法变为运行状态，调用wait()，join()等方法，线程由运行状态变为等待状态，调用notify()或notifyAll()等方法，线程由等待状态变成运行状态，超时等待状态就是在等待状态基础上加了时间限制，超过规定时间，自动更改为运行状态，当需要执行同步方法时，如果 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">明羽</div><div class="author-info__description">但行好事 莫问前程</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives"><div class="headline">文章</div><div class="length_num">69</div></a></div><div class="card-info-data-item is-center">      <a href="/tags"><div class="headline">标签</div><div class="length_num">64</div></a></div><div class="card-info-data-item is-center">     <a href="/categories"><div class="headline">分类</div><div class="length_num">14</div></a></div></div><div class="card-info-bookmark is-center"><button class="button--animated" id="bookmark-it" title="加入书签"><i class="fas fa-bookmark"></i><span>加入书签</span></button></div><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:cmysouls@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-recent-item"><div class="aside-recent-post"><a href="/zhangruoxu-xuanji/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="/img/20.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="春江花月夜-张若虚" alt="春江花月夜-张若虚"/></div><div class="aside-post-title"><div class="aside-post_title" href="/zhangruoxu-xuanji/" title="春江花月夜-张若虚">春江花月夜-张若虚</div><time class="aside-post_meta post-meta__date" title="发表于 2020-09-13 19:50:17">2020-09-13</time></div></a></div><div class="aside-recent-post"><a href="/mysql-create-index/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="/img/12.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="这道面试题你确定不看看吗：一条sql语句，有多个查询条件，你会选择哪个字段作为索引，为什么？" alt="这道面试题你确定不看看吗：一条sql语句，有多个查询条件，你会选择哪个字段作为索引，为什么？"/></div><div class="aside-post-title"><div class="aside-post_title" href="/mysql-create-index/" title="这道面试题你确定不看看吗：一条sql语句，有多个查询条件，你会选择哪个字段作为索引，为什么？">这道面试题你确定不看看吗：一条sql语句，有多个查询条件，你会选择哪个字段作为索引，为什么？</div><time class="aside-post_meta post-meta__date" title="发表于 2019-12-03 21:12:29">2019-12-03</time></div></a></div><div class="aside-recent-post"><a href="/zookeeper/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="/img/26.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="zookeeper命令详解" alt="zookeeper命令详解"/></div><div class="aside-post-title"><div class="aside-post_title" href="/zookeeper/" title="zookeeper命令详解">zookeeper命令详解</div><time class="aside-post_meta post-meta__date" title="发表于 2019-10-31 11:12:34">2019-10-31</time></div></a></div><div class="aside-recent-post"><a href="/data-structure-binary-search/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="/img/15.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="【数据结构】| 二分查找" alt="【数据结构】| 二分查找"/></div><div class="aside-post-title"><div class="aside-post_title" href="/data-structure-binary-search/" title="【数据结构】| 二分查找">【数据结构】| 二分查找</div><time class="aside-post_meta post-meta__date" title="发表于 2019-10-25 17:49:33">2019-10-25</time></div></a></div><div class="aside-recent-post"><a href="/jvm-class-loader/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="/img/29.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="【jvm】类加载机制" alt="【jvm】类加载机制"/></div><div class="aside-post-title"><div class="aside-post_title" href="/jvm-class-loader/" title="【jvm】类加载机制">【jvm】类加载机制</div><time class="aside-post_meta post-meta__date" title="发表于 2019-09-23 15:31:19">2019-09-23</time></div></a></div></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fas fa-folder-open"></i><span>分类</span></div><ul class="card-category-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/elasticsearch/"><span class="card-category-list-name">elasticsearch</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/java/"><span class="card-category-list-name">java</span><span class="card-category-list-count">21</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/jvm/"><span class="card-category-list-name">jvm</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/mysql/"><span class="card-category-list-name">mysql</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/nosql/"><span class="card-category-list-name">nosql</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/tomcat/"><span class="card-category-list-name">tomcat</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/zookeeper/"><span class="card-category-list-name">zookeeper</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/"><span class="card-category-list-name">分布式事务</span><span class="card-category-list-count">1</span></a></li>
-            <li class="card-category-list-item more is-center"><a class="card-category-list-link-more" href="/categories">
-                <span>查看更多</span><i class="fas fa-angle-right"></i></a></li>           
-            </ul></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Integer%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/" style="font-size: 16px; color: #999">Integer缓存机制</a> <a href="/tags/aop/" style="font-size: 16px; color: #999">aop</a> <a href="/tags/effective/" style="font-size: 16px; color: #999">effective</a> <a href="/tags/elasticsearch/" style="font-size: 17.5px; color: #999da3">elasticsearch</a> <a href="/tags/email/" style="font-size: 16px; color: #999">email</a> <a href="/tags/exception/" style="font-size: 16px; color: #999">exception</a> <a href="/tags/gc/" style="font-size: 16px; color: #999">gc</a> <a href="/tags/htmlunit/" style="font-size: 16px; color: #999">htmlunit</a> <a href="/tags/io/" style="font-size: 16px; color: #999">io</a> <a href="/tags/java/" style="font-size: 19px; color: #99a1ac">java</a> <a href="/tags/jvm%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/" style="font-size: 16px; color: #999">jvm内存区域</a> <a href="/tags/mybatis/" style="font-size: 17.5px; color: #999da3">mybatis</a> <a href="/tags/mysql/" style="font-size: 17.5px; color: #999da3">mysql</a> <a href="/tags/nio/" style="font-size: 16px; color: #999">nio</a> <a href="/tags/rabbitmq/" style="font-size: 16px; color: #999">rabbitmq</a> <a href="/tags/redis/" style="font-size: 20.5px; color: #99a5b6">redis</a> <a href="/tags/springboot/" style="font-size: 22px; color: #99a9bf">springboot</a> <a href="/tags/spring%E6%BA%90%E7%A0%81/" style="font-size: 16px; color: #999">spring源码</a> <a href="/tags/swagger2/" style="font-size: 16px; color: #999">swagger2</a> <a href="/tags/thymeleaf/" style="font-size: 16px; color: #999">thymeleaf</a> <a href="/tags/tomcat/" style="font-size: 16px; color: #999">tomcat</a> <a href="/tags/zookeeper/" style="font-size: 16px; color: #999">zookeeper</a> <a href="/tags/%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">中介者模式</a> <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" style="font-size: 16px; color: #999">二分查找</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 16px; color: #999">二叉树</a> <a href="/tags/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">享元模式</a> <a href="/tags/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">代理模式</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/" style="font-size: 16px; color: #999">分布式事务</a> <a href="/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">单例模式</a> <a href="/tags/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">原型模式</a> <a href="/tags/%E5%8F%8D%E5%B0%84/" style="font-size: 16px; color: #999">反射</a> <a href="/tags/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">命令模式</a> <a href="/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/" style="font-size: 16px; color: #999">垃圾收集器</a> <a href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/" style="font-size: 17.5px; color: #999da3">备忘录模式</a> <a href="/tags/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">外观模式</a> <a href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" style="font-size: 16px; color: #999">定时任务</a> <a href="/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">工厂模式</a> <a href="/tags/%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">建造者模式</a> <a href="/tags/%E5%BC%82%E5%B8%B8/" style="font-size: 16px; color: #999">异常</a> <a href="/tags/%E5%BC%82%E6%AD%A5%E8%B0%83%E7%94%A8/" style="font-size: 16px; color: #999">异步调用</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/09/"><span class="card-archive-list-date">九月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/12/"><span class="card-archive-list-date">十二月 2019</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/10/"><span class="card-archive-list-date">十月 2019</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/09/"><span class="card-archive-list-date">九月 2019</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/08/"><span class="card-archive-list-date">八月 2019</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/07/"><span class="card-archive-list-date">七月 2019</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/06/"><span class="card-archive-list-date">六月 2019</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/05/"><span class="card-archive-list-date">五月 2019</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item more is-center"><a class="card-archive-list-link-more" href="/archives">
-              <span>查看更多</span><i class="fas fa-angle-right"  ></i></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-article-name">文章数目 :</div><div class="webinfo-article-count">69</div></div><div class="webinfo-item">      <div class="webinfo-site-uv-name">本站访客数 :</div><div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="webinfo-site-name">本站总访问量 :</div><div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div></div></div></div></div></div></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By 明羽</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><button class="translate_chn_to_cht" id="translateLink" title="简繁转换">繁</button><button id="darkmode" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script id="canvas_nest" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="/js/third-party/canvas-nest.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script src="https://cdn.jsdelivr.net/npm/typed.js"></script><script>var subtitleEffect = true
-if (subtitleEffect) { 
-  var typed = new Typed("#subtitle", {
-    strings: "北京  阿里  码农,回首向来萧瑟处，归去，也无风雨也无晴。".split(","),
-    startDelay: 300,
-    typeSpeed: 150,
-    loop: true,
-    backSpeed: 50
-  })
-} else {
-  document.getElementById("subtitle").innerHTML = '北京  阿里  码农'
-}</script></body></html>
+    public static class TestThread implements Runnable{
+
+        @Override
+        public void run() {
+            LOCK.lock();
+            try {
+                System.out.println(Thread.currentThread().getName()+&quot;：获取到锁 &quot;+LocalTime.now());
+                TimeUnit.SECONDS.sleep(3L);
+            }catch (Exception e){
+                e.printStackTrace();
+            }finally {
+                LOCK.unlock();
+            }
+        }
+    }
+}</code></pre>
+<p>输出</p>
+<p><img src="/concurrent-lock/reenTrantLock.png" alt></p>
+<p>只有在<code>r1</code>线程释放锁之后<code>r2</code>线程才获取到锁去执行代码打印数据</p>
+<h5 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h5><p>创建的实例，默认使用非公平锁，如果需要公平锁，需要调用有参的构造函数</p>
+<pre><code class="java">/**
+ * 非公平锁
+ * 创建ReentrantLock实例，默认使用非公平锁
+ */
+public ReentrantLock() {
+    sync = new NonfairSync();
+}
+
+/**
+ * 公平锁
+ * 创建ReentrantLock实例，fair为true使用公平锁
+ */
+public ReentrantLock(boolean fair) {
+    sync = fair ? new FairSync() : new NonfairSync();
+}</code></pre>
+<p><code>NonfairSync</code>与<code>FairSync</code>都是<code>ReentrantLock</code>类的内部类，继承自<code>ReentrantLock</code>类的内部类<code>Sync</code>，<code>Sync</code>类继承了<code>AbstractQueuedSynchronizer</code></p>
+<p>类图如下</p>
+<p><img src="/concurrent-lock/%E7%B1%BB%E5%9B%BE.png" alt></p>
+<h5 id="独占式锁的获取"><a href="#独占式锁的获取" class="headerlink" title="独占式锁的获取"></a>独占式锁的获取</h5><p>非公平锁的实现</p>
+<pre><code class="java">/**
+ * Performs lock.  Try immediate barge, backing up to normal
+ * acquire on failure.
+ */
+final void lock() {
+    if (compareAndSetState(0, 1))
+        setExclusiveOwnerThread(Thread.currentThread());
+    else
+        acquire(1);
+}</code></pre>
+<p>非公平锁会在调用<code>lock()</code>方法的时候首先调用<code>compareAndSetState(0, 1)</code>方法尝试获取锁，如果没有获取到锁则调用<code>acquire(1)</code>方法</p>
+<p><code>compareAndSetState(0, 1)</code>方法是一个<code>CAS</code>操作，如过设置成功，则为获取到同步状态，并调用<code>setExclusiveOwnerThread(Thread.currentThread());</code>方法将当前线程设置为独占模式同步状态的所有者</p>
+<p>我们所说的获取同步状态其实指的就是获取锁的状态，获取同步状态成功则加锁成功</p>
+<pre><code class="java">protected final boolean compareAndSetState(int expect, int update) {
+    // See below for intrinsics setup to support this
+    return unsafe.compareAndSwapInt(this, stateOffset, expect, update);
+}</code></pre>
+<p><code>acquire(1)</code>方法是提供的模板方法，调用<code>tryAcquire(arg)</code>和<code>acquireQueued(addWaiter(Node.EXCLUSIVE), arg)</code></p>
+<pre><code class="java">public final void acquire(int arg) {
+    if (!tryAcquire(arg) &amp;&amp;
+        acquireQueued(addWaiter(Node.EXCLUSIVE), arg))
+        selfInterrupt();
+}</code></pre>
+<p><code>tryAcquire(arg)</code>方法调用的是子类的实现，<code>NonfairSync</code>的<code>tryAcquire</code>方法</p>
+<pre><code class="java">protected final boolean tryAcquire(int acquires) {
+    return nonfairTryAcquire(acquires);
+}</code></pre>
+<p><code>nonfairTryAcquire(acquires)</code>方法</p>
+<pre><code class="java">/**
+ * 非公平尝试获取同步状态
+ */
+final boolean nonfairTryAcquire(int acquires) {
+    final Thread current = Thread.currentThread();
+    int c = getState();
+    if (c == 0) {
+        if (compareAndSetState(0, acquires)) {
+            setExclusiveOwnerThread(current);
+            return true;
+        }
+    }
+    else if (current == getExclusiveOwnerThread()) {
+        /**
+         * 首先根据`getState()`方法获取同步状态，如果等于0尝试调用`compareAndSetState(0,                 * acquires)`方法获取同步状态，如果设置成功则获取同步状态成功，设置当前线程为独占模式同步状态的          * 所有者
+         */
+        int nextc = c + acquires;
+        if (nextc &lt; 0) // overflow
+            throw new Error(&quot;Maximum lock count exceeded&quot;);
+        setState(nextc);
+        return true;
+    }
+    return false;
+}</code></pre>
+<ol>
+<li>根据<code>getState()</code>方法获取同步状态，如果等于0尝试调用<code>compareAndSetState(0, acquires)</code>方法获取同步状态，如果设置成功则获取同步状态成功，设置当前线程为独占模式同步状态的所有者</li>
+<li>如果当前线程等于独占式同步状态所有者的线程，那么就将<code>state</code>+1，表示当前线程多次加锁</li>
+</ol>
+<p>如果<code>tryAcquire(arg)</code>  返回false，表示没有获取到同步状态，即没有拿到锁，所以需要调用 <code>acquireQueued(addWaiter(Node.EXCLUSIVE), arg)</code>方法将当前线程加入到同步队列中，并且以死循环的方式获取同步状态，如果获取不到则阻塞节点中的线程，而被阻塞的线程只能通过前驱节点的出队，或者阻塞线程被中断来实现唤醒</p>
+<p><code>addWaiter(Node.EXCLUSIVE)</code>方法的作用就是构造同步队列的节点信息，然后加入到同步队列尾部</p>
+<pre><code class="java">private Node addWaiter(Node mode) {
+    Node node = new Node(Thread.currentThread(), mode);
+    // Try the fast path of enq; backup to full enq on failure
+    Node pred = tail;
+    if (pred != null) {
+        node.prev = pred;
+        if (compareAndSetTail(pred, node)) {
+            pred.next = node;
+            return node;
+        }
+    }
+    enq(node);
+    return node;
+}</code></pre>
+<p>首先调用<code>Node</code>类的构造方法创建一个实例，<code>tail</code>是<code>AQS</code>中队列的尾节点</p>
+<p>如果<code>tail</code>节点不为空，将实例的前驱节点置为<code>tail</code>指向的节点，然后调用<code>compareAndSetTail(pred, node)</code>方法，<code>compareAndSetTail(pred, node)</code>方法调用<code>unsafe.compareAndSwapObject(this, tailOffset, expect, update)</code>，此方法是一个<code>CAS</code>操作，不可中断，用来保证节点能够被线程安全的添加，设置成功后，将节点<code>tail</code>的后继节点指向当前实例，以此来实现将当前实例加入到同步队列尾部</p>
+<p>如果<code>tail</code>节点等于空或者<code>compareAndSetTail(pred, node)</code>设置失败，则会调用<code>enq(node)</code>方法</p>
+<pre><code class="java">private Node enq(final Node node) {
+    for (;;) {
+        Node t = tail;
+        if (t == null) { // Must initialize
+            if (compareAndSetHead(new Node()))
+                tail = head;
+        } else {
+            node.prev = t;
+            if (compareAndSetTail(t, node)) {
+                t.next = node;
+                return t;
+            }
+        }
+    }
+}</code></pre>
+<p>在这个方法中利用<code>for</code>循环构造了一个死循环，如果当前<code>AQS</code>的<code>tail</code>节点为空，则证明当前同步队列中没有等待的线程，也就是没有节点，调用<code>compareAndSetHead(new Node())</code>方法构造了一个头节点，然后循环调用<code>compareAndSetTail(t, node)</code>将当前实例加入到队列的尾部，如果失败就一直调用，直到成功为止</p>
+<p><img src="/concurrent-lock/AQS%E8%AE%BE%E7%BD%AE%E5%B0%BE%E8%8A%82%E7%82%B9.png" alt></p>
+<p>在调用<code>addWaiter(Node mode)</code>方法后会调用<code>acquireQueued(final Node node, int arg)</code>方法，作用是在每个节点进入到同步队列中后就进入了一个自旋的状态，通过校验自己的前驱节点是否是头节点，并且是否获取到同步状态为条件进行判断，如果满足条件则从自旋中退出，负责一直自旋</p>
+<pre><code class="java">final boolean acquireQueued(final Node node, int arg) {
+    boolean failed = true;
+    try {
+        boolean interrupted = false;
+        for (;;) {
+            final Node p = node.predecessor();
+            if (p == head &amp;&amp; tryAcquire(arg)) {
+                setHead(node);
+                p.next = null; // help GC
+                failed = false;
+                return interrupted;
+            }
+            if (shouldParkAfterFailedAcquire(p, node) &amp;&amp;
+                parkAndCheckInterrupt())
+                interrupted = true;
+        }
+    } finally {
+        if (failed)
+            cancelAcquire(node);
+    }
+}</code></pre>
+<p>方法内也是一个<code>for</code>的死循环，通过<code>node.predecessor()</code>方法获取传入的<code>Node</code>实例的前驱节点并与<code>AQS</code>的<code>head</code>节点进行比较，如果相等，则尝试获取同步状态获取锁，如果获取成功就调用<code>setHead(node);</code>方法将当前<code>Node</code>实例节点设置为<code>head</code>节点，将原来<code>head</code>节点的后继节点置为null，有助于GC回收</p>
+<p><code>setHead(node);</code></p>
+<pre><code class="java">private void setHead(Node node) {
+    head = node;
+    node.thread = null;
+    node.prev = null;
+}</code></pre>
+<p>如果传入的<code>Node</code>实例的前驱节点与<code>AQS</code>的<code>head</code>节点不相等或者获取同步状态失败，则调用<code>shouldParkAfterFailedAcquire(p, node)</code>和<code>parkAndCheckInterrupt()</code>方法</p>
+<pre><code class="java">private static boolean shouldParkAfterFailedAcquire(Node pred, Node node) {
+    int ws = pred.waitStatus;
+    if (ws == Node.SIGNAL)
+        /*
+         * This node has already set status asking a release
+         * to signal it, so it can safely park.
+         */
+        return true;
+    if (ws &gt; 0) {
+        /*
+         * Predecessor was cancelled. Skip over predecessors and
+         * indicate retry.
+         */
+        do {
+            node.prev = pred = pred.prev;
+        } while (pred.waitStatus &gt; 0);
+        pred.next = node;
+    } else {
+        /*
+         * waitStatus must be 0 or PROPAGATE.  Indicate that we
+         * need a signal, but don&#39;t park yet.  Caller will need to
+         * retry to make sure it cannot acquire before parking.
+         */
+        compareAndSetWaitStatus(pred, ws, Node.SIGNAL);
+    }
+    return false;
+}</code></pre>
+<p>通过<code>CAS</code>操作，设置节点的前驱节点等待状态为<code>Node.SIGNAL</code>，如果设置失败，返回false，因为外层是死循环，会重复当前方法直到设置成功</p>
+<p><code>parkAndCheckInterrupt()</code>方法调用<code>LookSupport.park()</code>阻塞线程，然后清除掉中断标识</p>
+<pre><code class="java">private final boolean parkAndCheckInterrupt() {
+    LockSupport.park(this);
+    return Thread.interrupted();
+}</code></pre>
+<p>从<code>acquireQueued(addWaiter(Node.EXCLUSIVE), arg)</code>方法返回后，调用<code>selfInterrupt()</code>，将线程中断</p>
+<p><strong>公平锁的实现</strong></p>
+<p>在了解<code>acquire(1);</code>方法的作用之后，在理解公平锁的实现就容易了</p>
+<pre><code class="java">final void lock() {
+    acquire(1);
+}</code></pre>
+<p>对比非公平锁的实现少了一步上来就获取同步状态的操作，其余操作跟非公平锁的实现一样</p>
+<p><strong>公平锁与非公平锁总结</strong>：</p>
+<ol>
+<li>公平锁，在加锁之前如果有同步对列，则加入到同步队列尾部</li>
+<li>非公平锁，在加锁之前不管有没有同步队列，先尝试获取同步状态，获取不到在加入到同步队列尾部</li>
+<li>非公平锁比公平锁效率要高很多，公平锁保证了同步状态的获取按照FIFO原则，代价是需要进行大量的线程切换，而非公平锁情况下，当前线程在释放了同步状态之后再次获取到同步状态的记录非常大，可以减少大量的线程切换，但是可能会出现在同步队列中的某个线程一直获取不到锁的情况</li>
+</ol>
+<p><strong>独占式获取锁的流程</strong></p>
+<p><img src="/concurrent-lock/%E7%8B%AC%E5%8D%A0%E5%BC%8F%E6%B5%81%E7%A8%8B%E5%9B%BE.png" alt></p>
+<h5 id="独占式锁的释放"><a href="#独占式锁的释放" class="headerlink" title="独占式锁的释放"></a>独占式锁的释放</h5><p><code>ReentrantLock</code>的<code>unlock()</code>方法实际调用的<code>AQS</code>的<code>release(int arg)</code>方法</p>
+<pre><code class="java">public final boolean release(int arg) {
+    if (tryRelease(arg)) {
+        Node h = head;
+        if (h != null &amp;&amp; h.waitStatus != 0)
+            unparkSuccessor(h);
+        return true;
+    }
+    return false;
+}</code></pre>
+<p>首先调用<code>tryRelease(arg)</code>释放同步状态</p>
+<pre><code class="java">protected final boolean tryRelease(int releases) {
+    int c = getState() - releases;
+    if (Thread.currentThread() != getExclusiveOwnerThread())
+        throw new IllegalMonitorStateException();
+    boolean free = false;
+    if (c == 0) {
+        free = true;
+        setExclusiveOwnerThread(null);
+    }
+    setState(c);
+    return free;
+}</code></pre>
+<p>获取同步状态，并减1，如果此时c==0则释放锁，将当前独占式锁的拥有线程置为null，然后设置<code>state</code>为0</p>
+<p>然后调用<code>unparkSuccessor(Node node)</code>方法唤醒后继节点的线程</p>
+<pre><code class="java">private void unparkSuccessor(Node node) {
+
+    int ws = node.waitStatus;
+    if (ws &lt; 0)
+        compareAndSetWaitStatus(node, ws, 0);
+
+    Node s = node.next;
+    if (s == null || s.waitStatus &gt; 0) {
+        s = null;
+        for (Node t = tail; t != null &amp;&amp; t != node; t = t.prev)
+            if (t.waitStatus &lt;= 0)
+                s = t;
+    }
+    if (s != null)
+        /*
+         * 唤醒后继节点的线程
+         */
+        LockSupport.unpark(s.thread);
+}</code></pre>
+<p>总结一下独占式获取锁和释放锁的过程：</p>
+<ol>
+<li>获取锁的时候，首先会获取同步状态，如果获取成功则加锁成功，如果获取失败，将当前线程信息构造成节点信息并则加入到<code>AQS</code>维护的同步队列的尾部，并且开始自旋，跳出自旋的条件就是前驱节点为<code>AQS</code>的头节点并且获取到了同步状态，此时将节点移除同步队列</li>
+<li>释放锁的时候，首先会释放同步状态，然后唤醒节点的后继节点</li>
+<li>一个线程N次加锁之后，在释放锁的时候需要释放N次，之后才会被别的线程获取到锁</li>
+</ol>
+<h5 id="自己实现一个独占式锁"><a href="#自己实现一个独占式锁" class="headerlink" title="自己实现一个独占式锁"></a>自己实现一个独占式锁</h5><p>在了解了<code>ReentrantLock</code>的实现原理之后，我们就可以仿照着自己去实现一个自定义独占式锁了</p>
+<p><strong>步骤</strong></p>
+<ol>
+<li>创建一个<code>LockTest</code>类，实现<code>Lock</code>接口，重写必要的接口</li>
+<li>在<code>LockTest</code>类里创建一个内部类<code>Sync</code>，继承<code>AQS</code>，因为要实现独占式锁，所以重写<code>tryAcquire(int arg)</code>和<code>tryRelease(int arg)</code>方法就可以了</li>
+</ol>
+<p><code>LockTest</code>代码</p>
+<pre><code class="java">/**
+ * @author: chenmingyu
+ * @date: 2019/4/11 15:11
+ * @description: 自定义独占式锁
+ */
+public class LockTest implements Lock{
+
+    private final Sync SYNC = new Sync();
+
+    public static class Sync extends AbstractQueuedSynchronizer{
+
+        @Override
+        protected boolean tryAcquire(int arg) {
+            if(compareAndSetState(0,1)){
+                setExclusiveOwnerThread(Thread.currentThread());
+                return true;
+            }
+            return false;
+        }
+
+        @Override
+        protected boolean tryRelease(int arg) {
+            if(getState()&lt;1){
+                throw new IllegalMonitorStateException(&quot;释放同步状态不可小于1&quot;);
+            }
+            int c = getState() - arg;
+            if (c == 0) {
+                setExclusiveOwnerThread(null);
+            }
+            setState(c);
+            return true;
+        }
+    }
+
+    @Override
+    public void lock() {
+        SYNC.acquire(1);
+    }
+
+    @Override
+    public void lockInterruptibly() throws InterruptedException {
+        SYNC.acquireInterruptibly(1);
+    }
+
+    @Override
+    public boolean tryLock() {
+        return SYNC.tryAcquire(1);
+    }
+
+    @Override
+    public boolean tryLock(long time, TimeUnit unit) throws InterruptedException {
+        return false;
+    }
+
+    @Override
+    public void unlock() {
+        SYNC.release(1);
+    }
+
+    @Override
+    public Condition newCondition() {
+        return null;
+    }
+}</code></pre>
+<h5 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h5><pre><code class="java">/**
+ * @author: chenmingyu
+ * @date: 2019/4/12 15:09
+ * @description: LockTest
+ */
+public class ReentrantLockTest {
+
+    private static Lock LOCKTEST = new LockTest();
+
+    public static void main(String[] args) {
+        Runnable r1 = new TestThread();
+        new Thread(r1,&quot;LockTest 1&quot;).start();
+        Runnable r2 = new TestThread();
+        new Thread(r2,&quot;LockTest 2&quot;).start();
+    }
+
+    public static class TestThread implements Runnable{
+
+        @Override
+        public void run() {
+            LOCKTEST.lock();
+            try {
+                System.out.println(Thread.currentThread().getName()+&quot;：获取到锁 &quot;+LocalTime.now());
+                TimeUnit.SECONDS.sleep(3L);
+            }catch (Exception e){
+                e.printStackTrace();
+            }finally {
+                LOCKTEST.unlock();
+            }
+        }
+    }
+}</code></pre>
+<p>输出</p>
+<p><img src="/concurrent-lock/LockTest.png" alt></p>
+<h4 id="共享式锁"><a href="#共享式锁" class="headerlink" title="共享式锁"></a>共享式锁</h4><h5 id="读写锁"><a href="#读写锁" class="headerlink" title="读写锁"></a>读写锁</h5><p><code>ReentrantReadWriteLock</code>是读写锁的实现，实现<code>ReadWriteLock</code>接口</p>
+<p><code>ReentrantReadWriteLock</code>内部同样维护这一个<code>Sync</code>内部类，实现了<code>AQS</code>，通过重写对应方法实现读锁和写锁</p>
+<p>现在已经知道了同步状态是由<code>AQS</code>维护的一个整型变量<code>state</code>，独占式锁获取到锁时会对其进行加1，支持重入，而读写锁<code>ReentrantReadWriteLock</code>在设计的时候也是通过一个整型变量进行读锁的同步状态和写锁的同步状态维护，在一个变量上维护两种状态就需要对整型变量进行按位分割，一个int类型的变量包含4个字符，一个字符8个bit，就是32bit，在<code>ReentrantReadWriteLock</code>中，高16位表示读，低16位表示写</p>
+<p><strong>写锁的获取</strong></p>
+<p>读写锁中的写锁，支持重进入的排它锁</p>
+<p>重写<code>ReentrantReadWriteLock</code>的内部类<code>Sync</code>中的<code>tryAcquire(int acquires)</code>方法</p>
+<pre><code class="java">protected final boolean tryAcquire(int acquires) {
+
+    Thread current = Thread.currentThread();
+    int c = getState();
+    int w = exclusiveCount(c);
+    /*
+     * 1，如果同步状态c不等于0，代表着有读锁或者写锁
+     */
+    if (c != 0) {
+        // 2，如果c不等于0，w写锁的同步状态为0，切当前线程不是持有锁的线程，返回false
+        if (w == 0 || current != getExclusiveOwnerThread())
+            return false;
+        if (w + exclusiveCount(acquires) &gt; MAX_COUNT)
+            throw new Error(&quot;Maximum lock count exceeded&quot;);
+        // Reentrant acquire
+        setState(c + acquires);
+        return true;
+    }
+    if (writerShouldBlock() ||
+        !compareAndSetState(c, c + acquires))
+        return false;
+    setExclusiveOwnerThread(current);
+    return true;
+}</code></pre>
+<p><strong>解读</strong></p>
+<p>如果存在读锁，写锁不能被获取，必须要等到其他读线程释放读锁，才可以获取到写锁，这么做的原因是要确保写锁做的操作对读锁可见，如果写锁被获取，则其他读写线程的后续访问均会被阻塞</p>
+<p><strong>写锁的释放</strong></p>
+<p>读写锁中的读锁，支持重进入的共享锁</p>
+<p>写锁的释放与独占式锁释放过程相似，每次都是减少写锁的同步状态，直到为0时，表示写锁已被释放</p>
+<p><strong>读锁的获取与释放</strong></p>
+<p>读锁是一个支持重入的共享锁，重写<code>ReentrantReadWriteLock</code>的内部类<code>Sync</code>中的<code>tryAcquireShared(int unused)</code>方法</p>
+<pre><code class="java">protected final boolean tryReleaseShared(int unused) {
+    Thread current = Thread.currentThread();
+    if (firstReader == current) {
+        // assert firstReaderHoldCount &gt; 0;
+        if (firstReaderHoldCount == 1)
+            firstReader = null;
+        else
+            firstReaderHoldCount--;
+    } else {
+        HoldCounter rh = cachedHoldCounter;
+        if (rh == null || rh.tid != getThreadId(current))
+            rh = readHolds.get();
+        int count = rh.count;
+        if (count &lt;= 1) {
+            readHolds.remove();
+            if (count &lt;= 0)
+                throw unmatchedUnlockException();
+        }
+        --rh.count;
+    }
+    for (;;) {
+        int c = getState();
+        int nextc = c - SHARED_UNIT;
+        if (compareAndSetState(c, nextc))
+            return nextc == 0;
+    }
+}</code></pre>
+<p>如果其他线程获取了写锁，则当前线程获取读锁状态失败进入等待状态，如果当前线程获取了写锁或者写锁未被获取，则当前线程获取同步状态成功，获取到读锁</p>
+<p>释放读锁的时候就是每次释放都会对同步状态进行-1，直到为0时，表示读锁已被释放</p>
+<p><strong>锁降级</strong></p>
+<p>锁降级是指将写锁降级为读锁，这个过程就是当前线程已经获取到写锁的时候，在获取到读锁，随后释放写锁的过程，这么做的目的为的就是保证数据的可见性</p>
+<p>当前线程A获取到写锁后，对数据进行修改，之后在获取到读锁，然后释放写锁，完成锁降级，这时候线程A还没释放读锁，别的线程就无法获取到写锁，就无法对数进行修改，以此来保证数据的可见性</p>
+<p><strong>参考：java并发编程的艺术</strong></p>
+<p><strong>推荐：</strong></p>
+<p><a href="https://chenmingyu.top/concurrent-thread/">java并发编程 | 线程详解</a></p>
+
+			
+		</div>
+		<footer class="clearfix">
+			
+				
+				
+					<div class="disqus-comment">
+						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/concurrent-lock/#disqus_thread" class="comment-link"> 评论</a>
+					</div>
+				
+			
+			
+	<div class="categories">
+		<i class="fa fa-folder"></i>
+		
+			<a href="/categories/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">并发编程</a>
+		
+	</div>
+
+			
+	<div class="tags">
+		<i class="fa fa-tags"></i>
+		
+			<a href="/tags/%E9%94%81/">#锁</a>
+		
+	</div>
+
+		</footer>
+	</div>
+</article>
+	
+
+	<nav id="pagination">
+	
+		<a href="/" class="prev"><i class="fa fa-chevron-left"></i> 上一页</a>
+	
+	
+		<a href="/page/3/" class="next">下一页 <i class="fa fa-chevron-right"></i></a>
+	
+</nav>
+
+	
+<script>
+	(function (disqus_shortname) {
+		window.addEventListener('DOMContentLoaded', function () {
+			var dsq = document.createElement('script');
+			dsq.type = 'text/javascript';
+			dsq.async = true;
+			dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+			document.getElementsByTagName('head')[0].appendChild(dsq);
+		}, false);
+	}('dnxbf321'));
+</script>
+
+
+
+		</div>
+		
+	</div>
+</div>
+
+<footer id="footer">
+	<div class="center">
+		&copy; 2022
+		
+			明羽
+		.
+		&nbsp;&nbsp;
+		Blog generated by <a href="http://hexo.io" target="_blank" rel="noopener">hexo</a>
+	</div>
+</footer>
+
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/js/header-animate.js"></script>
+
+
+	<script src="/js/title-animate.js"></script>
+
+
+<script src="/bower_components/jquery_lazyload/jquery.lazyload.js"></script>
+<script>
+	$('img.lazy').lazyload();
+</script>
+
+	<script src="/bower_components/fancybox/source/jquery.fancybox.pack.js"></script>
+	<script>
+		$('.fancybox').fancybox();
+	</script>
+
+
+
+
+</body>
+</html>

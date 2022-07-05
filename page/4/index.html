@@ -1,152 +1,1133 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>但行好事 莫问前程 - 明羽</title><meta name="description" content="但行好事 莫问前程"><meta name="keywords" content="陈明羽,chenmingyu,java,架构"><meta name="author" content="明羽"><meta name="copyright" content="明羽"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://chenmingyu.top/page/4/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="website"><meta property="og:title" content="但行好事 莫问前程"><meta property="og:url" content="https://chenmingyu.top/page/4/"><meta property="og:site_name" content="但行好事 莫问前程"><meta property="og:description" content="但行好事 莫问前程"><meta property="og:image" content="https://chenmingyu.top/img/avatar.jpg"><meta property="article:published_time" content="2020-12-02T04:13:15.269Z"><meta property="article:modified_time" content="2020-12-02T04:13:15.269Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
-  document.documentElement.setAttribute('data-theme', 'dark')
-  if (document.querySelector('meta[name="theme-color"]') !== null) {
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="renderer" content="webkit">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="description" content="但行好事 莫问前程">
+
+	
+		
+			<link rel="stylesheet" href="/bower_components/fancybox/source/jquery.fancybox.css">
+		
+		<link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/css/style.css">
+	
+
+	<title>但行好事 莫问前程 - 明羽</title>
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+<header id="header">
+	<div class="center">
+		<div class="wrap">
+			<div id="site">
+				<h1>
+					<a href="/">但行好事 莫问前程</a>
+					
+						<a class="github" href="https://github.com/dnxbf321" target="_blank" rel="noopener">
+	  					<svg aria-hidden="true" class="octicon octicon-mark-github" height="28" role="img" version="1.1" viewBox="0 0 16 16" width="28"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59 0.4 0.07 0.55-0.17 0.55-0.38 0-0.19-0.01-0.82-0.01-1.49-2.01 0.37-2.53-0.49-2.69-0.94-0.09-0.23-0.48-0.94-0.82-1.13-0.28-0.15-0.68-0.52-0.01-0.53 0.63-0.01 1.08 0.58 1.23 0.82 0.72 1.21 1.87 0.87 2.33 0.66 0.07-0.52 0.28-0.87 0.51-1.07-1.78-0.2-3.64-0.89-3.64-3.95 0-0.87 0.31-1.59 0.82-2.15-0.08-0.2-0.36-1.02 0.08-2.12 0 0 0.67-0.21 2.2 0.82 0.64-0.18 1.32-0.27 2-0.27 0.68 0 1.36 0.09 2 0.27 1.53-1.04 2.2-0.82 2.2-0.82 0.44 1.1 0.16 1.92 0.08 2.12 0.51 0.56 0.82 1.27 0.82 2.15 0 3.07-1.87 3.75-3.65 3.95 0.29 0.25 0.54 0.73 0.54 1.48 0 1.07-0.01 1.93-0.01 2.2 0 0.21 0.15 0.46 0.55 0.38C13.71 14.53 16 11.53 16 8 16 3.58 12.42 0 8 0z"></path></svg>
+						</a>
+					
+				</h1>
+				
+					<h2>
+						<a href="/">明羽</a>
+					</h2>
+				
+			</div>
+			<nav id="menu">
+				<ul>
+					
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives/">归档</a></li>
+					
+				</ul>
+			</nav>
+		</div>
+	</div>
+</header>
+
+<div id="content">
+	<div class="center">
+		<div class="main-col">
+			
+
+	
+		
+		<article class="post">
+	<div class="post-content">
+		<header>
+			
+				<div class="meta">
+					<div class="icon">
+						
+							<i class="fa fa-file"></i>
+						
+					</div>
+					<time datetime="2019-05-10T02:11:03.000Z">2019-05-10</time>
+				</div>
+			
+			
+	
+		<h1 class="title" data-role="articleTitle"><a href="/es-basics/">Elasticsearch基础概念详解</a></h1>
+	
+
+		</header>
+		<div class="entry">
+			
+				<h2 id="elasticsearch"><a href="#elasticsearch" class="headerlink" title="elasticsearch"></a>elasticsearch</h2><p>​    elasticsearch是一个近实时分布式搜索和分析引擎，它用于全文搜索、结构化搜索、分析以及将这三者混合使用，使用java编写，基于Lucene 实现</p>
+<p><strong>优势</strong>：</p>
+<ol>
+<li><p>分布式的实时文件存储，每个字段都被索引并可被搜索</p>
+</li>
+<li><p>实时分析的分布式搜索引擎</p>
+</li>
+<li><p>横向可扩展：支持上百台服务节点的扩展，集群增加机器简单，支持处理PB级数据</p>
+</li>
+<li><p>分片机制：</p>
+<p>允许水平分割扩展数据，允许分片和并行操作从而提高性能和吞吐量</p>
+<p>提供高性能：同一个索引可以分多个主分片（<code>primary shard</code>），每个主分片拥有自己的副本分片(<code>replica shard</code>)，每个副本分片都可以提供服务，提升系统搜索请求的吞吐量和性能</p>
+<p>提供高可用性：同一个索引可以分多个主分片，每个主分片拥有零个或者多个副本，如果主分片挂了，可以从副本分片中选择一个作为主分片继续提供服务</p>
+</li>
+<li><p>隐藏复杂实现：Elasticsearch 内部隐藏了分布式系统的复杂性，我们不用去关心它是如何做到高可用，可扩展，高性能的</p>
+</li>
+<li><p>易用开源：不需要额外配置，就可以运行一个Elasticsearch服务，开源</p>
+</li>
+</ol>
+<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ol>
+<li><p><code>Cluster</code>：集群</p>
+<p>一个集群包含多个节点，对外提供服务，每个节点属于哪个集群通过配置文件中的集群名称决定</p>
+</li>
+<li><p><code>Node</code>：节点</p>
+<p>集群中的一个节点，每个节点也有一个名称，默认是随机分配，也可以自己指定，在es集群中通过节点名称进行管理和通信</p>
+</li>
+<li><p><code>Index</code>：索引</p>
+<p>索引是具有相同结构的文档集合，作用相当于mysql中的库</p>
+</li>
+<li><p><code>Type</code>：类型</p>
+<p>一个索引可以对应一个或者多个类型，类型可以当做是索引的逻辑分区，作用相当于mysql中的表</p>
+</li>
+<li><p><code>Document</code>：文档</p>
+<p>存储在es中的一个<code>JSON</code>格式的字符串，每一个文档有一个文档ID，如果没有自己指定ID，系统会自动生成一个ID，文档的index/type/id必须是唯一的，作用相当于mysql中的行</p>
+</li>
+<li><p><code>field</code>：字段</p>
+<p>一个文档会包含多个字段，每个字段都对应一个字段类型，类似于mysql中的列</p>
+</li>
+<li><p><code>shard</code>：分片</p>
+<p>es中分为<code>primary shard</code>主分片和<code>replica shard</code>副本分片</p>
+<p>主分片：当存一个文档的时候会先存储在主分片中，然后复制到不同的副本分片中，默认一个索引会有5个主分片，当然可以自己指定分片数量，当分片一旦建立，分片数量不能改变</p>
+<p>副本分片：每一个主分片会有零个或者多个副本，副本主要是主分片的复制，通过副本分片可以提供高可用性，当一个主分片挂了，可以从副本分片中选择一个作为主分片，还可以提高性能，所以主分片不能和副本分片部署在相同的节点上</p>
+</li>
+<li><p><code>replica</code>：复制</p>
+<p>复制是为了防止单点问题，可以做到对故障进行转移，保证系统的高可用</p>
+</li>
+<li><p>映射</p>
+<p>描述数据在每个字段内如何存储，是定义存储和索引的文档类型及字段的过程，索引中的每一个文档都有一个类型，每种类型都有它自己的映射，一个映射定义了文档结构内每个字段的数据类型</p>
+<p>使用<code>GET /index/_mapping/type</code>获取对应的<code>/index/type</code>的映射信息</p>
+</li>
+</ol>
+<h3 id="可视化界面Kibana"><a href="#可视化界面Kibana" class="headerlink" title="可视化界面Kibana"></a>可视化界面Kibana</h3><p>建议安装Elasticsearch+Kibana，在Kibana的操作界面对es进行操作</p>
+<p>Elasticsearch提供了RESTful接口可以对Elasticsearch进行操作</p>
+<p><strong>Kibana操作页面</strong></p>
+<p>在Kibana的Dev Tools界面可以对es进行操作，在console界面敲命令，点执行，会在右面输出结果</p>
+<p><img src="/es-basics/kibana-health.png" alt></p>
+<p><strong>验证Elasticsearch是否安装成功</strong></p>
+<p><a href="http://localhost:9200/?pretty" target="_blank" rel="noopener">http://localhost:9200/?pretty</a></p>
+<pre><code class="json">{
+  &quot;name&quot; : &quot;UzOujcc&quot;, //节点名称
+  &quot;cluster_name&quot; : &quot;mx&quot;, //集群名称，我自己设置的
+  &quot;cluster_uuid&quot; : &quot;d2K1M95DRzG9XOPDOR_DEQ&quot;,
+  &quot;version&quot; : {
+    &quot;number&quot; : &quot;6.2.4&quot;, //集群版本
+    &quot;build_hash&quot; : &quot;ccec39f&quot;,
+    &quot;build_date&quot; : &quot;2018-04-12T20:37:28.497551Z&quot;,
+    &quot;build_snapshot&quot; : false,
+    &quot;lucene_version&quot; : &quot;7.2.1&quot;,
+    &quot;minimum_wire_compatibility_version&quot; : &quot;5.6.0&quot;,
+    &quot;minimum_index_compatibility_version&quot; : &quot;5.0.0&quot;
+  },
+  &quot;tagline&quot; : &quot;You Know, for Search&quot;
+}</code></pre>
+<p>es提供了一套api，叫做cat api，可以查看es中的信息数据</p>
+<p><strong>查看集群健康状况</strong></p>
+<p>命令：<code>GET /_cat/health?v</code></p>
+<p><img src="/es-basics/health.png" alt></p>
+<p><code>status</code>代表着集群的健康程度</p>
+<ol>
+<li><code>green</code>：每个索引的primary shard和replica shard都是active状态的</li>
+<li><code>yellow</code>：每个索引的primary shard都是active状态的，但是部分replica shard不是active状态，处于不可用的状态</li>
+<li><code>red</code>：不是所有索引的primary shard都是active状态的，部分索引有数据丢失了</li>
+</ol>
+<h3 id="索引操作"><a href="#索引操作" class="headerlink" title="索引操作"></a>索引操作</h3><h4 id="查看索引信息"><a href="#查看索引信息" class="headerlink" title="查看索引信息"></a>查看索引信息</h4><p>命令：<code>GET _cat/indices?v</code></p>
+<p><img src="/es-basics/index.png" alt></p>
+<p>有五个索引，都是的测试数据</p>
+<h4 id="新建索引"><a href="#新建索引" class="headerlink" title="新建索引"></a>新建索引</h4><p>命令：<code>PUT /myindex</code></p>
+<pre><code class="json">{
+  &quot;acknowledged&quot;: true,
+  &quot;shards_acknowledged&quot;: true,
+  &quot;index&quot;: &quot;myindex&quot;
+}</code></pre>
+<h4 id="删除索引"><a href="#删除索引" class="headerlink" title="删除索引"></a>删除索引</h4><p>命令：<code>DELETE myindex</code></p>
+<pre><code class="json">{
+  &quot;acknowledged&quot;: true
+}</code></pre>
+<h3 id="文档操作"><a href="#文档操作" class="headerlink" title="文档操作"></a>文档操作</h3><h4 id="添加文档"><a href="#添加文档" class="headerlink" title="添加文档"></a>添加文档</h4><p>添加文档是向索引中添加一条文档，让其能够搜索，文档格式是json串，如果es中有相同id的文档存在则更新这个文档</p>
+<p>当创建文档的时候，如果索引不存在，则会自动创建该索引，而且es默认会对document每个field都建立倒排索引，让其可以被搜索</p>
+<p>命令：</p>
+<pre><code class="json">PUT /index/type/id 
+{ 
+    &quot;json数据结构体 &quot;
+}</code></pre>
+<p>例：</p>
+<pre><code class="json">PUT /school/student/1
+{
+  &quot;name&quot;:&quot;张三&quot;,
+  &quot;age&quot;:21,
+  &quot;class&quot;:2,
+  &quot;gender&quot;:&quot;男&quot;
+}</code></pre>
+<p>返回：</p>
+<pre><code class="json">{
+  &quot;_index&quot;: &quot;school&quot;, //索引
+  &quot;_type&quot;: &quot;student&quot;, //类型
+  &quot;_id&quot;: &quot;1&quot;, //id,如果不指定则会系统生成一个20位的id，文档被分到那个分片上就是根据id的散劣值进行控制
+  &quot;_version&quot;: 1, //文档版本号，通过这个进行并发控制
+  &quot;result&quot;: &quot;created&quot;, //操作类型
+  &quot;_shards&quot;: { //分片信息
+    &quot;total&quot;: 2, //文档被创建时在多少个分片进行了操作（包括主分片和副本分片）
+    &quot;successful&quot;: 1, //添加成功的索引分片数量
+    &quot;failed&quot;: 0 //失败的索引分片数量
+  },
+  &quot;_seq_no&quot;: 0,
+  &quot;_primary_term&quot;: 1
+}</code></pre>
+<h4 id="修改文档"><a href="#修改文档" class="headerlink" title="修改文档"></a>修改文档</h4><p>方式1：使用put方式更新文档</p>
+<pre><code class="json">PUT /school/student/1
+{
+  &quot;name&quot;:&quot;吕布&quot;,
+  &quot;age&quot;:21,
+  &quot;class&quot;:2,
+  &quot;gender&quot;:&quot;男&quot;
+}</code></pre>
+<p>返回：</p>
+<pre><code class="json">{
+  &quot;_index&quot;: &quot;school&quot;,
+  &quot;_type&quot;: &quot;student&quot;,
+  &quot;_id&quot;: &quot;1&quot;,
+  &quot;_version&quot;: 2, //版本号+1
+  &quot;result&quot;: &quot;updated&quot;, // 修改
+  &quot;_shards&quot;: {
+    &quot;total&quot;: 2,
+    &quot;successful&quot;: 1,
+    &quot;failed&quot;: 0
+  },
+  &quot;_seq_no&quot;: 1,
+  &quot;_primary_term&quot;: 1
+}</code></pre>
+<p>这种方式替换需要带上所有的field，才能进行信息的修改，操作类似于覆盖</p>
+<p>方式2：post更新文档</p>
+<pre><code class="json">POST /school/student/1/_update
+{
+  &quot;doc&quot;: {
+    &quot;name&quot;:&quot;吕布1&quot;
   }
-}
-var activateLightMode = function () {
-  document.documentElement.setAttribute('data-theme', 'light')
-  if (document.querySelector('meta[name="theme-color"]') !== null) {
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+}</code></pre>
+<p>使用post更新文档，可以只更新部分字段</p>
+<h4 id="查询文档"><a href="#查询文档" class="headerlink" title="查询文档"></a>查询文档</h4><p>查询单条文档</p>
+<p>命令：<code>GET /school/student/1</code></p>
+<p>返回：</p>
+<pre><code class="json">{
+  &quot;_index&quot;: &quot;school&quot;,
+  &quot;_type&quot;: &quot;student&quot;,
+  &quot;_id&quot;: &quot;1&quot;,
+  &quot;_version&quot;: 3,
+  &quot;found&quot;: true,
+  &quot;_source&quot;: {
+    &quot;name&quot;: &quot;吕布1&quot;,
+    &quot;age&quot;: 21,
+    &quot;class&quot;: 2,
+    &quot;gender&quot;: &quot;男&quot;
   }
-}
-
-var getCookies = function (name) {
-  const value = `; ${document.cookie}`
-  const parts = value.split(`; ${name}=`)
-  if (parts.length === 2) return parts.pop().split(';').shift()
-}
-
-var autoChangeMode = 'false'
-var t = getCookies('theme')
-if (autoChangeMode === '1') {
-  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
-  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
-  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-
-  if (t === undefined) {
-    if (isLightMode) activateLightMode()
-    else if (isDarkMode) activateDarkMode()
-    else if (isNotSpecified || hasNoSupport) {
-      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
-      var now = new Date()
-      var hour = now.getHours()
-      var isNight = hour <= 6 || hour >= 18
-      isNight ? activateDarkMode() : activateLightMode()
-    }
-    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
-      if (Cookies.get('theme') === undefined) {
-        e.matches ? activateDarkMode() : activateLightMode()
+}</code></pre>
+<h4 id="删除文档"><a href="#删除文档" class="headerlink" title="删除文档"></a>删除文档</h4><p>命令：<code>DELETE school/student/1</code></p>
+<p>返回：</p>
+<pre><code class="json">{
+  &quot;_index&quot;: &quot;school&quot;,
+  &quot;_type&quot;: &quot;student&quot;,
+  &quot;_id&quot;: &quot;1&quot;,
+  &quot;_version&quot;: 4,
+  &quot;result&quot;: &quot;deleted&quot;, //删除
+  &quot;_shards&quot;: {
+    &quot;total&quot;: 2,
+    &quot;successful&quot;: 1,
+    &quot;failed&quot;: 0
+  },
+  &quot;_seq_no&quot;: 3,
+  &quot;_primary_term&quot;: 1
+}</code></pre>
+<p>这时在查询就会显示<code>&quot;found&quot;: false</code></p>
+<h3 id="映射"><a href="#映射" class="headerlink" title="映射"></a>映射</h3><p>es中的映射(<code>mapping</code>)用来描述数据在每个字段内如何存储，是定义存储和索引的文档类型及字段的过程，索引中的每一个文档都有一个类型，每种类型都有它自己的映射，一个映射定义了文档结构内每个字段的数据类型，作用相当于<code>mysql</code>中的<code>DDL</code>语句</p>
+<h4 id="查询索引类型的映射"><a href="#查询索引类型的映射" class="headerlink" title="查询索引类型的映射"></a>查询索引类型的映射</h4><p><code>GET /ad/_mapping/phone</code></p>
+<pre><code class="json">{
+  &quot;school&quot;: {
+    &quot;mappings&quot;: {
+      &quot;student&quot;: {
+        &quot;properties&quot;: {
+          &quot;age&quot;: {
+            &quot;type&quot;: &quot;long&quot;
+          },
+          &quot;class&quot;: {
+            &quot;type&quot;: &quot;long&quot;
+          },
+          &quot;gender&quot;: {
+            &quot;type&quot;: &quot;text&quot;,
+            &quot;fields&quot;: {
+              &quot;keyword&quot;: {
+                &quot;type&quot;: &quot;keyword&quot;,
+                &quot;ignore_above&quot;: 256
+              }
+            }
+          },
+          &quot;name&quot;: {
+            &quot;type&quot;: &quot;text&quot;,
+            &quot;fields&quot;: {
+              &quot;keyword&quot;: {
+                &quot;type&quot;: &quot;keyword&quot;,
+                &quot;ignore_above&quot;: 256
+              }
+            }
+          }
+        }
       }
-    })
-  } else if (t === 'light') activateLightMode()
-  else activateDarkMode()
-} else if (autoChangeMode === '2') {
-  now = new Date()
-  hour = now.getHours()
-  isNight = hour <= 6 || hour >= 18
-  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
-  else if (t === 'light') activateLightMode()
-  else activateDarkMode()
-} else {
-  if (t === 'dark') activateDarkMode()
-  else if (t === 'light') activateLightMode()
-}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
-  root: '/',
-  algolia: undefined,
-  localSearch: undefined,
-  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  bookmark: {
-    message_prev: '按',
-    message_next: '键将本页加入书签'
-  },
-  runtime_unit: '天',
-  runtime: false,
-  copyright: undefined,
-  ClickShowText: undefined,
-  medium_zoom: false,
-  fancybox: true,
-  Snackbar: undefined,
-  justifiedGallery: {
-    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
-    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
-  },
-  baiduPush: false,
-  highlightCopy: true,
-  highlightLang: true,
-  isPhotoFigcaption: false,
-  islazyload: true,
-  isanchor: false    
-}</script><script>var GLOBAL_CONFIG_SITE = { 
-  isPost: false,
-  isHome: true,
-  isHighlightShrink: false,
-  isSidebar: false
-  }</script><noscript><style>
-#nav {
-  opacity: 1
-}
-.justified-gallery img{
-  opacity: 1
-}
-</style></noscript><meta name="generator" content="Hexo 4.2.1"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">69</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">64</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">14</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 诗词</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 我</span></a></div></div></div></div><div id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/img/1.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">但行好事 莫问前程</a></span><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 诗词</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 我</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site_title">但行好事 莫问前程</h1><div id="site_subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="mailto:cmysouls@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll_down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/redis-cache/" title="redis结合自定义注解实现注解缓存">     <img class="post_bg" data-src="/img/32.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="redis结合自定义注解实现注解缓存"></a></div><div class="recent-post-info"><a class="article-title" href="/redis-cache/" title="redis结合自定义注解实现注解缓存">redis结合自定义注解实现注解缓存</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-04-01 18:19:05"><i class="far fa-calendar-alt"></i>2019-04-01</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/nosql/">nosql</a></span></div><div class="content">
-现在的互联网公司大多数都是以redis作为缓存，本文分享如何在工作中更好的去实现缓存
+    }
+  }
+}</code></pre>
+<h4 id="动态映射"><a href="#动态映射" class="headerlink" title="动态映射"></a>动态映射</h4><p>动态映射不需要事先定义映射，文档在写入es的时候，会根据文档字段自动识别类型</p>
+<p>映射规则：</p>
+<table>
+<thead>
+<tr>
+<th align="center">Json 数据类型</th>
+<th align="center">es 数据类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">null</td>
+<td align="center">没有字段添加</td>
+</tr>
+<tr>
+<td align="center">true，false</td>
+<td align="center">boolean</td>
+</tr>
+<tr>
+<td align="center">Integer</td>
+<td align="center">long</td>
+</tr>
+<tr>
+<td align="center">object</td>
+<td align="center">object</td>
+</tr>
+<tr>
+<td align="center">array</td>
+<td align="center">依赖于数组中首个非空值</td>
+</tr>
+<tr>
+<td align="center">string</td>
+<td align="center">text和keyword</td>
+</tr>
+<tr>
+<td align="center">日期</td>
+<td align="center">date或text</td>
+</tr>
+</tbody></table>
+<h4 id="静态映射"><a href="#静态映射" class="headerlink" title="静态映射"></a>静态映射</h4><p>静态映射需要事先定义好映射，包含文档的各个字段及其类型</p>
+<pre><code class="json">PUT books
+{
+  &quot;mappings&quot;: {
+    &quot;book&quot;:{
+      &quot;properties&quot;: {
+        &quot;id&quot;:{&quot;type&quot;: &quot;long&quot;},
+        &quot;bookName&quot;:{&quot;type&quot;: &quot;text&quot;},
+        &quot;ad&quot;:{&quot;type&quot;: &quot;text&quot;}
+      }
+    }
+  }
+}</code></pre>
+<p>Elasticsearch 中的数据可以概括的分为两类：精确值和全文</p>
+<ol>
+<li>精确值：精确值是确定的值，比如用户ID，字符串也可以表示精确值，例如用户名或邮箱地址。对于精确值来讲，<code>Foo</code> 和 <code>foo</code> 是不同的，精确值的查询简单，要么匹配查询，要么不匹配</li>
+<li>全文：全文是指文本数据（通常以人类容易识别的语言书写），例如一个推文的内容或一封邮件的内容，全文的查询较为复杂，他需要的是匹配查询的程度有多大</li>
+</ol>
+<p>在es中使用 倒排索引来进行快速的全文搜索。一个倒排索引由文档中所有不重复词的列表构成，对于其中每个词，有一个包含它的文档列表，<strong>倒排索引</strong>具体内容请戳：<a href="https://www.elastic.co/guide/cn/elasticsearch/guide/current/inverted-index.html" target="_blank" rel="noopener">https://www.elastic.co/guide/cn/elasticsearch/guide/current/inverted-index.html</a></p>
+<p>es中的字符串类型分为<code>keyword</code>和<code>text</code> </p>
+<ol>
+<li><code>keyword</code>：用于索引结构化内容的字段，例如电子邮件地址，主机名，状态代码，邮政编码或标签。它们通常用于过滤，排序，和聚合。keyword字段只能按其确切值进行搜索。如果您需要索引电子邮件正文或产品说明等全文内容，则可能应该使用text字段</li>
+<li><code>text</code>：用于索引全文值的字段，例如电子邮件正文或产品说明。这些字段是analyzed，它们通过分词器传递 ，以在被索引之前将字符串转换为单个术语的列表。分析过程允许Elasticsearch搜索单个单词中 每个完整的文本字段。文本字段不用于排序，很少用于聚合</li>
+</ol>
+<p>有时候一个字段同时拥有全文类型（text）和关键字类型（keyword）是有用的：一个用于全文搜索，另一个用于聚合和排序。这可以通过多字段类型来实现（动态映射是字符串的默认映射类型）</p>
+<p><strong>参考：</strong> Elasticsearch: 权威指南（版本较老，可以看新的）<a href="https://www.elastic.co/guide/cn/elasticsearch/guide/cn/index.html" target="_blank" rel="noopener">https://www.elastic.co/guide/cn/elasticsearch/guide/cn/index.html</a></p>
 
-目标   在方法上使用注解，实现如果标注了注解的方法会优先走缓存，如果命中缓存则返回缓存中的数据，如果没有命中缓存就穿透到方法中执行方法，然后将方法的返回值存储到缓存中，然后下次就可以在缓存设置的有效时间内从缓存中读取数据了
-实现步骤
-自定义注解
-定义aop切面
+			
+		</div>
+		<footer class="clearfix">
+			
+				
+				
+					<div class="disqus-comment">
+						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/es-basics/#disqus_thread" class="comment-link"> 评论</a>
+					</div>
+				
+			
+			
+	<div class="categories">
+		<i class="fa fa-folder"></i>
+		
+			<a href="/categories/elasticsearch/">elasticsearch</a>
+		
+	</div>
 
-思路：
-如果方法标注了@CacheProfiler注解则走aop
-如果获取到CacheProfiler类，并且readFromCache()设置的是true，就去getCacheKey()获取缓存的key
-根据缓存的key值去redis中查询，如果有就查询缓存，如果没有就执行方法，将方法的返回值作为value存入缓存,并根据CacheProfiler的expire()设置的过期时间给key加上过期时间
+			
+	<div class="tags">
+		<i class="fa fa-tags"></i>
+		
+			<a href="/tags/elasticsearch/">#elasticsearch</a>
+		
+	</div>
 
-自定义注解/**
+		</footer>
+	</div>
+</article>
+	
+		
+		<article class="post">
+	<div class="post-content">
+		<header>
+			
+				<div class="meta">
+					<div class="icon">
+						
+							<i class="fa fa-file"></i>
+						
+					</div>
+					<time datetime="2019-04-23T10:01:31.000Z">2019-04-23</time>
+				</div>
+			
+			
+	
+		<h1 class="title" data-role="articleTitle"><a href="/redis-lock/">什么是分布式锁及正确使用redis实现分布式锁</a></h1>
+	
+
+		</header>
+		<div class="entry">
+			
+				<h3 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a>分布式锁</h3><p>　　分布式锁其实可以理解为：控制分布式系统有序的去对共享资源进行操作，通过互斥来保持一致性。 举个不太恰当的例子：假设共享的资源就是一个房子，里面有各种书，分布式系统就是要进屋看书的人，分布式锁就是保证这个房子只有一个门并且一次只有一个人可以进，而且门只有一把钥匙。然后许多人要去看书，可以，排队，第一个人拿着钥匙把门打开进屋看书并且把门锁上，然后第二个人没有钥匙，那就等着，等第一个出来，然后你在拿着钥匙进去，然后就是以此类推</p>
+<h4 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h4><ol>
+<li><p>互斥性</p>
+<p>保证同一时间只有一个客户端可以拿到锁，也就是可以对共享资源进行操作</p>
+</li>
+<li><p>安全性</p>
+<p>只有加锁的服务才能有解锁权限，也就是不能让a加的锁，bcd都可以解锁，如果都能解锁那分布式锁就没啥意义了</p>
+<p>可能出现的情况就是a去查询发现持有锁，就在准备解锁，这时候忽然a持有的锁过期了，然后b去获得锁，因为a锁过期，b拿到锁，这时候a继续执行第二步进行解锁如果不加校验，就将b持有的锁就给删除了</p>
+</li>
+<li><p>避免死锁</p>
+<p>出现死锁就会导致后续的任何服务都拿不到锁,不能再对共享资源进行任何操作了</p>
+</li>
+<li><p>保证加锁与解锁操作是原子性操作</p>
+<p>例：</p>
+<p>假设a用redis实现分布式锁，</p>
+<p>1，设置key <code>set（key，value）</code></p>
+<p>2，给key设置过期时间</p>
+<p>假设现在a刚实现set后，程序崩了就导致了没给key设置过期时间就导致key一直存在就发生了死锁</p>
+</li>
+</ol>
+<h4 id="如何实现分布式锁"><a href="#如何实现分布式锁" class="headerlink" title="如何实现分布式锁"></a>如何实现分布式锁</h4><p>　　实现分布式锁的方式有很多，只要满足上述条件的都可以实现分布式锁，比如数据库，redis，zookeeper，在这里就先讲一下如何使用redis实现分布式锁</p>
+<p><strong>使用redis实现分布式锁</strong></p>
+<p>步骤核心：</p>
+<ol>
+<li>使用<code>redis</code>命令 <code>set key value NX EX max-lock-time</code>实现加锁</li>
+<li>使用<code>redis</code>命令 <code>EVAL</code> 实现解锁</li>
+</ol>
+<p>需要满足分布式锁的实现原理</p>
+<h5 id="加锁："><a href="#加锁：" class="headerlink" title="加锁："></a>加锁：</h5><pre><code class="java">   Jedis jedis = new Jedis(&quot;127.0.0.1&quot;, 6379);
+   private static final String SUCCESS = &quot;OK&quot;;
+
+   /**
+    * 加锁操作
+    * @param key 锁标识
+    * @param value 客户端标识
+    * @param timeOut 过期时间
+    */
+   public Boolean lock(String key,String value,Long timeOut){
+       String var1 = jedis.set(key,value,&quot;NX&quot;,&quot;EX&quot;,timeOut);
+       if(LOCK_SUCCESS.equals(var1)){
+           return true;
+       }
+       return false;
+   }</code></pre>
+<p><strong>解读</strong></p>
+<ol>
+<li><p>加锁操作：<code>jedis.set(key,value,&quot;NX&quot;,&quot;EX&quot;,timeOut)</code>，保证加锁的原子操作</p>
+</li>
+<li><p><code>key</code>就是<code>redis</code>的<code>key</code>值作为锁的标识，<code>value</code>在这里作为客户端的标识，只有<code>key-value</code>都比配才有删除锁的权利，保证安全性</p>
+</li>
+<li><p>通过<code>timeOut</code>设置过期时间保证不会出现死锁，避免死锁</p>
+</li>
+<li><p><code>NX</code>，<code>EX</code>什么意思</p>
+<p><code>NX</code>：只有这个<code>key</code>不存才的时候才会进行操作，<code>if not exists</code></p>
+<p><code>EX</code>：设置<code>key</code>的过期时间为秒，具体时间由第5个参数决定</p>
+</li>
+</ol>
+<h5 id="解锁"><a href="#解锁" class="headerlink" title="解锁"></a>解锁</h5><pre><code class="java">   Jedis jedis = new Jedis(&quot;127.0.0.1&quot;, 6379);
+   private static final Long UNLOCK_SUCCESS = 1L;
+
+   /**
+    * 解锁操作
+    * @param key 锁标识
+    * @param value 客户端标识
+    * @return
+    */
+   public static Boolean unLock(String key,String value){
+       String luaScript = &quot;if redis.call(\&quot;get\&quot;,KEYS[1]) == ARGV[1] then return redis.call(\&quot;del\&quot;,KEYS[1]) else  return 0 end&quot;;
+       Object var2 = jedis.eval(luaScript,Collections.singletonList(key), Collections.singletonList(value));
+       if (UNLOCK_SUCCESS == var2) {
+           return true;
+       }
+       return false;
+   }</code></pre>
+<p><strong>解读</strong></p>
+<ol>
+<li><code>luaScript</code> 这个字符串是个lua脚本，代表的意思是如果根据<code>key</code>拿到的<code>value</code>跟传入的<code>value</code>相同就执行<code>del</code>，否则就返回0，保证安全性</li>
+<li><code>jedis.eval(String,list,list);</code>这个命令就是去执行<code>lua</code>脚本，KEYS的集合就是第二个参数，<code>ARGV</code>的集合就是第三参数【保证解锁的原子操作】</li>
+</ol>
+<p>​    上述就实现了怎么使用redis去正确的实现分布式锁，但是有个小缺陷就是锁过期时间要设置为多少合适，这个其实还是需要去根据业务场景考量一下的</p>
+<h5 id="重试机制"><a href="#重试机制" class="headerlink" title="重试机制"></a>重试机制</h5><p>　　上面那只是讲了加锁与解锁的操作，试想一下如果在业务中去拿锁如果没有拿到是应该阻塞着一直等待还是直接返回，这个问题其实可以写一个重试机制，根据重试次数和重试时间做一个循环去拿锁，当然这个重试的次数和时间设多少合适，是需要根据自身业务去衡量的</p>
+<pre><code class="java">    /**
+    * 重试机制
+    * @param key 锁标识
+    * @param value 客户端标识
+    * @param timeOut 过期时间
+    * @param retry 重试次数 不要太大
+    * @param sleepTime 重试间隔时间
+    * @return
+    */
+   public Boolean lockRetry(String key,String value,Long timeOut,Integer retry,Long sleepTime){
+       Boolean flag = false;
+       try {
+           for (int i=0;i&lt;retry;i++){
+               flag = lock(key,value,timeOut);
+               if(flag){
+                   break;
+               }
+               Thread.sleep(sleepTime);
+           }
+       }catch (Exception e){
+           e.printStackTrace();
+       }
+       return flag;
+   }</code></pre>
+<p>redis实现分布式锁就写完了，下次用zookeeper去实现分布式锁</p>
+<p><em>文中set命令详解：<a href="http://redisdoc.com/string/set.html" target="_blank" rel="noopener">http://redisdoc.com/string/set.html</a></em></p>
+
+			
+		</div>
+		<footer class="clearfix">
+			
+				
+				
+					<div class="disqus-comment">
+						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/redis-lock/#disqus_thread" class="comment-link"> 评论</a>
+					</div>
+				
+			
+			
+	<div class="categories">
+		<i class="fa fa-folder"></i>
+		
+			<a href="/categories/nosql/">nosql</a>
+		
+	</div>
+
+			
+	<div class="tags">
+		<i class="fa fa-tags"></i>
+		
+			<a href="/tags/redis/">#redis</a>
+		
+	</div>
+
+		</footer>
+	</div>
+</article>
+	
+		
+		<article class="post">
+	<div class="post-content">
+		<header>
+			
+				<div class="meta">
+					<div class="icon">
+						
+							<i class="fa fa-file"></i>
+						
+					</div>
+					<time datetime="2019-04-22T10:25:45.000Z">2019-04-22</time>
+				</div>
+			
+			
+	
+		<h1 class="title" data-role="articleTitle"><a href="/redis-master-slave/">redis的主从模式搭建及注意事项</a></h1>
+	
+
+		</header>
+		<div class="entry">
+			
+				<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>​    本文先分享下如何搭建redis的主从模式配置，以及主从模式配置的注意事项</p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><ol>
+<li><p>yum install gcc-c++</p>
+<p>安装环境</p>
+</li>
+<li><p>wget <a href="http://download.redis.io/releases/redis-4.0.2.tar.gz" target="_blank" rel="noopener">http://download.redis.io/releases/redis-4.0.2.tar.gz</a></p>
+<p>获取压缩包，我的安装路径：/usr/local/redis</p>
+</li>
+<li><p>tar -zxvf redis-4.0.2.tar.gz </p>
+<p>解压</p>
+</li>
+<li><p>cd redis-4.0.2</p>
+<p>切换到对应目录</p>
+</li>
+<li><p>make</p>
+<p>自此，redis已经安装成功</p>
+</li>
+<li><p>./src/redis-server redis.conf </p>
+<p> 启动redis，指定配置文件</p>
+<p>服务启动成功如下：</p>
+<p><img src="/redis-master-slave/1.png" alt></p>
+</li>
+<li><p>Ctrl+c </p>
+<p>退出当前服务</p>
+<p>由于不是以守护线程的方式去启动，所以需要Ctrl+c停止服务</p>
+</li>
+<li><p>vi redis.conf</p>
+<p>修改配置文件</p>
+<p>daemonize no 修改为 daemonize  yes ，以守护线程启动</p>
+</li>
+<li><p>./src/redis-server redis.conf</p>
+<p>再次启动redis</p>
+</li>
+<li><p>ps -ef |grep redis</p>
+<p> 查看redis服务</p>
+</li>
+<li><p>./src/redis-cli</p>
+<p>启动客户端链接</p>
+<p>键入info，查看当前redis信息</p>
+<p>键入shutdown 停止redis服务</p>
+</li>
+</ol>
+<h4 id="redis-主从模式配置"><a href="#redis-主从模式配置" class="headerlink" title="redis 主从模式配置"></a>redis 主从模式配置</h4><p>​    redis的主从模式，使用异步复制，slave节点异步从master节点复制数据，master节点提供读写服务，slave节点只提供读服务（这个是默认配置，可以通过修改配置文件 slave-read-only 控制）。master节点可以有多个从节点。配置一个slave节点只需要在redis.conf文件中指定 slaveof master-ip master-port 即可</p>
+<p><strong>示例：一个master节点有两个slave节点</strong></p>
+<p>配置：</p>
+<ol>
+<li><p>cd /usr/local/redis/redis-4.0.2</p>
+<p>切换到当前redis安装路径</p>
+</li>
+<li><p>mkdir config</p>
+<p> 新建一个文件夹，存放redis的配置文件</p>
+</li>
+</ol>
+<ol start="3">
+<li><p>在config下，新建三个配置文件，如下：</p>
+<p>cd config</p>
+<p>vi master-6739.conf</p>
+<pre><code>bind 0.0.0.0
+port 6379
+logfile &quot;6379.log&quot;
+dbfilename &quot;dump-6379.rdb&quot;
+daemonize yes
+rdbcompression yes</code></pre><p>vi slave-6380.conf</p>
+<pre><code>bind 0.0.0.0
+port 6380
+logfile &quot;6380.log&quot;
+dbfilename &quot;dump-6380.rdb&quot;
+daemonize yes
+rdbcompression yes
+slaveof 192.168.81.135 6379</code></pre><p>vi slave-6381.conf</p>
+<pre><code>bind 0.0.0.0
+port 6381
+logfile &quot;6381.log&quot;
+dbfilename &quot;dump-6381.rdb&quot;
+daemonize yes
+rdbcompression yes
+slaveof 192.168.81.135 6379</code></pre><p><em>master-6739.conf，为主节点配置文件，slave-6380.conf，slave-6381.conf为从节点配置文件</em><br><em>在从节点的配置文件中使用：slaveof  指定master节点</em></p>
+</li>
+<li><p>启动三台reids服务</p>
+<pre><code>[root@localhost redis-4.0.2]# ./src/redis-server config/master-6379.conf 
+[root@localhost redis-4.0.2]# ./src/redis-server config/slave-6380.conf 
+[root@localhost redis-4.0.2]# ./src/redis-server config/slave-6381.conf</code></pre><p>查看一下redis服务</p>
+<p><img src="/redis-master-slave/2.png" alt></p>
+<p><strong>测试主从模式</strong>：</p>
+<p>a，先分别连上三台Redis服务，获取key为name的值，通过-p 指定连接那个端口的redis服务</p>
+<pre><code>[root@localhost redis-4.0.2]# ./src/redis-cli -p 6379
+127.0.0.1:6379&gt; get name
+(nil)
+[root@localhost redis-4.0.2]# ./src/redis-cli -p 6380
+127.0.0.1:6380&gt; get name
+(nil)
+[root@localhost redis-4.0.2]# ./src/redis-cli -p 6381
+127.0.0.1:6381&gt; get name
+(nil)
+#获取的值都为空</code></pre><p>b，给master节点set一个key</p>
+<pre><code>[root@localhost redis-4.0.2]# ./src/redis-cli -p 6379
+127.0.0.1:6379&gt; set name cmy
+OK
+127.0.0.1:6379&gt; get name
+&quot;cmy&quot;</code></pre><p>c，slave节点直接读取key为name的值</p>
+<pre><code>[root@localhost redis-4.0.2]# ./src/redis-cli -p 6380
+127.0.0.1:6380&gt; get name
+&quot;cmy&quot;
+[root@localhost redis-4.0.2]# ./src/redis-cli -p 6381
+127.0.0.1:6381&gt; get name
+&quot;cmy&quot;</code></pre><p>d，slave节点只提供读服务，不能进行写入操作</p>
+<pre><code>127.0.0.1:6381&gt; set age 23
+(error) READONLY You can&#39;t write against a read only slave.</code></pre></li>
+</ol>
+<p>   <strong>注意</strong><br>       使用主从模式时应注意matser节点的持久化操作，matser节点在未使用持久化的情况详情下如果宕机，并自动重新拉起服务，从服务器会出现丢失数据的情况。</p>
+<p>   首先，禁止matser服务持久化</p>
+<pre><code>   127.0.0.1:6379&gt; CONFIG SET save &quot;&quot;
+   OK</code></pre><p>   在master节点set一个值</p>
+<pre><code>   127.0.0.1:6379&gt; set age 23
+   OK</code></pre><p>   slave节点可以get到age的值</p>
+<pre><code>   127.0.0.1:6380&gt; get age
+   &quot;23&quot;</code></pre><p>   关掉master节点服务</p>
+<pre><code>   127.0.0.1:6379&gt; shutdown
+   not connected&gt; </code></pre><p>   slave节点此时仍可以get到age的值</p>
+<pre><code>   127.0.0.1:6380&gt; get age
+   &quot;23&quot;</code></pre><p>   重启master服务，此时获取不到age的值</p>
+<pre><code>   [root@localhost redis-4.0.2]# ./src/redis-server config/master-6379.conf 
+   [root@localhost redis-4.0.2]# ./src/redis-cli -p 6379
+   127.0.0.1:6379&gt; get age
+   (nil)</code></pre><p>   slave节点此时在获取age的值为空，数据丢失</p>
+<pre><code>   [root@localhost redis-4.0.2]# ./src/redis-cli -p 6380
+   127.0.0.1:6380&gt; get age
+   (nil)</code></pre><p>   <strong>数据丢失的原因：</strong></p>
+<p>   ​    因为master服务挂了之后，重启服务后，slave节点会与master节点进行一次完整的重同步操作，所以由于master节点没有持久化，就导致slave节点上的数据也会丢失掉。所以在配置了Redis的主从模式的时候，应该打开主服务器的持久化功能。</p>
+
+			
+		</div>
+		<footer class="clearfix">
+			
+				
+				
+					<div class="disqus-comment">
+						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/redis-master-slave/#disqus_thread" class="comment-link"> 评论</a>
+					</div>
+				
+			
+			
+	<div class="categories">
+		<i class="fa fa-folder"></i>
+		
+			<a href="/categories/nosql/">nosql</a>
+		
+	</div>
+
+			
+	<div class="tags">
+		<i class="fa fa-tags"></i>
+		
+			<a href="/tags/redis/">#redis</a>
+		
+	</div>
+
+		</footer>
+	</div>
+</article>
+	
+		
+		<article class="post">
+	<div class="post-content">
+		<header>
+			
+				<div class="meta">
+					<div class="icon">
+						
+							<i class="fa fa-file"></i>
+						
+					</div>
+					<time datetime="2019-04-01T10:19:05.000Z">2019-04-01</time>
+				</div>
+			
+			
+	
+		<h1 class="title" data-role="articleTitle"><a href="/redis-cache/">redis结合自定义注解实现注解缓存</a></h1>
+	
+
+		</header>
+		<div class="entry">
+			
+				<blockquote>
+<p>现在的互联网公司大多数都是以<code>redis</code>作为缓存，本文分享如何在工作中更好的去实现缓存</p>
+</blockquote>
+<h4 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h4><p>   在方法上使用注解，实现如果标注了注解的方法会优先走缓存，如果命中缓存则返回缓存中的数据，如果没有命中缓存就穿透到方法中执行方法，然后将方法的返回值存储到缓存中，然后下次就可以在缓存设置的有效时间内从缓存中读取数据了</p>
+<h4 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h4><ol>
+<li>自定义注解</li>
+<li>定义aop切面</li>
+</ol>
+<h4 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h4><ol>
+<li>如果方法标注了<code>@CacheProfiler</code>注解则走<code>aop</code></li>
+<li>如果获取到<code>CacheProfiler</code>类，并且<code>readFromCache()设置的是true，就去getCacheKey()</code>获取缓存的<code>key</code></li>
+<li>根据缓存的<code>key</code>值去<code>redis</code>中查询，如果有就查询缓存，如果没有就执行方法，将方法的返回值作为<code>value</code>存入缓存,并根据<code>CacheProfiler</code>的<code>expire()</code>设置的过期时间给<code>key</code>加上过期时间</li>
+</ol>
+<h5 id="自定义注解"><a href="#自定义注解" class="headerlink" title="自定义注解"></a>自定义注解</h5><pre><code class="java">/**
  * @Description:
  * @author: chenmingyu
  * @date: 2018/5/17 20:37
  */
 @Retention(RetentionPolicy.RUNTIME)
-@Ta ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/design-flyweight/" title="23种设计模式之享元模式">     <img class="post_bg" data-src="/img/23.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="23种设计模式之享元模式"></a></div><div class="recent-post-info"><a class="article-title" href="/design-flyweight/" title="23种设计模式之享元模式">23种设计模式之享元模式</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-03-31 16:55:57"><i class="far fa-calendar-alt"></i>2019-03-31</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></span></div><div class="content">享元模式享元模式属于结构型模式，又叫轻量级模式
-定义：运用共享技术有效地支持大量细粒度对象的复用。系统只使用少量的对象，而这些对象都很相似，状态变化很小，可以实现对象的多次复用。
-主要用来减少对象的创建，用来减少内存和提高性能，比较常见的连接池，缓冲池这类的池技术都是享元模式
-享元模式的两种状态
+@Target({ElementType.METHOD})
+public @interface CacheProfiler {
 
-内部状态：在享元对象内部不随外界环境改变而改变的共享部分
-外部状态：随着环境的改变而改变，不能够共享的状态就是外部状态
+    String cacheKey();
 
-模式类图
-角色：
+    int expire() default 60;
 
-抽象享元角色：Flyweight产品的抽象类，用来定义对象的外部状态和内部状态
-具体享元角色：ConcreteFlyweight和unshareConcreteFlyweight
-享元工厂：FlyweightFactory用于构造一个池容器，提供从容器中获取对象的方法
+    boolean readFromCache() default true;
+}</code></pre>
+<p><strong>代码</strong></p>
+<p><code>@interface</code>来修饰一个注解</p>
+<ol>
+<li><code>cacheKey()</code> 缓存<code>key</code>的前缀，缓存key由key前缀+入参组成，详见<code>getCacheKey()</code>方法</li>
+<li><code>expire()</code>缓存的过去时间，默认为<code>60</code>秒</li>
+<li><code>readFromCache()</code> 是否读取缓存，默认为<code>true</code></li>
+</ol>
+<h5 id="定义aop切面"><a href="#定义aop切面" class="headerlink" title="定义aop切面"></a>定义aop切面</h5><pre><code class="java">    @Pointcut(&quot;@annotation(org.my.cache.annotation.CacheProfiler)&quot;)
+    public void cachePoint() {
+    }
 
-优点减少对象的创建，降低内存的占用，增强性能
-缺点使用享元模式使程序逻辑变得更复杂
-模式代码实现源码地址：https://github.com/mingyuHub/design-patterns
-抽象享元角色/**
+    @Around(&quot;cachePoint()&quot;)
+    public Object beforeExec(ProceedingJoinPoint joinPoint) {
+        Object obj = null;
+        try {
+            //获取方法
+            Method method = this.getMethod(joinPoint);
+            CacheProfiler cacheProfiler = (CacheProfiler) method.getAnnotation(CacheProfiler.class);
+            //方法上没有注解，直接执行方法然后返回
+            if (null == cacheProfiler) {
+                return joinPoint.proceed();
+            }
+            //缓存key
+            String cacheKey = this.getCacheKey(joinPoint, cacheProfiler);
+            //true：从缓存读
+            if (cacheProfiler.readFromCache()) {
+                obj = jedis.get(cacheKey);
+            } else {
+                return joinPoint.proceed();
+            }
+            if (null == obj) {
+                obj = joinPoint.proceed();
+            }else{
+                return obj;
+            }
+            if (null != obj) {
+                jedis.setex(cacheKey,cacheProfiler.expire(), JSONObject.toJSONString(obj));
+            }
+            return obj;
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+    }
+        return obj;
+    }</code></pre>
+<p><strong>代码</strong></p>
+<p><code>@Pointcut</code>定义切入点为<code>@CacheProfiler</code>注解<code>@Around</code>表示使用<code>@CacheProfiler``注解的方法将走环绕通知 getMethod(JoinPoint jp)</code>获取目标方法<code>getCacheKey(ProceedingJoinPoint jp, CacheProfiler cacheProfiler)</code>获取缓存的<code>key</code></p>
+<h5 id="获取CacheProfiler的方法"><a href="#获取CacheProfiler的方法" class="headerlink" title="获取CacheProfiler的方法"></a>获取CacheProfiler的方法</h5><pre><code class="java">//获取方法
+private Method getMethod(JoinPoint jp) throws Exception {
+    MethodSignature msig = (MethodSignature) jp.getSignature();
+    Method method = msig.getMethod();
+    return method;
+}</code></pre>
+<h5 id="获取缓存的key的方法"><a href="#获取缓存的key的方法" class="headerlink" title="获取缓存的key的方法"></a>获取缓存的key的方法</h5><pre><code class="java">private String getCacheKey(ProceedingJoinPoint jp, CacheProfiler cacheProfiler) {
+        StringBuilder sb = new StringBuilder(cacheProfiler.cacheKey());
+        if (jp.getArgs() != null &amp;&amp; jp.getArgs().length != 0) {
+            Object[] arr$ = jp.getArgs();
+            int len$ = arr$.length;
+
+            for (int i$ = 0; i$ &lt; len$; ++i$) {
+                Object obj = arr$[i$];
+                if (obj != null) {
+                    sb.append(&quot;_&quot;).append(String.valueOf(obj));
+                }
+            }
+            return sb.toString();
+        } else {
+            return sb.toString();
+        }
+    }</code></pre>
+<p>   通过在方法上使用<code>@CacheProfiler</code>注解实现缓存，通过<code>@CacheProfiler</code>注解的相应参数去实现缓存属性的相关设置</p>
+<h5 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h5><pre><code class="java">/**
+* @Description:
+* @author: chenmingyu
+* @date: 2018/5/20 11:18
+*/
+@RestController
+public class CacheController {
+
+   @RequestMapping(&quot;/getUser&quot;)
+   @CacheProfiler(cacheKey = &quot;USER_CACHE_KEY&quot;,expire = 3*60,readFromCache = true)
+   public List&lt;User&gt; getUser(Integer type){
+
+       List&lt;User&gt; users = new ArrayList&lt;&gt;();
+       if(type==1){
+           User user = new User(&quot;my&quot;,24,&quot;北京&quot;);
+           users.add(user);
+       }else if(type==2){
+           User user = new User(&quot;小娜&quot;,24,&quot;北京&quot;);
+           users.add(user);
+       }
+       return users;
+
+   }
+
+}</code></pre>
+<p>以上就实现了注解缓存</p>
+<h4 id="托底缓存的实现"><a href="#托底缓存的实现" class="headerlink" title="托底缓存的实现"></a>托底缓存的实现</h4><p>   托底缓存的实现也很简单，首先说下可能需要托底缓存的场景，就比如一个电商网站，去获取商品列表，结果调用接口的时候出错了，这个时候又不希望网站的页面出现天窗这个时候就需要托底数据了，如果接口出现异常，也会返回托底数据</p>
+<h5 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h5><ul>
+<li>可以给<code>CacheProfiler</code>注解加一个属性是否读取托底缓存 属性为<code>boolean</code></li>
+<li>然后在<code>joinPoint.proceed()</code>的时候加上<code>try-cache</code></li>
+<li>如果执行方法的时候报异常了，或者返回一些自定义的数据，并且上面那个是否读取托底缓存属性为true，就去缓存中读取托底数据</li>
+<li>其中重要的一点就是托底数据什么时候去存，这个可以在每次去存缓存的时候去存一份托底数据，或者定义一些存储策略，托底数据与缓存的数据可以定义为key的前缀不同，其实这个可以存成hash类型的数据，定义一个固定的key为托底数据的key【hash的key】，然后field为托底缓存数据的key</li>
+</ul>
+
+			
+		</div>
+		<footer class="clearfix">
+			
+				
+				
+					<div class="disqus-comment">
+						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/redis-cache/#disqus_thread" class="comment-link"> 评论</a>
+					</div>
+				
+			
+			
+	<div class="categories">
+		<i class="fa fa-folder"></i>
+		
+			<a href="/categories/nosql/">nosql</a>
+		
+	</div>
+
+			
+	<div class="tags">
+		<i class="fa fa-tags"></i>
+		
+			<a href="/tags/redis/">#redis</a>
+		
+	</div>
+
+		</footer>
+	</div>
+</article>
+	
+		
+		<article class="post">
+	<div class="post-content">
+		<header>
+			
+				<div class="meta">
+					<div class="icon">
+						
+							<i class="fa fa-file"></i>
+						
+					</div>
+					<time datetime="2019-03-31T08:55:57.000Z">2019-03-31</time>
+				</div>
+			
+			
+	
+		<h1 class="title" data-role="articleTitle"><a href="/design-flyweight/">23种设计模式之享元模式</a></h1>
+	
+
+		</header>
+		<div class="entry">
+			
+				<h3 id="享元模式"><a href="#享元模式" class="headerlink" title="享元模式"></a>享元模式</h3><p>享元模式属于结构型模式，又叫轻量级模式</p>
+<p><strong>定义：</strong>运用共享技术有效地支持大量细粒度对象的复用。系统只使用少量的对象，而这些对象都很相似，状态变化很小，可以实现对象的多次复用。</p>
+<p>主要用来减少对象的创建，用来减少内存和提高性能，比较常见的连接池，缓冲池这类的池技术都是享元模式</p>
+<p>享元模式的两种状态</p>
+<ol>
+<li>内部状态：在享元对象内部不随外界环境改变而改变的共享部分</li>
+<li>外部状态：随着环境的改变而改变，不能够共享的状态就是外部状态</li>
+</ol>
+<h4 id="模式类图"><a href="#模式类图" class="headerlink" title="模式类图"></a>模式类图</h4><p><img src="/design-flyweight/uml.png" alt></p>
+<p><strong>角色：</strong></p>
+<ol>
+<li>抽象享元角色：<code>Flyweight</code>产品的抽象类，用来定义对象的外部状态和内部状态</li>
+<li>具体享元角色：<code>ConcreteFlyweight</code>和<code>unshareConcreteFlyweight</code></li>
+<li>享元工厂：<code>FlyweightFactory</code>用于构造一个池容器，提供从容器中获取对象的方法</li>
+</ol>
+<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><p>减少对象的创建，降低内存的占用，增强性能</p>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><p>使用享元模式使程序逻辑变得更复杂</p>
+<h4 id="模式代码实现"><a href="#模式代码实现" class="headerlink" title="模式代码实现"></a>模式代码实现</h4><p><strong>源码地址：<a href="https://github.com/mingyuHub/design-patterns" target="_blank" rel="noopener">https://github.com/mingyuHub/design-patterns</a></strong></p>
+<h5 id="抽象享元角色"><a href="#抽象享元角色" class="headerlink" title="抽象享元角色"></a>抽象享元角色</h5><pre><code class="java">/**
  * @author: chenmingyu
- * @date: 20 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/design-interpreter/" title="23种设计模式之解释器模式">     <img class="post_bg" data-src="/img/29.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="23种设计模式之解释器模式"></a></div><div class="recent-post-info"><a class="article-title" href="/design-interpreter/" title="23种设计模式之解释器模式">23种设计模式之解释器模式</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-03-31 14:15:47"><i class="far fa-calendar-alt"></i>2019-03-31</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></span></div><div class="content">解释器模式解释器属于行为型模式
-定义：给定一门语言，定义它的文法的一种表示，并定义一个解释器，该解释器使用该表示来解释语言中的句子
-模式类图
-角色：
+ * @date: 2019/4/1 17:32
+ * @description: 抽象享元角色
+ */
+public interface Flyweight {
 
-抽象解释器： AbstractExpression 定义解释器规则
-具体解释器：TerminalExpression和NonterminalExpression解释器规则具体实现
+    /**
+     * 学习
+     * @param user
+     */
+    void study(String user);
+}</code></pre>
+<h5 id="具体享元角色"><a href="#具体享元角色" class="headerlink" title="具体享元角色"></a>具体享元角色</h5><pre><code class="java">/**
+ * @author: chenmingyu
+ * @date: 2019/4/1 17:40
+ * @description: 具体享元角色
+ */
+public class ConcreteFlyweight implements Flyweight {
 
-优点易扩展，增加新的解释器规则是只需要增加一个具体解释器就好
-缺点解释器规则太多时，会导致类膨胀
-模式代码实现源码地址：https://github.com/mingyuHub/design-patterns
-以验证输入的链接是否已http开头为例
-抽象解释器/**
+    /**
+     * 内部状态
+     */
+    private String interiorState;
+
+    public ConcreteFlyweight(String interiorState) {
+        this.interiorState = interiorState;
+    }
+
+    @Override
+    public void study(String user) {
+        System.out.println(user+&quot;学习&quot;+interiorState+&quot;课程&quot;);
+    }
+}</code></pre>
+<h5 id="享元工厂"><a href="#享元工厂" class="headerlink" title="享元工厂"></a>享元工厂</h5><pre><code class="java">/**
+ * @author: chenmingyu
+ * @date: 2019/4/1 18:05
+ * @description:
+ */
+public class FlyweightFactory {
+
+    private static final Map&lt;String,ConcreteFlyweight&gt; FLYWEIGHTMAP = new HashMap&lt;&gt;(16);
+
+    /**
+     * 获取ConcreteFlyweight
+     * @param s
+     * @return
+     */
+    public static Flyweight getFlyweight(String s){
+        ConcreteFlyweight flyweight = FLYWEIGHTMAP.get(s);
+        if(null == flyweight){
+            flyweight = new ConcreteFlyweight(s);
+            FLYWEIGHTMAP.put(s,flyweight);
+        }
+        return flyweight;
+    }
+
+    /**
+     * 获取FLYWEIGHTMAP数量
+     * @return
+     */
+    public static int getFlyweightSize() {
+        return FLYWEIGHTMAP.size();
+    }
+}</code></pre>
+<h5 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h5><pre><code class="java">public static void main(String[] args) {
+
+    Flyweight javaFlyweight = FlyweightFactory.getFlyweight(&quot;java&quot;);
+    javaFlyweight.study(&quot;a&quot;);
+
+    Flyweight goFlyweight = FlyweightFactory.getFlyweight(&quot;go&quot;);
+    goFlyweight.study(&quot;b&quot;);
+
+    Flyweight javaFlyweight1 = FlyweightFactory.getFlyweight(&quot;java&quot;);
+    javaFlyweight1.study(&quot;c&quot;);
+
+    System.out.println(javaFlyweight == javaFlyweight1);
+    System.out.println(&quot;Flyweight 总数：&quot;+FlyweightFactory.getFlyweightSize());
+}</code></pre>
+<p>输出</p>
+<pre><code class="java">a学习java课程
+b学习go课程
+c学习java课程
+true
+Flyweight 总数：2</code></pre>
+<p><code>java</code>，<code>go</code>就是内部状态，不会随着外界环境改变而改变，是共享部分，而外部状态<code>a</code>，<code>b</code>，<code>c</code>则由环境决定，是共享模式中的不可变部分</p>
+<p><strong>参考：</strong>设计模式之禅：<a href="https://www.kancloud.cn/sstd521/design/193614" target="_blank" rel="noopener">https://www.kancloud.cn/sstd521/design/193614</a></p>
+<p><strong>推荐阅读：</strong><a href="https://chenmingyu.top/design/">23种设计模式详解</a></p>
+
+			
+		</div>
+		<footer class="clearfix">
+			
+				
+				
+					<div class="disqus-comment">
+						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/design-flyweight/#disqus_thread" class="comment-link"> 评论</a>
+					</div>
+				
+			
+			
+	<div class="categories">
+		<i class="fa fa-folder"></i>
+		
+			<a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+		
+	</div>
+
+			
+	<div class="tags">
+		<i class="fa fa-tags"></i>
+		
+			<a href="/tags/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/">#享元模式</a>
+		
+	</div>
+
+		</footer>
+	</div>
+</article>
+	
+		
+		<article class="post">
+	<div class="post-content">
+		<header>
+			
+				<div class="meta">
+					<div class="icon">
+						
+							<i class="fa fa-file"></i>
+						
+					</div>
+					<time datetime="2019-03-31T06:15:47.000Z">2019-03-31</time>
+				</div>
+			
+			
+	
+		<h1 class="title" data-role="articleTitle"><a href="/design-interpreter/">23种设计模式之解释器模式</a></h1>
+	
+
+		</header>
+		<div class="entry">
+			
+				<h3 id="解释器模式"><a href="#解释器模式" class="headerlink" title="解释器模式"></a>解释器模式</h3><p>解释器属于行为型模式</p>
+<p><strong>定义：</strong>给定一门语言，定义它的文法的一种表示，并定义一个解释器，该解释器使用该表示来解释语言中的句子</p>
+<h4 id="模式类图"><a href="#模式类图" class="headerlink" title="模式类图"></a>模式类图</h4><p><img src="/design-interpreter/uml.png" alt></p>
+<p><strong>角色：</strong></p>
+<ol>
+<li>抽象解释器： <code>AbstractExpression</code> 定义解释器规则</li>
+<li>具体解释器：<code>TerminalExpression</code>和<code>NonterminalExpression</code>解释器规则具体实现</li>
+</ol>
+<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><p>易扩展，增加新的解释器规则是只需要增加一个具体解释器就好</p>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><p>解释器规则太多时，会导致类膨胀</p>
+<h4 id="模式代码实现"><a href="#模式代码实现" class="headerlink" title="模式代码实现"></a>模式代码实现</h4><p><strong>源码地址：<a href="https://github.com/mingyuHub/design-patterns" target="_blank" rel="noopener">https://github.com/mingyuHub/design-patterns</a></strong></p>
+<p>以验证输入的链接是否已http开头为例</p>
+<h5 id="抽象解释器"><a href="#抽象解释器" class="headerlink" title="抽象解释器"></a>抽象解释器</h5><pre><code class="java">/**
  * @author: chenmingyu
  * @date: 2019/3/31 15:00
  * @description: 抽象解释器
@@ -158,20 +1139,107 @@ public interface Expression {
      * @param context
      * @return
      */
-    boolean interpret(St ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/design-mediator/" title="23种设计模式之中介者模式">     <img class="post_bg" data-src="/img/31.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="23种设计模式之中介者模式"></a></div><div class="recent-post-info"><a class="article-title" href="/design-mediator/" title="23种设计模式之中介者模式">23种设计模式之中介者模式</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-03-28 21:20:29"><i class="far fa-calendar-alt"></i>2019-03-28</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></span></div><div class="content">中介者模式中介者模式属于行为型模式，又称调停者模式
-定义：用一个中介对象来封装一系列的对象交互，中介者使各对象不需要显式地相互引用，从而使其耦合松散，而且可以独立地改变它们之间的交互
-中介者模式主要用来降低类类之间的耦合
-模式类图
-角色
+    boolean interpret(String context);
+}</code></pre>
+<h5 id="具体解释器"><a href="#具体解释器" class="headerlink" title="具体解释器"></a>具体解释器</h5><pre><code class="java">/**
+ * @author: chenmingyu
+ * @date: 2019/3/31 15:03
+ * @description:
+ */
+public class TerminalExpression implements Expression{
 
-抽象中介者：Mediator
-具体中介者：ConcreteMediator
-对象类：Colleague中介者持有该类实例
+    private String data;
 
-优点减少类之间的耦合，对象类只依赖中介者类，将原本可能会出现的一对多的依赖，变成一对一的依赖，降低类之间的耦合
-缺点中介者类膨胀，对象类越多，中介者类处理的依赖就越多，中介者类越膨胀，处理逻辑越复杂
-模式代码实现源码地址：https://github.com/mingyuHub/design-patterns
-抽象中介者/**
+    public TerminalExpression(String data) {
+        this.data = data;
+    }
+
+    @Override
+    public boolean interpret(String context) {
+        if(context.startsWith(data)){
+            return true;
+        }
+        return false;
+    }
+}</code></pre>
+<h5 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h5><pre><code class="java">public static void main(String[] args) {
+    Expression expression = new TerminalExpression(&quot;http&quot;);
+    System.out.println(&quot;http://chenmingyu.top 是以http开头：&quot;+expression.interpret(&quot;http://chenmingyu.top&quot;));
+    System.out.println(&quot;www.chenmingyu.top 是以http开头：&quot;+expression.interpret(&quot;www.chenmingyu.top&quot;));
+}</code></pre>
+<p>输出</p>
+<pre><code class="java">http://chenmingyu.top 是以http开头：true
+www.chenmingyu.top 是以http开头：false</code></pre>
+<p><strong>参考：</strong>设计模式之禅：<a href="https://www.kancloud.cn/sstd521/design/193610" target="_blank" rel="noopener">https://www.kancloud.cn/sstd521/design/193610</a></p>
+<p><strong>推荐阅读：</strong><a href="https://chenmingyu.top/design/">23种设计模式详解</a></p>
+
+			
+		</div>
+		<footer class="clearfix">
+			
+				
+				
+					<div class="disqus-comment">
+						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/design-interpreter/#disqus_thread" class="comment-link"> 评论</a>
+					</div>
+				
+			
+			
+	<div class="categories">
+		<i class="fa fa-folder"></i>
+		
+			<a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+		
+	</div>
+
+			
+	<div class="tags">
+		<i class="fa fa-tags"></i>
+		
+			<a href="/tags/%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/">#解释器模式</a>
+		
+	</div>
+
+		</footer>
+	</div>
+</article>
+	
+		
+		<article class="post">
+	<div class="post-content">
+		<header>
+			
+				<div class="meta">
+					<div class="icon">
+						
+							<i class="fa fa-file"></i>
+						
+					</div>
+					<time datetime="2019-03-28T13:20:29.000Z">2019-03-28</time>
+				</div>
+			
+			
+	
+		<h1 class="title" data-role="articleTitle"><a href="/design-mediator/">23种设计模式之中介者模式</a></h1>
+	
+
+		</header>
+		<div class="entry">
+			
+				<h3 id="中介者模式"><a href="#中介者模式" class="headerlink" title="中介者模式"></a>中介者模式</h3><p>中介者模式属于行为型模式，又称调停者模式</p>
+<p><strong>定义：</strong>用一个中介对象来封装一系列的对象交互，中介者使各对象不需要显式地相互引用，从而使其耦合松散，而且可以独立地改变它们之间的交互</p>
+<p>中介者模式主要用来降低类类之间的耦合</p>
+<h4 id="模式类图"><a href="#模式类图" class="headerlink" title="模式类图"></a>模式类图</h4><p><img src="/design-mediator/uml.png" alt></p>
+<p><strong>角色</strong></p>
+<ol>
+<li>抽象中介者：<code>Mediator</code></li>
+<li>具体中介者：<code>ConcreteMediator</code></li>
+<li>对象类：<code>Colleague</code>中介者持有该类实例</li>
+</ol>
+<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><p>减少类之间的耦合，对象类只依赖中介者类，将原本可能会出现的一对多的依赖，变成一对一的依赖，降低类之间的耦合</p>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><p>中介者类膨胀，对象类越多，中介者类处理的依赖就越多，中介者类越膨胀，处理逻辑越复杂</p>
+<h4 id="模式代码实现"><a href="#模式代码实现" class="headerlink" title="模式代码实现"></a>模式代码实现</h4><p><strong>源码地址：<a href="https://github.com/mingyuHub/design-patterns" target="_blank" rel="noopener">https://github.com/mingyuHub/design-patterns</a></strong></p>
+<h5 id="抽象中介者"><a href="#抽象中介者" class="headerlink" title="抽象中介者"></a>抽象中介者</h5><pre><code class="java">/**
  * @author: chenmingyu
  * @date: 2019/3/31 13:46
  * @description: 抽象中介者
@@ -181,50 +1249,327 @@ public interface Mediatorable {
     /**
      * 创建中介者
      */
-    void create ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/design-visitor/" title="23种设计模式之访问者模式">     <img class="post_bg" data-src="/img/30.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="23种设计模式之访问者模式"></a></div><div class="recent-post-info"><a class="article-title" href="/design-visitor/" title="23种设计模式之访问者模式">23种设计模式之访问者模式</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-03-26 20:12:51"><i class="far fa-calendar-alt"></i>2019-03-26</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></span></div><div class="content">访问者模式访问者模式属于行为型设计模式
-定义：封装一些作用于某种数据结构中的各元素的操作，它可以在不改变数据结构的前提下定义作用于这些元素的新的操作
-访问者模式就是将数据结构与数据操作相分离
-模式类图
-角色：
+    void createMediator();
 
-抽象访问者：Visitor
-具体访问者：ConcreteVisitor
-抽象元素：Element
-具体元素：ConcreteElement
+    /**
+     * 打游戏
+     */
+    void playGame();
+}</code></pre>
+<h5 id="具体中介者"><a href="#具体中介者" class="headerlink" title="具体中介者"></a>具体中介者</h5><p>持有对象类依赖</p>
+<pre><code class="java">/**
+ * @author: chenmingyu
+ * @date: 2019/3/31 13:47
+ * @description: 具体中介者
+ */
+public class ConcreteMediator implements Mediatorable {
 
-优点
-符合单一职责原则，具体元素负责数据的加载，具体访问者负责操作数据
-扩展性好，如果需要新增操作方式，只需要在具体访问者增加方法，灵活性高
+    /**
+     * 对象类1
+     */
+    private Colleague1 colleague1;
+    /**
+     * 对象类2
+     */
+    private Colleague2 colleague2;
 
-缺点
-违背了迪米特法则，访问者类需要了解元素类的内部实现
-违背了依赖倒置转原则，应该面向接口编程而不是类
-元素类增加元素复杂，对应的访问者类也要根据需求看看是否需要更改
+    @Override
+    public void createMediator() {
+        colleague1 = new Colleague1(this);
+        colleague2 = new Colleague2(this);
+    }
 
-模式代码实现源码地址：https://github.com/mingyuHub/design-patterns
-抽象访问者/**
+    @Override
+    public void playGame() {
+        colleague1.playGame();
+        colleague2.playGame();
+    }
+}</code></pre>
+<h5 id="对象抽象类"><a href="#对象抽象类" class="headerlink" title="对象抽象类"></a>对象抽象类</h5><p>依赖中介者类</p>
+<pre><code class="java">/**
+ * @author: chenmingyu
+ * @date: 2019/3/31 13:51
+ * @description: 抽象对象类
+ */
+public abstract class Colleague {
+
+    /**
+     * 依赖中介者类
+     */
+    protected Mediatorable mediatorable;
+
+    public Colleague(Mediatorable mediatorable) {
+        this.mediatorable = mediatorable;
+    }
+
+    /**
+     * 玩游戏
+     */
+    public abstract void playGame();
+}
+</code></pre>
+<h5 id="具体对象类"><a href="#具体对象类" class="headerlink" title="具体对象类"></a>具体对象类</h5><p>对象类1</p>
+<pre><code class="java">/**
+ * @author: chenmingyu
+ * @date: 2019/3/31 13:54
+ * @description: 对象类1
+ */
+public class Colleague1 extends Colleague {
+
+    public Colleague1(Mediatorable mediatorable) {
+        super(mediatorable);
+    }
+
+    @Override
+    public void playGame() {
+        System.out.println(&quot;Colleague1 玩游戏&quot;);
+    }
+}</code></pre>
+<p>对象类2</p>
+<pre><code class="java">/**
+ * @author: chenmingyu
+ * @date: 2019/3/31 13:56
+ * @description:
+ */
+public class Colleague2 extends Colleague {
+
+    public Colleague2(Mediatorable mediatorable) {
+        super(mediatorable);
+    }
+
+    @Override
+    public void playGame() {
+        System.out.println(&quot;Colleague2 玩游戏&quot;);
+    }
+}</code></pre>
+<h5 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h5><pre><code class="java">public static void main(String[] args) {
+    Mediatorable mediatorable = new ConcreteMediator();
+    mediatorable.createMediator();
+    mediatorable.playGame();
+}</code></pre>
+<p>输出</p>
+<pre><code class="java">Colleague1 玩游戏
+Colleague2 玩游戏</code></pre>
+<p><strong>参考：</strong>设计模式之禅：<a href="https://www.kancloud.cn/sstd521/design/193551" target="_blank" rel="noopener">https://www.kancloud.cn/sstd521/design/193551</a></p>
+<p><strong>推荐阅读：</strong><a href="https://chenmingyu.top/design/">23种设计模式详解</a></p>
+
+			
+		</div>
+		<footer class="clearfix">
+			
+				
+				
+					<div class="disqus-comment">
+						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/design-mediator/#disqus_thread" class="comment-link"> 评论</a>
+					</div>
+				
+			
+			
+	<div class="categories">
+		<i class="fa fa-folder"></i>
+		
+			<a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+		
+	</div>
+
+			
+	<div class="tags">
+		<i class="fa fa-tags"></i>
+		
+			<a href="/tags/%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F/">#中介者模式</a>
+		
+	</div>
+
+		</footer>
+	</div>
+</article>
+	
+		
+		<article class="post">
+	<div class="post-content">
+		<header>
+			
+				<div class="meta">
+					<div class="icon">
+						
+							<i class="fa fa-file"></i>
+						
+					</div>
+					<time datetime="2019-03-26T12:12:51.000Z">2019-03-26</time>
+				</div>
+			
+			
+	
+		<h1 class="title" data-role="articleTitle"><a href="/design-visitor/">23种设计模式之访问者模式</a></h1>
+	
+
+		</header>
+		<div class="entry">
+			
+				<h3 id="访问者模式"><a href="#访问者模式" class="headerlink" title="访问者模式"></a>访问者模式</h3><p>访问者模式属于行为型设计模式</p>
+<p><strong>定义：</strong>封装一些作用于某种数据结构中的各元素的操作，它可以在不改变数据结构的前提下定义作用于这些元素的新的操作</p>
+<p>访问者模式就是将数据结构与数据操作相分离</p>
+<h4 id="模式类图"><a href="#模式类图" class="headerlink" title="模式类图"></a>模式类图</h4><p><img src="/design-visitor/uml.png" alt></p>
+<p><strong>角色：</strong></p>
+<ol>
+<li>抽象访问者：<code>Visitor</code></li>
+<li>具体访问者：<code>ConcreteVisitor</code></li>
+<li>抽象元素：<code>Element</code></li>
+<li>具体元素：<code>ConcreteElement</code></li>
+</ol>
+<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ol>
+<li>符合单一职责原则，具体元素负责数据的加载，具体访问者负责操作数据</li>
+<li>扩展性好，如果需要新增操作方式，只需要在具体访问者增加方法，灵活性高</li>
+</ol>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ol>
+<li>违背了迪米特法则，访问者类需要了解元素类的内部实现</li>
+<li>违背了依赖倒置转原则，应该面向接口编程而不是类</li>
+<li>元素类增加元素复杂，对应的访问者类也要根据需求看看是否需要更改</li>
+</ol>
+<h4 id="模式代码实现"><a href="#模式代码实现" class="headerlink" title="模式代码实现"></a>模式代码实现</h4><p><strong>源码地址：<a href="https://github.com/mingyuHub/design-patterns" target="_blank" rel="noopener">https://github.com/mingyuHub/design-patterns</a></strong></p>
+<h5 id="抽象访问者"><a href="#抽象访问者" class="headerlink" title="抽象访问者"></a>抽象访问者</h5><pre><code class="java">/**
  * @author: chenmingyu
  * @date: 2019/3/26 20:52
  * @description: 抽象访问者
  */
-public interface Visitor ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/design-state/" title="23种设计模式之状态模式">     <img class="post_bg" data-src="/img/12.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="23种设计模式之状态模式"></a></div><div class="recent-post-info"><a class="article-title" href="/design-state/" title="23种设计模式之状态模式">23种设计模式之状态模式</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-03-26 18:20:18"><i class="far fa-calendar-alt"></i>2019-03-26</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></span></div><div class="content">状态模式状态模式属于行为型设计模式
-定义：允许一个对象在其内部状态改变时改变它的行为，对象看起来似乎修改了它的类
-对象的行为依赖于它的状态（属性），并且可以根据它的状态改变而改变它的相关行为
-模式类图
-角色：
+public interface Visitorable {
 
-抽象状态接口：State定义抽象状态接口
-具体状态实现：ConcreteState实现State接口，不同状态实现逻辑不同
-环境类：Context持有一个状态实例
+    /**
+     * 接收元素
+     * @param sub
+     */
+    void visit(Element sub);
+}</code></pre>
+<h5 id="具体访问者"><a href="#具体访问者" class="headerlink" title="具体访问者"></a>具体访问者</h5><pre><code class="java">/**
+ * @author: chenmingyu
+ * @date: 2019/3/26 20:54
+ * @description: 具体访问者
+ */
+public class ConcreteVisitor implements Visitorable {
 
-看类图就知道这个模式很简单了
-优点
-结构清晰，遵循设计原则，每种状态都对应一个实现类，同一扩展
-封装性非常好，状态变换放置到环境类的内部来实现
+    @Override
+    public void visit(Element sub) {
+        sub.doSomething();
+        System.out.println(&quot;访问者学习设计模式&quot;);
+    }
+}</code></pre>
+<h5 id="抽象元素"><a href="#抽象元素" class="headerlink" title="抽象元素"></a>抽象元素</h5><pre><code class="java">/**
+ * @author: chenmingyu
+ * @date: 2019/3/26 20:52
+ * @description:
+ */
+public interface Element {
 
-缺点如果类的成员变量过多，多次保存，会消耗一定的内存
-模式代码实现源码地址：https://github.com/mingyuHub/design-patterns
-抽象状态接口/**
+    /**
+     * 接受访问者
+     * @param visitor
+     */
+    void accept(Visitorable visitor);
+
+    /**
+     * 自定义方法
+     */
+    void doSomething();
+}</code></pre>
+<h5 id="具体元素"><a href="#具体元素" class="headerlink" title="具体元素"></a>具体元素</h5><pre><code class="java">/**
+ * @author: chenmingyu
+ * @date: 2019/3/26 20:56
+ * @description: 具体元素
+ */
+public class ConcreteElement implements Element {
+
+    @Override
+    public void accept(Visitorable visitor) {
+        visitor.visit(this);
+    }
+
+    @Override
+    public void doSomething() {
+        System.out.println(&quot;要不要学一会儿设计模式&quot;);
+    }
+}</code></pre>
+<h5 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h5><pre><code class="java">public static void main(String[] args) {
+    Visitorable visitor = new ConcreteVisitor();
+    Element subject = new ConcreteElement();
+    subject.accept(visitor);
+}</code></pre>
+<p>输出</p>
+<pre><code class="java">要不要学一会儿设计模式
+访问者学习设计模式</code></pre>
+<p><strong>参考：</strong>设计模式之禅：<a href="https://www.kancloud.cn/sstd521/design/193602" target="_blank" rel="noopener">https://www.kancloud.cn/sstd521/design/193602</a></p>
+<p><strong>推荐阅读：</strong><a href="https://chenmingyu.top/design/">23种设计模式详解</a></p>
+
+			
+		</div>
+		<footer class="clearfix">
+			
+				
+				
+					<div class="disqus-comment">
+						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/design-visitor/#disqus_thread" class="comment-link"> 评论</a>
+					</div>
+				
+			
+			
+	<div class="categories">
+		<i class="fa fa-folder"></i>
+		
+			<a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+		
+	</div>
+
+			
+	<div class="tags">
+		<i class="fa fa-tags"></i>
+		
+			<a href="/tags/%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F/">#访问者模式</a>
+		
+	</div>
+
+		</footer>
+	</div>
+</article>
+	
+		
+		<article class="post">
+	<div class="post-content">
+		<header>
+			
+				<div class="meta">
+					<div class="icon">
+						
+							<i class="fa fa-file"></i>
+						
+					</div>
+					<time datetime="2019-03-26T10:20:18.000Z">2019-03-26</time>
+				</div>
+			
+			
+	
+		<h1 class="title" data-role="articleTitle"><a href="/design-state/">23种设计模式之状态模式</a></h1>
+	
+
+		</header>
+		<div class="entry">
+			
+				<h3 id="状态模式"><a href="#状态模式" class="headerlink" title="状态模式"></a>状态模式</h3><p>状态模式属于行为型设计模式</p>
+<p><strong>定义：</strong>允许一个对象在其内部状态改变时改变它的行为，对象看起来似乎修改了它的类</p>
+<p>对象的行为依赖于它的状态（属性），并且可以根据它的状态改变而改变它的相关行为</p>
+<h4 id="模式类图"><a href="#模式类图" class="headerlink" title="模式类图"></a>模式类图</h4><p><img src="/design-state/uml.png" alt></p>
+<p><strong>角色：</strong></p>
+<ol>
+<li>抽象状态接口：<code>State</code>定义抽象状态接口</li>
+<li>具体状态实现：<code>ConcreteState</code>实现<code>State</code>接口，不同状态实现逻辑不同</li>
+<li>环境类：<code>Context</code>持有一个状态实例</li>
+</ol>
+<p>看类图就知道这个模式很简单了</p>
+<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ol>
+<li>结构清晰，遵循设计原则，每种状态都对应一个实现类，同一扩展</li>
+<li>封装性非常好，状态变换放置到环境类的内部来实现</li>
+</ol>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><p>如果类的成员变量过多，多次保存，会消耗一定的内存</p>
+<h4 id="模式代码实现"><a href="#模式代码实现" class="headerlink" title="模式代码实现"></a>模式代码实现</h4><p><strong>源码地址：<a href="https://github.com/mingyuHub/design-patterns" target="_blank" rel="noopener">https://github.com/mingyuHub/design-patterns</a></strong></p>
+<h5 id="抽象状态接口"><a href="#抽象状态接口" class="headerlink" title="抽象状态接口"></a>抽象状态接口</h5><pre><code class="java">/**
  * @auther: chenmingyu
  * @date: 2019/3/26 19:42
  * @description: 状态接口
@@ -234,105 +1579,307 @@ public interface Stateable {
     /**
      * 搞事情
      */
-    void doSo ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/design-memento/" title="23种设计模式之备忘录模式">     <img class="post_bg" data-src="/img/8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="23种设计模式之备忘录模式"></a></div><div class="recent-post-info"><a class="article-title" href="/design-memento/" title="23种设计模式之备忘录模式">23种设计模式之备忘录模式</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-03-25 20:27:55"><i class="far fa-calendar-alt"></i>2019-03-25</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></span></div><div class="content">备忘录模式备忘录模式属于行为型模式
-定义：在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态。这样以后就可将该对象恢复到原先保存的状态
-其实就是在某个时刻备份了对象的状态，在更改对象状态后，可以通过备份将对象还原成备份时刻的状态
-模式类图
-角色
+    void doSometing();
+}</code></pre>
+<h5 id="具体状态实现"><a href="#具体状态实现" class="headerlink" title="具体状态实现"></a>具体状态实现</h5><p>学习状态</p>
+<pre><code class="java">/**
+ * @author: chenmingyu
+ * @date: 2019/3/26 19:44
+ * @description:
+ */
+public class StudyState implements Stateable{
 
-原始对象：Originator 原对象，提供创建备份，和恢复备份数据功能
-备忘录：Memento负责存储Originator对象的内部状态，在需要的时候提供发起人需要的内部状态
-备忘录管理员：Caretaker对备忘录进行管理、保存和提供备忘录
+    @Override
+    public void doSometing() {
+        System.out.println(&quot;学习状态，就要学习&quot;);
+    }
+}</code></pre>
+<p>游戏状态</p>
+<pre><code class="java">/**
+ * @author: chenmingyu
+ * @date: 2019/3/26 19:43
+ * @description: 游戏状态
+ */
+public class GameState implements Stateable {
 
-优点
-提供一种可以备份恢复的机制，客户端可以方便的恢复某个历史状态
-封装性好，客户端不需要关心状态的保存细节
+    @Override
+    public void doSometing() {
+        System.out.println(&quot;游戏状态，就打游戏&quot;);
+    }
+}</code></pre>
+<h5 id="环境类"><a href="#环境类" class="headerlink" title="环境类"></a>环境类</h5><pre><code class="java">/**
+ * @author: chenmingyu
+ * @date: 2019/3/26 19:45
+ * @description: 环境类
+ */
+@Data
+public class Context {
+    /**
+     * 持有具体状态实例
+     */
+    private Stateable stateable;
+}</code></pre>
+<h5 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h5><pre><code class="java">public static void main(String[] args) {
+    Context context = new Context();
 
-缺点如果状态太多，会导致类膨胀
-模式代码实现源码地址：https://github.com/mingyuHub/design-patterns
-原始对象提供创建备份，和恢复备份数据功能
-/**
+    Stateable studyState = new StudyState();
+    context.setStateable(studyState);
+    context.getStateable().doSometing();
+
+    Stateable gameState = new GameState();
+    context.setStateable(gameState);
+    context.getStateable().doSometing();
+}</code></pre>
+<p>输出</p>
+<pre><code class="java">学习状态，就要学习
+游戏状态，就打游戏</code></pre>
+<p><strong>参考：</strong>设计模式之禅：<a href="https://www.kancloud.cn/sstd521/design/193607" target="_blank" rel="noopener">https://www.kancloud.cn/sstd521/design/193607</a></p>
+<p><strong>推荐阅读：</strong><a href="https://chenmingyu.top/design/">23种设计模式详解</a></p>
+
+			
+		</div>
+		<footer class="clearfix">
+			
+				
+				
+					<div class="disqus-comment">
+						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/design-state/#disqus_thread" class="comment-link"> 评论</a>
+					</div>
+				
+			
+			
+	<div class="categories">
+		<i class="fa fa-folder"></i>
+		
+			<a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+		
+	</div>
+
+			
+	<div class="tags">
+		<i class="fa fa-tags"></i>
+		
+			<a href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/">#备忘录模式</a>
+		
+	</div>
+
+		</footer>
+	</div>
+</article>
+	
+		
+		<article class="post">
+	<div class="post-content">
+		<header>
+			
+				<div class="meta">
+					<div class="icon">
+						
+							<i class="fa fa-file"></i>
+						
+					</div>
+					<time datetime="2019-03-25T12:27:55.000Z">2019-03-25</time>
+				</div>
+			
+			
+	
+		<h1 class="title" data-role="articleTitle"><a href="/design-memento/">23种设计模式之备忘录模式</a></h1>
+	
+
+		</header>
+		<div class="entry">
+			
+				<h3 id="备忘录模式"><a href="#备忘录模式" class="headerlink" title="备忘录模式"></a>备忘录模式</h3><p>备忘录模式属于行为型模式</p>
+<p><strong>定义：</strong>在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态。这样以后就可将该对象恢复到原先保存的状态</p>
+<p>其实就是在某个时刻备份了对象的状态，在更改对象状态后，可以通过备份将对象还原成备份时刻的状态</p>
+<h4 id="模式类图"><a href="#模式类图" class="headerlink" title="模式类图"></a>模式类图</h4><p><img src="/design-memento/uml.png" alt></p>
+<p><strong>角色</strong></p>
+<ol>
+<li>原始对象：<code>Originator</code> 原对象，提供创建备份，和恢复备份数据功能</li>
+<li>备忘录：<code>Memento</code>负责存储<code>Originator</code>对象的内部状态，在需要的时候提供发起人需要的内部状态</li>
+<li>备忘录管理员：<code>Caretaker</code>对备忘录进行管理、保存和提供备忘录</li>
+</ol>
+<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ol>
+<li>提供一种可以备份恢复的机制，客户端可以方便的恢复某个历史状态</li>
+<li>封装性好，客户端不需要关心状态的保存细节</li>
+</ol>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><p>如果状态太多，会导致类膨胀</p>
+<h4 id="模式代码实现"><a href="#模式代码实现" class="headerlink" title="模式代码实现"></a>模式代码实现</h4><p><strong>源码地址：<a href="https://github.com/mingyuHub/design-patterns" target="_blank" rel="noopener">https://github.com/mingyuHub/design-patterns</a></strong></p>
+<h5 id="原始对象"><a href="#原始对象" class="headerlink" title="原始对象"></a>原始对象</h5><p>提供创建备份，和恢复备份数据功能</p>
+<pre><code class="java">/**
  * @author: chenmingyu
  * @date: 2019/3/25 20:42
  * @description: 原始对象
  */
 @Data
-public ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/design-command/" title="23种设计模式之命令模式">     <img class="post_bg" data-src="/img/1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="23种设计模式之命令模式"></a></div><div class="recent-post-info"><a class="article-title" href="/design-command/" title="23种设计模式之命令模式">23种设计模式之命令模式</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-03-23 20:45:40"><i class="far fa-calendar-alt"></i>2019-03-23</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></span></div><div class="content">命令模式命令模式属于行为型模式
-定义：将一个请求封装成一个对象，从而让你使用不同的请求把客户端参数化，对请求排队或者记录请求日志，可以提供命令的撤销和恢复功能
-模式类图
-角色：
+public class Originator{
 
-接受者：Receiver最后的执行者，具体的业务逻辑
-命令接口：Command需要执行的所有命令都在这里声明
-具体命令：ConcreteCommand实现Command接口
-调用者：Invoker接收到命令，并执行命令，命令中调用接受者
+    private String name;
 
-优点
-降低类之间解耦，调用者与接受者之间没有任何依赖关系
-扩展性高，非常容易地扩展Command类的子类
+    /**
+     * 创建备忘录
+     * @return
+     * @throws CloneNotSupportedException
+     */
+    public Memento createMemento(){
+        return new Memento(this.getName());
+    }
 
-缺点如果命令比较多，Command类的子类就会变得非常的多
-模式代码实现源码地址：https://github.com/mingyuHub/design-patterns
-接受者有两个方法，打游戏和学习，通过实现命令接口写了两个具体的命令实现类，分别代表玩游戏命令和学习命令，通过调用者去调用不同的命令
-接受者/**
+    /**
+     * 恢复一个备忘录
+     * @param memento
+     */
+    public void restoreMemento(Memento memento){
+        this.setName(memento.getName());
+    }
+
+    public Originator(String name) {
+        this.name = name;
+    }
+}</code></pre>
+<h5 id="备忘录"><a href="#备忘录" class="headerlink" title="备忘录"></a>备忘录</h5><p>负责存储<code>Originator</code>的内在状态</p>
+<pre><code class="java">/**
  * @author: chenmingyu
- * @date: 2019/3/25 10:48
- * @description: 接受者角色
+ * @date: 2019/3/25 20:47
+ * @description: 备忘录
  */
-p ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/design-chain/" title="23种设计模式之责任链模式">     <img class="post_bg" data-src="/img/6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="23种设计模式之责任链模式"></a></div><div class="recent-post-info"><a class="article-title" href="/design-chain/" title="23种设计模式之责任链模式">23种设计模式之责任链模式</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-03-22 18:11:17"><i class="far fa-calendar-alt"></i>2019-03-22</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></span></div><div class="content">责任链模式责任链模式属于行为型模式
-定义：使多个对象都有机会处理请求，从而避免了请求的发送者和接受者之间的耦合关系。将这些对象连成一条链，并沿着这条链传递该请求，直到有对象处理它为止
-每个对象持有对下一个对象的引用，形成一条链，请求在这条链上传递，直到某一对象决定处理该请求。但是发出者并不清楚到底最终那个对象会处理该请求.
-模式类图
-角色
+@Data
+public class Memento {
 
-抽象处理接口：Handler
-具体处理类：ConcreteHandler
+    private String name;
 
-优点将请求与处理分开，请求者可以不用知道到底是需要谁来处理的，两者解耦，提高系统灵活性，增加新的请求处理类很方便
-缺点当调用链比较长的时候，调试不方便，写代码时要注意避免循环调用
-模式代码实现源码地址：https://github.com/mingyuHub/design-patterns
-以用户注册为例，注册方式分为普通用户注册和Vip用户注册，使用责任链模式将两种注册方式链起来
-抽象处理接口抽象接口定义了两个方法：用户注册方法，责任链调用方法
-/**
+    public Memento(String name) {
+        this.name = name;
+    }
+}</code></pre>
+<h5 id="备忘录管理员"><a href="#备忘录管理员" class="headerlink" title="备忘录管理员"></a>备忘录管理员</h5><p>持有<code>Memento</code>d的实例</p>
+<pre><code class="java">/**
  * @author: chenmingyu
- * @date: 2019/3/22 20:32
- * @descrip ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/design-observer/" title="23种设计模式之观察者模式">     <img class="post_bg" data-src="/img/10.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="23种设计模式之观察者模式"></a></div><div class="recent-post-info"><a class="article-title" href="/design-observer/" title="23种设计模式之观察者模式">23种设计模式之观察者模式</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-03-15 09:57:57"><i class="far fa-calendar-alt"></i>2019-03-15</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></span></div><div class="content">观察者模式观察者模式属于行为型模式，又叫发布订阅模式
-定义：
-​    定义对象间一种一对多的依赖关系，使得每当一个对象改变状态，则所有依赖于它的对象都会得到通知并被自动更新
-模式类图
-角色：
+ * @date: 2019/3/25 20:57
+ * @description: 备忘录管理员
+ */
+@Data
+public class Caretaker {
 
-被观察者：Subject定义一个被观察者必须实现职责，包括动态增加，删除，通知观察者
-观察者：Observer接受到观察者修改消息，执行自身逻辑
-具体观察者：ConctreteSubject继承Subject，拥有自己的业务逻辑，具有被观察者基本功能，对某些事件进行通知
-具体的观察者：ConcreteObserver具体观察者，在接受到被观察者变更消息后，进行各自业务处理
+    private Memento memento;
 
-优点
-观察者和被观察者之间是抽象耦合，容易拓展
-通过触发机制可以创建成一种链式触发机制，形成多级触发
+    public Caretaker(Memento memento) {
+        this.memento = memento;
+    }
+}</code></pre>
+<h5 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h5><pre><code class="java">public static void main(String[] args) {
+    Originator originator = new Originator(&quot;mingyu&quot;);
+    Caretaker caretaker = new Caretaker(originator.createMemento());
+    System.out.println(originator.getName());
+    System.out.println(&quot;……&quot;);
 
-缺点
-执行效率
-当通知观察者是顺序执行时，需要考虑整个观察者列表的数量，对整个通知事件执行效率的影响，可以考虑使用异步通知，同时尽量避免多级触发事件
+    originator.setName(&quot;wuwu&quot;);
+    System.out.println(originator.getName());
 
-循环依赖
-当观察者和被观察之间形成循环依赖，会导致循环调用，比如A改变通知B，B改变通知C，C改变通知A，注意避免循环依赖的发生
+    System.out.println(&quot;……&quot;);
+    originator.restoreMemento(caretaker.getMemento());
+    System.out.println(originator.getName());
+}</code></pre>
+<p>输出</p>
+<pre><code class="java">mingyu
+……
+wuwu
+……
+mingyu</code></pre>
+<p><strong>参考：</strong>设计模式之禅：<a href="https://www.kancloud.cn/sstd521/design/193597" target="_blank" rel="noopener">https://www.kancloud.cn/sstd521/design/193597</a></p>
+<p><strong>推荐阅读：</strong><a href="https://chenmingyu.top/design/">23种设计模式详解</a></p>
+
+			
+		</div>
+		<footer class="clearfix">
+			
+				
+				
+					<div class="disqus-comment">
+						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/design-memento/#disqus_thread" class="comment-link"> 评论</a>
+					</div>
+				
+			
+			
+	<div class="categories">
+		<i class="fa fa-folder"></i>
+		
+			<a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+		
+	</div>
+
+			
+	<div class="tags">
+		<i class="fa fa-tags"></i>
+		
+			<a href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/">#备忘录模式</a>
+		
+	</div>
+
+		</footer>
+	</div>
+</article>
+	
+
+	<nav id="pagination">
+	
+		<a href="/page/3/" class="prev"><i class="fa fa-chevron-left"></i> 上一页</a>
+	
+	
+		<a href="/page/5/" class="next">下一页 <i class="fa fa-chevron-right"></i></a>
+	
+</nav>
+
+	
+<script>
+	(function (disqus_shortname) {
+		window.addEventListener('DOMContentLoaded', function () {
+			var dsq = document.createElement('script');
+			dsq.type = 'text/javascript';
+			dsq.async = true;
+			dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+			document.getElementsByTagName('head')[0].appendChild(dsq);
+		}, false);
+	}('dnxbf321'));
+</script>
 
 
-模式代码实现以用户修改密码为例，当用 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/3/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">明羽</div><div class="author-info__description">但行好事 莫问前程</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives"><div class="headline">文章</div><div class="length_num">69</div></a></div><div class="card-info-data-item is-center">      <a href="/tags"><div class="headline">标签</div><div class="length_num">64</div></a></div><div class="card-info-data-item is-center">     <a href="/categories"><div class="headline">分类</div><div class="length_num">14</div></a></div></div><div class="card-info-bookmark is-center"><button class="button--animated" id="bookmark-it" title="加入书签"><i class="fas fa-bookmark"></i><span>加入书签</span></button></div><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:cmysouls@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-recent-item"><div class="aside-recent-post"><a href="/zhangruoxu-xuanji/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="/img/20.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="春江花月夜-张若虚" alt="春江花月夜-张若虚"/></div><div class="aside-post-title"><div class="aside-post_title" href="/zhangruoxu-xuanji/" title="春江花月夜-张若虚">春江花月夜-张若虚</div><time class="aside-post_meta post-meta__date" title="发表于 2020-09-13 19:50:17">2020-09-13</time></div></a></div><div class="aside-recent-post"><a href="/mysql-create-index/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="/img/12.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="这道面试题你确定不看看吗：一条sql语句，有多个查询条件，你会选择哪个字段作为索引，为什么？" alt="这道面试题你确定不看看吗：一条sql语句，有多个查询条件，你会选择哪个字段作为索引，为什么？"/></div><div class="aside-post-title"><div class="aside-post_title" href="/mysql-create-index/" title="这道面试题你确定不看看吗：一条sql语句，有多个查询条件，你会选择哪个字段作为索引，为什么？">这道面试题你确定不看看吗：一条sql语句，有多个查询条件，你会选择哪个字段作为索引，为什么？</div><time class="aside-post_meta post-meta__date" title="发表于 2019-12-03 21:12:29">2019-12-03</time></div></a></div><div class="aside-recent-post"><a href="/zookeeper/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="/img/26.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="zookeeper命令详解" alt="zookeeper命令详解"/></div><div class="aside-post-title"><div class="aside-post_title" href="/zookeeper/" title="zookeeper命令详解">zookeeper命令详解</div><time class="aside-post_meta post-meta__date" title="发表于 2019-10-31 11:12:34">2019-10-31</time></div></a></div><div class="aside-recent-post"><a href="/data-structure-binary-search/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="/img/15.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="【数据结构】| 二分查找" alt="【数据结构】| 二分查找"/></div><div class="aside-post-title"><div class="aside-post_title" href="/data-structure-binary-search/" title="【数据结构】| 二分查找">【数据结构】| 二分查找</div><time class="aside-post_meta post-meta__date" title="发表于 2019-10-25 17:49:33">2019-10-25</time></div></a></div><div class="aside-recent-post"><a href="/jvm-class-loader/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="/img/29.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="【jvm】类加载机制" alt="【jvm】类加载机制"/></div><div class="aside-post-title"><div class="aside-post_title" href="/jvm-class-loader/" title="【jvm】类加载机制">【jvm】类加载机制</div><time class="aside-post_meta post-meta__date" title="发表于 2019-09-23 15:31:19">2019-09-23</time></div></a></div></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fas fa-folder-open"></i><span>分类</span></div><ul class="card-category-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/elasticsearch/"><span class="card-category-list-name">elasticsearch</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/java/"><span class="card-category-list-name">java</span><span class="card-category-list-count">21</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/jvm/"><span class="card-category-list-name">jvm</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/mysql/"><span class="card-category-list-name">mysql</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/nosql/"><span class="card-category-list-name">nosql</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/tomcat/"><span class="card-category-list-name">tomcat</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/zookeeper/"><span class="card-category-list-name">zookeeper</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/"><span class="card-category-list-name">分布式事务</span><span class="card-category-list-count">1</span></a></li>
-            <li class="card-category-list-item more is-center"><a class="card-category-list-link-more" href="/categories">
-                <span>查看更多</span><i class="fas fa-angle-right"></i></a></li>           
-            </ul></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Integer%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/" style="font-size: 16px; color: #999">Integer缓存机制</a> <a href="/tags/aop/" style="font-size: 16px; color: #999">aop</a> <a href="/tags/effective/" style="font-size: 16px; color: #999">effective</a> <a href="/tags/elasticsearch/" style="font-size: 17.5px; color: #999da3">elasticsearch</a> <a href="/tags/email/" style="font-size: 16px; color: #999">email</a> <a href="/tags/exception/" style="font-size: 16px; color: #999">exception</a> <a href="/tags/gc/" style="font-size: 16px; color: #999">gc</a> <a href="/tags/htmlunit/" style="font-size: 16px; color: #999">htmlunit</a> <a href="/tags/io/" style="font-size: 16px; color: #999">io</a> <a href="/tags/java/" style="font-size: 19px; color: #99a1ac">java</a> <a href="/tags/jvm%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/" style="font-size: 16px; color: #999">jvm内存区域</a> <a href="/tags/mybatis/" style="font-size: 17.5px; color: #999da3">mybatis</a> <a href="/tags/mysql/" style="font-size: 17.5px; color: #999da3">mysql</a> <a href="/tags/nio/" style="font-size: 16px; color: #999">nio</a> <a href="/tags/rabbitmq/" style="font-size: 16px; color: #999">rabbitmq</a> <a href="/tags/redis/" style="font-size: 20.5px; color: #99a5b6">redis</a> <a href="/tags/springboot/" style="font-size: 22px; color: #99a9bf">springboot</a> <a href="/tags/spring%E6%BA%90%E7%A0%81/" style="font-size: 16px; color: #999">spring源码</a> <a href="/tags/swagger2/" style="font-size: 16px; color: #999">swagger2</a> <a href="/tags/thymeleaf/" style="font-size: 16px; color: #999">thymeleaf</a> <a href="/tags/tomcat/" style="font-size: 16px; color: #999">tomcat</a> <a href="/tags/zookeeper/" style="font-size: 16px; color: #999">zookeeper</a> <a href="/tags/%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">中介者模式</a> <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" style="font-size: 16px; color: #999">二分查找</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 16px; color: #999">二叉树</a> <a href="/tags/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">享元模式</a> <a href="/tags/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">代理模式</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/" style="font-size: 16px; color: #999">分布式事务</a> <a href="/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">单例模式</a> <a href="/tags/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">原型模式</a> <a href="/tags/%E5%8F%8D%E5%B0%84/" style="font-size: 16px; color: #999">反射</a> <a href="/tags/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">命令模式</a> <a href="/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/" style="font-size: 16px; color: #999">垃圾收集器</a> <a href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/" style="font-size: 17.5px; color: #999da3">备忘录模式</a> <a href="/tags/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">外观模式</a> <a href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" style="font-size: 16px; color: #999">定时任务</a> <a href="/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">工厂模式</a> <a href="/tags/%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">建造者模式</a> <a href="/tags/%E5%BC%82%E5%B8%B8/" style="font-size: 16px; color: #999">异常</a> <a href="/tags/%E5%BC%82%E6%AD%A5%E8%B0%83%E7%94%A8/" style="font-size: 16px; color: #999">异步调用</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/09/"><span class="card-archive-list-date">九月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/12/"><span class="card-archive-list-date">十二月 2019</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/10/"><span class="card-archive-list-date">十月 2019</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/09/"><span class="card-archive-list-date">九月 2019</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/08/"><span class="card-archive-list-date">八月 2019</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/07/"><span class="card-archive-list-date">七月 2019</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/06/"><span class="card-archive-list-date">六月 2019</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/05/"><span class="card-archive-list-date">五月 2019</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item more is-center"><a class="card-archive-list-link-more" href="/archives">
-              <span>查看更多</span><i class="fas fa-angle-right"  ></i></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-article-name">文章数目 :</div><div class="webinfo-article-count">69</div></div><div class="webinfo-item">      <div class="webinfo-site-uv-name">本站访客数 :</div><div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="webinfo-site-name">本站总访问量 :</div><div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div></div></div></div></div></div></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By 明羽</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><button class="translate_chn_to_cht" id="translateLink" title="简繁转换">繁</button><button id="darkmode" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script id="canvas_nest" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="/js/third-party/canvas-nest.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script src="https://cdn.jsdelivr.net/npm/typed.js"></script><script>var subtitleEffect = true
-if (subtitleEffect) { 
-  var typed = new Typed("#subtitle", {
-    strings: "北京  阿里  码农,回首向来萧瑟处，归去，也无风雨也无晴。".split(","),
-    startDelay: 300,
-    typeSpeed: 150,
-    loop: true,
-    backSpeed: 50
-  })
-} else {
-  document.getElementById("subtitle").innerHTML = '北京  阿里  码农'
-}</script></body></html>
+
+		</div>
+		
+	</div>
+</div>
+
+<footer id="footer">
+	<div class="center">
+		&copy; 2022
+		
+			明羽
+		.
+		&nbsp;&nbsp;
+		Blog generated by <a href="http://hexo.io" target="_blank" rel="noopener">hexo</a>
+	</div>
+</footer>
+
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/js/header-animate.js"></script>
+
+
+	<script src="/js/title-animate.js"></script>
+
+
+<script src="/bower_components/jquery_lazyload/jquery.lazyload.js"></script>
+<script>
+	$('img.lazy').lazyload();
+</script>
+
+	<script src="/bower_components/fancybox/source/jquery.fancybox.pack.js"></script>
+	<script>
+		$('.fancybox').fancybox();
+	</script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,455 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="renderer" content="webkit">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="description" content="但行好事 莫问前程">
+
+	
+		
+			<link rel="stylesheet" href="/bower_components/fancybox/source/jquery.fancybox.css">
+		
+		<link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/css/style.css">
+	
+
+	<title>但行好事 莫问前程 - 明羽</title>
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+<header id="header">
+	<div class="center">
+		<div class="wrap">
+			<div id="site">
+				<h1>
+					<a href="/">但行好事 莫问前程</a>
+					
+						<a class="github" href="https://github.com/dnxbf321" target="_blank" rel="noopener">
+	  					<svg aria-hidden="true" class="octicon octicon-mark-github" height="28" role="img" version="1.1" viewBox="0 0 16 16" width="28"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59 0.4 0.07 0.55-0.17 0.55-0.38 0-0.19-0.01-0.82-0.01-1.49-2.01 0.37-2.53-0.49-2.69-0.94-0.09-0.23-0.48-0.94-0.82-1.13-0.28-0.15-0.68-0.52-0.01-0.53 0.63-0.01 1.08 0.58 1.23 0.82 0.72 1.21 1.87 0.87 2.33 0.66 0.07-0.52 0.28-0.87 0.51-1.07-1.78-0.2-3.64-0.89-3.64-3.95 0-0.87 0.31-1.59 0.82-2.15-0.08-0.2-0.36-1.02 0.08-2.12 0 0 0.67-0.21 2.2 0.82 0.64-0.18 1.32-0.27 2-0.27 0.68 0 1.36 0.09 2 0.27 1.53-1.04 2.2-0.82 2.2-0.82 0.44 1.1 0.16 1.92 0.08 2.12 0.51 0.56 0.82 1.27 0.82 2.15 0 3.07-1.87 3.75-3.65 3.95 0.29 0.25 0.54 0.73 0.54 1.48 0 1.07-0.01 1.93-0.01 2.2 0 0.21 0.15 0.46 0.55 0.38C13.71 14.53 16 11.53 16 8 16 3.58 12.42 0 8 0z"></path></svg>
+						</a>
+					
+				</h1>
+				
+					<h2>
+						<a href="/">明羽</a>
+					</h2>
+				
+			</div>
+			<nav id="menu">
+				<ul>
+					
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives/">归档</a></li>
+					
+				</ul>
+			</nav>
+		</div>
+	</div>
+</header>
+
+<div id="content">
+	<div class="center">
+		<div class="main-col">
+			
+
+	
+		
+		<article class="post">
+	<div class="post-content">
+		<header>
+			
+				<div class="meta">
+					<div class="icon">
+						
+							<i class="fa fa-file"></i>
+						
+					</div>
+					<time datetime="2018-12-02T08:22:59.000Z">2018-12-02</time>
+				</div>
+			
+			
+	
+		<h1 class="title" data-role="articleTitle"><a href="/springboot-properties/">spring Boot 2.x | 配置文件，自定义配置，多环境配置</a></h1>
+	
+
+		</header>
+		<div class="entry">
+			
+				<p><code>springboot</code>如何书写配置文件，包括.properties和.yml的配置文件，集成第三方配置，自定义属性，多环境配置</p>
+<h4 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h4><p>在springboot支持以.properties和.yml结尾的配置文件</p>
+<p>application.properties 格式如下：</p>
+<pre><code class="yml">#mysql 配置
+spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+spring.datasource.url=jdbc:mysql://ip:port/dataDB
+spring.datasource.username=root
+spring.datasource.password=root
+#redis 配置
+spring.redis.host=127.0.0.1
+spring.redis.port=6379
+spring.redis.password=name</code></pre>
+<p>application.yml 格式如下：</p>
+<pre><code class="yml">spring:
+  #mysql配置
+  datasource:
+    url: jdbc:mysql://ip:port/dataDB
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  #redis配置
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: root
+</code></pre>
+<p>比较喜欢使用yml的方式，因为yml的代码更少而且层级关系更明显</p>
+<h4 id="集成第三方"><a href="#集成第三方" class="headerlink" title="集成第三方"></a>集成第三方</h4><p>集成第三方其实特别简单，比如Redis，步骤如下：</p>
+<ul>
+<li>pom.xml中引入starter对应的redis依赖：spring-boot-starter-data-redis </li>
+</ul>
+<pre><code class="xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
+&lt;/dependency&gt;</code></pre>
+<ul>
+<li>application.yml 配置文件中配置相关属性</li>
+</ul>
+<pre><code class="yml">spring:
+  #redis配置
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: root</code></pre>
+<h4 id="自定义属性"><a href="#自定义属性" class="headerlink" title="自定义属性"></a>自定义属性</h4><p>自定义属性就是在springboot中将在配置文件中自己定义的配置读取出来，一般使用的方式有两种，两个注解 @Value和@ConfigurationProperties</p>
+<p>在配置文件中自定义属性如下：</p>
+<pre><code class="yml">my:
+  name: chenmingyu
+  age: 12</code></pre>
+<h5 id="Value注解"><a href="#Value注解" class="headerlink" title="@Value注解"></a>@Value注解</h5><pre><code class="java">/**
+ * @auther: chenmingyu
+ * @date: 2018/11/3 22:32
+ * @description:
+ */
+@RestController
+public class UserController {
+
+    @Value(&quot;${my.name}&quot;)
+    private String name;
+    @Value(&quot;${my.age}&quot;)
+    private Integer age;
+
+    @GetMapping(&quot;/getUserInfo&quot;)
+    private String getUserInfo(){
+
+        return String.format(&quot;@Value注入: %s_%s&quot;,name,age);
+    }
+}</code></pre>
+<p>访问： <a href="http://localhost:8080/getUserInfo" target="_blank" rel="noopener">http://localhost:8080/getUserInfo</a><br><img src="/springboot-properties/1.png" alt></p>
+<h5 id="ConfigurationProperties注解"><a href="#ConfigurationProperties注解" class="headerlink" title="@ConfigurationProperties注解"></a>@ConfigurationProperties注解</h5><p>定义一个user对象</p>
+<pre><code class="java">/**
+ * @auther: chenmingyu
+ * @date: 2018/11/3 22:30
+ * @description:
+ */
+@Data
+@Component
+@ConfigurationProperties(prefix = &quot;my&quot;)
+public class User {
+
+    private String name;
+
+    private Integer age;
+
+}</code></pre>
+<p>使用的时候直接注入bean使用</p>
+<pre><code class="java">@Resource
+private User user;
+
+@GetMapping(&quot;/getUserInfoByBean&quot;)
+private String getUserInfoByBean(){
+    return String.format(&quot;@ConfigurationProperties注入: %s_%s&quot;,user.getName(),user.getAge());
+}</code></pre>
+<p>访问： <a href="http://localhost:8080/getUserInfoByBean" target="_blank" rel="noopener">http://localhost:8080/getUserInfoByBean</a><br><img src="/springboot-properties/2.png" alt></p>
+<h4 id="多环境配置"><a href="#多环境配置" class="headerlink" title="多环境配置"></a>多环境配置</h4><p>springboot的多环境配置文件名需要满足application-{profile}.properties的格式，{profile}对应你的环境<br>比如新建三个配置文件：<br><img src="/springboot-properties/3.png" alt><br>dev：开发环境，prod：生产环境，test：测试环境<br>在application-dev.yml 中配置：</p>
+<pre><code class="yml">my:
+  environment: dev</code></pre>
+<p>在application-prod.yml 中配置：</p>
+<pre><code class="yml">my:
+  environment: prod</code></pre>
+<p>在application-test.yml 中配置：</p>
+<pre><code class="yml">my:
+  environment: test</code></pre>
+<p>写个Controller测试一下：</p>
+<pre><code class="java">/**
+ * @auther: chenmingyu
+ * @date: 2018/11/3 23:33
+ * @description:
+ */
+@RestController
+public class propertiesController {
+
+    @Value(&quot;${my.environment}&quot;)
+    private String environment;
+
+    @GetMapping(&quot;/getEnvironment&quot;)
+    private String getEnvironment(){
+        return String.format(&quot;environment: %s&quot;,environment);
+    }
+}</code></pre>
+<p>在application.yml 中指定dev环境：</p>
+<pre><code class="yml">spring:
+  #多环境配置
+  profiles:
+    active: dev</code></pre>
+<p>访问：<a href="http://localhost:8080/getEnvironment" target="_blank" rel="noopener">http://localhost:8080/getEnvironment</a><br><img src="/springboot-properties/4.png" alt></p>
+<p>修改application.yml 中指定prod环境：</p>
+<pre><code class="yml">spring:
+  #多环境配置
+  profiles:
+    active: prod</code></pre>
+<p>访问：<a href="http://localhost:8080/getEnvironment" target="_blank" rel="noopener">http://localhost:8080/getEnvironment</a><br><img src="/springboot-properties/5.png" alt></p>
+
+			
+		</div>
+		<footer class="clearfix">
+			
+				
+				
+					<div class="disqus-comment">
+						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/springboot-properties/#disqus_thread" class="comment-link"> 评论</a>
+					</div>
+				
+			
+			
+	<div class="categories">
+		<i class="fa fa-folder"></i>
+		
+			<a href="/categories/java/">java</a>
+		
+	</div>
+
+			
+	<div class="tags">
+		<i class="fa fa-tags"></i>
+		
+			<a href="/tags/springboot/">#springboot</a>
+		
+			<a href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">#配置文件</a>
+		
+	</div>
+
+		</footer>
+	</div>
+</article>
+	
+		
+		<article class="post">
+	<div class="post-content">
+		<header>
+			
+				<div class="meta">
+					<div class="icon">
+						
+							<i class="fa fa-file"></i>
+						
+					</div>
+					<time datetime="2018-11-26T13:42:07.000Z">2018-11-26</time>
+				</div>
+			
+			
+	
+		<h1 class="title" data-role="articleTitle"><a href="/springboot-web/">spring Boot 2.x | 第一个web应用 hello world</a></h1>
+	
+
+		</header>
+		<div class="entry">
+			
+				<blockquote>
+<p>本文讲解如何创建一个springboot的web应用</p>
+</blockquote>
+<h4 id="生成springboot项目"><a href="#生成springboot项目" class="headerlink" title="生成springboot项目"></a>生成springboot项目</h4><p>1，idea 找到 file -&gt;new -&gt; project  -&gt;spring Initializr<br><img src="/springboot-web/1.png" alt></p>
+<p>2，选择next，填项目信息<br><img src="/springboot-web/2.png" alt></p>
+<p>3，选择next，勾选项目依赖，由于是一个web demo，所以只勾选web<br><img src="/springboot-web/3.png" alt></p>
+<p>4，选择next，然后finish<br>那第一个springboot的web应用就创建完了。</p>
+<p>在生成的代码中，最要的是在pom.xml中引入的spring-boot-starter-web依赖，启动后默认使用内置的tomcat作为容器。</p>
+<h4 id="第一个web应用"><a href="#第一个web应用" class="headerlink" title="第一个web应用"></a>第一个web应用</h4><h5 id="目录结构："><a href="#目录结构：" class="headerlink" title="目录结构："></a>目录结构：</h5><p><img src="/springboot-web/4.png" alt></p>
+<ul>
+<li>SpringbootHelloworldApplication ：项目启动类，建议启动类的包名层次最高，其子类包中的类将自动扫描</li>
+<li>application.properties ：配置文件</li>
+<li>pom.xml：由idea自动生成maven相关配置及依赖，这个项目就只引入了spring-boot-starter-web</li>
+</ul>
+<h5 id="pom-xml："><a href="#pom-xml：" class="headerlink" title="pom.xml："></a>pom.xml：</h5><pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+    &lt;groupId&gt;com.my&lt;/groupId&gt;
+    &lt;artifactId&gt;springboot-helloworld&lt;/artifactId&gt;
+    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+    &lt;packaging&gt;jar&lt;/packaging&gt;
+
+    &lt;name&gt;springboot-helloworld&lt;/name&gt;
+    &lt;description&gt;Demo project for Spring Boot&lt;/description&gt;
+
+    &lt;parent&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+        &lt;version&gt;2.0.4.RELEASE&lt;/version&gt;
+        &lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;
+    &lt;/parent&gt;
+
+    &lt;properties&gt;
+        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+        &lt;project.reporting.outputEncoding&gt;UTF-8&lt;/project.reporting.outputEncoding&gt;
+        &lt;java.version&gt;1.8&lt;/java.version&gt;
+    &lt;/properties&gt;
+
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+
+    &lt;build&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+
+
+&lt;/project&gt;</code></pre>
+<p>运行启动类：SpringbootHelloworldApplication</p>
+<pre><code class="java">@SpringBootApplication
+public class SpringbootHelloworldApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(SpringbootHelloworldApplication.class, args);
+    }
+}</code></pre>
+<p>springboot的web模块默认使用tomcat容器作为启动容器</p>
+<p>看到8080（springboot 默认端口）启动成功，就成功启动了</p>
+<p> 访问 <a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a><br><img src="/springboot-web/6.png" alt></p>
+<p> 报404是因为没有找到默认 “/ “的请求地址</p>
+<h5 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h5><pre><code class="java">/**
+ * @author: chenmingyu
+ * @date: 2018/10/21 14:29
+ * @description:
+ */
+@RestController
+public class HelloController
+{
+    @GetMapping(&quot;/&quot;)
+    public String sayHello(){
+        return &quot;say hello&quot;;
+    }
+}</code></pre>
+<p>重启项目，访问<a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a></p>
+<p><img src="/springboot-web/7.png" alt></p>
+
+			
+		</div>
+		<footer class="clearfix">
+			
+				
+				
+					<div class="disqus-comment">
+						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/springboot-web/#disqus_thread" class="comment-link"> 评论</a>
+					</div>
+				
+			
+			
+	<div class="categories">
+		<i class="fa fa-folder"></i>
+		
+			<a href="/categories/java/">java</a>
+		
+	</div>
+
+			
+	<div class="tags">
+		<i class="fa fa-tags"></i>
+		
+			<a href="/tags/springboot/">#springboot</a>
+		
+	</div>
+
+		</footer>
+	</div>
+</article>
+	
+
+	<nav id="pagination">
+	
+		<a href="/page/7/" class="prev"><i class="fa fa-chevron-left"></i> 上一页</a>
+	
+	
+</nav>
+
+	
+<script>
+	(function (disqus_shortname) {
+		window.addEventListener('DOMContentLoaded', function () {
+			var dsq = document.createElement('script');
+			dsq.type = 'text/javascript';
+			dsq.async = true;
+			dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+			document.getElementsByTagName('head')[0].appendChild(dsq);
+		}, false);
+	}('dnxbf321'));
+</script>
+
+
+
+		</div>
+		
+	</div>
+</div>
+
+<footer id="footer">
+	<div class="center">
+		&copy; 2022
+		
+			明羽
+		.
+		&nbsp;&nbsp;
+		Blog generated by <a href="http://hexo.io" target="_blank" rel="noopener">hexo</a>
+	</div>
+</footer>
+
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/js/header-animate.js"></script>
+
+
+	<script src="/js/title-animate.js"></script>
+
+
+<script src="/bower_components/jquery_lazyload/jquery.lazyload.js"></script>
+<script>
+	$('img.lazy').lazyload();
+</script>
+
+	<script src="/bower_components/fancybox/source/jquery.fancybox.pack.js"></script>
+	<script>
+		$('.fancybox').fancybox();
+	</script>
+
+
+
+
+</body>
+</html>
