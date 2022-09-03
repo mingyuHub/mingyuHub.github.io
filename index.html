@@ -1,1285 +1,196 @@
-
-
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
+
 <head>
-	<meta charset="UTF-8"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="renderer" content="webkit">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<meta name="description" content="但行好事 莫问前程">
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-	
-		
-			<link rel="stylesheet" href="/bower_components/fancybox/source/jquery.fancybox.css">
-		
-		<link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="/css/style.css">
-	
+    <meta name="author" content="明羽">
 
-	<title>但行好事 莫问前程 - 明羽</title>
+
+    <meta name="subtitle" content="明羽">
+
+
+    <meta name="description" content="但行好事 莫问前程">
+
+
+    <meta name="keywords" content="陈明羽,chenmingyu,java,架构">
+
+
+<title>但行好事 莫问前程</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
 <meta name="generator" content="Hexo 4.2.1"></head>
+
 <body>
-<header id="header">
-	<div class="center">
-		<div class="wrap">
-			<div id="site">
-				<h1>
-					<a href="/">但行好事 莫问前程</a>
-					
-						<a class="github" href="https://github.com/dnxbf321" target="_blank" rel="noopener">
-	  					<svg aria-hidden="true" class="octicon octicon-mark-github" height="28" role="img" version="1.1" viewBox="0 0 16 16" width="28"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59 0.4 0.07 0.55-0.17 0.55-0.38 0-0.19-0.01-0.82-0.01-1.49-2.01 0.37-2.53-0.49-2.69-0.94-0.09-0.23-0.48-0.94-0.82-1.13-0.28-0.15-0.68-0.52-0.01-0.53 0.63-0.01 1.08 0.58 1.23 0.82 0.72 1.21 1.87 0.87 2.33 0.66 0.07-0.52 0.28-0.87 0.51-1.07-1.78-0.2-3.64-0.89-3.64-3.95 0-0.87 0.31-1.59 0.82-2.15-0.08-0.2-0.36-1.02 0.08-2.12 0 0 0.67-0.21 2.2 0.82 0.64-0.18 1.32-0.27 2-0.27 0.68 0 1.36 0.09 2 0.27 1.53-1.04 2.2-0.82 2.2-0.82 0.44 1.1 0.16 1.92 0.08 2.12 0.51 0.56 0.82 1.27 0.82 2.15 0 3.07-1.87 3.75-3.65 3.95 0.29 0.25 0.54 0.73 0.54 1.48 0 1.07-0.01 1.93-0.01 2.2 0 0.21 0.15 0.46 0.55 0.38C13.71 14.53 16 11.53 16 8 16 3.58 12.42 0 8 0z"></path></svg>
-						</a>
-					
-				</h1>
-				
-					<h2>
-						<a href="/">明羽</a>
-					</h2>
-				
-			</div>
-			<nav id="menu">
-				<ul>
-					
-						<li><a href="/">首页</a></li>
-					
-						<li><a href="/archives/">归档</a></li>
-					
-				</ul>
-			</nav>
-		</div>
-	</div>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Bentham&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Bentham&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
 </header>
-
-<div id="content">
-	<div class="center">
-		<div class="main-col">
-			
-
-	
-		
-		<article class="post">
-	<div class="post-content">
-		<header>
-			
-				<div class="meta">
-					<div class="icon">
-						
-							<i class="fa fa-file"></i>
-						
-					</div>
-					<time datetime="2022-03-28T11:38:08.000Z">2022-03-28</time>
-				</div>
-			
-			
-	
-		<h1 class="title" data-role="articleTitle"><a href="/go/">go</a></h1>
-	
-
-		</header>
-		<div class="entry">
-			
-				
-			
-		</div>
-		<footer class="clearfix">
-			
-				
-				
-					<div class="disqus-comment">
-						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/go/#disqus_thread" class="comment-link"> 评论</a>
-					</div>
-				
-			
-			
-			
-		</footer>
-	</div>
-</article>
-	
-		
-		<article class="post">
-	<div class="post-content">
-		<header>
-			
-				<div class="meta">
-					<div class="icon">
-						
-							<i class="fa fa-file"></i>
-						
-					</div>
-					<time datetime="2022-03-06T13:49:40.000Z">2022-03-06</time>
-				</div>
-			
-			
-	
-		<h1 class="title" data-role="articleTitle"><a href="/poetry/">诗词</a></h1>
-	
-
-		</header>
-		<div class="entry">
-			
-				<h3 id="诗词"><a href="#诗词" class="headerlink" title="诗词"></a>诗词</h3><p>少年化</p>
-<p>凭君莫话封侯事，一功将成万骨枯</p>
-<p>相逢意气为君饮，系马高楼垂柳边</p>
-<p>男儿何不带吴钩，收取关山五十州</p>
-<p>满堂花醉三千客，一剑霜寒十四州</p>
-<p>出除却君身三尺雪，天下谁人配白衣。</p>
-<p>名师大将莫自牢，千军万马避白袍</p>
-<p>年少不识愁滋味，爱上层楼。</p>
-<p>少年自有少年狂，身似山河挺脊梁，敢将日月再丈量，今朝唯我少年郎</p>
-<p>抬眸四顾乾坤阔，日月星辰任我攀</p>
-<p>人生若只如初见，何事秋风悲画扇。</p>
-<p>埋骨何须桑梓地，人生无处不青山。</p>
-<hr>
-<p>奈何身上无分文，辜负小巷俏佳人</p>
-<p>云想衣裳花想容，春风拂槛露华浓</p>
-<p>醉后不知天在水，满船清梦压星河！</p>
-<hr>
-<p>边塞诗</p>
-<p>可怜无定河边骨，犹是春闺梦里人</p>
-<p>醉卧沙场君莫笑 古来征战几人回</p>
-
-			
-		</div>
-		<footer class="clearfix">
-			
-				
-				
-					<div class="disqus-comment">
-						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/poetry/#disqus_thread" class="comment-link"> 评论</a>
-					</div>
-				
-			
-			
-	<div class="categories">
-		<i class="fa fa-folder"></i>
-		
-			<a href="/categories/%E8%AF%97/">诗</a>
-		
-	</div>
-
-			
-	<div class="tags">
-		<i class="fa fa-tags"></i>
-		
-			<a href="/tags/%E8%AF%97/">#诗</a>
-		
-	</div>
-
-		</footer>
-	</div>
-</article>
-	
-		
-		<article class="post">
-	<div class="post-content">
-		<header>
-			
-				<div class="meta">
-					<div class="icon">
-						
-							<i class="fa fa-file"></i>
-						
-					</div>
-					<time datetime="2021-08-21T08:24:19.000Z">2021-08-21</time>
-				</div>
-			
-			
-	
-		<h1 class="title" data-role="articleTitle"><a href="/codeReview/">codeReview</a></h1>
-	
-
-		</header>
-		<div class="entry">
-			
-				
-			
-		</div>
-		<footer class="clearfix">
-			
-				
-				
-					<div class="disqus-comment">
-						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/codeReview/#disqus_thread" class="comment-link"> 评论</a>
-					</div>
-				
-			
-			
-			
-		</footer>
-	</div>
-</article>
-	
-		
-		<article class="post">
-	<div class="post-content">
-		<header>
-			
-				<div class="meta">
-					<div class="icon">
-						
-							<i class="fa fa-file"></i>
-						
-					</div>
-					<time datetime="2020-09-13T11:50:17.000Z">2020-09-13</time>
-				</div>
-			
-			
-	
-		<h1 class="title" data-role="articleTitle"><a href="/zhangruoxu-xuanji/">春江花月夜-张若虚</a></h1>
-	
-
-		</header>
-		<div class="entry">
-			
-				<p>春江潮水连海平，海上明月共潮生。<br>滟滟随波千万里，何处春江无月明！<br>江流宛转绕芳甸，月照花林皆似霰。<br>空里流霜不觉飞，汀上白沙看不见。<br>江天一色无纤尘，皎皎空中孤月轮。<br>江畔何人初见月？江月何年初照人？<br>人生代代无穷已，江月年年望相似。<br>不知江月待何人，但见长江送流水。<br>白云一片去悠悠，青枫浦上不胜愁。<br>谁家今夜扁舟子？何处相思明月楼？<br>可怜楼上月裴回，应照离人妆镜台。<br>玉户帘中卷不去，捣衣砧上拂还来。<br>此时相望不相闻，愿逐月华流照君。<br>鸿雁长飞光不度，鱼龙潜跃水成文。<br>昨夜闲潭梦落花，可怜春半不还家。<br>江水流春去欲尽，江潭落月复西斜。<br>斜月沉沉藏海雾，碣石潇湘无限路。<br>不知乘月几人归，落月摇情满江树。</p>
-
-			
-		</div>
-		<footer class="clearfix">
-			
-				
-				
-					<div class="disqus-comment">
-						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/zhangruoxu-xuanji/#disqus_thread" class="comment-link"> 评论</a>
-					</div>
-				
-			
-			
-	<div class="categories">
-		<i class="fa fa-folder"></i>
-		
-			<a href="/categories/%E5%BC%A0%E8%8B%A5%E8%99%9A/">张若虚</a>
-		
-	</div>
-
-			
-		</footer>
-	</div>
-</article>
-	
-		
-		<article class="post">
-	<div class="post-content">
-		<header>
-			
-				<div class="meta">
-					<div class="icon">
-						
-							<i class="fa fa-file"></i>
-						
-					</div>
-					<time datetime="2019-12-03T13:12:29.000Z">2019-12-03</time>
-				</div>
-			
-			
-	
-		<h1 class="title" data-role="articleTitle"><a href="/mysql-create-index/">这道面试题你确定不看看吗：一条sql语句，有多个查询条件，你会选择哪个字段作为索引，为什么？</a></h1>
-	
-
-		</header>
-		<div class="entry">
-			
-				<blockquote>
-<p>每个面试题都是一个知识点，无论面不面试，都应该看看，掌握之后也是可以运用到开发中的，而且每个知识点都会衍生出很多问题，会的越多，掌握的知识点就越多，正所谓：不积跬步无以至千里，不积小流无以成江河…</p>
-</blockquote>
-<p>今天的<strong>题目</strong>是：在mysql中，一条sql，有多个查询条件，你会选择哪个字段作为索引，依据是什么？</p>
-<p>sql示例是这样的：</p>
-<pre><code class="sql">select * from table where field_a = xx and field_b = xx and field_c = xx</code></pre>
-<p>思考一下，如果是你，你会选哪个字段作为索引，为啥那，如果你一点思路没有，就且听我慢慢道来…</p>
-<p>这个回答的时候，蒙肯定是不行的，你选择field_a字段肯定要把理由说出来，如果说不出来，直接说不会也要好过瞎蒙，起码留给面试官一个不会就是不会，不瞎蒙的印象  <em>这都不知道，还说你会mysql</em></p>
-<p><img src="/mysql-create-index/lj.jpg" alt></p>
-<p><strong>解题</strong>：</p>
-<p>首先说索引，表中创建索引的目的是为提供更高效的查询，既然是提高效率，肯定是有高效的索引和低效的索引的区分，这道题其实也是说选择哪个字段作为索引会提供更高效的查询。</p>
-<p>为了循序渐进的剖析这个问题，我创建一个测试表 <strong>test</strong>，表中插入十万条测试数据，我们模拟一下这个问题</p>
-<p>表结构如下：</p>
-<pre><code class="mysql">CREATE TABLE `test` (
-  `id` int(20) NOT NULL AUTO_INCREMENT COMMENT &#39;主键&#39;,
-  `field_a` int(11) DEFAULT NULL,
-  `field_b` int(20) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=100001 DEFAULT CHARSET=utf8 COMMENT=&#39;测试表&#39;;</code></pre>
-<p>使用存储过程，添加测试数据：</p>
-<pre><code class="sql">delimiter ;;
-create procedure test()
-begin
-    declare i int;
-    set i=1;
-    while(i&lt;=100000)do
-        insert into test values(i, i, i%100);
-        set i=i+1;
-    end while;
-end;;
-delimiter ;
--- 执行
-call test();</code></pre>
-<p>添加field_a字段的数据是从1到100000，field_b字段的数据是从0到99，查一下数据，十万条数据已经添加成功了</p>
-<p><img src="/mysql-create-index/2.png" alt></p>
-<p>那题目中的sql就变成了这样</p>
-<pre><code class="sql">select * from test where field_a = xx and field_b = xx</code></pre>
-<p>这时候在没创建索引的情况下我们先用执行一下explain</p>
-<p><img src="/mysql-create-index/1.png" alt></p>
-<p>对于explain不熟悉的可以看下这篇文章 <a href="https://chenmingyu.top/mysql-optimize/">https://chenmingyu.top/mysql-optimize/</a></p>
-<p>从type字段我们知道sql走的全表扫描，但是预计的扫描行数 rows字段只有94001条，明显是跟表中的总数据量对不上啊，没事儿，别急，放心，且先放着</p>
-<p>我们再执行下面的sql看下表test的索引情况</p>
-<p><img src="/mysql-create-index/3.png" alt="show index from test"></p>
-<p>我们需要关注的列是cardinality(基数)，这列表示索引中唯一值的数量的估计值，这个值越高，说明字段的区分度越高，代表着这列越适合作为索引出现，如果这个值非常小，就要考虑这个字段是否适合作为索引出现了，所以我们可以使用Cardinality列来判断索引是否具有高选择性</p>
-<p>当然还有一种方式可以计算索引是否具有高选择性，就是Cardinality的值/table_rows的值 如果尽可能接近1，那么这个索引具有高选择性，如果非常小，那么就要考虑是否可以删除该索引了</p>
-<p><em>可以使用 analyze table test 后Cardinality列与rows列显示的数值一致</em></p>
-<p>那我们知道了上面的知识后，再看一下这道题，是不是我们只要比较每个字段的Cardinality值的大小就可以选取那个字段作为索引了</p>
-<p>现在给field_a和field_b添加索引，现在表结构如下：</p>
-<pre><code class="sql">CREATE TABLE `test` (
-  `id` int(20) NOT NULL AUTO_INCREMENT COMMENT &#39;主键&#39;,
-  `field_a` int(11) DEFAULT NULL,
-  `field_b` int(20) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `idx_field_a` (`field_a`),
-  KEY `idx_field_b` (`field_b`)
-) ENGINE=InnoDB AUTO_INCREMENT=100001 DEFAULT CHARSET=utf8 COMMENT=&#39;测试表&#39;;</code></pre>
-<p>我们再看一下Cardinality列</p>
-<p><img src="/mysql-create-index/6.png" alt></p>
-<p>明显idx_field_a索引要比idx_field_b索引的Cardinality值大，大胆猜测一下是不是idx_field_a索引要比idx_field_b索引的效率高？</p>
-<p>用force index强制使用索引，我们测下：</p>
-<p>使用explain看下</p>
-<pre><code class="sql">explain select * from test force index(idx_field_a) where field_a = 1 and field_b = 1;</code></pre>
-<p><img src="/mysql-create-index/8.png" alt></p>
-<pre><code class="sql">explain select * from test force index(idx_field_b) where field_a = 1 and field_b = 1;</code></pre>
-<p><img src="/mysql-create-index/7.png" alt></p>
-<p>虽然type都是ref，但是rows的值还是差距很大的，心里不禁暗暗有些激动，猜想与事实逐渐重合…</p>
-<p><img src="/mysql-create-index/xl.png" alt></p>
-<p>执行sql，看下耗时</p>
-<pre><code class="sql">-- sql执行0.001s
-select * from test force index(idx_field_a) where field_a = 1 and field_b = 1;
--- sql执行0.004s
-select * from test force index(idx_field_b) where field_a = 1 and field_b = 1;</code></pre>
-<p>想要的效果已经出来，所以说上面的猜想是正确的<img src="/mysql-create-index/gt.png" alt="img"></p>
-<p>上面的情况是建了索引所以可以看到Cardinality列的值，在没建索引的时候怎么办？</p>
-<p>再看下Cardinality的概念：表示唯一值的数量的预估值，所以我们可以用distinct 去计算字段的唯一值数量</p>
-<p>所以最终字段是否适合创建索引可以使用下面的sql进行判断，值等于1或趋近为1的字段最适合创建索引</p>
-<pre><code class="sql">-- 值为1
-select count(distinct field_a)/count(*) from test
--- 值为0.001
-select count(distinct field_b)/count(*) from test</code></pre>
-<p>显然字段field_a最适合建索引，与测试结果一致</p>
-<p><img src="/mysql-create-index/ap.jpg" alt></p>
-
-			
-		</div>
-		<footer class="clearfix">
-			
-				
-				
-					<div class="disqus-comment">
-						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/mysql-create-index/#disqus_thread" class="comment-link"> 评论</a>
-					</div>
-				
-			
-			
-	<div class="categories">
-		<i class="fa fa-folder"></i>
-		
-			<a href="/categories/mysql/">mysql</a>
-		
-	</div>
-
-			
-	<div class="tags">
-		<i class="fa fa-tags"></i>
-		
-			<a href="/tags/%E7%B4%A2%E5%BC%95/">#索引</a>
-		
-	</div>
-
-		</footer>
-	</div>
-</article>
-	
-		
-		<article class="post">
-	<div class="post-content">
-		<header>
-			
-				<div class="meta">
-					<div class="icon">
-						
-							<i class="fa fa-file"></i>
-						
-					</div>
-					<time datetime="2019-10-31T03:12:34.000Z">2019-10-31</time>
-				</div>
-			
-			
-	
-		<h1 class="title" data-role="articleTitle"><a href="/zookeeper/">zookeeper命令详解</a></h1>
-	
-
-		</header>
-		<div class="entry">
-			
-				<p>​    ZooKeeper 是一个分布式的，开放源码的分布式应用程序协调服务，是 Google 的 Chubby一个开源的实现。它提供了简单原始的功能，分布式应用可以基于它实现更高级的服务，比如<strong>分布式同步， 配置管理， 集群管理， 命名管理，队列管理</strong>。它被设计为易于编程，使用文件系统目录树作为数据模型 </p>
-<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>1、 最终一致性： client 不论连接到哪个 Server，展示给它都是同一个视图，这是 ZooKeeper最重要的性能。</p>
-<p>2、 可靠性：具有简单、健壮、良好的性能，如果消息 m 被到一台服务器接受，那么它将被所有的服务器接受。</p>
-<p>3、 实时性： ZooKeeper 保证客户端将在一个时间间隔范围内获得服务器的更新信息，或者服务器失效的信息。</p>
-<p>但由于网络延时等原因， ZooKeeper 不能保证两个客户端能同时得到刚更新的数据，如果需要最新数据，应该在</p>
-<p>读数据之前调用 sync()接口</p>
-<p>4、 等待无关（wait-free）：慢的或者失效的 client 不得干预快速的 client 的请求，使得每个client 都能有效的等待</p>
-<p>5、 原子性：更新只能成功或者失败，没有中间状态<br>6、 顺序性：包括全局有序和偏序两种：全局有序是指如果在一台服务器上消息 a 在消息 b前发布，则在所有Server 上消息 a 都将在消息 b 前被发布；偏序是指如果一个消息 b 在消息 a 后被同一个发送者发布， a 必将排在b 前面</p>
-<p><strong>zookeeper = 文件系统+事件监听</strong></p>
-<h4 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h4><p>ZooKeeper 的命名空间就是 ZooKeeper 应用的文件系统，它和 linux 的文件系统很像，也是树状，这样就可以确</p>
-<p>定每个路径都是唯一的，对于命名空间的操作必须都是绝对路径操作。与linux 文件系统不同的是，linux 文件系</p>
-<p>统有目录和文件的区别，而 ZooKeeper 统一叫做 znode，一个 znode 节点可以包含子 znode，同时也可以包含</p>
-<p>数据所以总结说来， znode 即是文件夹又是文件的概念，所以在 ZooKeeper 这里面就不叫文件文件也不叫文件夹，叫 znode，每个 znode 有唯一的路径识，既能存储数据，也能创建子 znode。但是 znode 只适合存储非常小量的数据，不能超过 1M，最好小于 1K </p>
-<p><img src="/zookeeper/node.png" alt></p>
-<h4 id="事件监听"><a href="#事件监听" class="headerlink" title="事件监听"></a>事件监听</h4><p>客户端注册监听它关心的目录节点，当目录节点发生变化（数据改变、 节点删除、 子目录节点增加删除）时,ZooKeeper 会通知客户端。 监听机制保证 ZooKeeper 保存的任何的数据的任何改变都能快速的响应到监听了该节点的应用程序</p>
-<p>ZooKeeper 的 Watcher 机制主要包括客户端线程、 客户端 WatcherManager、 Zookeeper 服务器三部分。客户端在向 ZooKeeper 服务器注册的同时，会将 Watcher 对象存储在客户端的WatcherManager 当中。当ZooKeeper 服务器触发 Watcher 事件后，会向客户端发送通知，客户端线程从 WatcherManager 中取出对应的Watcher 对象来执行回调逻辑 </p>
-<p><img src="/zookeeper/watch.png" alt></p>
-<h3 id="常用命令解析"><a href="#常用命令解析" class="headerlink" title="常用命令解析"></a>常用命令解析</h3><h5 id="help"><a href="#help" class="headerlink" title="help"></a>help</h5><p>查看客户端帮助命令</p>
-<pre><code class="shell">[zk: localhost:2181(CONNECTED) 8] help
-ZooKeeper -server host:port cmd args
-        stat path [watch]
-        set path data [version]
-        ls path [watch]
-        delquota [-n|-b] path
-        ls2 path [watch]
-        setAcl path acl
-        setquota -n|-b val path
-        history
-        redo cmdno
-        printwatches on|off
-        delete path [version]
-        sync path
-        listquota path
-        rmr path
-        get path [watch]
-        create [-s] [-e] path data acl
-        addauth scheme auth
-        quit
-        getAcl path
-        close
-        connect host:port</code></pre>
-<h5 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h5><p><strong>create [-s] [-e] path data acl</strong></p>
-<p>-s和-e分别指定节点特性：顺序或临时节点，acl是权限控制</p>
-<pre><code class="shell">[zk: localhost:2181(CONNECTED) 11] create /name my
-Created /name</code></pre>
-<h5 id="读取"><a href="#读取" class="headerlink" title="读取"></a>读取</h5><p> <strong>ls path [watch]</strong></p>
-<pre><code class="shell">[zk: localhost:2181(CONNECTED) 38] ls /
-[zookeeper, name, dubbo]</code></pre>
-<p><strong>get path [watch]</strong></p>
-<pre><code class="shell">[zk: localhost:2181(CONNECTED) 39] get /name
-my
-cZxid = 0xe17
-ctime = Thu Oct 31 15:07:37 CST 2019
-mZxid = 0xe17
-mtime = Thu Oct 31 15:07:37 CST 2019
-pZxid = 0xe17
-cversion = 0
-dataVersion = 0
-aclVersion = 0
-ephemeralOwner = 0x0
-dataLength = 2
-numChildren = 0</code></pre>
-<p>详细信息</p>
-<ul>
-<li>my：节点的值，如果值则空一行</li>
-<li>cZxid ：创建节点的事务id</li>
-<li>ctime ： 节点的创建时间</li>
-<li>mZxid ：修改节点的事务id</li>
-<li>mtime ：修改节点的时间</li>
-<li>pZxid ：子节点的id</li>
-<li>cversion : 子节点的版本</li>
-<li>dataVersion ： 当前节点数据的版本</li>
-<li>aclVersion ：权限的版本</li>
-<li>ephemeralOwner ：判断是否是临时节点</li>
-<li>dataLength ： 数据的长度</li>
-<li>numChildren ：子节点的数量</li>
-</ul>
-<h5 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h5><p><strong>set path data [version]</strong></p>
-<pre><code class="shell">[zk: localhost:2181(CONNECTED) 45] set /name mingyu
-cZxid = 0xe17
-ctime = Thu Oct 31 15:07:37 CST 2019
-mZxid = 0xe27
-mtime = Thu Oct 31 15:26:13 CST 2019
-pZxid = 0xe17
-cversion = 0
-dataVersion = 2
-aclVersion = 0
-ephemeralOwner = 0x0
-dataLength = 6
-numChildren = 0
-# 版本号更新，因为/name节点的版本号是2了所以执行版本号为1时，更新失败
-[zk: localhost:2181(CONNECTED) 46] set /name my 1
-version No is not valid : /name
-# 更新成功
-[zk: localhost:2181(CONNECTED) 47] set /name my 2
-cZxid = 0xe17
-ctime = Thu Oct 31 15:07:37 CST 2019
-...</code></pre>
-<h5 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h5><p><strong>delete path [version]</strong></p>
-<pre><code class="shell">[zk: localhost:2181(CONNECTED) 55] delete /name
-# 删除不是当前版本号的节点
-[zk: localhost:2181(CONNECTED) 60] delete /name 0
-version No is not valid : /name</code></pre>
-<p>除了版本号不一致不能进行删除外，如果要删除的节点有子节点也是不能进行删除的</p>
-<pre><code class="shell">[zk: localhost:2181(CONNECTED) 75] delete /name
-Node not empty: /name</code></pre>
-<h4 id="watch通知"><a href="#watch通知" class="headerlink" title="watch通知"></a>watch通知</h4><p>通过help命令查看带有watch选项的命令，可以对当前操作节点增加监听操作的</p>
-<p>带有watch选项的命令：<strong>stat，get，ls，ls2</strong></p>
-<h5 id="stat-设置监听"><a href="#stat-设置监听" class="headerlink" title="stat 设置监听"></a>stat 设置监听</h5><pre><code class="shell">[zk: localhost:2181(CONNECTED) 82] stat /test watch
-Node does not exist: /test
-[zk: localhost:2181(CONNECTED) 83] create /test test
-Created /test
-WATCHER::
-# NodeCreated表示创建节点，路径是：/test
-WatchedEvent state:SyncConnected type:NodeCreated path:/test</code></pre>
-<h5 id="get-设置监听"><a href="#get-设置监听" class="headerlink" title="get 设置监听"></a>get 设置监听</h5><pre><code class="shell">[zk: localhost:2181(CONNECTED) 84] get /test watch
-test
-cZxid = 0xe39
-ctime = Thu Oct 31 16:12:12 CST 2019
-mZxid = 0xe39
-mtime = Thu Oct 31 16:12:12 CST 2019
-pZxid = 0xe39
-cversion = 0
-dataVersion = 0
-aclVersion = 0
-ephemeralOwner = 0x0
-dataLength = 4
-numChildren = 0
-[zk: localhost:2181(CONNECTED) 85] set /test 1
-
-WATCHER::cZxid = 0xe39
-# NodeDataChanged 节点数据改变，路径是：/test
-WatchedEvent state:SyncConnected type:NodeDataChanged path:/testctime = Thu Oct
-31 16:12:12 CST 2019
-
-mZxid = 0xe3a
-mtime = Thu Oct 31 16:14:25 CST 2019
-pZxid = 0xe39
-cversion = 0
-dataVersion = 1
-aclVersion = 0
-ephemeralOwner = 0x0
-dataLength = 1
-numChildren = 0</code></pre>
-<h5 id="ls-设置监听"><a href="#ls-设置监听" class="headerlink" title="ls 设置监听"></a>ls 设置监听</h5><pre><code class="shell">[zk: localhost:2181(CONNECTED) 86] ls /test watch
-[]
-[zk: localhost:2181(CONNECTED) 87] create /test/date date
-
-WATCHER::Created /test/date
-# NodeChildrenChanged 子节点发生改变，路径是：/test
-WatchedEvent state:SyncConnected type:NodeChildrenChanged path:/test</code></pre>
-<h5 id="ls2"><a href="#ls2" class="headerlink" title="ls2"></a>ls2</h5><p>ls命令和stat命令的整合</p>
-<pre><code class="shell">[zk: localhost:2181(CONNECTED) 88] ls2 /test watch
-[date]
-cZxid = 0xe39
-ctime = Thu Oct 31 16:12:12 CST 2019
-mZxid = 0xe3a
-mtime = Thu Oct 31 16:14:25 CST 2019
-pZxid = 0xe3b
-cversion = 1
-dataVersion = 1
-aclVersion = 0
-ephemeralOwner = 0x0
-dataLength = 1
-numChildren = 1</code></pre>
-<p>利用ls2命令给/test节点加上监听</p>
-<pre><code class="shell"># 对子节点的数据进行修改不会触犯watch监听
-[zk: localhost:2181(CONNECTED) 89] set /test/date 1
-cZxid = 0xe3b
-ctime = Thu Oct 31 16:18:09 CST 2019
-mZxid = 0xe3c
-mtime = Thu Oct 31 16:21:46 CST 2019
-pZxid = 0xe3b
-cversion = 0
-dataVersion = 1
-aclVersion = 0
-ephemeralOwner = 0x0
-dataLength = 1
-numChildren = 0
-# 只有创建子节点和删除子节点时会触发watch监听
-[zk: localhost:2181(CONNECTED) 94] delete /test/date
-
-WATCHER::
-# NodeDeleted 节点删除，路径：/test/date
-WatchedEvent state:SyncConnected type:NodeDeleted path:/test/date</code></pre>
-<h4 id="acl-权限"><a href="#acl-权限" class="headerlink" title="acl 权限"></a>acl 权限</h4><p>zookeeper使用ACL权限控制机制来保障数据安全</p>
-<p>zookeeper中的节点有5种操作权限：<code>CREATE</code>、<code>READ</code>、<code>WRITE</code>、<code>DELETE</code>、<code>ADMIN</code> 对应的就是增、查、改、删、管理权限，这5种权限简写为<code>crwda</code></p>
-<p> <em>注：这5种权限中，delete是指对子节点的删除权限，其它4种权限指对自身节点的操作权限</em></p>
-<p><img src="/zookeeper/1.png" alt></p>
-<h4 id="权限模式：Scheme"><a href="#权限模式：Scheme" class="headerlink" title="权限模式：Scheme"></a>权限模式：Scheme</h4><p><strong>ip</strong></p>
-<p>​    ip模式通过ip地址粒度来进行权限控制，例如配置了：ip:192.168.1.100即表示权限控制都是针对这个ip地址的，同时也支持按网段分配，比如：192.168.1.*</p>
-<p><strong>Digest</strong></p>
-<p>​    Digest是最常用的权限控制模式，类似于<code>username:password</code>形成的权限标识来进行权限配置，zookeeper会对形成的权限标识先后进行两次编码处理，分别是SHA-1加密算法，BASE64编码。</p>
-<p><strong>World</strong></p>
-<p>​    World是一种最开放的权限控制模式，这种权限控制方式几乎没有任何作用，数据节点的访问权限对所有用户开放，即所有用户都可以在不进行任何权限校验的情况下操作ZooKeeper上的数据。World模式也可以看作是一种特殊的Digest模式，它只有一个权限标识，即world:anyone <em>默认权限</em></p>
-<p><strong>Super</strong></p>
-<p>​    Super模式是一种特殊的Digest模式，在Super模式下，超级用户可以对任意ZooKeeper上的数据节点进行任何操作</p>
-<p>通过help名称查看带有acl关键字的名，包括：<strong>getAcl，setAcl，create</strong> </p>
-<p>使用：<code>[scheme:id:permissions]</code>来表示acl权限</p>
-<p><strong>world模式</strong></p>
-<p>格式：<strong>world:anyone:permissions</strong> </p>
-<h5 id="查询权限"><a href="#查询权限" class="headerlink" title="查询权限"></a>查询权限</h5><p><strong>getAcl path</strong></p>
-<pre><code class="shell">[zk: localhost:2181(CONNECTED) 96]  getAcl /name
-&#39;world,&#39;anyone
-: cdrwa</code></pre>
-<p>world：认证方式，anyone：任何人，cdrwa：权限</p>
-<p>所以我们可以对/name节点进行任何操作</p>
-<h5 id="设置权限"><a href="#设置权限" class="headerlink" title="设置权限"></a>设置权限</h5><p><strong>setAcl path acl</strong></p>
-<pre><code class="shell">[zk: localhost:2181(CONNECTED) 123] setAcl /acl world:anyone:cw
-cZxid = 0xe4e
-ctime = Thu Oct 31 17:01:41 CST 2019
-mZxid = 0xe4e
-mtime = Thu Oct 31 17:01:41 CST 2019
-pZxid = 0xe4e
-cversion = 0
-dataVersion = 0
-aclVersion = 1
-ephemeralOwner = 0x0
-dataLength = 2
-numChildren = 0</code></pre>
-<p>对/name节点增加create和write权限，我们测试一下</p>
-<pre><code class="shell"># 因为没有读的权限，所以get提示没权限
-[zk: localhost:2181(CONNECTED) 124] get /acl
-Authentication is not valid : /acl
-# 改节点数据的时候操作正常
-[zk: localhost:2181(CONNECTED) 125] set /acl my
-cZxid = 0xe4e
-ctime = Thu Oct 31 17:01:41 CST 2019
-mZxid = 0xe52
-mtime = Thu Oct 31 17:03:45 CST 2019
-pZxid = 0xe4e
-cversion = 0
-dataVersion = 1
-aclVersion = 1
-ephemeralOwner = 0x0
-dataLength = 2
-numChildren = 0</code></pre>
-<p><strong>Digest模式</strong></p>
-<p>格式： <strong>scheme:username:password:permissions</strong> </p>
-<p>Digest模式中 scheme 分为两种：digest和auto</p>
-<p><strong>scheme：digest</strong></p>
-<pre><code class="shell"># 设置权限
-[zk: localhost:2181(CONNECTED) 135] setAcl /acl digest:name:my:cr
-cZxid = 0xe56
-ctime = Thu Oct 31 17:29:12 CST 2019
-mZxid = 0xe56
-mtime = Thu Oct 31 17:29:12 CST 2019
-pZxid = 0xe56
-cversion = 0
-dataVersion = 0
-aclVersion = 1
-ephemeralOwner = 0x0
-dataLength = 1
-numChildren = 0
-# 获取权限，密码没加密
-[zk: localhost:2181(CONNECTED) 136] getAcl /acl
-&#39;digest,&#39;name:my
-: cr</code></pre>
-<p><strong>scheme：auto</strong></p>
-<p>使用 <strong>addauth scheme auth</strong> 命令增加</p>
-<pre><code class="shell"># 使用auto 设置权限
-[zk: localhost:2181(CONNECTED) 153] addauth digest a:a
-# 获取权限，password加密了
-[zk: localhost:2181(CONNECTED) 4] getAcl /cmy
-&#39;digest,&#39;a:mDmPUap4qvYwm+PZOtJ/scGyHLY=
-: crw</code></pre>
-<h5 id="ip"><a href="#ip" class="headerlink" title="ip"></a>ip</h5><p>格式：<strong>ip:Ip-address:permissions</strong></p>
-<pre><code class="shell"># 设置权限
-[zk: localhost:2181(CONNECTED) 9] setAcl /ip ip:192.168.1.1:cr
-cZxid = 0xe6a
-ctime = Thu Oct 31 17:50:29 CST 2019
-mZxid = 0xe6a
-mtime = Thu Oct 31 17:50:29 CST 2019
-pZxid = 0xe6a
-cversion = 0
-dataVersion = 0
-aclVersion = 1
-ephemeralOwner = 0x0
-dataLength = 3
-numChildren = 0
-# 查看权限
-[zk: localhost:2181(CONNECTED) 10] getAcl /ip
-&#39;ip,&#39;192.168.1.1
-: cr</code></pre>
-
-			
-		</div>
-		<footer class="clearfix">
-			
-				
-				
-					<div class="disqus-comment">
-						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/zookeeper/#disqus_thread" class="comment-link"> 评论</a>
-					</div>
-				
-			
-			
-	<div class="categories">
-		<i class="fa fa-folder"></i>
-		
-			<a href="/categories/zookeeper/">zookeeper</a>
-		
-	</div>
-
-			
-	<div class="tags">
-		<i class="fa fa-tags"></i>
-		
-			<a href="/tags/zookeeper/">#zookeeper</a>
-		
-	</div>
-
-		</footer>
-	</div>
-</article>
-	
-		
-		<article class="post">
-	<div class="post-content">
-		<header>
-			
-				<div class="meta">
-					<div class="icon">
-						
-							<i class="fa fa-file"></i>
-						
-					</div>
-					<time datetime="2019-10-25T09:49:33.000Z">2019-10-25</time>
-				</div>
-			
-			
-	
-		<h1 class="title" data-role="articleTitle"><a href="/data-structure-binary-search/">【数据结构】| 二分查找</a></h1>
-	
-
-		</header>
-		<div class="entry">
-			
-				<p>二分查找是一种效率较高的查找方法，时间复杂度是O(logn)</p>
-<p>二分查找：每次都通过跟区间中的中间元素对比，将待查找的区间缩小为一半，直到找到要查找的元素，或<br>者区间被缩小为0</p>
-<p><strong>使用前提：</strong></p>
-<ol>
-<li>二分查找必须依赖顺序表结构（数组）</li>
-<li>二分查找查询的数据必须是有序的</li>
-</ol>
-<p>关于查询数据的大小，如果查询的数据太小，直接遍历就可以，两者效率相差不大，如果要查找的数据太大，因为二分查找必须依赖顺序表结构，所以需要申请的空间必须是连续的，有可能会出现没有足够的连续内存空间的情况</p>
-<p><strong>实现：</strong></p>
-<p>数组arr：{1,4,7,8,12,43,56,87,98,323,3545,5685}，利用二分查找返回数组下标</p>
-<p>例：查找43输出5</p>
-<pre><code class="java">public static int binary(int[] arr, int n){
-    int start = 0;
-    int end = arr.length - 1;
-    while (start&lt;=end){
-        int mid = (start + end)/2;
-        if(arr[mid]== n){
-            return mid;
-        } else if (n &gt; arr[mid]) {
-            start = mid + 1;
-        } else {
-            end = mid - 1;
-        }
-    }
-    return -1;
-}</code></pre>
-<p><strong>递归实现：</strong></p>
-<pre><code class="java">public static int binary(int[] arr, int n, int start, int end){
-    if(start &gt; end){
-        return -1;
-    }
-    int mid = (start + end)/2;
-    if(arr[mid] == n){
-        return mid;
-    } else if (n &gt; arr[mid]) {
-        return binary(arr, n, mid + 1, end);
-    } else {
-        return binary(arr, n, start, mid - 1);
-    }
-}</code></pre>
-<p>当数组中没有重复数据时，可以使用上述方法，但是有些需求可能是数组中有重复数据，需要查找数组中某个数的第一次出现的下标</p>
-<p>例：数组{1,4,7,43,43,43,56,87,98,323,3545,5685}，查找43输出3</p>
-<pre><code class="java">public static int binary(int[] arr, int n){
-    int start = 0;
-    int end = arr.length - 1;
-    while (start&lt;=end){
-        int mid = (start + end)/2;
-        if(arr[mid] == n &amp;&amp; mid&gt;0 &amp;&amp; arr[mid -1] != n ){
-            return mid;
-        } else if (n &gt; arr[mid]) {
-            start = mid + 1;
-        } else {
-            end = mid - 1;
-        }
-    }
-    return -1;
-}</code></pre>
-
-			
-		</div>
-		<footer class="clearfix">
-			
-				
-				
-					<div class="disqus-comment">
-						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/data-structure-binary-search/#disqus_thread" class="comment-link"> 评论</a>
-					</div>
-				
-			
-			
-	<div class="categories">
-		<i class="fa fa-folder"></i>
-		
-			<a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
-		
-	</div>
-
-			
-	<div class="tags">
-		<i class="fa fa-tags"></i>
-		
-			<a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">#数据结构</a>
-		
-			<a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">#二分查找</a>
-		
-	</div>
-
-		</footer>
-	</div>
-</article>
-	
-		
-		<article class="post">
-	<div class="post-content">
-		<header>
-			
-				<div class="meta">
-					<div class="icon">
-						
-							<i class="fa fa-file"></i>
-						
-					</div>
-					<time datetime="2019-09-23T07:31:19.000Z">2019-09-23</time>
-				</div>
-			
-			
-	
-		<h1 class="title" data-role="articleTitle"><a href="/jvm-class-loader/">【jvm】类加载机制</a></h1>
-	
-
-		</header>
-		<div class="entry">
-			
-				<blockquote>
-<p>虚拟机把描述类的数据从class文件加载到内存，并对数据进行校验、转换解析和初始化，最终形成可以被虚拟机直接使用的Java类型</p>
-</blockquote>
-<h3 id="类的生命周期"><a href="#类的生命周期" class="headerlink" title="类的生命周期"></a>类的生命周期</h3><p>加载，验证，准备，解析，初始化，使用，卸载七个阶段，其中验证，准备，解析三个部分统称为链接</p>
-<p><img src="/jvm-class-loader/%E7%B1%BB%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.jpg" alt></p>
-<p>加载，验证，准备，初始化和卸载这5个阶段的顺序是固定的，为了支持动态绑定，解析这个过程可以发生在初始化阶段之后</p>
-<h4 id="加载阶段"><a href="#加载阶段" class="headerlink" title="加载阶段"></a>加载阶段</h4><p>加载阶段，主要完成以下3件事情：</p>
-<ol>
-<li>通过“类全名”来获取定义此类的二进制字节流</li>
-<li>将字节流所代表的静态存储结构转换为方法区的运行时数据结构</li>
-<li>在java堆中生成一个代表这个类的java.lang.Class对象，作为方法区这些数据的访问入口</li>
-</ol>
-<p>加载阶段完成后，虚拟机外部的二进制字节流就按照虚拟机所需的格式存储在方法区之中，方法区中的数据存储格式有虚拟机实现自定义</p>
-<h4 id="验证阶段"><a href="#验证阶段" class="headerlink" title="验证阶段"></a>验证阶段</h4><p>验证阶段是为了确保class文件的字节流中包含的信息符合当前虚拟机的要求，并且不会危害虚拟机自身的安全</p>
-<ol>
-<li><p>文件格式验证</p>
-<p>基于字节流验证，验证字节流是否符合Class文件格式的规范，并且能被当前虚拟机处理</p>
-</li>
-<li><p>元数据验证</p>
-<p>基于方法区的存储结构验证，对字节码描述信息进行语义验证</p>
-</li>
-<li><p>字节码验证</p>
-<p>基于方法区的存储结构验证，进行数据流和控制流的验证</p>
-</li>
-<li><p>符号引用验证</p>
-<p>基于方法区的存储结构验证，发生在解析中，是否可以将符号引用成功解析为直接引用</p>
-</li>
-</ol>
-<h4 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h4><p>准备阶段是正是为类变量分配内存并设置类变量初始值的阶段</p>
-<pre><code class="java">// 初始值为0
-public static int value = 123;
-// final修饰，赋值为123
-public static final int value = 123;</code></pre>
-<h4 id="解析阶段"><a href="#解析阶段" class="headerlink" title="解析阶段"></a>解析阶段</h4><p>解析阶段是将常量池内的符号引用替换为直接引用的过程</p>
-<ul>
-<li><p>符号引用与虚拟机实现的布局无关，引用的目标并不一定要已经加载到内存中。各种虚拟机实现的内存布局可以各不相同，但是它们能接受的符号引用必须是一致的，因为符号引用的字面量形式明确定义在Java虚拟机规范的Class文件格式中。</p>
-</li>
-<li><p>直接引用可以是指向目标的指针，相对偏移量或是一个能间接定位到目标的句柄。如果有了直接引用，那引用的目标必定已经在内存中存在</p>
-</li>
-</ul>
-<p>主要有四种：类或接口的解析，字段解析，类方法解析，接口方法解析</p>
-<h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><p>初始化阶段做的事就是执行类的初始化方法<clinit>。方法<clinit>是由编译器自动生成的。就是将static变量赋值指定的值并且static静态代码块中赋值指定值</clinit></clinit></p>
-<p>java中，对于初始化阶段，有且只有以下五种情况才会对要求类立刻初始化：</p>
-<ol>
-<li>使用new关键字实例化对象、访问或者设置一个类的静态字段（被final修饰、编译器优化时已经放入常量池的例外）、调用类方法，都会初始化该静态字段或者静态方法所在的类。</li>
-<li>初始化类的时候，如果其父类没有被初始化过，则要先触发其父类初始化。</li>
-<li>使用java.lang.reflect包的方法进行反射调用的时候，如果类没有被初始化，则要先初始化。</li>
-<li>虚拟机启动时，用户会先初始化要执行的主类（含有main方法）</li>
-<li>jdk 1.7后，如果java.lang.invoke.MethodHandle的实例最后对应的解析结果是 REF_getStatic、REF_putStatic、REF_invokeStatic方法句柄，并且这个方法所在类没有初始化，则先初始化</li>
-</ol>
-<p> 注意：</p>
-<ol>
-<li>父类定义的静态代码块优先于子类的静态代码块先执行</li>
-<li>子类引用父类的静态字段不会被初始化</li>
-<li>前面我们提到过final修饰的static变量在准备阶段就在方法区上赋值了，在解析阶段中实际上<clinit>方法什么都不用做。final static 变量在编译期就完成了在元空间的赋值。而static 变量在准备阶段为默认值，初始化阶段进行赋值</clinit></li>
-</ol>
-<h3 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h3><p>类加载器负责加载所有的类，其为所有被载入内存中的类生成一个java.lang.Class实例对象。一旦一个类被加载如JVM中，同一个类就不会被再次载入了</p>
-<p>比较两个类是否相等，只有在这两个类是由同一个类加载其加载的前提下才有意义，否则，即使这两个类来源于同一个Class文件，被同一个虚拟机加载，只要加载它们的类加载器不同，那么这两个类就必定不相等</p>
-<p>java提供的类加载器主要有下面三个：</p>
-<ol>
-<li><p>Bootstrap ClassLoader</p>
-<p>用来加载 Java 的核心库，是用原生代码来实现的，并不继承自 <code>java.lang.ClassLoader</code></p>
-</li>
-<li><p>Extensions ClassLoader</p>
-<p>用来加载 Java 的扩展库。Java 虚拟机的实现会提供一个扩展库目录。该类加载器在此目录里面查找并加载 Java 类</p>
-</li>
-<li><p>Application ClassLoade</p>
-<p>根据 Java 应用的类路径（CLASSPATH）来加载 Java 类。一般来说，Java 应用的类都是由它来完成加载的。可以通过 <code>ClassLoader.getSystemClassLoader()</code>来获取它</p>
-</li>
-</ol>
-<p>除了系统提供的类加载器以外，开发人员可以通过继承 <code>java.lang.ClassLoader</code>类的方式实现自己的类加载器，来满足一些特殊的需求</p>
-<h4 id="双亲委派模型"><a href="#双亲委派模型" class="headerlink" title="双亲委派模型"></a>双亲委派模型</h4><p>下图为类加载器的双亲委派模型：</p>
-<p><img src="/jvm-class-loader/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8.jpg" alt></p>
-<p><em>双亲委派模型并不是一个强制性的约束模型，而是java设计者推荐给开发者的类加载器实现方式</em></p>
-<p><strong>双亲委派模型的工作过程：</strong></p>
-<p>​    如果一个类加载器收到了类加载请求，它并不会自己先去加载，而是把这个请求委托给父类的加载器去执行，如果父类加载器还存在其父类加载器，则进一步向上委托，依次递归，请求最终将到达顶层的启动类加载器，如果父类加载器可以完成类加载任务，就成功返回，倘若父类加载器无法完成此加载任务，子加载器才会尝试自己去加载</p>
-<p><strong>优势：</strong></p>
-<p>​    采用双亲委派模式的是好处是Java类随着它的类加载器一起具备了一种带有优先级的层次关系，通过这种层级关可以避免类的重复加载。其次是考虑到安全因素，java核心api中定义类型不会被随意替换</p>
-<p>参考：</p>
-<p><a href="https://www.ibm.com/developerworks/cn/java/j-lo-classloader/" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/java/j-lo-classloader/</a></p>
-<p><a href="https://blog.csdn.net/m0_38075425/article/details/81627349" target="_blank" rel="noopener">https://blog.csdn.net/m0_38075425/article/details/81627349</a></p>
-
-			
-		</div>
-		<footer class="clearfix">
-			
-				
-				
-					<div class="disqus-comment">
-						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/jvm-class-loader/#disqus_thread" class="comment-link"> 评论</a>
-					</div>
-				
-			
-			
-	<div class="categories">
-		<i class="fa fa-folder"></i>
-		
-			<a href="/categories/jvm/">jvm</a>
-		
-	</div>
-
-			
-	<div class="tags">
-		<i class="fa fa-tags"></i>
-		
-			<a href="/tags/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">#类加载机制</a>
-		
-	</div>
-
-		</footer>
-	</div>
-</article>
-	
-		
-		<article class="post">
-	<div class="post-content">
-		<header>
-			
-				<div class="meta">
-					<div class="icon">
-						
-							<i class="fa fa-file"></i>
-						
-					</div>
-					<time datetime="2019-09-19T03:35:46.000Z">2019-09-19</time>
-				</div>
-			
-			
-	
-		<h1 class="title" data-role="articleTitle"><a href="/jvm-gc-collector/">【jvm】垃圾收集器</a></h1>
-	
-
-		</header>
-		<div class="entry">
-			
-				<p>在了解垃圾收集算法之后，我们要看一下基于垃圾收集算法实现的垃圾收集器是如何实现的，本文出现的垃圾收集器都是HotSpot虚拟机提供的实现</p>
-<p>堆内存是垃圾收集器主要回收垃圾对象的地方，堆内存可以根据对象生命周期的不同细分为新生代和老年代，每个年代都可以选择适合的垃圾收集算法，新生代使用复制算法，老年代使用标记清除或者标记整理算法</p>
-<p>HotSpot虚拟机提供了7种垃圾收集器，其中适用于新生代的三种，老年代的三种，还有一种新生代老年代都适用</p>
-<p>新生代垃圾收集器：Serial收集器，ParNew收集器，Parallel Scavenge收集器</p>
-<p>老年代垃圾收集器：Serial Old收集器，Parallel Old收集器，CMS收集器</p>
-<p>都适用的收集器：G1收集器</p>
-<p>所有垃圾收集器组合情况如下：</p>
-<p><img src="/jvm-gc-collector/Garbage-Collector-set.jpg" alt></p>
-<p>图中连线的收集器表明可以一起搭配使用</p>
-<h4 id="Serial-收集器"><a href="#Serial-收集器" class="headerlink" title="Serial 收集器"></a>Serial 收集器</h4><p>Serial收集器曾是jdk1.3之前新生代收集器的唯一选择，串行收集器，单线程工作，所以效率高，但是会产生Stop The World，适用于堆内存比较小的时候使用，使用复制算法回收垃圾对象</p>
-<p><img src="/jvm-gc-collector/serial.png" alt></p>
-<p><strong>参数设置：</strong>-XX:+UseSerialGC  使用Serial收集器</p>
-<h4 id="ParNew-收集器"><a href="#ParNew-收集器" class="headerlink" title="ParNew 收集器"></a>ParNew 收集器</h4><p>parNew收集器是Serial收集器的多线程版本，并行收集器，除了多线程收集外，其余功能与Serial收集器基本一致，在新生代中，除了Serial收集器，只有ParNew收集器可以与CMS收集器一起使用，所以目前为止这个收集器是新生代最常用的收集器</p>
-<p>![](jvm-gc-collector/parallel .png)</p>
-<p><strong>参数设置：</strong></p>
-<ul>
-<li>-XX:+UseParNewGC：使用ParNew收集器</li>
-<li>-XX:ParallelGCThreads：用来限制垃圾收集的线程数</li>
-</ul>
-<h4 id="Parallel-Scavenge-收集器"><a href="#Parallel-Scavenge-收集器" class="headerlink" title="Parallel Scavenge 收集器"></a>Parallel Scavenge 收集器</h4><p>并行收集器，同样使用复制算法，与其余两种年轻代收集器不同的地方在于它的关注点，Serial和ParNew收集器的关注点在于尽可能的缩短Stop The World的时间，而Parallel Scavenge收集器的关注点在于吞吐量</p>
-<p>吞吐量=运行用户代码时间/（运行用户代码时间+垃圾收集时间），比如虚拟机运行100分钟，垃圾收集时间是1分钟，那么吞吐量就是99%</p>
-<p>![](jvm-gc-collector/parallel scavenge.png)</p>
-<p><strong>参数设置：</strong></p>
-<ul>
-<li>-XX:+UseParallelGC：使用Parallel收集器</li>
-<li>-XX:MaxGCPauseMillis：控制最大垃圾收集停顿时间</li>
-<li>-XX:GCTimeRatio：设置吞吐量大小，默认为99，允许1%的垃圾收集时间</li>
-<li>-XX:+UseAdaptiveSizePolicy：自适应调节，设置之后就不需要手动设置新生代大小</li>
-</ul>
-<h4 id="Serial-Old-收集器"><a href="#Serial-Old-收集器" class="headerlink" title="Serial Old 收集器"></a>Serial Old 收集器</h4><p>Serial Old收集器是Serial的老年代版本，单线程收集器，使用标记整理算法</p>
-<p>可以与Parallel Scavenge收集器搭配使用，也可以作为CMS收集器发生Concurrent Mode Failure时老年代的备选方案使用</p>
-<p><img src="/jvm-gc-collector/serial.png" alt></p>
-<h4 id="Parallel-Old-收集器"><a href="#Parallel-Old-收集器" class="headerlink" title="Parallel Old 收集器"></a>Parallel Old 收集器</h4><p>Parallel Old收集器是Parallel Scavenge收集器的老年代版本，使用标记整理算法</p>
-<p>在注重吞吐量及CPU资源敏感的场景，可以用考虑使用Parallel Scavenge+Parallel Old收集器</p>
-<p>![](jvm-gc-collector/parallel scavenge.png)</p>
-<p><strong>参数设置：</strong>-XX:+UseParallelOldGC：使用Parallel Scavenge + Parallel Old收集器</p>
-<h4 id="CMS收集器"><a href="#CMS收集器" class="headerlink" title="CMS收集器"></a>CMS收集器</h4><p>CMS（Concurrent Mark Sweep）收集器是一种以获取最短回收停顿时间为目标的收集器，目前使用最多的垃圾收集器，使用这类收集器的应用重视服务的响应速度，希望系统停顿时间最短，以给用户带来较好的体验</p>
-<p>使用标记清除算法，共4个步骤</p>
-<ol>
-<li>初始标记（CMS initial mark）</li>
-<li>并发标记（CMS concurrent mark）</li>
-<li>重新标记（CMS remark）</li>
-<li>并发清除（CMS concurrent sweep）</li>
-</ol>
-<p>初始标记、重新标记这两个步骤仍然需要Stop The World，初始标记仅仅只是标记一下GC Roots能直接关联到的对象，速度很快，并发标记阶段就是进行GC Roots Tracing的过程，而重新标记阶段则是为了修正并发标记期间，因用户程序继续运作而导致标记产生变动的那一部分对象的标记记录，这个阶段的停顿时间一般会比初始标记阶段稍长一些，但远比并发标记的时间短</p>
-<p>耗时较长的并发标记和并发清除的线程可以与用户线程一起工作，所以总体上来说，CMS收集器的内存回收过程是与用户线程一起并发地执行</p>
-<p><img src="/jvm-gc-collector/cms.png" alt></p>
-<p>优点：并发收集，低停顿</p>
-<p>缺点：</p>
-<ol>
-<li><p>对CPU资源敏感</p>
-<p>CMS默认启动的回收线程数量是(CPU数量+3)/4，当CPU数量小于4时，并发操作时会占用一半的CPU去进行垃圾收集</p>
-</li>
-<li><p>无法处理浮动垃圾，可能回导致Concurrent Mode Failure失败而导致领一次Full GC的产生</p>
-<p>CMS收集器触发GC时需要预留一部分空间供并发收集时使用，通过设置参数-XX:CMSInitiatingOccupancyFraction的值来提高触发的百分比</p>
-<p>当预留的空间无法满足需求时就会发生Concurrent Mode Failure失败，这时，java虚拟机就会采用Serial Old收集器回收老年代垃圾，代价就是停顿时间变长</p>
-<p>所以-XX:CMSInitiatingOccupancyFraction参数设置的过高容易频繁触发Concurrent Mode Failure失败，导致性能降低</p>
-</li>
-<li><p>产生大量空间碎片</p>
-<p>设置-XX:+ UseCMSCompactAtFullCollection参数，开启空间压碎，默认是开启的，开启后FUll GC时会进行内存整理，空间碎片问题解决，但是停顿时间就会变长</p>
-<p>设置-XX:+ CMSFullGCsBeforeCompaction参数，设置进行几次Full GC后，进行一次碎片整理，默认是0，表示每次进入Full GC时都进行碎片整理</p>
-</li>
-</ol>
-<p><strong>参数设置：</strong></p>
-<ul>
-<li>-XX:+UseConcMarkSweepGC：使用CMS收集器 + PerNew收集器</li>
-<li>-XX:ParallelCMSThreads：设定CMS的线程数量</li>
-</ul>
-<h4 id="G1-收集器"><a href="#G1-收集器" class="headerlink" title="G1 收集器"></a>G1 收集器</h4><p>G1是一款面向服务端应用的垃圾收集器，HotSpot开发团队赋予它的使命是未来可以替换掉JDK1.5中发布的CMS收集器</p>
-<p>G1收集器采用标记整理算法，所以G1收集器不会产生空间碎片</p>
-<p>G1特点：</p>
-<ul>
-<li><p>并行与并发</p>
-<p>G1可以充分的利用多CPU和多核环境下的硬件优势用来缩短Stop The World的停顿时间</p>
-</li>
-<li><p>可预测的停顿</p>
-<p>降低停顿时间是G1和CMS的共同关注点，但G1除了追求低停顿外，还能建立可预测的停顿时间模型，能让使用者明确指定在一个长度为N毫秒的时间片段内，消耗在垃圾收集上的时间不得超过N毫秒，这几乎已经是实时Java（RTSJ）的垃圾收集器的特征了</p>
-</li>
-</ul>
-<p>G1收集器将整个Java堆划分为多个大小相等的独立区域（Region），虽然还保留有新生代和老年代的概念，但新生代和老年代不再是物理隔阂了，它们都是一部分（可以不连续）Region的集合</p>
-<p>G1的新生代收集跟ParNew类似，当新生代占用达到一定比例的时候，开始出发收集；和CMS类似，G1收集器收集老年代对象会有短暂停顿</p>
-<p>收集步骤：</p>
-<ol>
-<li><p>初始标记</p>
-<p>标记一下GC Roots能直接关联到的对象</p>
-</li>
-<li><p>并发标记</p>
-<p>从GC Roots出发，开始对堆中对象进行可达性分析，找出存活对象</p>
-</li>
-<li><p>最终标记</p>
-<p>为了修正并发标记阶段因用户程序继续运行而导致标记产生变动的那一部分标记记录</p>
-</li>
-<li><p>筛选回收</p>
-<p>对各个Region的回收价值和成本进行排序，根据用户所期待的GC停顿时间来制定回收计划</p>
-</li>
-</ol>
-<p><img src="/jvm-gc-collector/g1.png" alt></p>
-<p>参考：<a href="https://www.cnblogs.com/ityouknow/p/5614961.html" target="_blank" rel="noopener">jvm系列(三):java GC算法 垃圾收集器</a></p>
-<p>深入理解java虚拟机第二版</p>
-<p>更多阅读：<a href="https://chenmingyu.top/categories/">https://chenmingyu.top/categories/</a></p>
-
-			
-		</div>
-		<footer class="clearfix">
-			
-				
-				
-					<div class="disqus-comment">
-						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/jvm-gc-collector/#disqus_thread" class="comment-link"> 评论</a>
-					</div>
-				
-			
-			
-	<div class="categories">
-		<i class="fa fa-folder"></i>
-		
-			<a href="/categories/jvm/">jvm</a>
-		
-	</div>
-
-			
-	<div class="tags">
-		<i class="fa fa-tags"></i>
-		
-			<a href="/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/">#垃圾收集器</a>
-		
-	</div>
-
-		</footer>
-	</div>
-</article>
-	
-		
-		<article class="post">
-	<div class="post-content">
-		<header>
-			
-				<div class="meta">
-					<div class="icon">
-						
-							<i class="fa fa-file"></i>
-						
-					</div>
-					<time datetime="2019-09-17T09:58:30.000Z">2019-09-17</time>
-				</div>
-			
-			
-	
-		<h1 class="title" data-role="articleTitle"><a href="/jvm-memory/">【jvm】内存区域</a></h1>
-	
-
-		</header>
-		<div class="entry">
-			
-				<p>​    jvm在执行的过程中会把它所管理的内存划分为若干个不同的数据区域，这些数据区域中，有些依赖着用户线程的启动和结束而建立和销毁，有些则随着jvm进程的启动而创建</p>
-<h3 id="内存区域"><a href="#内存区域" class="headerlink" title="内存区域"></a>内存区域</h3><p>jvm的运行数据区域可以分为两种：线程私有和线程共享</p>
-<p>线程私有: 每个线程的私有数据，包括: 程序计数器、java虚拟机栈、本地方法栈</p>
-<p>线程共享: 所有线程共享的部分，包括:  Java 堆、方法区、常量池</p>
-<p><strong>jvm内存区域划图示</strong></p>
-<p><img src="/jvm-memory/jvm-memory%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F.png" alt></p>
-<h3 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h3><h4 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h4><p>程序计数器是较小的内存空间，它可以看做是当前线程所执行的字节码的行号指示器，用来执行选取小一条需要执行的字节码指令，属于线程私有的内存</p>
-<p>如果执行的是一个java方法，这个计数器记录的是正在执行的虚拟机字节码指令地址，如果执行的是Native方法，这个计数器值为空</p>
-<h4 id="虚拟机栈"><a href="#虚拟机栈" class="headerlink" title="虚拟机栈"></a>虚拟机栈</h4><p>虚拟机栈，也是线程私有的，它的生命周期与线程相同，每个方法在执行时都创建一个栈帧，每个方法从调用到执行完成，对应着一个栈帧的入栈到出栈</p>
-<p>虚拟机栈描述的是java方法执行的动态内存模型</p>
-<p>栈帧存储的数据包括: 局部变量表，操作数栈，动态链接，方法出口等信息</p>
-<p>在虚拟机栈中，规定了两种异常：</p>
-<ol>
-<li>当栈调用深度大于JVM所允许的范围，会抛出StackOverflowError的错误</li>
-<li>当虚拟机栈在扩展内存时无法申请到足够的内存，会抛出OutOfMemoryError异常</li>
-</ol>
-<h4 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h4><p>线程私有，与虚拟机栈提供的功能类似，只不过执行的是本地方法，也就是用Native修饰的方法</p>
-<h4 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h4><p>堆是被线程共享的一块内存区域，随着jvm的启动而创建，用来存放对象实例和数组</p>
-<p>这块区域也是GC进行垃圾回收的主要区域，当申请不到空间时会抛出 OutOfMemoryError异常</p>
-<p>堆可以细分为新生代和老年代，新生代用来存放存活时间较短的对象，老年代用来存放存活时间较长的对象，新生代还可以细分为一个Eden区和两个Survivor；</p>
-<h4 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h4><p>方法区也是被线程共享的一块内存区域，用来存虚拟机中加载的类信息，常量，静态变量，即时编译器编译后的代码等数据</p>
-<p>方法区是jvm的规范，而接下来要说的永久代和元空间正式jvm规范的一种实现</p>
-<p><strong>永久代（Permanent Space）</strong></p>
-<p>在jdk1.7时，方法区被叫做永久代（Permanent Space），由于方法区主要存储类的相关信息，所以对于动态生成类的情况比较容易出现永久代的内存溢出，当永久代出现内存溢出，会抛出java.lang.OutOfMemoryError: PermGen space异常</p>
-<p><strong>元空间（MetaSpace）</strong></p>
-<p>在jdk1.8中移除了永久代，使用元空间代替，jdk1.7中，存储在永久代的部分数据就已经转移到了堆内存或者是直接内存。但永久代仍存在于jdk1.7中，并没完全移除，譬如符号引用(Symbols)转移到了直接内存；字面量(interned strings)，类的静态变量(class statics)转移到了堆内存</p>
-<p>元空间的本质和永久代类似，都是对JVM规范中方法区的实现。不过元空间与永久代之间最大的区别在于：元空间并不在虚拟机中，而是使用本地内存。因此，默认情况下，元空间的大小仅受本地内存限制，但可以通过以下参数来指定元空间的大小：</p>
-<ul>
-<li>-XX:MetaspaceSize，初始空间大小，达到该值就会触发垃圾收集进行类型卸载，同时GC会对该值进行调整：如果释放了大量的空间，就适当降低该值；如果释放了很少的空间，那么在不超过MaxMetaspaceSize时，适当提高该值。</li>
-<li>-XX:MaxMetaspaceSize，最大空间，默认是没有限制的，最大内存受本地内存的限制</li>
-</ul>
-
-			
-		</div>
-		<footer class="clearfix">
-			
-				
-				
-					<div class="disqus-comment">
-						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/jvm-memory/#disqus_thread" class="comment-link"> 评论</a>
-					</div>
-				
-			
-			
-	<div class="categories">
-		<i class="fa fa-folder"></i>
-		
-			<a href="/categories/jvm/">jvm</a>
-		
-	</div>
-
-			
-	<div class="tags">
-		<i class="fa fa-tags"></i>
-		
-			<a href="/tags/jvm%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/">#jvm内存区域</a>
-		
-	</div>
-
-		</footer>
-	</div>
-</article>
-	
-
-	<nav id="pagination">
-	
-	
-		<a href="/page/2/" class="next">下一页 <i class="fa fa-chevron-right"></i></a>
-	
-</nav>
-
-	
 <script>
-	(function (disqus_shortname) {
-		window.addEventListener('DOMContentLoaded', function () {
-			var dsq = document.createElement('script');
-			dsq.type = 'text/javascript';
-			dsq.async = true;
-			dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
-			document.getElementsByTagName('head')[0].appendChild(dsq);
-		}, false);
-	}('dnxbf321'));
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
 </script>
-
-
-
-		</div>
-		
-	</div>
+            <div class="main">
+                
+    <div class="container profile-container">
+    <div class="intro">
+        <div class="avatar">
+            <a href="/archives"><img src="/image/avatar.jpeg"></a>
+        </div>
+        <div class="nickname">Jeremy Bentham</div>
+        <div class="description"><p>Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit.</strong> <br>Fusce eget urna vitae velit <em>eleifend interdum at ac</em> nisi.</p>
+</div>
+        <div class="links">
+            
+                
+                    <a class="link-item" title="Blog" href="/archives">
+                        
+                        
+                            <i class="iconfont icon-blog"></i>
+                        
+                    </a>
+                
+                    <a class="link-item" title="ZhiHu" href="https://www.zhihu.com/people/sirice" target="_blank" rel="noopener">
+                        
+                        
+                            <i class="iconfont icon-zhihu"></i>
+                        
+                    </a>
+                
+                    <a class="link-item" title="Instagram" href="">
+                        
+                        
+                            <i class="iconfont icon-instagram"></i>
+                        
+                    </a>
+                
+                    <a class="link-item" title="Reddit" href="">
+                        
+                        
+                            <i class="iconfont icon-reddit"></i>
+                        
+                    </a>
+                
+                    <a class="link-item" title="Github" href="https://github.com/Siricee" target="_blank" rel="noopener">
+                        
+                        
+                            <i class="iconfont icon-github"></i>
+                        
+                    </a>
+                
+            
+        </div>
+    </div>
 </div>
 
-<footer id="footer">
-	<div class="center">
-		&copy; 2022
-		
-			明羽
-		.
-		&nbsp;&nbsp;
-		Blog generated by <a href="http://hexo.io" target="_blank" rel="noopener">hexo</a>
-	</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 明羽 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
 </footer>
 
-<script src="/bower_components/jquery/dist/jquery.min.js"></script>
-<script src="/js/header-animate.js"></script>
-
-
-	<script src="/js/title-animate.js"></script>
-
-
-<script src="/bower_components/jquery_lazyload/jquery.lazyload.js"></script>
-<script>
-	$('img.lazy').lazyload();
-</script>
-
-	<script src="/bower_components/fancybox/source/jquery.fancybox.pack.js"></script>
-	<script>
-		$('.fancybox').fancybox();
-	</script>
-
-
-
-
+    </div>
 </body>
+
 </html>

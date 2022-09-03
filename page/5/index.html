@@ -1,1766 +1,196 @@
-
-
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
+
 <head>
-	<meta charset="UTF-8"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="renderer" content="webkit">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<meta name="description" content="但行好事 莫问前程">
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-	
-		
-			<link rel="stylesheet" href="/bower_components/fancybox/source/jquery.fancybox.css">
-		
-		<link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="/css/style.css">
-	
+    <meta name="author" content="明羽">
 
-	<title>但行好事 莫问前程 - 明羽</title>
+
+    <meta name="subtitle" content="明羽">
+
+
+    <meta name="description" content="但行好事 莫问前程">
+
+
+    <meta name="keywords" content="陈明羽,chenmingyu,java,架构">
+
+
+<title>但行好事 莫问前程</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
 <meta name="generator" content="Hexo 4.2.1"></head>
+
 <body>
-<header id="header">
-	<div class="center">
-		<div class="wrap">
-			<div id="site">
-				<h1>
-					<a href="/">但行好事 莫问前程</a>
-					
-						<a class="github" href="https://github.com/dnxbf321" target="_blank" rel="noopener">
-	  					<svg aria-hidden="true" class="octicon octicon-mark-github" height="28" role="img" version="1.1" viewBox="0 0 16 16" width="28"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59 0.4 0.07 0.55-0.17 0.55-0.38 0-0.19-0.01-0.82-0.01-1.49-2.01 0.37-2.53-0.49-2.69-0.94-0.09-0.23-0.48-0.94-0.82-1.13-0.28-0.15-0.68-0.52-0.01-0.53 0.63-0.01 1.08 0.58 1.23 0.82 0.72 1.21 1.87 0.87 2.33 0.66 0.07-0.52 0.28-0.87 0.51-1.07-1.78-0.2-3.64-0.89-3.64-3.95 0-0.87 0.31-1.59 0.82-2.15-0.08-0.2-0.36-1.02 0.08-2.12 0 0 0.67-0.21 2.2 0.82 0.64-0.18 1.32-0.27 2-0.27 0.68 0 1.36 0.09 2 0.27 1.53-1.04 2.2-0.82 2.2-0.82 0.44 1.1 0.16 1.92 0.08 2.12 0.51 0.56 0.82 1.27 0.82 2.15 0 3.07-1.87 3.75-3.65 3.95 0.29 0.25 0.54 0.73 0.54 1.48 0 1.07-0.01 1.93-0.01 2.2 0 0.21 0.15 0.46 0.55 0.38C13.71 14.53 16 11.53 16 8 16 3.58 12.42 0 8 0z"></path></svg>
-						</a>
-					
-				</h1>
-				
-					<h2>
-						<a href="/">明羽</a>
-					</h2>
-				
-			</div>
-			<nav id="menu">
-				<ul>
-					
-						<li><a href="/">首页</a></li>
-					
-						<li><a href="/archives/">归档</a></li>
-					
-				</ul>
-			</nav>
-		</div>
-	</div>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Bentham&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Bentham&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
 </header>
-
-<div id="content">
-	<div class="center">
-		<div class="main-col">
-			
-
-	
-		
-		<article class="post">
-	<div class="post-content">
-		<header>
-			
-				<div class="meta">
-					<div class="icon">
-						
-							<i class="fa fa-file"></i>
-						
-					</div>
-					<time datetime="2019-03-23T12:45:40.000Z">2019-03-23</time>
-				</div>
-			
-			
-	
-		<h1 class="title" data-role="articleTitle"><a href="/design-command/">23种设计模式之命令模式</a></h1>
-	
-
-		</header>
-		<div class="entry">
-			
-				<h3 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h3><p>命令模式属于行为型模式</p>
-<p><strong>定义：</strong>将一个请求封装成一个对象，从而让你使用不同的请求把客户端参数化，对请求排队或者记录请求日志，可以提供命令的撤销和恢复功能</p>
-<h4 id="模式类图"><a href="#模式类图" class="headerlink" title="模式类图"></a>模式类图</h4><p><img src="/design-command/uml.png" alt></p>
-<p><strong>角色：</strong></p>
-<ol>
-<li>接受者：<code>Receiver</code>最后的执行者，具体的业务逻辑</li>
-<li>命令接口：<code>Command</code>需要执行的所有命令都在这里声明</li>
-<li>具体命令：<code>ConcreteCommand</code>实现<code>Command</code>接口</li>
-<li>调用者：<code>Invoker</code>接收到命令，并执行命令，命令中调用接受者</li>
-</ol>
-<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ol>
-<li>降低类之间解耦，调用者与接受者之间没有任何依赖关系</li>
-<li>扩展性高，非常容易地扩展<code>Command</code>类的子类</li>
-</ol>
-<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><p>如果命令比较多，<code>Command</code>类的子类就会变得非常的多</p>
-<h4 id="模式代码实现"><a href="#模式代码实现" class="headerlink" title="模式代码实现"></a>模式代码实现</h4><p><strong>源码地址：<a href="https://github.com/mingyuHub/design-patterns" target="_blank" rel="noopener">https://github.com/mingyuHub/design-patterns</a></strong></p>
-<p>接受者有两个方法，打游戏和学习，通过实现命令接口写了两个具体的命令实现类，分别代表玩游戏命令和学习命令，通过调用者去调用不同的命令</p>
-<h5 id="接受者"><a href="#接受者" class="headerlink" title="接受者"></a>接受者</h5><pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/25 10:48
- * @description: 接受者角色
- */
-public class Receive {
-
-    public void play(){
-        System.out.println(&quot;打游戏吧&quot;);
-    }
-
-    public void study(){
-        System.out.println(&quot;要学习了&quot;);
-    }
-}</code></pre>
-<h5 id="命令接口"><a href="#命令接口" class="headerlink" title="命令接口"></a>命令接口</h5><pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/25 10:51
- * @description: 命令接口
- */
-public interface Commandable {
-
-    /**
-     * 命令执行接口
-     */
-    void execute();
-}</code></pre>
-<h5 id="玩游戏命令"><a href="#玩游戏命令" class="headerlink" title="玩游戏命令"></a>玩游戏命令</h5><p>持有<code>receive</code>实例</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/25 10:52
- * @description: 玩游戏命令
- */
-public class GameCommand implements Commandable{
-
-    private Receive receive;
-
-    public GameCommand(Receive receive) {
-        this.receive = receive;
-    }
-
-    @Override
-    public void execute() {
-        this.receive.play();
-    }
-}</code></pre>
-<h5 id="学习命令"><a href="#学习命令" class="headerlink" title="学习命令"></a>学习命令</h5><p>持有<code>receive</code>实例</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/25 10:54
- * @description: 学习命令
- */
-public class StudyCommand implements Commandable {
-
-    private Receive receive;
-
-    public StudyCommand(Receive receive) {
-        this.receive = receive;
-    }
-
-    @Override
-    public void execute() {
-        this.receive.study();
-    }
-}</code></pre>
-<h5 id="调用者"><a href="#调用者" class="headerlink" title="调用者"></a>调用者</h5><p>持有<code>Commandable</code>的实现类的实例</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/25 10:51
- * @description: 调用者
- */
-@Data
-public class Invoker {
-
-    /**
-     * 持有Commandable的实现类的实例
-     */
-    private Commandable commandable;
-
-    /**
-     * 执行命令
-     */
-    public void action(){
-        this.commandable.execute();
-    }
-}</code></pre>
-<h5 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h5><pre><code class="java">public static void main(String[] args) {
-
-    Invoker invoker = new Invoker();
-    Receive receive = new Receive();
-
-    Commandable gameCommand = new GameCommand(receive);
-    invoker.setCommandable(gameCommand);
-    invoker.action();
-
-    Commandable studyCommand = new StudyCommand(receive);
-    invoker.setCommandable(studyCommand);
-    invoker.action();
-}</code></pre>
-<p>输出</p>
-<pre><code class="java">打游戏吧
-要学习了</code></pre>
-<p><strong>参考：</strong>设计模式之禅：<a href="https://www.kancloud.cn/sstd521/design/193555" target="_blank" rel="noopener">https://www.kancloud.cn/sstd521/design/193555</a></p>
-<p><strong>推荐阅读：</strong><a href="https://chenmingyu.top/design/">23种设计模式详解</a></p>
-
-			
-		</div>
-		<footer class="clearfix">
-			
-				
-				
-					<div class="disqus-comment">
-						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/design-command/#disqus_thread" class="comment-link"> 评论</a>
-					</div>
-				
-			
-			
-	<div class="categories">
-		<i class="fa fa-folder"></i>
-		
-			<a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
-		
-	</div>
-
-			
-	<div class="tags">
-		<i class="fa fa-tags"></i>
-		
-			<a href="/tags/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/">#命令模式</a>
-		
-	</div>
-
-		</footer>
-	</div>
-</article>
-	
-		
-		<article class="post">
-	<div class="post-content">
-		<header>
-			
-				<div class="meta">
-					<div class="icon">
-						
-							<i class="fa fa-file"></i>
-						
-					</div>
-					<time datetime="2019-03-22T10:11:17.000Z">2019-03-22</time>
-				</div>
-			
-			
-	
-		<h1 class="title" data-role="articleTitle"><a href="/design-chain/">23种设计模式之责任链模式</a></h1>
-	
-
-		</header>
-		<div class="entry">
-			
-				<h3 id="责任链模式"><a href="#责任链模式" class="headerlink" title="责任链模式"></a>责任链模式</h3><p>责任链模式属于行为型模式</p>
-<p><strong>定义：</strong>使多个对象都有机会处理请求，从而避免了请求的发送者和接受者之间的耦合关系。将这些对象连成一条链，并沿着这条链传递该请求，直到有对象处理它为止</p>
-<p>每个对象持有对下一个对象的引用，形成一条链，请求在这条链上传递，直到某一对象决定处理该请求。但是发出者并不清楚到底最终那个对象会处理该请求.</p>
-<h4 id="模式类图"><a href="#模式类图" class="headerlink" title="模式类图"></a>模式类图</h4><p><img src="/design-chain/uml.png" alt></p>
-<p><strong>角色</strong></p>
-<ol>
-<li>抽象处理接口：Handler</li>
-<li>具体处理类：ConcreteHandler</li>
-</ol>
-<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><p>将请求与处理分开，请求者可以不用知道到底是需要谁来处理的，两者解耦，提高系统灵活性，增加新的请求处理类很方便</p>
-<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><p>当调用链比较长的时候，调试不方便，写代码时要注意避免循环调用</p>
-<h4 id="模式代码实现"><a href="#模式代码实现" class="headerlink" title="模式代码实现"></a>模式代码实现</h4><p><strong>源码地址：<a href="https://github.com/mingyuHub/design-patterns" target="_blank" rel="noopener">https://github.com/mingyuHub/design-patterns</a></strong></p>
-<p>以用户注册为例，注册方式分为普通用户注册和Vip用户注册，使用责任链模式将两种注册方式链起来</p>
-<h5 id="抽象处理接口"><a href="#抽象处理接口" class="headerlink" title="抽象处理接口"></a>抽象处理接口</h5><p>抽象接口定义了两个方法：用户注册方法，责任链调用方法</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/22 20:32
- * @description:
- */
-public interface Handler {
-
-    /**
-     * 注册操作
-     * @param userName 用户名
-     */
-    String operator(String userName);
-
-    /**
-     * 责任链调用处理逻辑
-     *      如果可以自己处理则自己处理，如果处理不了，交由下一个处理类处理
-     * @param level
-     * @param userName
-     * @return
-     */
-    String handleMessage(Integer level,String userName);
-}
-</code></pre>
-<h5 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h5><p>继承<code>Handler</code>，<code>getUserLevel()</code>交由子类实现，<code>handleMessage(Integer level,String userName)</code>用final修饰，子类无法重写责任链调用的处理逻辑</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/23 10:42
- * @description: 抽象类
- */
-@Data
-public abstract class AbstractHandle implements Handler {
-
-    /**
-     * 下一个处理器
-     */
-    public Handler nextHandler;
-
-    /**
-     * 获取用户等级
-     * @return
-     */
-    protected abstract Integer getUserLevel();
-
-    @Override
-    public final String handleMessage(Integer level,String userName){
-        String result = &quot;&quot;;
-        if(this.getUserLevel().equals(level)){
-            result = this.operator(userName);
-        }else{
-            result = this.nextHandler.handleMessage(level,userName);
-        }
-        return result;
-    }
-}</code></pre>
-<h5 id="具体实现类"><a href="#具体实现类" class="headerlink" title="具体实现类"></a>具体实现类</h5><p>普通会员</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/23 10:46
- * @description: 普通用户注册
- */
-@Data
-public class UserRegisterHandle extends AbstractHandle {
-
-    /**
-     * 普通会员
-     */
-    public Integer ordinaryLevel = 1;
-
-    @Override
-    public String operator(String userName) {
-        System.out.println(&quot;普通会员注册：&quot;+userName);
-        return userName;
-    }
-
-    @Override
-    protected Integer getUserLevel() {
-        return ordinaryLevel;
-    }
-}</code></pre>
-<p>vip会员</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/23 11:02
- * @description: vip会员注册
- */
-public class VIPUserRegisterHandle extends AbstractHandle {
-
-    /**
-     * VIP会员
-     */
-    public Integer VIPLevel = 2;
-
-    @Override
-    public String operator(String userName) {
-        System.out.println(&quot;VIP会员注册：&quot;+userName);
-        return userName;
-    }
-
-    @Override
-    protected Integer getUserLevel() {
-        return VIPLevel;
-    }
-}</code></pre>
-<h5 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h5><pre><code class="java">public static void main(String[] args) {
-
-    UserRegisterHandle userRegisterHandle = new UserRegisterHandle();
-    VIPUserRegisterHandle vipUserRegisterHandle = new VIPUserRegisterHandle();
-    userRegisterHandle.setNextHandler(vipUserRegisterHandle);
-
-    userRegisterHandle.handleMessage(2,&quot;mingyu&quot;);
-    userRegisterHandle.handleMessage(1,&quot;mingyu&quot;);
-}</code></pre>
-<p>输出</p>
-<pre><code class="java">VIP会员注册：mingyu
-普通会员注册：mingyu</code></pre>
-<p><strong>参考：</strong>设计模式之禅：<a href="https://www.kancloud.cn/sstd521/design/193560" target="_blank" rel="noopener">https://www.kancloud.cn/sstd521/design/193560</a></p>
-<p><strong>推荐阅读：</strong><a href="https://chenmingyu.top/design/">23种设计模式详解</a></p>
-
-			
-		</div>
-		<footer class="clearfix">
-			
-				
-				
-					<div class="disqus-comment">
-						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/design-chain/#disqus_thread" class="comment-link"> 评论</a>
-					</div>
-				
-			
-			
-	<div class="categories">
-		<i class="fa fa-folder"></i>
-		
-			<a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
-		
-	</div>
-
-			
-	<div class="tags">
-		<i class="fa fa-tags"></i>
-		
-			<a href="/tags/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/">#责任链模式</a>
-		
-	</div>
-
-		</footer>
-	</div>
-</article>
-	
-		
-		<article class="post">
-	<div class="post-content">
-		<header>
-			
-				<div class="meta">
-					<div class="icon">
-						
-							<i class="fa fa-file"></i>
-						
-					</div>
-					<time datetime="2019-03-15T01:57:57.000Z">2019-03-15</time>
-				</div>
-			
-			
-	
-		<h1 class="title" data-role="articleTitle"><a href="/design-observer/">23种设计模式之观察者模式</a></h1>
-	
-
-		</header>
-		<div class="entry">
-			
-				<h3 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h3><p>观察者模式属于行为型模式，又叫发布订阅模式</p>
-<p><strong>定义：</strong></p>
-<p>​    定义对象间一种一对多的依赖关系，使得每当一个对象改变状态，则所有依赖于它的对象都会得到通知并被自动更新</p>
-<h4 id="模式类图"><a href="#模式类图" class="headerlink" title="模式类图"></a>模式类图</h4><p><img src="/design-observer/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20190315105847.png" alt></p>
-<p><strong>角色：</strong></p>
-<ol>
-<li>被观察者：<code>Subject</code>定义一个被观察者必须实现职责，包括动态增加，删除，通知观察者</li>
-<li>观察者：<code>Observer</code>接受到观察者修改消息，执行自身逻辑</li>
-<li>具体观察者：<code>ConctreteSubject</code>继承<code>Subject</code>，拥有自己的业务逻辑，具有被观察者基本功能，对某些事件进行通知</li>
-<li>具体的观察者：<code>ConcreteObserver</code>具体观察者，在接受到被观察者变更消息后，进行各自业务处理</li>
-</ol>
-<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ol>
-<li>观察者和被观察者之间是抽象耦合，容易拓展</li>
-<li>通过触发机制可以创建成一种链式触发机制，形成多级触发</li>
-</ol>
-<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ol>
-<li><p>执行效率</p>
-<p>当通知观察者是顺序执行时，需要考虑整个观察者列表的数量，对整个通知事件执行效率的影响，可以考虑使用异步通知，同时尽量避免多级触发事件</p>
-</li>
-<li><p>循环依赖</p>
-<p>当观察者和被观察之间形成循环依赖，会导致循环调用，比如A改变通知B，B改变通知C，C改变通知A，注意避免循环依赖的发生</p>
-</li>
-</ol>
-<h4 id="模式代码实现"><a href="#模式代码实现" class="headerlink" title="模式代码实现"></a>模式代码实现</h4><p>以用户修改密码为例，当用户密码改变后，使用短信和邮件对用户进行消息提醒</p>
-<p><strong>源码地址：<a href="https://github.com/mingyuHub/design-patterns" target="_blank" rel="noopener">https://github.com/mingyuHub/design-patterns</a></strong></p>
-<h5 id="被观察者接口"><a href="#被观察者接口" class="headerlink" title="被观察者接口"></a>被观察者接口</h5><p><code>Subjectable</code> 定义被观察者基本功能</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/15 13:44
- * @description: 被观察者接口
- */
-public interface Subjectable {
-
-    /**
-     * 增加观察者
-     */
-    void addObserver(Observerable observer);
-
-    /**
-     * 移除观察者
-     */
-    void removeObserver(Observerable observer);
-
-    /**
-     * 通知观察者
-     */
-    void notifyObserver(Object object);
-}</code></pre>
-<h5 id="被观察者抽象类"><a href="#被观察者抽象类" class="headerlink" title="被观察者抽象类"></a>被观察者抽象类</h5><p><code>AbstractSubject</code>被观察者类的公共父类，实现了被观察者基本功能的实现，使用<code>Vector</code>为观察者列表</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/15 11:24
- * @description: 被观察者抽象类
- */
-public abstract class AbstractSubject implements Subjectable{
-
-    /**
-     * 观察者列表
-     */
-    private Vector&lt;Observerable&gt; observers = new Vector();
-
-    @Override
-    public void addObserver(Observerable observer){
-        observers.add(observer);
-    }
-
-    @Override
-    public void removeObserver(Observerable observer){
-        observers.add(observer);
-    }
-
-    @Override
-    public void notifyObserver(Object object){
-        observers.forEach(observer-&gt;{
-            observer.update(object);
-        });
-    }
-}</code></pre>
-<h5 id="被观察者类"><a href="#被观察者类" class="headerlink" title="被观察者类"></a>被观察者类</h5><p><code>UserInfo</code>实现<code>AbstractSubject</code></p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/15 13:50
- * @description: 被观察者
- */
-@Data
-public class UserInfo extends AbstractSubject{
-
-    /**
-     * 昵称
-     */
-    private String nickName;
-    /**
-     * 密码
-     */
-    private String password;
-
-    /**
-     * 修改密码
-     * @param password
-     */
-    public void updatePassword(String password){
-        this.password = password;
-        this.notifyObserver(password);
-    }
-
-    public UserInfo(String nickName, String password) {
-        this.nickName = nickName;
-        this.password = password;
-    }
-}</code></pre>
-<h5 id="观察者接口"><a href="#观察者接口" class="headerlink" title="观察者接口"></a>观察者接口</h5><pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/15 13:40
- * @description: 观察者
- */
-public interface Observerable {
-
-    /**
-     * 被观察者变化触发事件
-     */
-    void update(Object object);
-}</code></pre>
-<h5 id="具体观察者"><a href="#具体观察者" class="headerlink" title="具体观察者"></a>具体观察者</h5><p><code>SmsObserver</code> 接收到被观察者密码变更，发送短信提醒</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/15 13:56
- * @description: 短信观察者
- */
-public class SmsObserver implements Observerable {
-
-    @Override
-    public void update(Object object) {
-        if(null == object){
-            return;
-        }
-        System.out.println(&quot;短信观察者&quot;);
-        System.out.println(&quot;短信发送提醒：密码更改为：&quot;+object.toString());
-    }
-}</code></pre>
-<p><code>EmailObserver</code> 接收到被观察者密码变更，发送邮件提醒</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/15 13:54
- * @description: 邮件观察者
- */
-public class EmailObserver implements Observerable{
-
-    @Override
-    public void update(Object object) {
-        if(null == object){
-            return;
-        }
-        System.out.println(&quot;邮件观察者&quot;);
-        System.out.println(&quot;邮件发送提醒：密码更改为：&quot;+object.toString());
-    }
-}</code></pre>
-<h5 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h5><pre><code class="java">public static void main(String[] args) {
-
-    UserInfo userInfo = new UserInfo(&quot;麻辣香锅&quot;,&quot;malaxiangguo&quot;);
-
-    SmsObserver smsObserver = new SmsObserver();
-    EmailObserver emailObserver = new EmailObserver();
-
-    userInfo.addObserver(smsObserver);
-    userInfo.addObserver(emailObserver);
-
-    userInfo.updatePassword(&quot;mlxg&quot;);
-}</code></pre>
-<p>输出</p>
-<pre><code class="java">短信观察者
-短信发送提醒：密码更改为：mlxg
-邮件观察者
-邮件发送提醒：密码更改为：mlxg</code></pre>
-<p><code>SmsObserver</code>和<code>EmailObserver</code>观察到<code>UserInfo</code>用户麻辣香锅更改密码为mlxg</p>
-<p><strong>参考：</strong>设计模式之禅：<a href="https://www.kancloud.cn/sstd521/design/193589" target="_blank" rel="noopener">https://www.kancloud.cn/sstd521/design/193589</a></p>
-<p><strong>推荐阅读：</strong><a href="https://chenmingyu.top/design/">23种设计模式详解</a></p>
-
-			
-		</div>
-		<footer class="clearfix">
-			
-				
-				
-					<div class="disqus-comment">
-						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/design-observer/#disqus_thread" class="comment-link"> 评论</a>
-					</div>
-				
-			
-			
-	<div class="categories">
-		<i class="fa fa-folder"></i>
-		
-			<a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
-		
-	</div>
-
-			
-	<div class="tags">
-		<i class="fa fa-tags"></i>
-		
-			<a href="/tags/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/">#观察者模式</a>
-		
-	</div>
-
-		</footer>
-	</div>
-</article>
-	
-		
-		<article class="post">
-	<div class="post-content">
-		<header>
-			
-				<div class="meta">
-					<div class="icon">
-						
-							<i class="fa fa-file"></i>
-						
-					</div>
-					<time datetime="2019-03-12T09:27:42.000Z">2019-03-12</time>
-				</div>
-			
-			
-	
-		<h1 class="title" data-role="articleTitle"><a href="/design-composite/">23种设计模式之组合模式</a></h1>
-	
-
-		</header>
-		<div class="entry">
-			
-				<h3 id="组合模式"><a href="#组合模式" class="headerlink" title="组合模式"></a>组合模式</h3><p>组合模式属于属于结构型模式，又叫部分整体模式</p>
-<p><strong>定义：</strong>将对象组合成树形结构以表示“部分-整体”的层次结构，使得用户对单个对象和组合对象的使用具有一致性。</p>
-<p>用来描述部分与整体的关系，是用于把一组相似的对象当作一个单一的对象。组合模式依据树形结构来组合对象，所以组合模式的使用场景就是出现树形结构的地方。比如：树形菜单，文件目录等树形结构数据的操作</p>
-<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ol>
-<li>高层模块调用简单</li>
-<li>节点自由增加</li>
-</ol>
-<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><p>在使用组合模式时，其叶子和树枝的声明都是实现类，而不是接口，违反了依赖倒置原则</p>
-<h4 id="模式代码实现"><a href="#模式代码实现" class="headerlink" title="模式代码实现"></a>模式代码实现</h4><p><strong>源码地址：<a href="https://github.com/mingyuHub/design-patterns" target="_blank" rel="noopener">https://github.com/mingyuHub/design-patterns</a></strong></p>
-<h5 id="菜单类"><a href="#菜单类" class="headerlink" title="菜单类"></a>菜单类</h5><p>每个一级菜单有子菜单，二级子菜单有三级菜单，以此形成一个树形结构</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/12 17:46
- * @description:
- */
-@Data
-public class Menu {
-
-    /**
-     * 菜单名
-     */
-    private String name;
-
-    /**
-     * 路径
-     */
-    private String path;
-
-    private List&lt;Menu&gt; menus;
-
-    public Menu(String name, String path) {
-        this.name = name;
-        this.path = path;
-        menus = new ArrayList&lt;&gt;();
-    }
-
-    public void add(Menu menu){
-        menus.add(menu);
-    }
-
-    public void remove(Menu menu){
-        menus.remove(menu);
-    }
-}</code></pre>
-<h5 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h5><pre><code class="java">public static void main(String[] args) {
-    Menu home = new Menu(&quot;首页&quot;,&quot;/&quot;);
-    Menu tag = new Menu(&quot;标签&quot;,&quot;/标签&quot;);
-    Menu archive = new Menu(&quot;归档&quot;,&quot;/归档&quot;);
-    Menu menu1 = new Menu(&quot;子菜单1&quot;,&quot;/子菜单1&quot;);
-    Menu menu2 = new Menu(&quot;子菜单2&quot;,&quot;/子菜单2&quot;);
-    home.add(tag);
-    home.add(archive);
-    tag.add(menu1);
-    archive.add(menu2);
-    home.getMenus().forEach(menu -&gt;{
-        System.out.println(menu);
-    });
-}</code></pre>
-<p>输出</p>
-<pre><code class="java">Menu(name=标签, path=/标签, menus=[Menu(name=子菜单1, path=/子菜单1, menus=[])])
-Menu(name=归档, path=/归档, menus=[Menu(name=子菜单2, path=/子菜单2, menus=[])])</code></pre>
-<p><strong>参考：</strong>设计模式之禅：<a href="https://www.kancloud.cn/sstd521/design/193581" target="_blank" rel="noopener">https://www.kancloud.cn/sstd521/design/193581</a></p>
-<p><strong>推荐阅读：</strong><a href="https://chenmingyu.top/design/">23种设计模式详解</a></p>
-
-			
-		</div>
-		<footer class="clearfix">
-			
-				
-				
-					<div class="disqus-comment">
-						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/design-composite/#disqus_thread" class="comment-link"> 评论</a>
-					</div>
-				
-			
-			
-	<div class="categories">
-		<i class="fa fa-folder"></i>
-		
-			<a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
-		
-	</div>
-
-			
-	<div class="tags">
-		<i class="fa fa-tags"></i>
-		
-			<a href="/tags/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/">#组合模式</a>
-		
-	</div>
-
-		</footer>
-	</div>
-</article>
-	
-		
-		<article class="post">
-	<div class="post-content">
-		<header>
-			
-				<div class="meta">
-					<div class="icon">
-						
-							<i class="fa fa-file"></i>
-						
-					</div>
-					<time datetime="2019-03-05T08:13:12.000Z">2019-03-05</time>
-				</div>
-			
-			
-	
-		<h1 class="title" data-role="articleTitle"><a href="/design-bridge/">23种设计模式之桥接模式</a></h1>
-	
-
-		</header>
-		<div class="entry">
-			
-				<h3 id="桥接模式"><a href="#桥接模式" class="headerlink" title="桥接模式"></a>桥接模式</h3><p>桥接模式属于结构型模式</p>
-<p><strong>定义：</strong> 将抽象和实现解耦，使得两者可以独立地变化</p>
-<p>桥接模式是为了解决继承的缺点而提出的设计模式，将系统各维度抽象出来，各维度独立变化，之后可通过聚合，将各维度组合起来，减少它们之间耦合</p>
-<h4 id="模式类图"><a href="#模式类图" class="headerlink" title="模式类图"></a>模式类图</h4><p>以游戏为例，游戏可以按品牌分为任天堂游戏和腾讯游戏两种，显示器可以分为CRT，LCD显示器</p>
-<p><img src="/design-bridge/uml.png" alt></p>
-<p>​    将游戏和显示器分为两个维度，当两个维度都可以独立变化时，使用聚合将各维度组合，这时如果要增加一个游戏或者显示器，只需要增加相应子类就可以</p>
-<h5 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h5><ol>
-<li>桥接模式主要作用就是解耦，解决多重继承导致的问题，将抽象和实现的分离</li>
-<li>优秀的扩展能力，想扩展就增加实现</li>
-<li>通过抽象层进行聚合完成封装，实现细节对客户透明</li>
-</ol>
-<h5 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h5><p>会增加系统的理解与设计难度</p>
-<h4 id="模式代码实现"><a href="#模式代码实现" class="headerlink" title="模式代码实现"></a>模式代码实现</h4><p><strong>源码地址：<a href="https://github.com/mingyuHub/design-patterns" target="_blank" rel="noopener">https://github.com/mingyuHub/design-patterns</a></strong></p>
-<h5 id="抽象游戏类"><a href="#抽象游戏类" class="headerlink" title="抽象游戏类"></a>抽象游戏类</h5><p><code>AbstractGame</code>，按游戏分类</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/11 17:13
- * @description: 抽象游戏类
- */
-public abstract class AbstractGame {
-
-    protected AbstractDisplayer displayer;
-
-    public void setAbstractDisplayer(AbstractDisplayer displayer) {
-        this.displayer = displayer;
-    }
-
-    /**
-     * 玩游戏
-     */
-    public abstract void play();
-}</code></pre>
-<h5 id="具体游戏实现"><a href="#具体游戏实现" class="headerlink" title="具体游戏实现"></a>具体游戏实现</h5><p>任天堂游戏</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/11 17:17
- * @description: 任天堂游戏
- */
-public class NintendoGame extends AbstractGame{
-
-    @Override
-    public void play() {
-        System.out.println(&quot;启动任天堂游戏&quot;);
-        displayer.run();
-    }
-}</code></pre>
-<p>腾讯游戏</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/11 17:21
- * @description:
- */
-public class TencentGame extends AbstractGame {
-
-    @Override
-    public void play() {
-        System.out.println(&quot;启动腾讯游戏&quot;);
-        displayer.run();
-    }
-}</code></pre>
-<h5 id="抽象显示器类"><a href="#抽象显示器类" class="headerlink" title="抽象显示器类"></a>抽象显示器类</h5><p><code>AbstractDisplayer</code> 按显示器分类</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/11 17:25
- * @description: 抽象显示器
- */
-public abstract class AbstractDisplayer {
-
-    /**
-     * 运行
-     */
-    public abstract void run();
-}</code></pre>
-<p>LCD显示器</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/11 17:27
- * @description: LCD显示器
- */
-public class LCDDisplay extends AbstractDisplayer{
-
-    @Override
-    public void run() {
-        System.out.println(&quot;运行 LCD显示器&quot;);
-    }
-}</code></pre>
-<p>CRT显示器</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/11 17:28
- * @description: CRT显示器
- */
-public class CRTDisplayer extends AbstractDisplayer {
-
-    @Override
-    public void run() {
-        System.out.println(&quot;运行 CRT显示器&quot;);
-    }
-}</code></pre>
-<h5 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h5><p>通过聚合实现不同游戏使用不同那个的显示器玩</p>
-<pre><code class="java">public static void main(String[] args) {
-
-    AbstractGame nintendoGame = new NintendoGame();
-    nintendoGame.setAbstractDisplayer(new LCDDisplay());
-    nintendoGame.play();
-    AbstractGame tencentGame = new TencentGame();
-    tencentGame.setAbstractDisplayer(new CRTDisplayer());
-    tencentGame.play();
-}</code></pre>
-<p>输出</p>
-<pre><code class="java">启动任天堂游戏
-运行彩色显示器
-启动腾讯游戏
-运行老式黑白显示器</code></pre>
-<p>桥接模式使用了类间的聚合关系、继承、覆写等常用功能，但是它却提供了一个非常清晰、稳定的架构。</p>
-<p><strong>参考：</strong></p>
-<p>​    设计模式之禅：<a href="https://www.kancloud.cn/sstd521/design/193620" target="_blank" rel="noopener">https://www.kancloud.cn/sstd521/design/193620</a></p>
-<p>​    桥接模式|菜鸟教程：<a href="http://www.runoob.com/design-pattern/bridge-pattern.html" target="_blank" rel="noopener">http://www.runoob.com/design-pattern/bridge-pattern.html</a></p>
-<p><strong>推荐阅读：</strong><a href="https://chenmingyu.top/design/">23种设计模式详解</a></p>
-
-			
-		</div>
-		<footer class="clearfix">
-			
-				
-				
-					<div class="disqus-comment">
-						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/design-bridge/#disqus_thread" class="comment-link"> 评论</a>
-					</div>
-				
-			
-			
-	<div class="categories">
-		<i class="fa fa-folder"></i>
-		
-			<a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
-		
-	</div>
-
-			
-	<div class="tags">
-		<i class="fa fa-tags"></i>
-		
-			<a href="/tags/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/">#桥接模式</a>
-		
-	</div>
-
-		</footer>
-	</div>
-</article>
-	
-		
-		<article class="post">
-	<div class="post-content">
-		<header>
-			
-				<div class="meta">
-					<div class="icon">
-						
-							<i class="fa fa-file"></i>
-						
-					</div>
-					<time datetime="2019-03-04T07:24:04.000Z">2019-03-04</time>
-				</div>
-			
-			
-	
-		<h1 class="title" data-role="articleTitle"><a href="/design-builder/">23种设计模式之建造者模式</a></h1>
-	
-
-		</header>
-		<div class="entry">
-			
-				<h3 id="建造者模式"><a href="#建造者模式" class="headerlink" title="建造者模式"></a>建造者模式</h3><p>建造者模式属于创建型设计模式，用来组装复杂的实例</p>
-<p><strong>定义：</strong>将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示</p>
-<p>建造者模式是一步一步创建一个复杂的对象，它允许用户只通过指定复杂对象的类型和内容就可以构建它们，用户不需要知道内部的具体构建细节。</p>
-<h4 id="模式类图"><a href="#模式类图" class="headerlink" title="模式类图"></a>模式类图</h4><p><img src="/design-builder/uml.png" alt></p>
-<p><strong>角色</strong></p>
-<ol>
-<li>抽象建造者：Builder，目的是为了将建造的具体过程交给它的子类来实现。这样更容易扩展。一般至少会有两个抽象方法，一个用来建造产品，一个是用来返回产品</li>
-<li>具体的建造者： ConcreteBuilder，实现抽象建造者的所有未实现的方法，具体来说一般是两项任务：组建产品；返回组建好的产品</li>
-<li>产品类：Product，一般是一个较为复杂的对象</li>
-<li>管理类：Director，负责调用适当的建造者来组建产品，被用来封装程序中易变的部分</li>
-</ol>
-<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ol>
-<li><p>客户端不必知道产品内部组成的细节，封装性好</p>
-</li>
-<li><p>建造者独立，容易扩展</p>
-</li>
-</ol>
-<h4 id="模式代码实现"><a href="#模式代码实现" class="headerlink" title="模式代码实现"></a>模式代码实现</h4><p><strong>源码地址：<a href="https://github.com/mingyuHub/design-patterns" target="_blank" rel="noopener">https://github.com/mingyuHub/design-patterns</a></strong></p>
-<p>以电脑为例，电脑拥有cpu，内存，硬盘，涉及的类：<code>Builder(抽象建造者)</code>，<code>ConcreteBuilder(具体的建造者)</code>，<code>Computer(产品类)</code>，<code>Director(管理类)</code></p>
-<h5 id="抽象建造者"><a href="#抽象建造者" class="headerlink" title="抽象建造者"></a>抽象建造者</h5><pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/4 17:05
- * @description: 抽象建造者
- */
-public abstract class Builder {
-
-    /**
-     * 组装cpu
-     */
-    public abstract void builderCpu(String cpu);
-
-    /**
-     * 组装内存
-     */
-    public abstract void builderMemory(String memory);
-
-    /**
-     * 组装硬盘
-     */
-    public abstract void builderDisk(String disk);
-
-    /**
-     * 获取电脑
-     * @return
-     */
-    public abstract Computer getComputer();
-
-}</code></pre>
-<h5 id="具体的建造者"><a href="#具体的建造者" class="headerlink" title="具体的建造者"></a>具体的建造者</h5><pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/4 17:14
- * @description: 具体的建造者
- */
-public class ConcreteBuilder extends Builder {
-
-    private Computer computer = new Computer();
-
-    @Override
-    public void builderCpu(String cpu) {
-        computer.setCpu(cpu);
-    }
-
-    @Override
-    public void builderMemory(String memory) {
-        computer.setMemory(memory);
-    }
-
-    @Override
-    public void builderDisk(String disk) {
-        computer.setDisk(disk);
-    }
-
-    @Override
-    public Computer getComputer() {
-        return computer;
-    }
-}</code></pre>
-<h5 id="产品类"><a href="#产品类" class="headerlink" title="产品类"></a>产品类</h5><pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/4 16:57
- * @description: 电脑产品
- */
-@Data
-public class Computer {
-
-    private String cpu;
-
-    private String memory;
-
-    private String disk;
-
-}</code></pre>
-<h5 id="主管类"><a href="#主管类" class="headerlink" title="主管类"></a>主管类</h5><pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/4 17:10
- * @description: 主管类
- */
-public class Director {
-
-    private Builder builder = new ConcreteBuilder();
-
-    /**
-     * 组装电脑
-     */
-    public Computer builderComputer(String cpu, String memory, String disk){
-        builder.builderCpu(cpu);
-        builder.builderMemory(memory);
-        builder.builderDisk(disk);
-        return builder.getComputer();
-    }
-}</code></pre>
-<h5 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h5><pre><code class="java">public static void main(String[] args) {
-    Director director = new Director();
-    Computer computer = director.builderComputer(&quot;Intel cpu&quot;,&quot;内存&quot;,&quot;硬盘&quot;);
-    System.out.println(computer);
-}</code></pre>
-<h5 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h5><pre><code class="java">Computer(cpu=Intel cpu, memory=内存, disk=硬盘)</code></pre>
-<p>建造者模式与工程方法模式的不同在于建造者模式关注的是零件类型和装配工艺（顺序）</p>
-<p>建造者模式还有种更常见的使用方式：</p>
-<p>使用静态内部类</p>
-<pre><code class="java">public class Cache {
-
-    private final String name;
-
-    private final String condition;
-
-    protected Cache(Builder b) {
-        this.name = b.name;
-        this.condition = b.condition;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getCondition() {
-        return condition;
-    }
-
-    public static class Builder {
-
-        private String name = &quot;&quot;;
-        private String condition = &quot;&quot;;
-
-        public Builder setName(String name) {
-            this.name = name;
-            return this;
-        }
-
-        public Builder setCondition(String condition) {
-            this.condition = condition;
-            return this;
-        }
-
-        public Cache build(){
-            return new Cache(this);
-        };
-    }
-}</code></pre>
-<p>使用时：</p>
-<pre><code class="java">new Cache.Builder().setName(&quot;cmy&quot;).setCondition(&quot;condition&quot;).build()；</code></pre>
-<p><strong>推荐阅读：</strong><a href="https://chenmingyu.top/design/">23种设计模式详解</a></p>
-
-			
-		</div>
-		<footer class="clearfix">
-			
-				
-				
-					<div class="disqus-comment">
-						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/design-builder/#disqus_thread" class="comment-link"> 评论</a>
-					</div>
-				
-			
-			
-	<div class="categories">
-		<i class="fa fa-folder"></i>
-		
-			<a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
-		
-	</div>
-
-			
-	<div class="tags">
-		<i class="fa fa-tags"></i>
-		
-			<a href="/tags/%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/">#建造者模式</a>
-		
-	</div>
-
-		</footer>
-	</div>
-</article>
-	
-		
-		<article class="post">
-	<div class="post-content">
-		<header>
-			
-				<div class="meta">
-					<div class="icon">
-						
-							<i class="fa fa-file"></i>
-						
-					</div>
-					<time datetime="2019-03-01T09:13:35.000Z">2019-03-01</time>
-				</div>
-			
-			
-	
-		<h1 class="title" data-role="articleTitle"><a href="/springboot-async/">spring Boot 2.x | 异步调用，定时任务</a></h1>
-	
-
-		</header>
-		<div class="entry">
-			
-				<h4 id="定时任务"><a href="#定时任务" class="headerlink" title="定时任务"></a>定时任务</h4><p>在springboot中实现定时任务很简单</p>
-<p>1，启动类上增加一个<code>@EnableScheduling</code>注解</p>
-<pre><code class="java">@EnableScheduling
-@SpringBootApplication
-public class SpringbootAsyncApplication {
-
-    public static void main(String[] args) {
-        SpringApplication.run(SpringbootAsyncApplication.class, args);
-    }
-
-}</code></pre>
-<p>2，创建一个定时任务类，使用<code>@Scheduled</code>注解</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/1 17:33
- * @description: 定时任务
- */
-@Component
-public class Schedule {
-
-    @Scheduled(cron = &quot;0/1 * * * * ?&quot;)
-    public void test() {
-        System.out.println(&quot;...测试...&quot;);
-    }
-}</code></pre>
-<p>启动后，输出如下</p>
-<p><img src="/springboot-async/E:%5Cmy%5Cmyblog%5Csource_posts%5Cspringboot-async%5C%E8%BE%93%E5%87%BA.png" alt></p>
-<h4 id="异步调用"><a href="#异步调用" class="headerlink" title="异步调用"></a>异步调用</h4><p>异步调用，指的是一个可以无需等待被调用方法的返回值就让操作继续进行的方法</p>
-<p>springboot中实现异步调用</p>
-<p>1，启动类上增加一个<code>@EnableAsync</code>注解</p>
-<pre><code class="java">@EnableAsync
-@SpringBootApplication
-public class SpringbootAsyncApplication {
-
-    public static void main(String[] args) {
-        SpringApplication.run(SpringbootAsyncApplication.class, args);
-    }
-
-}</code></pre>
-<p>2，使用<code>@async</code>注解</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/1 17:49
- * @description: 异步调用
- */
-@Component
-public class UserTest {
-
-    @Async
-    public void testOne() throws Exception{
-        System.out.println(&quot;testOne 开始执行&quot;);
-        Thread.sleep(2000L);
-        System.out.println(&quot;testOne 执行结束&quot;);
-    }
-
-    @Async
-    public void testTwo() throws Exception{
-        System.out.println(&quot;testTwo 开始执行&quot;);
-        Thread.sleep(1000L);
-        System.out.println(&quot;testTwo 执行结束&quot;);
-    }
-}</code></pre>
-<p>测试</p>
-<pre><code class="java">@RunWith(SpringRunner.class)
-@SpringBootTest
-public class SpringbootAsyncApplicationTests {
-
-    @Autowired
-    private UserTest userTest;
-
-    @Test
-    public void contextLoads() throws Exception{
-        userTest.testOne();
-        userTest.testTwo();
-        //防止主线程执行完
-        Thread.sleep(5000L);
-    }
-}</code></pre>
-<p>输出</p>
-<p><img src="/springboot-async/async.png" alt></p>
-
-			
-		</div>
-		<footer class="clearfix">
-			
-				
-				
-					<div class="disqus-comment">
-						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/springboot-async/#disqus_thread" class="comment-link"> 评论</a>
-					</div>
-				
-			
-			
-	<div class="categories">
-		<i class="fa fa-folder"></i>
-		
-			<a href="/categories/java/">java</a>
-		
-	</div>
-
-			
-	<div class="tags">
-		<i class="fa fa-tags"></i>
-		
-			<a href="/tags/springboot/">#springboot</a>
-		
-			<a href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/">#定时任务</a>
-		
-			<a href="/tags/%E5%BC%82%E6%AD%A5%E8%B0%83%E7%94%A8/">#异步调用</a>
-		
-	</div>
-
-		</footer>
-	</div>
-</article>
-	
-		
-		<article class="post">
-	<div class="post-content">
-		<header>
-			
-				<div class="meta">
-					<div class="icon">
-						
-							<i class="fa fa-file"></i>
-						
-					</div>
-					<time datetime="2019-03-01T06:30:21.000Z">2019-03-01</time>
-				</div>
-			
-			
-	
-		<h1 class="title" data-role="articleTitle"><a href="/design-facade/">23种设计模式之外观模式</a></h1>
-	
-
-		</header>
-		<div class="entry">
-			
-				<h3 id="外观模式"><a href="#外观模式" class="headerlink" title="外观模式"></a>外观模式</h3><p>外观模式属于结构型设计模式</p>
-<p><strong>定义：</strong>要求一个子系统的外部与其内部的通信必须通过一个统一的对象进行。提供一个高层次的接口，使得子系统更易于使用</p>
-<p>外观模式是为了解决类与类之间的责任关系和依赖关系的，通过提供一个Facade类来隐藏这些复杂的类之间关系的调用，并提供一个接口，供外部调用，利用这种方式进行类之间的解耦</p>
-<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ol>
-<li>减少类之间依赖，只对Facade类进行依赖，对Facade类里的复杂的类没有关联</li>
-<li>提高了灵活性，只对Facade类进行依赖，Facade类内部可自由变化</li>
-<li>提高安全性，只能对Facade类进行访问，无法访问到Facade类里复杂的类</li>
-</ol>
-<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><p>不符合开闭原则，如果Facade类设计不好，后期无法通过对Facade类重写覆盖去解决问题，只能改代码</p>
-<h4 id="模式代码实现"><a href="#模式代码实现" class="headerlink" title="模式代码实现"></a>模式代码实现</h4><p><strong>源码地址：<a href="https://github.com/mingyuHub/design-patterns" target="_blank" rel="noopener">https://github.com/mingyuHub/design-patterns</a></strong></p>
-<p>以汽车启动为例，需要启动引擎，仪表盘，大灯等，有可能需要先启动引擎之后才可以启动仪表盘，或者大灯的启动依赖引擎的启动等，这个时候就需要一个Facade类来隐藏这些复杂的依赖关系</p>
-<p>实例涉及的类：<code>Engine（引擎）</code>，<code>Armaturenbrett（仪表盘）</code>，<code>Headlight（大灯）</code>，<code>Car（汽车类，facade类）</code></p>
-<h5 id="Engine"><a href="#Engine" class="headerlink" title="Engine"></a>Engine</h5><pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/1 14:53
- * @description: 引擎
- */
-public class Engine {
-
-    public void start(){
-        System.out.println(&quot;启动引擎...&quot;);
-    }
-}</code></pre>
-<h5 id="Armaturenbrett"><a href="#Armaturenbrett" class="headerlink" title="Armaturenbrett"></a>Armaturenbrett</h5><pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/1 15:02
- * @description: 仪表盘
- */
-public class Armaturenbrett {
-
-    public void start(){
-        System.out.println(&quot;启动仪表盘...&quot;);
-    }
-}</code></pre>
-<h5 id="Headlight"><a href="#Headlight" class="headerlink" title="Headlight"></a>Headlight</h5><pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/1 14:53
- * @description:
- */
-public class Headlight {
-
-    public void start(){
-        System.out.println(&quot;启动大灯...&quot;);
-    }
-}</code></pre>
-<h5 id="Facade类"><a href="#Facade类" class="headerlink" title="Facade类"></a>Facade类</h5><p>Car</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/1 14:57
- * @description:
- */
-public class Car {
-
-    /**
-     * 发动机
-     */
-    private Engine engine;
-    /**
-     * 仪表盘
-     */
-    private Armaturenbrett armaturenbrett;
-    /**
-     * 大灯
-     */
-    private Headlight headlight;
-
-    public Car() {
-        this.engine = new Engine();
-        this.armaturenbrett = new Armaturenbrett();
-        this.headlight = new Headlight();
-    }
-
-    public void start(){
-        System.out.println(&quot;启动汽车...&quot;);
-        engine.start();
-        armaturenbrett.start();
-        headlight.start();
-        System.out.println(&quot;汽车以启动...&quot;);
-    }
-}</code></pre>
-<h5 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h5><pre><code class="java">public static void main(String[] args) {
-    Car car = new Car();
-    car.start();
-}</code></pre>
-<p>输出</p>
-<pre><code class="java">启动汽车...
-启动引擎...
-启动仪表盘...
-启动大灯...
-汽车以启动...</code></pre>
-<p><code>Car</code>类封装了启动引擎，仪表盘，大灯等操作，客户端只需要调用<code>car</code>类的<code>start()</code>方法即可启动上述组件，而不用去对实例化每个类然后去调用其<code>start()</code>，利用这种方式进行解耦。</p>
-<p><strong>参考：</strong>设计模式之禅：<a href="https://www.kancloud.cn/sstd521/design/193593" target="_blank" rel="noopener">https://www.kancloud.cn/sstd521/design/193593</a></p>
-<p><strong>推荐阅读：</strong><a href="https://chenmingyu.top/design/">23种设计模式详解</a></p>
-
-			
-		</div>
-		<footer class="clearfix">
-			
-				
-				
-					<div class="disqus-comment">
-						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/design-facade/#disqus_thread" class="comment-link"> 评论</a>
-					</div>
-				
-			
-			
-	<div class="categories">
-		<i class="fa fa-folder"></i>
-		
-			<a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
-		
-	</div>
-
-			
-	<div class="tags">
-		<i class="fa fa-tags"></i>
-		
-			<a href="/tags/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/">#外观模式</a>
-		
-	</div>
-
-		</footer>
-	</div>
-</article>
-	
-		
-		<article class="post">
-	<div class="post-content">
-		<header>
-			
-				<div class="meta">
-					<div class="icon">
-						
-							<i class="fa fa-file"></i>
-						
-					</div>
-					<time datetime="2019-03-01T05:59:35.000Z">2019-03-01</time>
-				</div>
-			
-			
-	
-		<h1 class="title" data-role="articleTitle"><a href="/design-proxy/">23种设计模式之代理模式</a></h1>
-	
-
-		</header>
-		<div class="entry">
-			
-				<h3 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h3><p>代理模式属于结构型模式</p>
-<p><strong>定义：</strong>为其他对象提供一种代理以控制对这个对象的访问</p>
-<p>代理模式就是在操作原对象的时候，多出来一个代理类，用来对原对象的访问进行控制和替代原对象进行一些操作</p>
-<h4 id="模式类图"><a href="#模式类图" class="headerlink" title="模式类图"></a>模式类图</h4><p><img src="/design-proxy/uml.png" alt></p>
-<p><strong>角色</strong></p>
-<ol>
-<li>抽象接口：<code>able</code>，定义业务接口</li>
-<li>被代理类：<code>Source</code></li>
-<li>代理类：<code>Proxy</code>，用来对原对象的访问进行控制和替代原对象进行一些操作</li>
-<li>客户端：<code>Client</code>，负责调用代理类</li>
-</ol>
-<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ol>
-<li>职责清晰，被代理类只关心实际的业务逻辑，不关心其他事情</li>
-<li>高扩展性，被代理类可以随意更改，不会影响到代理类对其的访问控制</li>
-</ol>
-<h4 id="模式代码实现"><a href="#模式代码实现" class="headerlink" title="模式代码实现"></a>模式代码实现</h4><p><strong>源码地址：<a href="https://github.com/mingyuHub/design-patterns" target="_blank" rel="noopener">https://github.com/mingyuHub/design-patterns</a></strong></p>
-<p>以打电话为例</p>
-<h5 id="抽象接口"><a href="#抽象接口" class="headerlink" title="抽象接口"></a>抽象接口</h5><p>被代理类和代理类都实现此接口</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/1 10:20
- * @description: 手机接口
- */
-public interface Phoneable {
-
-    /**
-     * 打电话
-     */
-    void call();
-}</code></pre>
-<h5 id="被代理类"><a href="#被代理类" class="headerlink" title="被代理类"></a>被代理类</h5><p>实现Phoneable接口</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/1 10:19
- * @description: 被代理类
- */
-public class Phone implements Phoneable {
-
-    @Override
-    public void call() {
-        System.out.println(&quot;打电话&quot;);
-    }
-}</code></pre>
-<h5 id="代理类"><a href="#代理类" class="headerlink" title="代理类"></a>代理类</h5><p>实现Phoneable接口，持有被代理类实例，提供validate()对被代理类的访问进行控制</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/1 14:16
- * @description: 代理类
- */
-public class Proxy implements Phoneable {
-
-    private Phone phone = new Phone();
-
-    @Override
-    public void call() {
-        if(validate()){
-            phone.call();
-        }
-        System.out.println(&quot;结束通话&quot;);
-    }
-
-    /**
-     * 检查手机号
-     * @return
-     */
-    private Boolean validate(){
-        System.out.println(&quot;手机号验证通过&quot;);
-        return Boolean.TRUE;
-    }
-}</code></pre>
-<h5 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h5><pre><code class="java">public static void main(String[] args) {
-    Proxy proxy = new Proxy();
-    proxy.call();
-}</code></pre>
-<p>输出</p>
-<pre><code class="java">手机号验证通过
-打电话
-结束通话</code></pre>
-<p>代理模式与装饰器模式的区别，代理模式主要是对原对象的访问进行控制，而装饰器模式主要是为了对原对象增加新的功能</p>
-<p><strong>参考：</strong>设计模式之禅：<a href="https://www.kancloud.cn/sstd521/design/193540" target="_blank" rel="noopener">https://www.kancloud.cn/sstd521/design/193540</a></p>
-<p><strong>推荐阅读：</strong><a href="https://chenmingyu.top/design/">23种设计模式详解</a></p>
-
-			
-		</div>
-		<footer class="clearfix">
-			
-				
-				
-					<div class="disqus-comment">
-						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/design-proxy/#disqus_thread" class="comment-link"> 评论</a>
-					</div>
-				
-			
-			
-	<div class="categories">
-		<i class="fa fa-folder"></i>
-		
-			<a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
-		
-	</div>
-
-			
-	<div class="tags">
-		<i class="fa fa-tags"></i>
-		
-			<a href="/tags/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/">#代理模式</a>
-		
-	</div>
-
-		</footer>
-	</div>
-</article>
-	
-		
-		<article class="post">
-	<div class="post-content">
-		<header>
-			
-				<div class="meta">
-					<div class="icon">
-						
-							<i class="fa fa-file"></i>
-						
-					</div>
-					<time datetime="2019-03-01T02:35:31.000Z">2019-03-01</time>
-				</div>
-			
-			
-	
-		<h1 class="title" data-role="articleTitle"><a href="/design-decorator/">23种设计模式之装饰器模式</a></h1>
-	
-
-		</header>
-		<div class="entry">
-			
-				<h3 id="装饰器模式"><a href="#装饰器模式" class="headerlink" title="装饰器模式"></a>装饰器模式</h3><p>装饰器模式属于结构型模式</p>
-<p><strong>定义：</strong>动态地给一个对象添加一些额外的职责。就增加功能来说，装饰模式相比生成子类更为灵活</p>
-<p>装饰器模式可以为一个现有的类增加新功能，又不改变其结构，要求装饰类和被装饰类实现同一个接口，装饰类持有被装饰类的实例</p>
-<h4 id="模式类图"><a href="#模式类图" class="headerlink" title="模式类图"></a>模式类图</h4><p><img src="/design-decorator/uml.png" alt></p>
-<p><strong>角色</strong></p>
-<ol>
-<li>抽象接口：<code>able</code>接口,最核心组件，被装饰类和装饰类都实现此接口</li>
-<li>被装饰类：<code>Source</code>，要被装饰的类</li>
-<li>装饰类：<code>Decorator</code>，持有<code>Source</code>类实例，装饰<code>Source</code>类，为<code>Source</code>类动态添加新功能</li>
-</ol>
-<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><p>装饰类和被装饰类相互解耦</p>
-<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><p>多层的装饰比较复杂，减少装饰类的数量，可以降低系统的复杂度</p>
-<h4 id="模式代码实现"><a href="#模式代码实现" class="headerlink" title="模式代码实现"></a>模式代码实现</h4><p><strong>源码地址：<a href="https://github.com/mingyuHub/design-patterns" target="_blank" rel="noopener">https://github.com/mingyuHub/design-patterns</a></strong></p>
-<p>以打电话为例，涉及<code>Phoneable</code>（接口），<code>Phone</code>（被装饰类），<code>Decorator</code>（装饰类）</p>
-<h5 id="抽象接口"><a href="#抽象接口" class="headerlink" title="抽象接口"></a>抽象接口</h5><p>被装饰类和装饰类都实现此接口</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/1 10:20
- * @description: 手机接口
- */
-public interface Phoneable {
-
-    /**
-     * 打电话
-     */
-    void call();
-}</code></pre>
-<h5 id="被装饰类"><a href="#被装饰类" class="headerlink" title="被装饰类"></a>被装饰类</h5><p>实现Phoneable接口</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/1 10:19
- * @description: 被装饰类
- */
-public class Phone implements Phoneable{
-
-    @Override
-    public void call() {
-        System.out.println(&quot;打电话&quot;);
-    }
-}</code></pre>
-<h5 id="装饰类"><a href="#装饰类" class="headerlink" title="装饰类"></a>装饰类</h5><p>实现Phoneable接口，持有被装饰类实例</p>
-<pre><code class="java">/**
- * @author: chenmingyu
- * @date: 2019/3/1 10:26
- * @description: 装饰类
- */
-public class Decorator implements Phoneable{
-
-   private Phone phone;
-
-   public Decorator(Phone phone) {
-       this.phone = phone;
-   }
-
-    @Override
-    public void call() {
-        System.out.println(&quot;装饰器模式 前置功能：打电话先拨号&quot;);
-        phone.call();
-        System.out.println(&quot;装饰器模式 后置功能：挂断电话&quot;);
-    }
-}</code></pre>
-<h5 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h5><pre><code class="java">public static void main(String[] args) {
-    Decorator decorator = new Decorator(new Phone());
-    decorator.call();
-}</code></pre>
-<p>输出</p>
-<pre><code class="java">装饰器模式 前置功能：打电话先拨号
-打电话
-装饰器模式 后置功能：挂断电话</code></pre>
-<p>当我们要拓展一个类的功能时，可以选择使用集成或者装饰器模式，继承的实现是静态，而装饰器模式实现的是动态的，装饰器模式的缺点是会产生很多功能类似的类</p>
-<p><strong>参考：</strong>设计模式之禅：<a href="https://www.kancloud.cn/sstd521/design/193565" target="_blank" rel="noopener">https://www.kancloud.cn/sstd521/design/193565</a></p>
-<p><strong>推荐阅读：</strong><a href="https://chenmingyu.top/design/">23种设计模式详解</a></p>
-
-			
-		</div>
-		<footer class="clearfix">
-			
-				
-				
-					<div class="disqus-comment">
-						<i class="fa fa-comment"></i><a href="https://chenmingyu.top/design-decorator/#disqus_thread" class="comment-link"> 评论</a>
-					</div>
-				
-			
-			
-	<div class="categories">
-		<i class="fa fa-folder"></i>
-		
-			<a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
-		
-	</div>
-
-			
-	<div class="tags">
-		<i class="fa fa-tags"></i>
-		
-			<a href="/tags/%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/">#装饰器模式</a>
-		
-	</div>
-
-		</footer>
-	</div>
-</article>
-	
-
-	<nav id="pagination">
-	
-		<a href="/page/4/" class="prev"><i class="fa fa-chevron-left"></i> 上一页</a>
-	
-	
-		<a href="/page/6/" class="next">下一页 <i class="fa fa-chevron-right"></i></a>
-	
-</nav>
-
-	
 <script>
-	(function (disqus_shortname) {
-		window.addEventListener('DOMContentLoaded', function () {
-			var dsq = document.createElement('script');
-			dsq.type = 'text/javascript';
-			dsq.async = true;
-			dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
-			document.getElementsByTagName('head')[0].appendChild(dsq);
-		}, false);
-	}('dnxbf321'));
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
 </script>
-
-
-
-		</div>
-		
-	</div>
+            <div class="main">
+                
+    <div class="container profile-container">
+    <div class="intro">
+        <div class="avatar">
+            <a href="/archives"><img src="/image/avatar.jpeg"></a>
+        </div>
+        <div class="nickname">Jeremy Bentham</div>
+        <div class="description"><p>Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit.</strong> <br>Fusce eget urna vitae velit <em>eleifend interdum at ac</em> nisi.</p>
+</div>
+        <div class="links">
+            
+                
+                    <a class="link-item" title="Blog" href="/archives">
+                        
+                        
+                            <i class="iconfont icon-blog"></i>
+                        
+                    </a>
+                
+                    <a class="link-item" title="ZhiHu" href="https://www.zhihu.com/people/sirice" target="_blank" rel="noopener">
+                        
+                        
+                            <i class="iconfont icon-zhihu"></i>
+                        
+                    </a>
+                
+                    <a class="link-item" title="Instagram" href="">
+                        
+                        
+                            <i class="iconfont icon-instagram"></i>
+                        
+                    </a>
+                
+                    <a class="link-item" title="Reddit" href="">
+                        
+                        
+                            <i class="iconfont icon-reddit"></i>
+                        
+                    </a>
+                
+                    <a class="link-item" title="Github" href="https://github.com/Siricee" target="_blank" rel="noopener">
+                        
+                        
+                            <i class="iconfont icon-github"></i>
+                        
+                    </a>
+                
+            
+        </div>
+    </div>
 </div>
 
-<footer id="footer">
-	<div class="center">
-		&copy; 2022
-		
-			明羽
-		.
-		&nbsp;&nbsp;
-		Blog generated by <a href="http://hexo.io" target="_blank" rel="noopener">hexo</a>
-	</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 明羽 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
 </footer>
 
-<script src="/bower_components/jquery/dist/jquery.min.js"></script>
-<script src="/js/header-animate.js"></script>
-
-
-	<script src="/js/title-animate.js"></script>
-
-
-<script src="/bower_components/jquery_lazyload/jquery.lazyload.js"></script>
-<script>
-	$('img.lazy').lazyload();
-</script>
-
-	<script src="/bower_components/fancybox/source/jquery.fancybox.pack.js"></script>
-	<script>
-		$('.fancybox').fancybox();
-	</script>
-
-
-
-
+    </div>
 </body>
+
 </html>
